@@ -5,21 +5,21 @@ import { RC_PRESS } from "@/lib/data";
 import PrensaClient from "./PrensaClient";
 
 export const metadata: Metadata = {
-  title: "Prensa y Opinión Jurídica",
+  title: "Prensa y Publicaciones",
   description:
-    "Análisis legal del Lic. Rivera Cheves en Diario Extra, Delfino.cr, ElMundo.cr y CRHoy. Opinión jurídica sobre derecho penal costarricense.",
+    `Cobertura mediática del bufete Rivera Cheves en La Nación, La Prensa (Nicaragua), Infobae, CRHoy, Diario Extra, Delfino.cr, ElMundo.cr y Tico Times. ${RC_PRESS.length} publicaciones documentadas.`,
   alternates: { canonical: `${SITE_URL}/prensa` },
   openGraph: {
     type: "website",
     url: `${SITE_URL}/prensa`,
-    title: `Prensa y Opinión Jurídica | ${SITE_NAME}`,
+    title: `Prensa y Publicaciones | ${SITE_NAME}`,
     description:
-      "Análisis legal del Lic. Rivera Cheves en los principales medios de Costa Rica. Derecho penal, femicidios y justicia.",
+      `Reportajes, opinión jurídica, entrevistas y publicaciones doctrinales del Lic. Rivera Cheves. ${RC_PRESS.length} apariciones en medios nacionales e internacionales.`,
     images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: `Prensa | ${SITE_NAME}` }],
   },
   twitter: {
     card: "summary_large_image",
-    title: `Prensa y Opinión Jurídica | ${SITE_NAME}`,
+    title: `Prensa y Publicaciones | ${SITE_NAME}`,
     images: [OG_IMAGE],
   },
 };
@@ -29,10 +29,12 @@ const articleSchemas = RC_PRESS
   .map(p =>
     schemaBlogPosting({
       title: p.t,
-      description: `Artículo publicado en ${p.medio}: ${p.t}`,
+      description: p.desc,
       url: p.u,
-      datePublished: `${p.year}-01-01`,
-      image: OG_IMAGE,
+      datePublished: p.date
+        ? (p.date.split("-").length === 3 ? p.date : `${p.date}-01`)
+        : `${p.year}-01-01`,
+      image: p.image ? `${SITE_URL}${p.image}` : OG_IMAGE,
     })
   );
 

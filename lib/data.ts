@@ -255,13 +255,186 @@ export const RC_AREAS = [
     items: ["Casación de sentencias condenatorias","Defensa de prueba testimonial","Defensa de prueba científica","Litigación recursiva","Voto Nº 000374 (Sala Tercera)","Confirmación de condenas"] },
 ];
 
-export const RC_PRESS = [
-  { medio: "Diario Extra", t: "Caso Nadia Peraza: algunos jueces le tienen miedo a poner la pena máxima", u: "https://www.diarioextra.com/noticia/algunos-jueces-les-da-miedo-poner-la-pena-maxima/", year: "2024" },
-  { medio: "ElMundo.cr",   t: "Diputados derrochan mientras el pueblo con hambre",                          u: "https://elmundo.cr/opinion/diputados-derrochan-mientras-el-pueblo-con-hambre-el-cafetin-de-la-verguenza-en-la-asamblea-legislativa/", year: "2024" },
-  { medio: "Delfino.cr",   t: "Concusión y dignidad institucional",                                         u: "https://delfino.cr/2025/04/concusion-y-dignidad-institucional-una-reflexion-juridica-y-ciudadana-para-costa-rica", year: "2025" },
-  { medio: "ElMundo.cr",   t: "Menores de edad, mayores delitos",                                           u: "https://elmundo.cr/opinion/menores-de-edad-mayores-delitos-esta-fallando-la-justicia-penal-juvenil-en-costa-rica/", year: "2025" },
-  { medio: "Delfino.cr",   t: "Caso Topo: ¿quién defiende a los jueces?",                                   u: "https://delfino.cr/2025/05/caso-topo-quien-defiende-a-los-jueces", year: "2025" },
-  { medio: "CRHoy",        t: "Ley 9986: técnica jurídica y aeronáutica",                                   u: "https://crhoy.com/ley-9986-cuando-la-tecnica-juridica-y-la-tecnica-aeronautica-convergen-para-proteger-al-estado/", year: "2025" },
+export type PressType  = "reportaje" | "opinion" | "entrevista" | "doctrina" | "podcast";
+export type PressEntry = {
+  medio:  string;
+  t:      string;        // título
+  u:      string;        // URL
+  year:   string;
+  date?:  string;        // YYYY-MM-DD opcional para orden cronológico
+  type:   PressType;
+  desc:   string;        // descripción 1-2 líneas
+  lang?:  "es" | "en";
+  image?: string;        // path opcional /images/prensa/[slug].jpg
+};
+
+// Color de marca aproximado por medio — utilizado en la insignia del outlet
+export const OUTLET_COLORS: Record<string, string> = {
+  "La Nación":         "#c8102e",
+  "CRHoy":             "#0066b3",
+  "Diario Extra":      "#d62027",
+  "Delfino.cr":        "#2a8e8b",
+  "ElMundo.cr":        "#003c71",
+  "La Prensa":         "#1f3a5f",
+  "Infobae":           "#00aaff",
+  "Acontecer":         "#e8763d",
+  "Tico Times":        "#1d6b46",
+  "Masterlex":         "#2a2a2a",
+  "Radio Monumental":  "#7e0102",
+};
+
+export const RC_PRESS: PressEntry[] = [
+  // ── 2026 ────────────────────────────────────────────────────────
+  {
+    medio: "La Prensa",     year: "2026", date: "2026-04-27",   type: "entrevista", lang: "es",
+    t: "«Creen que soy un espía de la CIA»: régimen Ortega-Murillo habría investigado a abogado costarricense Joseph Rivera",
+    u: "https://www.laprensani.com/2026/04/27/nacionales/3683937-abogado-costarricense-espia-cia-nicaragua",
+    desc: "Entrevista en exclusiva donde el penalista denuncia las teorías conspirativas, la vigilancia estatal del régimen nicaragüense y el abandono a la familia de Junieysis.",
+  },
+  {
+    medio: "Infobae",       year: "2026", date: "2026-04-27",   type: "reportaje", lang: "es",
+    t: "El Gobierno de Nicaragua impidió el ingreso de Joseph Rivera, abogado de la familia de Junieysis Merlo Espinoza",
+    u: "https://www.infobae.com/costa-rica/2026/04/27/gobierno-de-nicaragua-impide-el-ingreso-del-abogado-costarricense-vinculado-al-femicidio-de-la-tiktoker-junieysis-merlo/",
+    desc: "Cable de prensa internacional con los pormenores del asedio migratorio que impidió la reunión del jurista costarricense con los padres de la víctima en Madriz.",
+  },
+  {
+    medio: "CRHoy",         year: "2026", date: "2026-04-25",   type: "reportaje", lang: "es",
+    t: "Abogado de familia de víctima de femicidio de tiktoker nicaragüense denuncia que Nicaragua le negó ingreso al país",
+    u: "https://crhoy.com/nacionales/abogado-de-familia-de-victima-de-femicidio-denuncia-que-nicaragua-le-nego-ingreso-al-pais/",
+    desc: "Denuncia pública de Rivera Cheves sobre el bloqueo migratorio arbitrario del gobierno nicaragüense que entorpeció la gestión legal de custodia de las menores.",
+  },
+  {
+    medio: "Radio Monumental", year: "2026", date: "2026-04-15", type: "podcast", lang: "es",
+    t: "Femicidio de Junieysis Merlo · Matices (programa del 15 de abril de 2026)",
+    u: "https://podcasts.apple.com/be/podcast/matices/id1468579267?l=fr-FR",
+    desc: "Mesa de diálogo conducida por Randall Rivera donde se expone la gravedad procesal y humanitaria del caso que involucra la repatriación de cenizas y custodia.",
+  },
+  {
+    medio: "CRHoy",         year: "2026", date: "2026-04",      type: "reportaje", lang: "es",
+    t: "«Buscaremos justicia por Junieysis»: dice abogado de familia de víctima de femicidio",
+    u: "https://crhoy.com/nacionales/buscaremos-justicia-por-junieysis-dice-abogado-de-familia-de-victima-de-femicidio/",
+    desc: "Detalles sobre la formalización del patrocinio legal pro-bono a favor de los familiares de la joven nicaragüense asesinada en Santa Ana.",
+  },
+  {
+    medio: "Acontecer",     year: "2026", date: "2026-04",      type: "reportaje", lang: "es",
+    t: "Joseph Rivera, quien representó a la familia de Nadia Peraza, asumirá la representación legal de los familiares de Junieysis Adely Merlo Espinoza",
+    u: "https://www.acontecer.co.cr/nacionales/joseph-rivera-defensa-junieysis-merlo-santa-ana",
+    desc: "Anuncio del inicio de las gestiones del bufete en el presunto femicidio del condominio en Salitral de Santa Ana.",
+  },
+  {
+    medio: "La Nación",     year: "2026", date: "2026-03",      type: "reportaje", lang: "es",
+    t: "Supuesto asesino de Nadia Peraza intenta contactar familia de víctima desde la cárcel, dice abogado",
+    u: "https://www.nacion.com/sucesos/crimenes/supuesto-asesino-de-nadia-peraza-intenta-contactar/TJSGGD65IRG6ZN73ZKJZ5BRMHU/story/",
+    desc: "Reportaje sobre las acciones de hostigamiento del imputado Jeremy Buzano desde el centro penitenciario La Reforma y el proceso de entrega de los restos.",
+  },
+  {
+    medio: "La Nación",     year: "2026",                       type: "reportaje", lang: "es",
+    t: "Sospechoso de femicidio de Nadia Peraza usó tarjeta bancaria de víctima después de su muerte, afirma abogado",
+    u: "https://www.nacion.com/sucesos/judiciales/sospechoso-de-femicidio-de-nadia-peraza-uso/EQUFYXIAQFCPDAOSU6AMZJU3DQ/story/",
+    desc: "Declaraciones del Lic. Rivera explicando el uso fraudulento de las cuentas bancarias de la víctima por parte de su expareja para costear gastos personales.",
+  },
+  {
+    medio: "Diario Extra",  year: "2026",                       type: "reportaje", lang: "es",
+    t: "Acusan de 3 delitos más a sospechoso de matar a Nadia Peraza",
+    u: "https://www.diarioextra.com/noticia/acusan-de-3-delitos-mas-a-sospechoso-de-matar-a-nadia-peraza/",
+    desc: "Reportaje sobre la presentación de la querella formal para acumular los cargos de estafa informática, suplantación y violación de medidas de protección.",
+  },
+  {
+    medio: "CRHoy",         year: "2026",                       type: "reportaje", lang: "es",
+    t: "Presentan apelación por omisión de delitos en caso de muerte de Nadia Peraza",
+    u: "https://crhoy.com/nacionales/presentan-apelacion-por-omision-de-delitos-en-caso-de-muerte-de-nadia-peraza/",
+    desc: "Nota sobre el recurso de apelación de sentencia presentado para forzar el reconocimiento de los delitos de estafa y sustracción patrimonial.",
+  },
+  {
+    medio: "Acontecer",     year: "2026",                       type: "reportaje", lang: "es",
+    t: "Joseph Rivera impulsa la «Ley Nadia» en la Asamblea Legislativa",
+    u: "https://www.acontecer.co.cr/nacionales/joseph-rivera-ley-nadia-femicidio-costa-rica",
+    desc: "Cabildeo legislativo y presentación del proyecto de Ley Nadia para aumentar las penas efectivas de prisión por femicidio en Costa Rica.",
+  },
+  {
+    medio: "Acontecer",     year: "2026",                       type: "reportaje", lang: "es",
+    t: "Abogado Joseph Rivera pide salida del Fiscal General de la República",
+    u: "https://www.acontecer.co.cr/nacionales/abogado-joseph-rivera-pide-salida-del-fiscal-general-de-la-republica",
+    desc: "Declaraciones exigiendo un cambio estructural profundo en el Ministerio Público y denunciando la sobrecarga y abandono del personal fiscal en Costa Rica.",
+  },
+  {
+    medio: "Acontecer",     year: "2026",                       type: "opinion", lang: "es",
+    t: "Jueces deben imponer penas más severas al crimen organizado",
+    u: "https://acontecer.co.cr/opinion/jueces-deben-imponer-penas-mas-severas-crimen-organizado",
+    desc: "Columna de opinión del Lic. Joseph Rivera analizando la crisis de inseguridad ciudadana y la tibieza de las penas impuestas por los tribunales.",
+  },
+
+  // ── 2025 ────────────────────────────────────────────────────────
+  {
+    medio: "CRHoy",         year: "2025",                       type: "doctrina", lang: "es",
+    t: "Ley 9986: técnica jurídica y aeronáutica convergen para proteger al Estado",
+    u: "https://crhoy.com/ley-9986-cuando-la-tecnica-juridica-y-la-tecnica-aeronautica-convergen-para-proteger-al-estado/",
+    desc: "Análisis técnico-jurídico del Lic. Rivera sobre la Ley 9986 y la convergencia entre derecho aeronáutico y protección estatal.",
+  },
+  {
+    medio: "Delfino.cr",    year: "2025", date: "2025-05",      type: "opinion", lang: "es",
+    t: "Caso Topo: ¿quién defiende a los jueces?",
+    u: "https://delfino.cr/2025/05/caso-topo-quien-defiende-a-los-jueces",
+    desc: "Reflexión sobre las garantías procesales de los magistrados frente a embates institucionales en Costa Rica.",
+  },
+  {
+    medio: "Delfino.cr",    year: "2025", date: "2025-04",      type: "opinion", lang: "es",
+    t: "Concusión y dignidad institucional: una reflexión jurídica y ciudadana para Costa Rica",
+    u: "https://delfino.cr/2025/04/concusion-y-dignidad-institucional-una-reflexion-juridica-y-ciudadana-para-costa-rica",
+    desc: "Análisis doctrinal escrito por el Lic. Rivera que desglosa el marco legal de la concusión, la inmunidad y la aplicación de la ley procesal penal.",
+  },
+  {
+    medio: "ElMundo.cr",    year: "2025",                       type: "opinion", lang: "es",
+    t: "TSE carece de facultades para impedir ingreso de Bukele al país, asegura jurista",
+    u: "https://elmundo.cr/costa-rica/tse-carece-de-facultades-para-impedir-ingreso-de-bukele-al-pais-asegura-jurista/",
+    desc: "Análisis legal sobre la soberanía del Poder Ejecutivo en política exterior e inmigración, aclarando las limitaciones de competencia del TSE.",
+  },
+  {
+    medio: "ElMundo.cr",    year: "2025",                       type: "opinion", lang: "es",
+    t: "Menores de edad, mayores delitos: ¿está fallando la justicia penal juvenil en Costa Rica?",
+    u: "https://elmundo.cr/opinion/menores-de-edad-mayores-delitos-esta-fallando-la-justicia-penal-juvenil-en-costa-rica/",
+    desc: "Columna sobre la creciente participación de menores en delitos graves y las limitaciones de la justicia penal juvenil costarricense.",
+  },
+
+  // ── 2024 ────────────────────────────────────────────────────────
+  {
+    medio: "La Nación",     year: "2024", date: "2024-07",      type: "reportaje", lang: "es",
+    t: "Tribunal impone pena máxima al responsable de matar a Luany Valeria Salazar",
+    u: "https://www.nacion.com/sucesos/judiciales/tribunal-eleva-pena-de-carcel-contra-el/IGCKCIPRFRHNPAAN2V2AMPVDQQ/story/",
+    desc: "Nota detallada sobre la histórica imposición de la pena máxima de 35 años de cárcel al culpable del femicidio en Linda Vista de Río Azul.",
+  },
+  {
+    medio: "La Nación",     year: "2024",                       type: "reportaje", lang: "es",
+    t: "Sentencia por asesinato de Luany Valeria de nuevo a discusión este lunes",
+    u: "https://www.nacion.com/sucesos/crimenes/sentencia-por-asesinato-de-luany-valeria-de-nuevo/2FGHW56SFBGTXEW5KDKOX4E6ZY/story/",
+    desc: "Reportaje sobre el recurso de apelación liderado por el abogado de la familia para aumentar la condena e incorporar el delito de robo agravado.",
+  },
+  {
+    medio: "Diario Extra",  year: "2024",                       type: "reportaje", lang: "es",
+    t: "Caso Nadia Peraza: algunos jueces le tienen miedo a poner la pena máxima",
+    u: "https://www.diarioextra.com/noticia/algunos-jueces-les-da-miedo-poner-la-pena-maxima/",
+    desc: "Declaraciones del Lic. Rivera Cheves sobre la cautela judicial en la imposición de penas máximas en casos de femicidio en Costa Rica.",
+  },
+  {
+    medio: "ElMundo.cr",    year: "2024",                       type: "opinion", lang: "es",
+    t: "Diputados derrochan mientras el pueblo con hambre — el cafetín de la vergüenza",
+    u: "https://elmundo.cr/opinion/diputados-derrochan-mientras-el-pueblo-con-hambre-el-cafetin-de-la-verguenza-en-la-asamblea-legislativa/",
+    desc: "Crítica del Lic. Rivera al gasto público de la Asamblea Legislativa en contraste con las necesidades sociales del país.",
+  },
+
+  // ── 2019 / 2018 ────────────────────────────────────────────────
+  {
+    medio: "Tico Times",    year: "2019", date: "2019-04-29",   type: "reportaje", lang: "en",
+    t: "What happened to Carla Stefaniak? Few new details in case",
+    u: "https://ticotimes.net/2019/04/29/what-happened-to-carla-stefaniak-few-new-details-in-case",
+    desc: "International coverage of the Carla Stefaniak case with the firm's hypothesis on the possible complicity of multiple suspects.",
+  },
+  {
+    medio: "Masterlex",     year: "2018", date: "2018-02",      type: "doctrina", lang: "es",
+    t: "Ineficacia del recurso de casación en Costa Rica",
+    u: "https://www.masterlex.com/descargas/PuntoJuridico/2018/Febrero/Ineficacia_recurso_casaci%C3%B3n.docx",
+    desc: "Documento jurídico del Lic. Rivera Cheves que detalla las causas frecuentes de inadmisibilidad del recurso de casación penal ante la Sala Tercera.",
+  },
 ];
 
 export const RC_FORMACION = [
