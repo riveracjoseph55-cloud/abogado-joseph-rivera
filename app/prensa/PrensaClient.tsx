@@ -5,6 +5,8 @@ import Reveal from "@/components/Reveal";
 import CTABand from "@/components/CTABand";
 import { RC_PRESS, OUTLET_COLORS, type PressType, type PressEntry } from "@/lib/data";
 
+// Banner full-bleed con foto de Joseph ante prensa
+
 const R = "#7e0102";
 
 const TYPE_LABELS: Record<PressType | "all", string> = {
@@ -65,6 +67,48 @@ export default function PrensaClient() {
               técnicas sobre casación penal.
             </p>
           </Reveal>
+        </div>
+      </section>
+
+      {/* ── BANNER FULL-BLEED PRENSA ── */}
+      <section aria-label="Cobertura mediática" style={{
+        position: "relative",
+        width: "100%",
+        aspectRatio: "21/9",
+        background: "#0d0d0d",
+        overflow: "hidden",
+      }} className="prensa-banner">
+        <Image
+          src="/images/joseph/prensa.jpg"
+          alt="Lic. Joseph Rivera Cheves ante medios de comunicación nacionales — Multimedios, Trivisión, Canal 7, Central de Noticias"
+          fill
+          sizes="100vw"
+          priority
+          style={{ objectFit: "cover", objectPosition: "center 30%" }}
+        />
+        {/* Overlay gradiente */}
+        <div aria-hidden="true" style={{
+          position: "absolute", inset: 0,
+          background: "linear-gradient(90deg, rgba(0,0,0,.7) 0%, rgba(0,0,0,.3) 50%, rgba(126,1,2,.5) 100%)",
+        }}/>
+        {/* Texto sobre el banner */}
+        <div style={{
+          position: "absolute", inset: 0,
+          display: "flex", alignItems: "center",
+          padding: "0 var(--pad-x)",
+        }}>
+          <div className="rc-wrap" style={{ width: "100%" }}>
+            <div className="rc-eyebrow on-r" style={{ marginBottom: 16, color: "rgba(255,255,255,.7)" }}>
+              Cobertura mediática
+            </div>
+            <h2 style={{
+              fontFamily: "var(--font-sans)", fontWeight: 300,
+              fontSize: "clamp(28px,4.5vw,64px)", lineHeight: 1.05,
+              letterSpacing: "-0.025em", color: "#fff", maxWidth: "20ch",
+            }}>
+              Referente <em className="rc-em" style={{ color: "#fff", opacity: .55 }}>nacional</em>
+            </h2>
+          </div>
         </div>
       </section>
 

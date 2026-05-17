@@ -41,6 +41,20 @@ export const RC_CASES = [
       { k: "Tribunal",          v: "Penal de Heredia" },
       { k: "Imputado",          v: "Jeremy Buzano Paisano (25)" },
     ],
+    gallery: [
+      {
+        src: "/images/casos/nadia-peraza-tribunal.jpg",
+        alt: "Lic. Joseph Rivera Cheves junto a Marilyn Espinoza, madre de Nadia Peraza, en audiencia ante el Tribunal Penal de Heredia",
+        caption: "Audiencia oral · Tribunal Penal de Heredia",
+        sub: "El Lic. Rivera Cheves junto a Marilyn Espinoza, madre de Nadia Peraza, sosteniendo la querella privada y la acción civil resarcitoria.",
+      },
+      {
+        src: "/images/casos/nadia-peraza-familia.jpg",
+        alt: "Lic. Joseph Rivera Cheves con los padres de Nadia Peraza durante la preparación del caso",
+        caption: "Junto a la familia Peraza Espinoza",
+        sub: "Acompañamiento integral a la familia durante todo el proceso. Marilyn Espinoza viste el recordatorio «Mamá Lin · Nadia Peraza».",
+      },
+    ],
   },
   {
     slug: "carla-stefaniak",
@@ -438,6 +452,8 @@ export const RC_PRESS: PressEntry[] = [
 ];
 
 export const RC_FORMACION = [
+  { t: "Auditor Líder · ISO 37001:2025 — Sistema de Gestión Antisobornos", s: "EALDE Business School, Madrid · 2026", d: "Certificación internacional para auditorías de cumplimiento antisoborno. Pilar técnico del compliance forense aplicado a delitos económicos, corrupción y delincuencia organizada." },
+  { t: "Auditor Líder · ISO 31000:2018 — Risk Management",                  s: "EALDE Business School, Madrid · 2026", d: "Gestión integral de riesgos. Marco metodológico aplicado a litigación penal compleja, análisis forense de operaciones empresariales y casos bajo riesgo geopolítico." },
   { t: "Máster en Compliance, Fraude y Blanqueo",  s: "EALDE Business School, España · Universidad de Murcia", d: "Doble titulación internacional con especialidad en Gestión de Riesgos y Análisis Forense Financiero." },
   { t: "Maestría en Derecho Penal",                 s: "Universidad Latina de Costa Rica · 2015",               d: "Especialización en litigación penal compleja, teoría del delito y defensa de derechos fundamentales." },
   { t: "Maestría en Derecho Notarial y Registral",  s: "Universidad Latina de Costa Rica · 2010",               d: "Gestión de escrituras públicas, testamentos e inscripción en registros públicos." },

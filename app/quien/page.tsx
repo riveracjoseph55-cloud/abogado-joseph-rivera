@@ -59,10 +59,10 @@ export default function QuienPage() {
             <Reveal delay={120}>
               <div style={{ aspectRatio: "4/5", background: "#0d0d0d", overflow: "hidden" }}>
                 <Image
-                  src="/images/joseph3.jpg"
-                  alt="Lic. Joseph Alfonso Rivera Cheves — abogado penalista costarricense"
-                  width={600} height={750}
-                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top center" }}
+                  src="/images/joseph/retrato.jpg"
+                  alt="Lic. Joseph Alfonso Rivera Cheves — retrato profesional"
+                  width={800} height={1000}
+                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
                   sizes="(max-width: 900px) 100vw, 40vw"
                   priority
                   fetchPriority="high"
@@ -203,11 +203,88 @@ export default function QuienPage() {
         `}</style>
       </section>
 
+      {/* ── INTERVENCIONES MEDIÁTICAS ── */}
+      <section style={{ background: "#0d0d0d", padding: "var(--pad-y) 0", color: "#fff" }}>
+        <div className="rc-wrap">
+          <div style={{ marginBottom: "clamp(40px,5vw,64px)", maxWidth: "60ch" }}>
+            <div className="rc-eyebrow on-r" style={{ marginBottom: 16 }}>05 · Voz pública</div>
+            <Reveal>
+              <h2 className="rc-h2" style={{ color: "#fff" }}>
+                Intervenciones <em className="rc-em" style={{ color: R, opacity: 1 }}>mediáticas</em>
+              </h2>
+            </Reveal>
+            <Reveal delay={120}>
+              <p className="rc-lede" style={{ color: "rgba(255,255,255,.7)", marginTop: 24 }}>
+                Referente jurídico en prensa nacional e internacional. Cobertura
+                permanente en televisión, radio, prensa escrita y podcasts —
+                desde casos emblemáticos hasta análisis doctrinales.
+              </p>
+            </Reveal>
+          </div>
+
+          <div style={{
+            display: "grid", gap: "clamp(16px,2.4vw,28px)",
+            gridTemplateColumns: "1.4fr 1fr",
+          }} className="media-grid">
+            <Reveal>
+              <figure style={{ margin: 0, position: "relative", aspectRatio: "16/10", overflow: "hidden", background: "#1a1a1a" }}>
+                <Image
+                  src="/images/joseph/prensa.jpg"
+                  alt="Lic. Joseph Rivera Cheves declarando ante medios nacionales: Multimedios, Trivisión, Canal 7"
+                  fill
+                  sizes="(max-width: 900px) 100vw, 60vw"
+                  style={{ objectFit: "cover", objectPosition: "center" }}
+                />
+                <figcaption style={{
+                  position: "absolute", left: 0, right: 0, bottom: 0,
+                  padding: "20px 24px",
+                  background: "linear-gradient(to top, rgba(0,0,0,.85), transparent)",
+                }}>
+                  <div className="rc-meta" style={{ color: "rgba(255,255,255,.65)", marginBottom: 6 }}>
+                    Declaraciones a prensa
+                  </div>
+                  <div style={{ fontSize: 16, fontWeight: 500, color: "#fff", lineHeight: 1.3 }}>
+                    Multimedios · Trivisión · Canal 7 · Central de Noticias
+                  </div>
+                </figcaption>
+              </figure>
+            </Reveal>
+
+            <Reveal delay={120}>
+              <figure style={{ margin: 0, position: "relative", aspectRatio: "16/10", overflow: "hidden", background: "#1a1a1a" }}>
+                <Image
+                  src="/images/joseph/podcast.jpg"
+                  alt="Lic. Joseph Rivera Cheves en estudio de podcast, formato de análisis jurídico"
+                  fill
+                  sizes="(max-width: 900px) 100vw, 40vw"
+                  style={{ objectFit: "cover", objectPosition: "center" }}
+                />
+                <figcaption style={{
+                  position: "absolute", left: 0, right: 0, bottom: 0,
+                  padding: "20px 24px",
+                  background: "linear-gradient(to top, rgba(0,0,0,.85), transparent)",
+                }}>
+                  <div className="rc-meta" style={{ color: "rgba(255,255,255,.65)", marginBottom: 6 }}>
+                    Podcasts &amp; entrevistas
+                  </div>
+                  <div style={{ fontSize: 16, fontWeight: 500, color: "#fff", lineHeight: 1.3 }}>
+                    Análisis jurídico en formato extendido
+                  </div>
+                </figcaption>
+              </figure>
+            </Reveal>
+          </div>
+        </div>
+        <style>{`
+          @media (max-width: 800px) { .media-grid { grid-template-columns: 1fr !important; } }
+        `}</style>
+      </section>
+
       {/* ── DOCTRINA E INCIDENCIA ── */}
       <section style={{ background: "var(--paper-2, #f3eee5)", padding: "var(--pad-y) 0" }}>
         <div className="rc-wrap">
           <div style={{ marginBottom: "clamp(40px,5vw,64px)" }}>
-            <div className="rc-eyebrow" style={{ marginBottom: 16 }}>05 · Influencia académica y legislativa</div>
+            <div className="rc-eyebrow" style={{ marginBottom: 16 }}>06 · Influencia académica y legislativa</div>
             <Reveal>
               <h2 className="rc-h2" style={{ maxWidth: "20ch" }}>
                 Doctrina e <em className="rc-em">Incidencia</em>
@@ -290,7 +367,7 @@ export default function QuienPage() {
       <section style={{ background: R, padding: "var(--pad-y) 0" }}>
         <div className="rc-wrap">
           <div style={{ marginBottom: "clamp(40px,5vw,64px)", maxWidth: "60ch" }}>
-            <div className="rc-eyebrow on-r" style={{ marginBottom: 16 }}>06 · Labor académica</div>
+            <div className="rc-eyebrow on-r" style={{ marginBottom: 16 }}>07 · Labor académica</div>
             <Reveal><h2 className="rc-h2" style={{ color: "#fff" }}>Docencia <em className="rc-em on-r">Universitaria</em></h2></Reveal>
             <Reveal delay={120}>
               <p className="rc-lede" style={{ color: "rgba(255,255,255,.75)", marginTop: 24 }}>

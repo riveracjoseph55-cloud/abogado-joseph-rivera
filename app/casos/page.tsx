@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import CTABand from "@/components/CTABand";
@@ -60,6 +61,52 @@ export default function CasosPage() {
               los hechos, la cronología procesal y la resolución.
             </p>
           </Reveal>
+        </div>
+      </section>
+
+      {/* ── BANNER FULL-BLEED TRIBUNAL ── */}
+      <section aria-label="El trabajo en tribunal" style={{
+        position: "relative",
+        width: "100%",
+        aspectRatio: "21/9",
+        background: "#0d0d0d",
+        overflow: "hidden",
+      }}>
+        <Image
+          src="/images/joseph/tribunal.jpg"
+          alt="Lic. Joseph Rivera Cheves en audiencia oral junto a colega abogado, tribunal penal de Costa Rica"
+          fill
+          sizes="100vw"
+          style={{ objectFit: "cover", objectPosition: "center" }}
+        />
+        <div aria-hidden="true" style={{
+          position: "absolute", inset: 0,
+          background: "linear-gradient(90deg, rgba(0,0,0,.78) 0%, rgba(0,0,0,.4) 55%, transparent 100%)",
+        }}/>
+        <div style={{
+          position: "absolute", inset: 0,
+          display: "flex", alignItems: "center",
+          padding: "0 var(--pad-x)",
+        }}>
+          <div className="rc-wrap" style={{ width: "100%" }}>
+            <div className="rc-eyebrow on-r" style={{ marginBottom: 16, color: "rgba(255,255,255,.7)" }}>
+              Sala de juicio · Tribunal Penal
+            </div>
+            <h2 style={{
+              fontFamily: "var(--font-sans)", fontWeight: 300,
+              fontSize: "clamp(28px,4.5vw,64px)", lineHeight: 1.05,
+              letterSpacing: "-0.025em", color: "#fff", maxWidth: "22ch", marginBottom: 16,
+            }}>
+              Litigación <em className="rc-em" style={{ color: "#fff", opacity: .55 }}>oral activa</em>
+            </h2>
+            <p style={{
+              fontSize: "clamp(14px,1.4vw,18px)", lineHeight: 1.6,
+              color: "rgba(255,255,255,.78)", maxWidth: "44ch",
+            }}>
+              Querella privada, acción civil resarcitoria y compliance forense aplicado
+              en cada uno de los casos representados.
+            </p>
+          </div>
         </div>
       </section>
 

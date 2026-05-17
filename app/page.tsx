@@ -84,21 +84,36 @@ export default function Home() {
 
             <Reveal delay={120}>
               <div style={{
-                position: "relative", aspectRatio: "3/4",
-                background: R, overflow: "hidden",
+                position: "relative", aspectRatio: "4/5",
+                display: "flex", alignItems: "flex-end", justifyContent: "center",
               }}>
+                {/* Círculo rojo de fondo (elemento gráfico) */}
+                <div aria-hidden="true" style={{
+                  position: "absolute", inset: "8% 0 8% 0",
+                  background: R,
+                  borderRadius: "50%",
+                  zIndex: 0,
+                }}/>
+                {/* Foto editorial recortada (PNG con transparencia) */}
                 <Image
-                  src="/images/joseph-hero.png"
-                  alt="Lic. Joseph Rivera Cheves"
-                  fill
-                  style={{ objectFit: "cover", objectPosition: "top center" }}
+                  src="/images/joseph/editorial.png"
+                  alt="Lic. Joseph Alfonso Rivera Cheves — abogado penalista costarricense"
+                  width={800} height={1000}
+                  style={{
+                    position: "relative", zIndex: 1,
+                    width: "100%", height: "100%",
+                    objectFit: "contain", objectPosition: "bottom center",
+                  }}
                   priority
                   sizes="(max-width: 900px) 100vw, 40vw"
                 />
+                {/* Tarjeta de identificación inferior */}
                 <div style={{
-                  position: "absolute", left: 16, right: 16, bottom: 16,
+                  position: "absolute", left: 8, right: 8, bottom: 8,
                   padding: "14px 18px",
-                  background: "rgba(13,13,13,0.80)",
+                  background: "rgba(13,13,13,0.85)",
+                  backdropFilter: "blur(8px)",
+                  zIndex: 2,
                 }}>
                   <div style={{ fontFamily: "var(--font-mono, monospace)", fontSize: 9, letterSpacing: ".14em", textTransform: "uppercase", color: "rgba(255,255,255,.5)", marginBottom: 6 }}>
                     Bufete · Director
@@ -107,7 +122,7 @@ export default function Home() {
                     Lic. Joseph Alfonso Rivera Cheves
                   </div>
                   <div style={{ fontSize: 11, color: "rgba(255,255,255,.6)", marginTop: 4 }}>
-                    Abogado penalista · Máster en Compliance y Fraude
+                    Abogado penalista · Máster en Compliance · Auditor Líder ISO 37001
                   </div>
                 </div>
               </div>

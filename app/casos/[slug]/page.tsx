@@ -326,6 +326,62 @@ export default async function CasoDetail({ params }: { params: Promise<{ slug: s
           `}</style>
         </section>
 
+        {/* ── GALERÍA DEL CASO ── */}
+        {c.gallery && c.gallery.length > 0 && (
+          <section style={{ background: "var(--paper-2, #f3eee5)", padding: "clamp(48px,7vw,100px) 0" }}>
+            <div className="rc-wrap">
+              <div className="rc-eyebrow" style={{ marginBottom: 16 }}>Galería del caso</div>
+              <Reveal>
+                <h2 className="rc-h2" style={{ marginBottom: 48, maxWidth: "22ch" }}>
+                  En <em className="rc-em">tribunal</em>, junto a la familia
+                </h2>
+              </Reveal>
+
+              <div style={{
+                display: "grid", gap: "clamp(20px,3vw,40px)",
+                gridTemplateColumns: `repeat(${c.gallery.length}, 1fr)`,
+              }} className="case-gallery">
+                {c.gallery.map((g, i) => (
+                  <Reveal key={i} delay={i * 100}>
+                    <figure style={{ margin: 0 }}>
+                      <div style={{
+                        aspectRatio: "4/5", background: "#0d0d0d",
+                        overflow: "hidden", position: "relative",
+                        border: "1px solid var(--hairline-strong)",
+                      }}>
+                        <Image
+                          src={g.src}
+                          alt={g.alt}
+                          fill
+                          sizes="(max-width: 900px) 100vw, 50vw"
+                          style={{ objectFit: "cover", objectPosition: "center" }}
+                        />
+                      </div>
+                      <figcaption style={{
+                        marginTop: 18,
+                        paddingTop: 14,
+                        borderTop: `1px solid ${R}`,
+                      }}>
+                        <div className="rc-meta" style={{ color: R, marginBottom: 8 }}>
+                          {g.caption}
+                        </div>
+                        <p style={{ fontSize: 14, lineHeight: 1.65, color: "var(--fg-3)", maxWidth: "48ch" }}>
+                          {g.sub}
+                        </p>
+                      </figcaption>
+                    </figure>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+            <style>{`
+              @media (max-width: 800px) {
+                .case-gallery { grid-template-columns: 1fr !important; }
+              }
+            `}</style>
+          </section>
+        )}
+
         {/* ── QUOTE ── */}
         {c.quote && (
           <section style={{ background: R, padding: "clamp(48px,7vw,100px) 0" }}>
