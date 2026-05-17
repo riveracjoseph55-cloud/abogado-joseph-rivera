@@ -1,17 +1,32 @@
 "use client";
 import Script from "next/script";
+import { useEffect } from "react";
 
 type Props = {
   url: string;       // ej: https://www.instagram.com/reel/XXXXXX/
-  caption?: boolean; // muestra el caption del reel
+  caption?: boolean;
 };
 
 /**
  * Embed oficial de Instagram Reels.
- * El script de Instagram convierte el <blockquote> en un iframe interactivo.
- * Usamos strategy="lazyOnload" para que no bloquee el LCP.
+ * - Strategy: afterInteractive (no bloquea LCP pero carga rápido)
+ * - useEffect: forzar process() del script si ya estaba cargado
+ * - Fallback compacto si IG no carga (no rectángulo gigante)
  */
 export default function InstagramReel({ url, caption = false }: Props) {
+  useEffect(() => {
+    // Reintenta el procesamiento del embed cuando el componente monta
+    const id = setInterval(() => {
+      // @ts-expect-error - window.instgrm is injected by Instagram embed.js script
+      if (typeof window !== "undefined" && window.instgrm?.Embeds?.process) {
+        // @ts-expect-error - same as above, instgrm global from embed.js
+        window.instgrm.Embeds.process();
+        clearInterval(id);
+      }
+    }, 500);
+    return () => clearInterval(id);
+  }, []);
+
   return (
     <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
       <blockquote
@@ -36,32 +51,31 @@ export default function InstagramReel({ url, caption = false }: Props) {
           target="_blank"
           rel="noopener noreferrer"
           style={{
-            display: "block",
-            padding: "32px 24px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "40px 24px",
             background: "linear-gradient(135deg,#7e0102 0%,#5a0001 100%)",
             color: "#fff",
             textAlign: "center",
             fontFamily: "var(--font-sans, system-ui)",
             textDecoration: "none",
-            minHeight: 320,
-            aspectRatio: "9/16",
+            minHeight: 200,
+            gap: 12,
           }}
         >
-          <div style={{ fontSize: 11, letterSpacing: ".18em", textTransform: "uppercase", opacity: .7, marginBottom: 16 }}>
+          <div style={{ fontSize: 11, letterSpacing: ".18em", textTransform: "uppercase", opacity: .7 }}>
             Instagram · @josephriveraabogado
           </div>
-          <div style={{ fontSize: 18, fontWeight: 500, marginBottom: 24 }}>
+          <div style={{ fontSize: 18, fontWeight: 500 }}>
             Ver Reel en Instagram →
-          </div>
-          <div style={{ fontSize: 12, opacity: .6 }}>
-            Si el reel no carga, haga click aquí para abrirlo
           </div>
         </a>
       </blockquote>
       <Script
-        async
         src="https://www.instagram.com/embed.js"
-        strategy="lazyOnload"
+        strategy="afterInteractive"
       />
     </div>
   );

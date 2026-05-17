@@ -68,7 +68,7 @@ export default function CasosPage() {
       <section aria-label="El trabajo en tribunal" style={{
         position: "relative",
         width: "100%",
-        aspectRatio: "21/9",
+        aspectRatio: "16/9",
         background: "#0d0d0d",
         overflow: "hidden",
       }}>
@@ -77,6 +77,7 @@ export default function CasosPage() {
           alt="Lic. Joseph Rivera Cheves en audiencia oral junto a colega abogado — tribunal penal de Costa Rica"
           fill
           sizes="100vw"
+          priority
           style={{ objectFit: "cover", objectPosition: "center" }}
         />
         <div aria-hidden="true" style={{

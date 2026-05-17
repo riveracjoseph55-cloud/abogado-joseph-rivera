@@ -227,7 +227,7 @@ export default function QuienPage() {
             gridTemplateColumns: "1.4fr 1fr",
           }} className="media-grid">
             <Reveal>
-              <figure style={{ margin: 0, position: "relative", aspectRatio: "16/10", overflow: "hidden", background: "#1a1a1a" }}>
+              <figure style={{ margin: 0, position: "relative", aspectRatio: "4/3", overflow: "hidden", background: "#1a1a1a" }}>
                 <Image
                   src="/images/joseph/prensa.jpg"
                   alt="Lic. Joseph Rivera Cheves declarando ante medios nacionales: Multimedios, Trivisión, Canal 7"
@@ -251,7 +251,7 @@ export default function QuienPage() {
             </Reveal>
 
             <Reveal delay={120}>
-              <figure style={{ margin: 0, position: "relative", aspectRatio: "16/10", overflow: "hidden", background: "#1a1a1a" }}>
+              <figure style={{ margin: 0, position: "relative", aspectRatio: "4/3", overflow: "hidden", background: "#1a1a1a" }}>
                 <Image
                   src="/images/joseph/podcast.jpg"
                   alt="Lic. Joseph Rivera Cheves en estudio de podcast — análisis jurídico en formato extendido"

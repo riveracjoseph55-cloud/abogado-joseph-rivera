@@ -74,7 +74,7 @@ export default function PrensaClient() {
       <section aria-label="Cobertura mediática" style={{
         position: "relative",
         width: "100%",
-        aspectRatio: "21/9",
+        aspectRatio: "16/9",
         background: "#0d0d0d",
         overflow: "hidden",
       }} className="prensa-banner">
@@ -84,7 +84,7 @@ export default function PrensaClient() {
           fill
           sizes="100vw"
           priority
-          style={{ objectFit: "cover", objectPosition: "center 30%" }}
+          style={{ objectFit: "cover", objectPosition: "center 25%" }}
         />
         {/* Overlay gradiente */}
         <div aria-hidden="true" style={{

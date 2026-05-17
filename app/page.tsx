@@ -85,14 +85,14 @@ export default function Home() {
 
             <Reveal delay={120}>
               <div style={{
-                position: "relative", aspectRatio: "3/4",
+                position: "relative", aspectRatio: "4/3",
                 background: "var(--paper-2, #f3eee5)", overflow: "hidden",
               }}>
                 <Image
                   src="/images/joseph/editorial.jpg"
                   alt="Lic. Joseph Alfonso Rivera Cheves — abogado penalista costarricense"
                   fill
-                  style={{ objectFit: "cover", objectPosition: "center top" }}
+                  style={{ objectFit: "cover", objectPosition: "center" }}
                   priority
                   sizes="(max-width: 900px) 100vw, 40vw"
                 />

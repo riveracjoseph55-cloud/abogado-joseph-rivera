@@ -31,6 +31,17 @@ const nextConfig: NextConfig = {
       { source: "/robots.txt",      headers: [{ key: "Cache-Control", value: "public, max-age=3600, s-maxage=86400" }] },
     ];
   },
+  // Redirige www → non-www (301 permanente) para evitar contenido duplicado en Google
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.abogadojosephrivera.com" }],
+        destination: "https://abogadojosephrivera.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

@@ -343,35 +343,39 @@ export default async function CasoDetail({ params }: { params: Promise<{ slug: s
                 gridTemplateColumns: `repeat(${Math.min(c.gallery.length, 2)}, 1fr)`,
               }} className="case-gallery">
                 {c.gallery.map((g, i) => (
-                  <Reveal key={i} delay={i * 100}>
-                    <figure style={{ margin: 0 }}>
-                      <div style={{
-                        aspectRatio: "4/5", background: "#0d0d0d",
-                        overflow: "hidden", position: "relative",
-                        border: "1px solid var(--hairline-strong)",
-                      }}>
-                        <Image
-                          src={g.src}
-                          alt={g.alt}
-                          fill
-                          sizes="(max-width: 900px) 100vw, 50vw"
-                          style={{ objectFit: "cover", objectPosition: "center" }}
-                        />
+                  <figure key={i} style={{ margin: 0 }}>
+                    <div style={{
+                      background: "#0d0d0d",
+                      overflow: "hidden", position: "relative",
+                      border: "1px solid var(--hairline-strong)",
+                      width: "100%",
+                    }}>
+                      <Image
+                        src={g.src}
+                        alt={g.alt}
+                        width={1200} height={900}
+                        sizes="(max-width: 900px) 100vw, 50vw"
+                        style={{
+                          width: "100%", height: "auto",
+                          objectFit: "cover", objectPosition: "center",
+                          display: "block",
+                        }}
+                        loading={i < 2 ? "eager" : "lazy"}
+                      />
+                    </div>
+                    <figcaption style={{
+                      marginTop: 18,
+                      paddingTop: 14,
+                      borderTop: `1px solid ${R}`,
+                    }}>
+                      <div className="rc-meta" style={{ color: R, marginBottom: 8 }}>
+                        {g.caption}
                       </div>
-                      <figcaption style={{
-                        marginTop: 18,
-                        paddingTop: 14,
-                        borderTop: `1px solid ${R}`,
-                      }}>
-                        <div className="rc-meta" style={{ color: R, marginBottom: 8 }}>
-                          {g.caption}
-                        </div>
-                        <p style={{ fontSize: 14, lineHeight: 1.65, color: "var(--fg-3)", maxWidth: "48ch" }}>
-                          {g.sub}
-                        </p>
-                      </figcaption>
-                    </figure>
-                  </Reveal>
+                      <p style={{ fontSize: 14, lineHeight: 1.65, color: "var(--fg-3)", maxWidth: "48ch" }}>
+                        {g.sub}
+                      </p>
+                    </figcaption>
+                  </figure>
                 ))}
               </div>
             </div>
