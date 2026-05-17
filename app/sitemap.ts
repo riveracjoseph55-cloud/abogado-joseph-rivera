@@ -1,30 +1,70 @@
 import type { MetadataRoute } from "next";
-import { RC_PRESS } from "@/lib/data";
 
 const BASE = "https://abogadojosephrivera.com";
 const now  = new Date().toISOString();
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const static_routes: MetadataRoute.Sitemap = [
-    { url: BASE,                     lastModified: now, changeFrequency: "weekly",  priority: 1.0 },
-    { url: `${BASE}/quien`,          lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${BASE}/casos`,          lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${BASE}/especialidades`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${BASE}/prensa`,         lastModified: now, changeFrequency: "weekly",  priority: 0.8 },
-    { url: `${BASE}/atestados`,      lastModified: now, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE}/contacto`,       lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+  const entries: MetadataRoute.Sitemap = [
+    {
+      url: BASE,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 1.0,
+      images: [`${BASE}/images/og-image.png`, `${BASE}/images/joseph-hero.png`, `${BASE}/images/logo.png`],
+      alternates: { languages: { "es-CR": BASE, "x-default": BASE } },
+    },
+    {
+      url: `${BASE}/quien`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.9,
+      images: [`${BASE}/images/joseph-hero.png`, `${BASE}/images/joseph3.jpg`],
+      alternates: { languages: { "es-CR": `${BASE}/quien` } },
+    },
+    {
+      url: `${BASE}/casos`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.9,
+      images: [
+        `${BASE}/images/joseph10.jpg`,
+        `${BASE}/images/joseph7.jpg`,
+        `${BASE}/images/joseph3.jpg`,
+        `${BASE}/images/joseph4.jpg`,
+      ],
+      alternates: { languages: { "es-CR": `${BASE}/casos` } },
+    },
+    {
+      url: `${BASE}/especialidades`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+      alternates: { languages: { "es-CR": `${BASE}/especialidades` } },
+    },
+    {
+      url: `${BASE}/prensa`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.8,
+      images: [`${BASE}/images/joseph-prensa.jpg`],
+      alternates: { languages: { "es-CR": `${BASE}/prensa` } },
+    },
+    {
+      url: `${BASE}/atestados`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.7,
+      images: [`${BASE}/images/curriculo.jpg`],
+      alternates: { languages: { "es-CR": `${BASE}/atestados` } },
+    },
+    {
+      url: `${BASE}/contacto`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+      alternates: { languages: { "es-CR": `${BASE}/contacto` } },
+    },
   ];
 
-  // Prensa articles as canonical external reference entries
-  const press_routes: MetadataRoute.Sitemap = RC_PRESS
-    .filter(p => p.u && !p.u.startsWith("#"))
-    .map(p => ({
-      url: `${BASE}/prensa`,
-      lastModified: `${p.year}-01-01`,
-      changeFrequency: "yearly" as const,
-      priority: 0.6,
-    }));
-
-  // Deduplicate press entries (all point to /prensa)
-  return [...static_routes, ...press_routes.slice(0, 1)];
+  return entries;
 }

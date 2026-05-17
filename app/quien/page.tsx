@@ -60,10 +60,12 @@ export default function QuienPage() {
               <div style={{ aspectRatio: "4/5", background: "#0d0d0d", overflow: "hidden" }}>
                 <Image
                   src="/images/joseph3.jpg"
-                  alt="Lic. Joseph Rivera Cheves"
+                  alt="Lic. Joseph Alfonso Rivera Cheves — abogado penalista costarricense"
                   width={600} height={750}
                   style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top center" }}
                   sizes="(max-width: 900px) 100vw, 40vw"
+                  priority
+                  fetchPriority="high"
                 />
               </div>
             </Reveal>

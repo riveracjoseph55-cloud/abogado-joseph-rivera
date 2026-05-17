@@ -1,3 +1,24 @@
+/* Skip-to-content link para accesibilidad */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: #7e0102;
+  color: #fff;
+  padding: 10px 16px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  z-index: 9999;
+  text-decoration: none;
+}
+.skip-link:focus {
+  left: 16px;
+  top: 16px;
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
 :root {
   --r: #7e0102;
   --r-deep: #5a0001;

@@ -93,10 +93,11 @@ export default function AtestadosPage() {
             }}>
               <Image
                 src="/images/curriculo.jpg"
-                alt="Currículo Lic. Joseph Rivera Cheves"
+                alt="Currículo y formación académica del Lic. Joseph Rivera Cheves"
                 width={900} height={1200}
                 style={{ width: "100%", height: "auto" }}
                 sizes="(max-width: 900px) 100vw, 900px"
+                loading="lazy"
               />
             </div>
           </Reveal>

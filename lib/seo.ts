@@ -40,7 +40,26 @@ export const schemaLegalService = {
     addressRegion: "San José",
     addressCountry: "CR",
   },
-  areaServed: { "@type": "Country", name: "Costa Rica" },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 9.9418,
+    longitude: -84.1059,
+  },
+  hasMap: "https://maps.google.com/?q=Oficentro+La+Sabana+San+Jose+Costa+Rica",
+  areaServed: [
+    { "@type": "Country", name: "Costa Rica" },
+    { "@type": "AdministrativeArea", name: "Centroamérica" },
+  ],
+  knowsLanguage: ["es", "en"],
+  serviceType: [
+    "Derecho Penal",
+    "Lavado de Dinero",
+    "Derecho Corporativo",
+    "Derecho Laboral",
+    "Derecho Notarial",
+    "Asesoría Estratégica Internacional",
+    "Investigaciones Criminales",
+  ],
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
     dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
@@ -88,6 +107,86 @@ export const schemaAttorney = {
     "Compras Públicas",
   ],
   sameAs: ["https://www.tiktok.com/@josephriveraabogado"],
+};
+
+// WebSite con SearchAction → habilita el sitelinks searchbox en Google
+export const schemaWebSite = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${SITE_URL}/#website`,
+  url: SITE_URL,
+  name: SITE_NAME,
+  description:
+    "Bufete penalista en Costa Rica — Lic. Joseph Alfonso Rivera Cheves",
+  inLanguage: "es-CR",
+  publisher: { "@id": `${SITE_URL}/#legalservice` },
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: `${SITE_URL}/prensa?q={search_term_string}`,
+    },
+    "query-input": "required name=search_term_string",
+  },
+};
+
+// Organization (par del LegalService) - reforzando E-E-A-T
+export const schemaOrganization = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": `${SITE_URL}/#organization`,
+  name: SITE_NAME,
+  url: SITE_URL,
+  logo: {
+    "@type": "ImageObject",
+    "@id": `${SITE_URL}/#logo`,
+    url: `${SITE_URL}/images/logo.png`,
+    width: 200,
+    height: 200,
+    caption: SITE_NAME,
+  },
+  image: { "@id": `${SITE_URL}/#logo` },
+  founder: { "@type": "Person", name: AUTHOR },
+  foundingDate: "2015",
+  foundingLocation: { "@type": "Place", name: "San José, Costa Rica" },
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      telephone: CONTACT.tel,
+      contactType: "customer service",
+      areaServed: "CR",
+      availableLanguage: ["Spanish", "English"],
+      contactOption: "TollFree",
+    },
+    {
+      "@type": "ContactPoint",
+      contactType: "emergency",
+      telephone: CONTACT.tel,
+      areaServed: "CR",
+      availableLanguage: "Spanish",
+      hoursAvailable: { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], opens: "00:00", closes: "23:59" },
+    },
+  ],
+  sameAs: schemaLegalService.sameAs,
+};
+
+// FAQPage helper - para futuras secciones de preguntas frecuentes
+export function schemaFAQPage(faqs: { q: string; a: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map(f => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+}
+
+// ProfessionalService - alternative typing more specific for legal
+export const schemaProfessionalService = {
+  ...schemaLegalService,
+  "@type": ["ProfessionalService", "LegalService"],
 };
 
 export function schemaBlogPosting(article: {
