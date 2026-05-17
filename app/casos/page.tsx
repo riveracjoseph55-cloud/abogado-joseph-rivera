@@ -107,10 +107,10 @@ export default function CasosPage() {
                   </div>
 
                   <div>
-                    <p className="rc-body" style={{ marginBottom: 24 }}>{c.short}</p>
+                    <p className="rc-body" style={{ marginBottom: 24, fontSize: 16 }}>{c.short}</p>
                     <div style={{
                       display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14,
-                      marginBottom: 24, paddingTop: 18, borderTop: "1px solid var(--hairline)",
+                      marginBottom: 28, paddingTop: 18, borderTop: "1px solid var(--hairline)",
                     }}>
                       <div>
                         <div className="rc-meta" style={{ color: "var(--fg-5)", marginBottom: 4 }}>Rol</div>
@@ -122,48 +122,9 @@ export default function CasosPage() {
                       </div>
                     </div>
 
-                    {/* Hechos */}
-                    {c.summary && (
-                      <p style={{ fontSize: 14, color: "var(--fg-3)", lineHeight: 1.7, marginBottom: 24 }}>{c.summary}</p>
-                    )}
-
-                    {/* Timeline */}
-                    <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
-                      {c.timeline.map((t, j) => (
-                        <div key={j} style={{
-                          display: "grid", gridTemplateColumns: "120px 1fr", gap: 16,
-                          padding: "12px 0",
-                          borderTop: j === 0 ? "none" : "1px solid var(--hairline)",
-                        }}>
-                          <div style={{ fontFamily: "var(--font-mono, monospace)", fontSize: 11, color: R, letterSpacing: ".06em" }}>{t.date}</div>
-                          <div>
-                            <div style={{ fontSize: 12, fontWeight: 600, color: "#0d0d0d", marginBottom: 2 }}>{t.label}</div>
-                            <div style={{ fontSize: 13, color: "var(--fg-3)", lineHeight: 1.55 }}>{t.text}</div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Quote */}
-                    {c.quote && (
-                      <blockquote style={{
-                        marginTop: 24, padding: "18px 20px",
-                        background: "var(--r-tint)", borderLeft: `3px solid ${R}`,
-                      }}>
-                        <p style={{ fontFamily: "Georgia, serif", fontStyle: "italic", fontSize: 15, color: "#0d0d0d", lineHeight: 1.55 }}>
-                          &ldquo;{c.quote}&rdquo;
-                        </p>
-                        {c.quoteContext && (
-                          <cite style={{ display: "block", marginTop: 8, fontSize: 11, color: R, fontStyle: "normal", fontFamily: "var(--font-mono, monospace)", letterSpacing: ".06em" }}>
-                            {c.quoteContext}
-                          </cite>
-                        )}
-                      </blockquote>
-                    )}
-
                     <Link href={`/casos/${c.slug}`} style={{
                       display: "inline-flex", alignItems: "center", gap: 8,
-                      marginTop: 24, fontSize: 13, fontWeight: 600, color: R,
+                      fontSize: 13, fontWeight: 600, color: R,
                       borderBottom: `1px solid ${R}`, paddingBottom: 2,
                     }}>
                       Ver caso completo →

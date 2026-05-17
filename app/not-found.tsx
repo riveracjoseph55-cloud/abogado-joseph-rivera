@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Página no encontrada",
   description: "La página solicitada no existe o ha sido movida.",
   robots: { index: false, follow: true },
-  alternates: { canonical: `${SITE_URL}/404` },
+  // Sin canonical en 404 — Google no debe indexar URLs inexistentes
 };
 
 const R = "#7e0102";
