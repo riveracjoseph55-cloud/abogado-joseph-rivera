@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import CookieConsent from "@/components/CookieConsent";
 import SchemaOrg from "@/components/SchemaOrg";
 import {
   SITE_URL,
@@ -153,6 +154,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main id="main">{children}</main>
         <Footer />
         {GA_ID && <GoogleAnalytics id={GA_ID} />}
+        <CookieConsent />
       </body>
     </html>
   );

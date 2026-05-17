@@ -88,6 +88,11 @@ export default function Footer() {
           color: "rgba(255,255,255,.4)",
         }}>
           <span>© 2026 Rivera Cheves &amp; Asociados</span>
+          <div style={{ display: "flex", gap: 18, flexWrap: "wrap" }}>
+            <Link href="/privacidad" style={{ color: "rgba(255,255,255,.55)" }}>Privacidad</Link>
+            <Link href="/terminos"   style={{ color: "rgba(255,255,255,.55)" }}>Términos</Link>
+            <Link href="/cookies"    style={{ color: "rgba(255,255,255,.55)" }}>Cookies</Link>
+          </div>
           <span>Creado por <a href="https://acontecer.co.cr" target="_blank" rel="noopener" style={{ color: "#fff" }}>Acontecer.co.cr</a></span>
         </div>
       </div>

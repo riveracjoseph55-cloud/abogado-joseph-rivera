@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import CTABand from "@/components/CTABand";
 import SchemaOrg from "@/components/SchemaOrg";
@@ -159,6 +160,14 @@ export default function CasosPage() {
                         )}
                       </blockquote>
                     )}
+
+                    <Link href={`/casos/${c.slug}`} style={{
+                      display: "inline-flex", alignItems: "center", gap: 8,
+                      marginTop: 24, fontSize: 13, fontWeight: 600, color: R,
+                      borderBottom: `1px solid ${R}`, paddingBottom: 2,
+                    }}>
+                      Ver caso completo →
+                    </Link>
                   </div>
 
                   <div style={{

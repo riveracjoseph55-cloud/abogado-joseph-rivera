@@ -1,10 +1,11 @@
 import type { MetadataRoute } from "next";
+import { RC_CASES } from "@/lib/data";
 
 const BASE = "https://abogadojosephrivera.com";
 const now  = new Date().toISOString();
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const entries: MetadataRoute.Sitemap = [
+  const staticPages: MetadataRoute.Sitemap = [
     {
       url: BASE,
       lastModified: now,
@@ -66,5 +67,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  return entries;
+  const casePages: MetadataRoute.Sitemap = RC_CASES.map(c => ({
+    url: `${BASE}/casos/${c.slug}`,
+    lastModified: `${c.year}-12-31`,
+    changeFrequency: c.statusTone === "active" ? ("weekly" as const) : ("yearly" as const),
+    priority: 0.85,
+    images: [`${BASE}/images/${c.media}`],
+    alternates: { languages: { "es-CR": `${BASE}/casos/${c.slug}` } },
+  }));
+
+  const legalPages: MetadataRoute.Sitemap = [
+    { url: `${BASE}/privacidad`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${BASE}/terminos`,   lastModified: now, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${BASE}/cookies`,    lastModified: now, changeFrequency: "yearly", priority: 0.3 },
+  ];
+
+  return [...staticPages, ...casePages, ...legalPages];
 }
