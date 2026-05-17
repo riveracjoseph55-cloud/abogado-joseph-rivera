@@ -115,6 +115,15 @@ export default async function CasoDetail({ params }: { params: Promise<{ slug: s
                 }}>
                   {c.year}
                 </div>
+                {c.yearRange && (
+                  <div style={{
+                    fontFamily: "var(--font-mono, monospace)", fontSize: 12,
+                    letterSpacing: ".12em", color: "var(--fg-5)",
+                    textTransform: "uppercase", marginBottom: 14,
+                  }}>
+                    Periodo procesal · {c.yearRange}
+                  </div>
+                )}
                 <span style={{
                   display: "inline-block", padding: "6px 12px",
                   background: c.statusTone === "active" ? R : "#0d0d0d",
@@ -164,31 +173,120 @@ export default async function CasoDetail({ params }: { params: Promise<{ slug: s
           `}</style>
         </section>
 
-        {/* ── RESUMEN + ROL ── */}
-        <section style={{ background: "var(--paper)", padding: "clamp(48px,7vw,100px) 0" }}>
+        {/* ── ROL + RESULTADO ── */}
+        <section style={{ background: "var(--paper)", padding: "clamp(48px,7vw,80px) 0" }}>
           <div className="rc-wrap">
             <div style={{
-              display: "grid", gridTemplateColumns: "1fr 2fr",
-              gap: "clamp(32px,5vw,80px)",
-            }} className="case-summary-grid">
-              <div>
-                <div className="rc-eyebrow" style={{ marginBottom: 16 }}>01 · Resumen del caso</div>
-                <div style={{ paddingTop: 16, borderTop: "1px solid var(--hairline)" }}>
-                  <div className="rc-meta" style={{ color: "var(--fg-5)", marginBottom: 6 }}>Rol del bufete</div>
-                  <div style={{ fontSize: 17, fontWeight: 500, marginBottom: 16, color: "#0d0d0d" }}>{c.role}</div>
-                  <div className="rc-meta" style={{ color: "var(--fg-5)", marginBottom: 6 }}>Resultado</div>
-                  <div style={{ fontSize: 17, fontWeight: 600, color: c.statusTone === "active" ? R : "#0d0d0d" }}>{c.sentence}</div>
-                </div>
+              display: "grid", gridTemplateColumns: "1fr 1fr",
+              gap: "clamp(32px,4vw,64px)",
+            }} className="case-role-grid">
+              <div style={{ paddingTop: 18, borderTop: `2px solid ${R}` }}>
+                <div className="rc-meta" style={{ color: "var(--fg-5)", marginBottom: 8 }}>Rol del bufete</div>
+                <div style={{ fontSize: "clamp(18px,2vw,22px)", fontWeight: 500, color: "#0d0d0d", letterSpacing: "-0.01em" }}>{c.role}</div>
               </div>
-              <Reveal>
-                <p className="rc-body" style={{ fontSize: 17, lineHeight: 1.8, color: "var(--fg-2)" }}>
-                  {c.summary}
-                </p>
-              </Reveal>
+              <div style={{ paddingTop: 18, borderTop: `2px solid ${R}` }}>
+                <div className="rc-meta" style={{ color: "var(--fg-5)", marginBottom: 8 }}>Resultado</div>
+                <div style={{ fontSize: "clamp(18px,2vw,22px)", fontWeight: 600, color: c.statusTone === "active" ? R : "#0d0d0d", letterSpacing: "-0.01em" }}>{c.sentence}</div>
+              </div>
             </div>
           </div>
           <style>{`
-            @media (max-width: 900px) { .case-summary-grid { grid-template-columns: 1fr !important; } }
+            @media (max-width: 700px) { .case-role-grid { grid-template-columns: 1fr !important; } }
+          `}</style>
+        </section>
+
+        {/* ── DOSSIER: HECHOS / DESAFÍO / ESTRATEGIA ── */}
+        <section style={{ background: "#fff", padding: "clamp(48px,7vw,100px) 0" }}>
+          <div className="rc-wrap">
+            <Reveal>
+              <div className="rc-eyebrow" style={{ marginBottom: 16 }}>01 · Dossier procesal</div>
+              <h2 className="rc-h2" style={{ marginBottom: 56 }}>
+                Análisis <em className="rc-em">técnico</em> del caso
+              </h2>
+            </Reveal>
+
+            <div style={{ display: "grid", gap: "clamp(40px,6vw,80px)" }}>
+              {/* Los Hechos */}
+              <Reveal>
+                <article style={{
+                  display: "grid", gridTemplateColumns: "200px 1fr",
+                  gap: "clamp(20px,3vw,48px)",
+                }} className="case-dossier-row">
+                  <header>
+                    <div style={{
+                      fontFamily: "var(--font-mono, monospace)", fontSize: 11,
+                      color: R, letterSpacing: ".14em", textTransform: "uppercase", marginBottom: 8,
+                    }}>01 — Marco fáctico</div>
+                    <h3 style={{
+                      fontFamily: "var(--font-sans)", fontWeight: 400,
+                      fontSize: "clamp(24px,3vw,32px)", letterSpacing: "-0.015em",
+                      color: "#0d0d0d", lineHeight: 1.1,
+                    }}>Los <em className="rc-em">Hechos</em></h3>
+                  </header>
+                  <p style={{
+                    fontSize: 16, lineHeight: 1.8, color: "var(--fg-2)",
+                    paddingTop: 12, borderTop: "1px solid var(--hairline)",
+                  }}>{c.hechos || c.summary}</p>
+                </article>
+              </Reveal>
+
+              {/* El Desafío */}
+              {c.desafio && (
+                <Reveal delay={80}>
+                  <article style={{
+                    display: "grid", gridTemplateColumns: "200px 1fr",
+                    gap: "clamp(20px,3vw,48px)",
+                  }} className="case-dossier-row">
+                    <header>
+                      <div style={{
+                        fontFamily: "var(--font-mono, monospace)", fontSize: 11,
+                        color: R, letterSpacing: ".14em", textTransform: "uppercase", marginBottom: 8,
+                      }}>02 — Obstáculos procesales</div>
+                      <h3 style={{
+                        fontFamily: "var(--font-sans)", fontWeight: 400,
+                        fontSize: "clamp(24px,3vw,32px)", letterSpacing: "-0.015em",
+                        color: "#0d0d0d", lineHeight: 1.1,
+                      }}>El <em className="rc-em">Desafío</em></h3>
+                    </header>
+                    <p style={{
+                      fontSize: 16, lineHeight: 1.8, color: "var(--fg-2)",
+                      paddingTop: 12, borderTop: "1px solid var(--hairline)",
+                    }}>{c.desafio}</p>
+                  </article>
+                </Reveal>
+              )}
+
+              {/* La Estrategia */}
+              {c.estrategia && (
+                <Reveal delay={160}>
+                  <article style={{
+                    display: "grid", gridTemplateColumns: "200px 1fr",
+                    gap: "clamp(20px,3vw,48px)",
+                  }} className="case-dossier-row">
+                    <header>
+                      <div style={{
+                        fontFamily: "var(--font-mono, monospace)", fontSize: 11,
+                        color: R, letterSpacing: ".14em", textTransform: "uppercase", marginBottom: 8,
+                      }}>03 — Metodología</div>
+                      <h3 style={{
+                        fontFamily: "var(--font-sans)", fontWeight: 400,
+                        fontSize: "clamp(24px,3vw,32px)", letterSpacing: "-0.015em",
+                        color: "#0d0d0d", lineHeight: 1.1,
+                      }}>La <em className="rc-em">Estrategia</em></h3>
+                    </header>
+                    <p style={{
+                      fontSize: 16, lineHeight: 1.8, color: "var(--fg-2)",
+                      paddingTop: 12, borderTop: `1px solid ${R}`,
+                    }}>{c.estrategia}</p>
+                  </article>
+                </Reveal>
+              )}
+            </div>
+          </div>
+          <style>{`
+            @media (max-width: 700px) {
+              .case-dossier-row { grid-template-columns: 1fr !important; gap: 12px !important; }
+            }
           `}</style>
         </section>
 

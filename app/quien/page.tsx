@@ -3,7 +3,7 @@ import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import CTABand from "@/components/CTABand";
 import SchemaOrg from "@/components/SchemaOrg";
-import { RC_FORMACION, RC_EXP, RC_DOCENCIA } from "@/lib/data";
+import { RC_FORMACION, RC_EXP, RC_DOCENCIA, RC_DOCTRINA } from "@/lib/data";
 import { SITE_URL, SITE_NAME, schemaAttorney, schemaLegalService } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -203,11 +203,94 @@ export default function QuienPage() {
         `}</style>
       </section>
 
+      {/* ── DOCTRINA E INCIDENCIA ── */}
+      <section style={{ background: "var(--paper-2, #f3eee5)", padding: "var(--pad-y) 0" }}>
+        <div className="rc-wrap">
+          <div style={{ marginBottom: "clamp(40px,5vw,64px)" }}>
+            <div className="rc-eyebrow" style={{ marginBottom: 16 }}>05 · Influencia académica y legislativa</div>
+            <Reveal>
+              <h2 className="rc-h2" style={{ maxWidth: "20ch" }}>
+                Doctrina e <em className="rc-em">Incidencia</em>
+              </h2>
+            </Reveal>
+            <Reveal delay={120}>
+              <p className="rc-lede" style={{ marginTop: 24, maxWidth: "62ch" }}>
+                Más allá del litigio: producción doctrinal publicada y propuestas
+                legislativas activas que buscan reformar el aparato punitivo costarricense.
+              </p>
+            </Reveal>
+          </div>
+
+          <div style={{
+            display: "grid", gap: "clamp(20px,3vw,40px)", gridTemplateColumns: "1fr 1fr",
+          }} className="doctrina-grid">
+            <Reveal>
+              <div style={{
+                background: "#fff", padding: "clamp(28px,4vw,48px)",
+                border: "1px solid var(--hairline)",
+              }}>
+                <div className="rc-meta" style={{ color: R, marginBottom: 18 }}>Producción doctrinal</div>
+                {RC_DOCTRINA.articulos.map((a, i) => (
+                  <div key={i} style={{ marginBottom: i < RC_DOCTRINA.articulos.length - 1 ? 28 : 0 }}>
+                    <h3 className="rc-h3" style={{ marginBottom: 8, fontSize: 22 }}>{a.titulo}</h3>
+                    <div className="rc-meta" style={{ color: "var(--fg-5)", marginBottom: 10 }}>{a.tipo}</div>
+                    <p style={{ fontSize: 15, lineHeight: 1.7, color: "var(--fg-3)" }}>{a.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+
+            <Reveal delay={100}>
+              <div style={{
+                background: "#fff", padding: "clamp(28px,4vw,48px)",
+                border: "1px solid var(--hairline)",
+              }}>
+                <div className="rc-meta" style={{ color: R, marginBottom: 18 }}>Incidencia legislativa</div>
+                {RC_DOCTRINA.propuestas.map((p, i) => (
+                  <div key={i} style={{ marginBottom: i < RC_DOCTRINA.propuestas.length - 1 ? 28 : 0 }}>
+                    <h3 className="rc-h3" style={{ marginBottom: 8, fontSize: 22 }}>{p.titulo}</h3>
+                    <div className="rc-meta" style={{ color: "var(--fg-5)", marginBottom: 10 }}>{p.tipo}</div>
+                    <p style={{ fontSize: 15, lineHeight: 1.7, color: "var(--fg-3)" }}>{p.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+          </div>
+
+          <Reveal delay={200}>
+            <div style={{ marginTop: "clamp(40px,5vw,64px)", paddingTop: 32, borderTop: "1px solid var(--hairline)" }}>
+              <div className="rc-meta" style={{ color: R, marginBottom: 20 }}>Reconocimientos institucionales</div>
+              <ul style={{
+                listStyle: "none", display: "grid",
+                gap: 14, gridTemplateColumns: "repeat(2,1fr)",
+              }} className="recon-list">
+                {RC_DOCTRINA.reconocimientos.map((r, i) => (
+                  <li key={i} style={{
+                    display: "flex", gap: 14,
+                    paddingTop: 14, borderTop: "1px solid var(--hairline)",
+                  }}>
+                    <span style={{
+                      fontFamily: "var(--font-mono, monospace)", fontSize: 12, color: R,
+                      letterSpacing: ".1em", minWidth: 28,
+                    }}>{String(i + 1).padStart(2, "0")}</span>
+                    <span style={{ fontSize: 14, lineHeight: 1.6, color: "var(--fg-2)" }}>{r}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
+        </div>
+        <style>{`
+          @media (max-width: 900px) { .doctrina-grid { grid-template-columns: 1fr !important; } }
+          @media (max-width: 700px) { .recon-list { grid-template-columns: 1fr !important; } }
+        `}</style>
+      </section>
+
       {/* ── DOCENCIA ── */}
       <section style={{ background: R, padding: "var(--pad-y) 0" }}>
         <div className="rc-wrap">
           <div style={{ marginBottom: "clamp(40px,5vw,64px)", maxWidth: "60ch" }}>
-            <div className="rc-eyebrow on-r" style={{ marginBottom: 16 }}>05 · Labor académica</div>
+            <div className="rc-eyebrow on-r" style={{ marginBottom: 16 }}>06 · Labor académica</div>
             <Reveal><h2 className="rc-h2" style={{ color: "#fff" }}>Docencia <em className="rc-em on-r">Universitaria</em></h2></Reveal>
             <Reveal delay={120}>
               <p className="rc-lede" style={{ color: "rgba(255,255,255,.75)", marginTop: 24 }}>

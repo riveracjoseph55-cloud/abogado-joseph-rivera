@@ -137,7 +137,7 @@ export default function Home() {
             display: "grid", gap: "var(--gut)", gridTemplateColumns: "repeat(4,1fr)",
           }} className="stats-grid">
             {[
-              { num: "79",   label: "Años de prisión — sentencia caso Nadia Peraza, pena máxima" },
+              { num: "50",   label: "Años — máximo legal CR, caso Nadia Peraza (pena nominal 79)" },
               { num: "10+",  label: "Años de ejercicio como litigante penalista" },
               { num: "07",   label: "Áreas de especialización jurídica" },
               { num: "24/7", label: "Disponibilidad para emergencias legales" },
