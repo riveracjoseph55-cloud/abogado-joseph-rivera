@@ -117,7 +117,9 @@ export const metadata: Metadata = {
   },
   manifest: "/manifest.webmanifest",
   verification: {
-    google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION,
+    google:
+      process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION ??
+      "-M-AkRFLBMovw7bpTygapzIG3XknGL_ahBWjubhBGRA",
     other: {
       "msvalidate.01": process.env.NEXT_PUBLIC_BING_VERIFICATION ?? "",
     },
