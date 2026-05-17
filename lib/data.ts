@@ -55,6 +55,12 @@ export const RC_CASES = [
         sub: "Acompañamiento integral a la familia durante todo el proceso. Marilyn Espinoza viste el recordatorio «Mamá Lin · Nadia Peraza».",
       },
     ],
+    instagramReel: {
+      url: "https://www.instagram.com/reel/DWHZdGMx4C8/",
+      eyebrow: "Memoria · Esperanza",
+      title: "Por Nadia — y por las que vendrán",
+      msg: "La memoria de Nadia se transforma hoy en esperanza para otras familias. Cada palabra en el juicio, cada gesto frente a los medios, cada paso del proceso fue una afirmación: que la dignidad de la víctima no se pierde, y que la justicia — aunque tarde — es posible cuando alguien decide acompañar hasta el final.",
+    },
   },
   {
     slug: "carla-stefaniak",

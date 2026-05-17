@@ -6,6 +6,7 @@ import SchemaOrg from "@/components/SchemaOrg";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTABand from "@/components/CTABand";
 import Reveal from "@/components/Reveal";
+import InstagramReel from "@/components/InstagramReel";
 import { RC_CASES, WA } from "@/lib/data";
 import { SITE_URL, SITE_NAME, OG_IMAGE, AUTHOR } from "@/lib/seo";
 
@@ -378,6 +379,45 @@ export default async function CasoDetail({ params }: { params: Promise<{ slug: s
               @media (max-width: 800px) {
                 .case-gallery { grid-template-columns: 1fr !important; }
               }
+            `}</style>
+          </section>
+        )}
+
+        {/* ── INSTAGRAM REEL · MEMORIA Y ESPERANZA ── */}
+        {c.instagramReel && (
+          <section style={{ background: "#fff", padding: "var(--pad-y) 0" }}>
+            <div className="rc-wrap">
+              <div style={{
+                display: "grid", gridTemplateColumns: "1fr 1fr",
+                gap: "clamp(40px,6vw,96px)", alignItems: "center",
+              }} className="case-reel-grid">
+                <Reveal>
+                  <div>
+                    <div className="rc-eyebrow" style={{ marginBottom: 20, color: R }}>
+                      {c.instagramReel.eyebrow}
+                    </div>
+                    <h2 className="rc-h2" style={{ marginBottom: 28, maxWidth: "18ch" }}>
+                      {c.instagramReel.title}
+                    </h2>
+                    <p className="rc-lede" style={{ marginBottom: 24, maxWidth: "48ch" }}>
+                      {c.instagramReel.msg}
+                    </p>
+                    <div style={{
+                      paddingTop: 24, borderTop: `2px solid ${R}`,
+                      fontFamily: "var(--font-mono, monospace)", fontSize: 11,
+                      letterSpacing: ".14em", textTransform: "uppercase", color: "var(--fg-5)",
+                    }}>
+                      Instagram · @josephriveraabogado
+                    </div>
+                  </div>
+                </Reveal>
+                <Reveal delay={120}>
+                  <InstagramReel url={c.instagramReel.url} caption />
+                </Reveal>
+              </div>
+            </div>
+            <style>{`
+              @media (max-width: 900px) { .case-reel-grid { grid-template-columns: 1fr !important; } }
             `}</style>
           </section>
         )}

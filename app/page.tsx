@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
+import InstagramReel from "@/components/InstagramReel";
 import SchemaOrg from "@/components/SchemaOrg";
 import { WA, RC_CASES, RC_AREAS, RC_PRESS } from "@/lib/data";
 import { SITE_URL, SITE_NAME, OG_IMAGE, schemaLegalService, schemaAttorney } from "@/lib/seo";
@@ -172,6 +173,42 @@ export default function Home() {
         </div>
         <style>{`
           @media (max-width: 900px) { .stats-grid { grid-template-columns: 1fr 1fr !important; gap: clamp(32px,5vw,56px) var(--gut) !important; } }
+        `}</style>
+      </section>
+
+      {/* ── REEL DESTACADO ── */}
+      <section style={{ background: "var(--paper)", padding: "var(--pad-y) 0", position: "relative" }}>
+        <div className="rc-wrap">
+          <div style={{
+            display: "grid", gridTemplateColumns: "1fr 1fr",
+            gap: "clamp(40px,6vw,96px)", alignItems: "center",
+          }} className="reel-grid">
+            <Reveal>
+              <div>
+                <div className="rc-eyebrow" style={{ marginBottom: 20 }}>En la voz pública</div>
+                <h2 className="rc-h2" style={{ marginBottom: 28, maxWidth: "16ch" }}>
+                  Cada caso es <em className="rc-em">también</em> un compromiso público
+                </h2>
+                <p className="rc-lede" style={{ marginBottom: 24, maxWidth: "44ch" }}>
+                  Acompañamos a las familias dentro del tribunal y en los medios.
+                  La justicia se construye en ambas arenas — y cada palabra cuenta.
+                </p>
+                <div style={{
+                  paddingTop: 24, borderTop: "1px solid var(--hairline)",
+                  fontFamily: "var(--font-mono, monospace)", fontSize: 11,
+                  letterSpacing: ".14em", textTransform: "uppercase", color: "var(--fg-5)",
+                }}>
+                  Reel destacado · @josephriveraabogado
+                </div>
+              </div>
+            </Reveal>
+            <Reveal delay={120}>
+              <InstagramReel url="https://www.instagram.com/reel/DWHZdGMx4C8/" caption />
+            </Reveal>
+          </div>
+        </div>
+        <style>{`
+          @media (max-width: 900px) { .reel-grid { grid-template-columns: 1fr !important; } }
         `}</style>
       </section>
 

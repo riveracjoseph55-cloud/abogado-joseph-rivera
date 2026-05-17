@@ -93,7 +93,22 @@ export default function Footer() {
             <Link href="/terminos"   style={{ color: "rgba(255,255,255,.55)" }}>Términos</Link>
             <Link href="/cookies"    style={{ color: "rgba(255,255,255,.55)" }}>Cookies</Link>
           </div>
-          <span>Creado por <a href="https://acontecer.co.cr" target="_blank" rel="noopener" style={{ color: "#fff" }}>Acontecer.co.cr</a></span>
+          <span>
+            Creado por{" "}
+            <a
+              href="https://acontecer.co.cr"
+              target="_blank"
+              rel="noopener external"
+              title="Acontecer — Agencia digital · marketing y desarrollo web en Costa Rica"
+              style={{
+                color: "#fff",
+                borderBottom: "1px solid rgba(255,255,255,.4)",
+                paddingBottom: 1,
+              }}
+            >
+              Acontecer.co.cr
+            </a>
+          </span>
         </div>
       </div>
 
