@@ -59,10 +59,10 @@ export default function QuienPage() {
             <Reveal delay={120}>
               <div style={{ aspectRatio: "4/5", background: "#0d0d0d", overflow: "hidden" }}>
                 <Image
-                  src="/images/joseph/retrato.jpg"
-                  alt="Lic. Joseph Alfonso Rivera Cheves — retrato profesional"
-                  width={800} height={1000}
-                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
+                  src="/images/joseph3.jpg"
+                  alt="Lic. Joseph Alfonso Rivera Cheves — abogado penalista costarricense"
+                  width={600} height={750}
+                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top center" }}
                   sizes="(max-width: 900px) 100vw, 40vw"
                   priority
                   fetchPriority="high"
@@ -229,7 +229,7 @@ export default function QuienPage() {
             <Reveal>
               <figure style={{ margin: 0, position: "relative", aspectRatio: "16/10", overflow: "hidden", background: "#1a1a1a" }}>
                 <Image
-                  src="/images/joseph/prensa.jpg"
+                  src="/images/joseph-prensa.jpg"
                   alt="Lic. Joseph Rivera Cheves declarando ante medios nacionales: Multimedios, Trivisión, Canal 7"
                   fill
                   sizes="(max-width: 900px) 100vw, 60vw"
@@ -253,8 +253,8 @@ export default function QuienPage() {
             <Reveal delay={120}>
               <figure style={{ margin: 0, position: "relative", aspectRatio: "16/10", overflow: "hidden", background: "#1a1a1a" }}>
                 <Image
-                  src="/images/joseph/podcast.jpg"
-                  alt="Lic. Joseph Rivera Cheves en estudio de podcast, formato de análisis jurídico"
+                  src="/images/joseph4.jpg"
+                  alt="Lic. Joseph Rivera Cheves en formato editorial — análisis jurídico"
                   fill
                   sizes="(max-width: 900px) 100vw, 40vw"
                   style={{ objectFit: "cover", objectPosition: "center" }}

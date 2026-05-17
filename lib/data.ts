@@ -43,16 +43,16 @@ export const RC_CASES = [
     ],
     gallery: [
       {
-        src: "/images/casos/nadia-peraza-tribunal.jpg",
-        alt: "Lic. Joseph Rivera Cheves junto a Marilyn Espinoza, madre de Nadia Peraza, en audiencia ante el Tribunal Penal de Heredia",
+        src: "/images/joseph10.jpg",
+        alt: "Lic. Joseph Rivera Cheves en el proceso penal del caso Nadia Peraza, Tribunal Penal de Heredia",
         caption: "Audiencia oral · Tribunal Penal de Heredia",
-        sub: "El Lic. Rivera Cheves junto a Marilyn Espinoza, madre de Nadia Peraza, sosteniendo la querella privada y la acción civil resarcitoria.",
+        sub: "El Lic. Rivera Cheves representando a Marilyn Espinoza, madre de Nadia Peraza, durante el proceso penal que culminó con la condena máxima legal.",
       },
       {
-        src: "/images/casos/nadia-peraza-familia.jpg",
-        alt: "Lic. Joseph Rivera Cheves con los padres de Nadia Peraza durante la preparación del caso",
-        caption: "Junto a la familia Peraza Espinoza",
-        sub: "Acompañamiento integral a la familia durante todo el proceso. Marilyn Espinoza viste el recordatorio «Mamá Lin · Nadia Peraza».",
+        src: "/images/joseph4.jpg",
+        alt: "Lic. Joseph Rivera Cheves declarando sobre el caso Nadia Peraza ante medios de comunicación",
+        caption: "Junto a la familia · Comunicación pública",
+        sub: "Acompañamiento integral a la familia Peraza Espinoza durante todo el proceso — desde el juicio hasta la sentencia firme.",
       },
     ],
     instagramReel: {

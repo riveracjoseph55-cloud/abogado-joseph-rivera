@@ -79,7 +79,7 @@ export default function PrensaClient() {
         overflow: "hidden",
       }} className="prensa-banner">
         <Image
-          src="/images/joseph/prensa.jpg"
+          src="/images/joseph-prensa.jpg"
           alt="Lic. Joseph Rivera Cheves ante medios de comunicación nacionales — Multimedios, Trivisión, Canal 7, Central de Noticias"
           fill
           sizes="100vw"

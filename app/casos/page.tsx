@@ -73,8 +73,8 @@ export default function CasosPage() {
         overflow: "hidden",
       }}>
         <Image
-          src="/images/joseph/tribunal.jpg"
-          alt="Lic. Joseph Rivera Cheves en audiencia oral junto a colega abogado, tribunal penal de Costa Rica"
+          src="/images/joseph7.jpg"
+          alt="Lic. Joseph Rivera Cheves — litigación penal en tribunal de Costa Rica"
           fill
           sizes="100vw"
           style={{ objectFit: "cover", objectPosition: "center" }}
