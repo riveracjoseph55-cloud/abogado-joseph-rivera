@@ -2,17 +2,32 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import CTABand from "@/components/CTABand";
+import SchemaOrg from "@/components/SchemaOrg";
 import { RC_FORMACION, RC_DOCENCIA } from "@/lib/data";
+import { SITE_URL, SITE_NAME, OG_IMAGE, schemaAttorney } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Atestados",
-  description: "Perfil profesional completo del Lic. Joseph Alfonso Rivera Cheves. Formación académica, experiencia y docencia universitaria.",
+  title: "Formación y Atestados",
+  description:
+    "Formación académica del Lic. Joseph Rivera Cheves: Máster en Compliance (España/Murcia), Maestría Derecho Penal, Temple University. Docente en 6 universidades CR.",
+  alternates: { canonical: `${SITE_URL}/atestados` },
+  openGraph: {
+    type: "website",
+    url: `${SITE_URL}/atestados`,
+    title: `Formación y Atestados | ${SITE_NAME}`,
+    description:
+      "Perfil académico completo: Máster en Compliance, Maestría en Derecho Penal, Temple University y docencia en 6 universidades costarricenses.",
+    images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: `Atestados | ${SITE_NAME}` }],
+  },
+  twitter: { card: "summary_large_image", title: `Formación y Atestados | ${SITE_NAME}`, images: [OG_IMAGE] },
 };
 
 const R = "#7e0102";
 
 export default function AtestadosPage() {
   return (
+    <>
+    <SchemaOrg data={schemaAttorney} />
     <div className="rc-page">
 
       {/* ── HERO ── */}
@@ -152,5 +167,6 @@ export default function AtestadosPage() {
 
       <CTABand />
     </div>
+    </>
   );
 }

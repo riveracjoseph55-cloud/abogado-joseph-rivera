@@ -2,17 +2,36 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
+import SchemaOrg from "@/components/SchemaOrg";
 import { WA, RC_CASES, RC_AREAS, RC_PRESS } from "@/lib/data";
+import { SITE_URL, SITE_NAME, OG_IMAGE, schemaLegalService, schemaAttorney } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Abogado Joseph Rivera Cheves — Derecho Penal Costa Rica",
-  description: "Bufete penalista en Costa Rica con más de 10 años de experiencia. Representación en femicidios, crimen organizado y delitos financieros.",
+  title: { absolute: "Abogado Joseph Rivera Cheves | Derecho Penal Costa Rica" },
+  description:
+    "Bufete penalista en Costa Rica con +10 años de experiencia. Femicidios, crimen organizado, delitos financieros y asesoría internacional. Defensa experta.",
+  alternates: { canonical: SITE_URL },
+  openGraph: {
+    type: "website",
+    url: SITE_URL,
+    title: "Abogado Joseph Rivera Cheves | Derecho Penal Costa Rica",
+    description:
+      "Bufete penalista en Costa Rica. Femicidios, crimen organizado, delitos financieros y asesoría internacional. Lic. Joseph Alfonso Rivera Cheves.",
+    images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: `${SITE_NAME} — Bufete Penalista Costa Rica` }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Abogado Joseph Rivera Cheves | Derecho Penal Costa Rica",
+    images: [OG_IMAGE],
+  },
 };
 
 const R = "#7e0102";
 
 export default function Home() {
   return (
+    <>
+    <SchemaOrg data={[schemaLegalService, schemaAttorney]} />
     <div className="rc-page">
 
       {/* ── HERO ── */}
@@ -378,5 +397,6 @@ export default function Home() {
         `}</style>
       </section>
     </div>
+    </>
   );
 }

@@ -1,17 +1,47 @@
 import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
 import CTABand from "@/components/CTABand";
+import SchemaOrg from "@/components/SchemaOrg";
 import { RC_AREAS, WA } from "@/lib/data";
+import { SITE_URL, SITE_NAME, OG_IMAGE } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Especialidades",
-  description: "7 áreas de especialización jurídica: derecho penal, lavado de dinero, corporativo, laboral, notarial, asesoría internacional e investigaciones criminales.",
+  title: "Especialidades Jurídicas",
+  description:
+    "7 especialidades: derecho penal, lavado de dinero, corporativo, laboral, notarial, asesoría estratégica internacional e investigaciones criminales en CR.",
+  alternates: { canonical: `${SITE_URL}/especialidades` },
+  openGraph: {
+    type: "website",
+    url: `${SITE_URL}/especialidades`,
+    title: `Especialidades Jurídicas | ${SITE_NAME}`,
+    description:
+      "Derecho penal, lavado de dinero, corporativo, laboral, notarial, asesoría internacional e investigaciones criminales en Costa Rica.",
+    images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: `Especialidades | ${SITE_NAME}` }],
+  },
+  twitter: { card: "summary_large_image", title: `Especialidades Jurídicas | ${SITE_NAME}`, images: [OG_IMAGE] },
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Especialidades Jurídicas — Rivera Cheves & Asociados",
+  url: `${SITE_URL}/especialidades`,
+  numberOfItems: RC_AREAS.length,
+  itemListElement: RC_AREAS.map((a, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: a.t,
+    description: a.d,
+    url: `${SITE_URL}/especialidades`,
+  })),
 };
 
 const R = "#7e0102";
 
 export default function EspecialidadesPage() {
   return (
+    <>
+    <SchemaOrg data={serviceSchema} />
     <div className="rc-page">
 
       {/* ── HERO ── */}
@@ -86,5 +116,6 @@ export default function EspecialidadesPage() {
 
       <CTABand />
     </div>
+    </>
   );
 }

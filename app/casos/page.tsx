@@ -1,17 +1,46 @@
 import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
 import CTABand from "@/components/CTABand";
+import SchemaOrg from "@/components/SchemaOrg";
 import { RC_CASES } from "@/lib/data";
+import { SITE_URL, SITE_NAME, OG_IMAGE } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Casos destacados",
-  description: "Representación legal en los casos de femicidio más emblemáticos de Costa Rica. Nadia Peraza, Carla Stefaniak, Junieysis Merlo y más.",
+  title: "Casos de Alto Perfil",
+  description:
+    "Casos emblemáticos de femicidio y crimen en Costa Rica: Nadia Peraza (79 años), Carla Stefaniak (internacional), Junieysis Merlo y violencia de género.",
+  alternates: { canonical: `${SITE_URL}/casos` },
+  openGraph: {
+    type: "website",
+    url: `${SITE_URL}/casos`,
+    title: `Casos de Alto Perfil | ${SITE_NAME}`,
+    description:
+      "Representación legal en femicidios y casos de alto impacto en Costa Rica. Nadia Peraza (79 años), Carla Stefaniak y más.",
+    images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: `Casos | ${SITE_NAME}` }],
+  },
+  twitter: { card: "summary_large_image", title: `Casos de Alto Perfil | ${SITE_NAME}`, images: [OG_IMAGE] },
+};
+
+const caseListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Casos de Alto Perfil — Rivera Cheves & Asociados",
+  url: `${SITE_URL}/casos`,
+  numberOfItems: RC_CASES.length,
+  itemListElement: RC_CASES.map((c, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: c.name,
+    description: c.short,
+  })),
 };
 
 const R = "#7e0102";
 
 export default function CasosPage() {
   return (
+    <>
+    <SchemaOrg data={caseListSchema} />
     <div className="rc-page">
 
       {/* ── HERO ── */}
@@ -158,5 +187,6 @@ export default function CasosPage() {
 
       <CTABand />
     </div>
+    </>
   );
 }

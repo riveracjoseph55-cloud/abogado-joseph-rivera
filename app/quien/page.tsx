@@ -2,17 +2,36 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import CTABand from "@/components/CTABand";
+import SchemaOrg from "@/components/SchemaOrg";
 import { RC_FORMACION, RC_EXP, RC_DOCENCIA } from "@/lib/data";
+import { SITE_URL, SITE_NAME, schemaAttorney, schemaLegalService } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Quién es",
-  description: "Lic. Joseph Alfonso Rivera Cheves — abogado penalista costarricense con más de 10 años de trayectoria. Director del bufete Rivera Cheves & Asociados.",
+  title: "Abogado Penalista Joseph Rivera Cheves",
+  description:
+    "Lic. Joseph Alfonso Rivera Cheves — abogado penalista costarricense con +10 años de trayectoria. Máster en Compliance, Maestría en Derecho Penal. Director del bufete.",
+  alternates: { canonical: `${SITE_URL}/quien` },
+  openGraph: {
+    type: "profile",
+    url: `${SITE_URL}/quien`,
+    title: `Abogado Penalista Joseph Rivera Cheves | ${SITE_NAME}`,
+    description:
+      "Perfil profesional del Lic. Joseph Rivera Cheves: 10+ años en litigación penal, Máster en Compliance, docente universitario y referente mediático en CR.",
+    images: [{ url: `${SITE_URL}/images/joseph-hero.png`, width: 1200, height: 630, alt: "Lic. Joseph Alfonso Rivera Cheves" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `Abogado Penalista Joseph Rivera Cheves | ${SITE_NAME}`,
+    images: [`${SITE_URL}/images/joseph-hero.png`],
+  },
 };
 
 const R = "#7e0102";
 
 export default function QuienPage() {
   return (
+    <>
+    <SchemaOrg data={[schemaAttorney, schemaLegalService]} />
     <div className="rc-page">
 
       {/* ── HERO ── */}
@@ -222,5 +241,6 @@ export default function QuienPage() {
 
       <CTABand />
     </div>
+    </>
   );
 }
