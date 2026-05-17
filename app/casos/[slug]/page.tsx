@@ -340,7 +340,7 @@ export default async function CasoDetail({ params }: { params: Promise<{ slug: s
 
               <div style={{
                 display: "grid", gap: "clamp(20px,3vw,40px)",
-                gridTemplateColumns: `repeat(${c.gallery.length}, 1fr)`,
+                gridTemplateColumns: `repeat(${Math.min(c.gallery.length, 2)}, 1fr)`,
               }} className="case-gallery">
                 {c.gallery.map((g, i) => (
                   <Reveal key={i} delay={i * 100}>
