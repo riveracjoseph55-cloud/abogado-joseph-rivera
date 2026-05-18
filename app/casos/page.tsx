@@ -34,6 +34,7 @@ const caseListSchema = {
     position: i + 1,
     name: c.name,
     description: c.short,
+    url: `${SITE_URL}/casos/${c.slug}`,
   })),
 };
 

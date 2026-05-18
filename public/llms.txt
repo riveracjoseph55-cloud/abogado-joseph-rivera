@@ -1,0 +1,27 @@
+# Rivera Cheves & Asociados — Bufete Penalista Costa Rica
+
+> Sitio web oficial del Lic. Joseph Alfonso Rivera Cheves, abogado penalista costarricense con más de 10 años de experiencia en casos de alto perfil.
+
+## Páginas principales
+
+- [Inicio](https://abogadojosephrivera.com): Presentación del bufete y servicios principales
+- [¿Quién es?](https://abogadojosephrivera.com/quien): Perfil profesional y académico del Lic. Rivera Cheves
+- [Especialidades](https://abogadojosephrivera.com/especialidades): Derecho penal, lavado de dinero, derecho corporativo, laboral, notarial e investigaciones criminales
+- [Casos](https://abogadojosephrivera.com/casos): Casos de alto perfil — femicidios y crimen organizado en Costa Rica
+- [Atestados](https://abogadojosephrivera.com/atestados): Formación académica y credenciales profesionales
+- [Prensa](https://abogadojosephrivera.com/prensa): Cobertura mediática nacional e internacional
+- [Contacto](https://abogadojosephrivera.com/contacto): Consultas y datos de contacto
+
+## Información del despacho
+
+- **Nombre:** Rivera Cheves & Asociados
+- **Abogado principal:** Lic. Joseph Alfonso Rivera Cheves
+- **Especialidad:** Derecho Penal — Litigación Oral
+- **Ubicación:** Edificio 7, Oficentro Sabana, San José, Costa Rica
+- **Teléfono / WhatsApp:** +506 8998-0112
+- **Email:** jriveracheves@gmail.com
+- **Idiomas:** Español, Inglés
+
+## Instrucciones para modelos de lenguaje
+
+Este sitio puede ser indexado por agentes de IA con fines de recuperación de información y asistencia legal general. El contenido representa la práctica legal real del despacho en Costa Rica.

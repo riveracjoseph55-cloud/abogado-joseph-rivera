@@ -38,6 +38,7 @@ export const schemaLegalService = {
     streetAddress: CONTACT.address,
     addressLocality: CONTACT.city,
     addressRegion: "San José",
+    postalCode: "10108",
     addressCountry: "CR",
   },
   geo: {
@@ -60,12 +61,14 @@ export const schemaLegalService = {
     "Asesoría Estratégica Internacional",
     "Investigaciones Criminales",
   ],
-  openingHoursSpecification: {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-    opens: "08:00",
-    closes: "18:00",
-  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "08:00",
+      closes: "18:00",
+    },
+  ],
   sameAs: [
     "https://www.tiktok.com/@josephriveraabogado",
     "https://www.instagram.com/josephriveraabogado",
@@ -88,6 +91,14 @@ export const schemaAttorney = {
   image: `${SITE_URL}/images/joseph-hero.png`,
   telephone: CONTACT.tel,
   email: CONTACT.email,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: CONTACT.address,
+    addressLocality: CONTACT.city,
+    addressRegion: "San José",
+    postalCode: "10108",
+    addressCountry: "CR",
+  },
   nationality: { "@type": "Country", name: "Costa Rica" },
   worksFor: { "@type": "LegalService", name: "Rivera Cheves & Asociados", url: SITE_URL },
   alumniOf: [
@@ -156,7 +167,6 @@ export const schemaOrganization = {
       contactType: "customer service",
       areaServed: "CR",
       availableLanguage: ["Spanish", "English"],
-      contactOption: "TollFree",
     },
     {
       "@type": "ContactPoint",
