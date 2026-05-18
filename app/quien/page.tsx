@@ -7,9 +7,9 @@ import { RC_FORMACION, RC_EXP, RC_DOCENCIA, RC_DOCTRINA } from "@/lib/data";
 import { SITE_URL, SITE_NAME, schemaAttorney, schemaLegalService } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Abogado Penalista Joseph Rivera Cheves",
+  title: "Joseph Rivera Abogado Penalista Costa Rica",
   description:
-    "Lic. Joseph Alfonso Rivera Cheves — abogado penalista costarricense con +10 años de trayectoria. Máster en Compliance, Maestría en Derecho Penal. Director del bufete.",
+    "Joseph Rivera Cheves, abogado penalista en Costa Rica con +10 años de trayectoria. Máster en Compliance, Maestría en Derecho Penal. Director del bufete Rivera Cheves & Asociados.",
   alternates: { canonical: `${SITE_URL}/quien` },
   openGraph: {
     type: "profile",
@@ -46,7 +46,7 @@ export default function QuienPage() {
                 <div className="rc-eyebrow" style={{ marginBottom: 20 }}>El abogado · 01 / 04</div>
               </Reveal>
               <Reveal delay={80}>
-                <h1 className="rc-h1">Lic. Joseph Rivera <em className="rc-em">Cheves</em></h1>
+                <h1 className="rc-h1">Joseph Rivera <em className="rc-em">Abogado Penalista</em></h1>
               </Reveal>
               <Reveal delay={160}>
                 <p className="rc-lede" style={{ marginTop: 32 }}>

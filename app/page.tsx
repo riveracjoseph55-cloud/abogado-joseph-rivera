@@ -8,21 +8,21 @@ import { WA, RC_CASES, RC_AREAS, RC_PRESS } from "@/lib/data";
 import { SITE_URL, SITE_NAME, OG_IMAGE, schemaLegalService, schemaAttorney } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: { absolute: "Abogado Joseph Rivera Cheves | Derecho Penal Costa Rica" },
+  title: { absolute: "Abogado Penalista Costa Rica | Joseph Rivera Cheves" },
   description:
-    "Bufete penalista en Costa Rica con +10 años de experiencia. Femicidios, crimen organizado, delitos financieros y asesoría internacional. Defensa experta.",
+    "Abogado penalista en Costa Rica — Lic. Joseph Rivera Cheves. +10 años en femicidios, crimen organizado y delitos financieros. Consulta disponible 24/7.",
   alternates: { canonical: SITE_URL },
   openGraph: {
     type: "website",
     url: SITE_URL,
-    title: "Abogado Joseph Rivera Cheves | Derecho Penal Costa Rica",
+    title: "Abogado Penalista Costa Rica | Joseph Rivera Cheves",
     description:
-      "Bufete penalista en Costa Rica. Femicidios, crimen organizado, delitos financieros y asesoría internacional. Lic. Joseph Alfonso Rivera Cheves.",
-    images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: `${SITE_NAME} — Bufete Penalista Costa Rica` }],
+      "Abogado penalista en Costa Rica. Femicidios, crimen organizado, delitos financieros y asesoría internacional. Lic. Joseph Alfonso Rivera Cheves.",
+    images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: `${SITE_NAME} — Abogado Penalista Costa Rica` }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Abogado Joseph Rivera Cheves | Derecho Penal Costa Rica",
+    title: "Abogado Penalista Costa Rica | Joseph Rivera Cheves",
     images: [OG_IMAGE],
   },
 };
@@ -58,8 +58,8 @@ export default function Home() {
 
               <Reveal delay={80}>
                 <h1 className="rc-display" style={{ marginBottom: 32 }}>
-                  Compromiso<br/>
-                  con la <em className="rc-em">Justicia</em>.
+                  Abogado Penalista<br/>
+                  en <em className="rc-em">Costa Rica</em>.
                 </h1>
               </Reveal>
 

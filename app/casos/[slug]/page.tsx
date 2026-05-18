@@ -21,8 +21,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const c = RC_CASES.find(x => x.slug === slug);
   if (!c) return { title: "Caso no encontrado" };
 
-  const title = `${c.name} — Caso ${c.year}`;
-  const description = c.short.length > 155 ? c.short.slice(0, 152) + "..." : c.short;
+  const title = `Caso ${c.name} | Abogado Joseph Rivera`;
+  const description = `Abogado Joseph Rivera Cheves — ${c.short.length > 130 ? c.short.slice(0, 127) + "..." : c.short}`;
   const image = `${SITE_URL}/images/${c.media}`;
   const url = `${SITE_URL}/casos/${c.slug}`;
 
