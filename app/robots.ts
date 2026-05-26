@@ -12,7 +12,10 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: "Bingbot",   allow: "/" },
       { userAgent: "Applebot",  allow: "/" },
     ],
-    sitemap: "https://abogadojosephrivera.com/sitemap.xml",
+    sitemap: [
+      "https://abogadojosephrivera.com/sitemap.xml",
+      "https://abogadojosephrivera.com/image-sitemap.xml",
+    ],
     host:    "https://abogadojosephrivera.com",
   };
 }
