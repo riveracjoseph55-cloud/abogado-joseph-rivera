@@ -24,7 +24,7 @@ export default function Footer() {
           {/* Brand col */}
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 24 }}>
-              <Image src="/images/logo.png" alt="" width={200} height={88}
+              <Image src="/images/logo.png" alt="Rivera Cheves & Asociados — Bufete Penalista Costa Rica" width={200} height={88}
                 style={{ height: 72, width: "auto", filter: "brightness(0) invert(1)", objectFit: "contain" }}
               />
               <div style={{ lineHeight: 1.1 }}>
