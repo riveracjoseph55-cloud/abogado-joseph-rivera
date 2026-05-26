@@ -71,7 +71,7 @@ export default function QuienPage() {
               <div style={{ aspectRatio: "4/5", background: "#0d0d0d", overflow: "hidden" }}>
                 <Image
                   src="/images/joseph/retrato.jpg"
-                  alt="Lic. Joseph Alfonso Rivera Cheves — abogado penalista costarricense"
+                  alt="Lic. Joseph Alfonso Rivera Cheves, abogado penalista en Costa Rica — especialista en femicidios, crimen organizado y lavado de dinero — San José"
                   width={800} height={1000}
                   style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
                   sizes="(max-width: 900px) 100vw, 40vw"
@@ -241,7 +241,7 @@ export default function QuienPage() {
               <figure style={{ margin: 0, position: "relative", aspectRatio: "4/3", overflow: "hidden", background: "#1a1a1a" }}>
                 <Image
                   src="/images/joseph/prensa.jpg"
-                  alt="Lic. Joseph Rivera Cheves declarando ante medios nacionales: Multimedios, Trivisión, Canal 7"
+                  alt="Abogado penalista Joseph Rivera Cheves declarando ante medios nacionales — Multimedios, Trivisión, Canal 7 — caso Nadia Peraza y femicidios Costa Rica"
                   fill
                   sizes="(max-width: 900px) 100vw, 60vw"
                   style={{ objectFit: "cover", objectPosition: "center" }}
@@ -265,7 +265,7 @@ export default function QuienPage() {
               <figure style={{ margin: 0, position: "relative", aspectRatio: "4/3", overflow: "hidden", background: "#1a1a1a" }}>
                 <Image
                   src="/images/joseph/podcast.jpg"
-                  alt="Lic. Joseph Rivera Cheves en estudio de podcast — análisis jurídico en formato extendido"
+                  alt="Lic. Joseph Rivera Cheves en podcast de análisis jurídico penal — derecho penal, compliance y crimen organizado en Costa Rica"
                   fill
                   sizes="(max-width: 900px) 100vw, 40vw"
                   style={{ objectFit: "cover", objectPosition: "center" }}

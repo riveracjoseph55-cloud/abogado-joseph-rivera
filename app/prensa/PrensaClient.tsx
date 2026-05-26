@@ -80,7 +80,7 @@ export default function PrensaClient() {
       }} className="prensa-banner">
         <Image
           src="/images/joseph/prensa.jpg"
-          alt="Lic. Joseph Rivera Cheves ante medios de comunicación nacionales — Multimedios, Trivisión, Canal 7, Central de Noticias"
+          alt="Abogado penalista Joseph Rivera Cheves en cobertura mediática nacional — caso Nadia Peraza, Multimedios, Trivisión, Canal 7, Central de Noticias — Costa Rica"
           fill
           sizes="100vw"
           priority
@@ -206,7 +206,7 @@ export default function PrensaClient() {
                       }}>
                         <Image
                           src={p.image}
-                          alt={`Captura: ${p.t}`}
+                          alt={`${p.medio} — ${p.t} — abogado Joseph Rivera Costa Rica`}
                           fill
                           sizes="(max-width: 900px) 100vw, 50vw"
                           style={{ objectFit: "cover" }}

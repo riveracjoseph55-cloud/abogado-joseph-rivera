@@ -50,7 +50,7 @@ export default function Navbar() {
         <Link href="/" style={{ display: "flex", alignItems: "center", gap: 16 }}>
           <Image
             src="/images/logo.png"
-            alt="Rivera Cheves & Asociados"
+            alt="Rivera Cheves & Asociados — Bufete Penalista Costa Rica"
             width={200} height={72}
             style={{ height: 64, width: "auto", filter: "brightness(0) invert(1)", objectFit: "contain", flexShrink: 0 }}
             priority

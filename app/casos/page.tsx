@@ -87,7 +87,7 @@ export default function CasosPage() {
       }}>
         <Image
           src="/images/joseph/tribunal.jpg"
-          alt="Lic. Joseph Rivera Cheves en audiencia oral junto a colega abogado — tribunal penal de Costa Rica"
+          alt="Abogado penalista Joseph Rivera Cheves en audiencia oral activa — Tribunal Penal de Costa Rica — defensa en femicidios y crimen organizado"
           fill
           sizes="100vw"
           priority

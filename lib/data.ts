@@ -44,25 +44,25 @@ export const RC_CASES = [
     gallery: [
       {
         src: "/images/casos/nadia-peraza-tribunal.jpg",
-        alt: "Lic. Joseph Rivera Cheves junto a Marilyn Espinoza, madre de Nadia Peraza, en audiencia ante el Tribunal Penal de Heredia",
+        alt: "Abogado penalista Joseph Rivera Cheves junto a Marilyn Espinoza, madre de Nadia Peraza, en audiencia ante el Tribunal Penal de Heredia — condena 50 años femicidio Costa Rica 2026",
         caption: "Audiencia oral · Tribunal Penal de Heredia",
         sub: "El Lic. Rivera Cheves junto a Marilyn Espinoza, madre de Nadia Peraza, sosteniendo la querella privada y la acción civil resarcitoria que llevó a la condena de 50 años — máximo legal en Costa Rica.",
       },
       {
         src: "/images/casos/nadia-peraza-familia.jpg",
-        alt: "Lic. Joseph Rivera Cheves con los padres de Nadia Peraza durante la preparación del caso",
+        alt: "Abogado Joseph Rivera Cheves con los padres de Nadia Peraza durante la preparación del caso de femicidio — bufete penalista Costa Rica",
         caption: "Junto a la familia Peraza Espinoza",
         sub: "Acompañamiento integral a la familia durante todo el proceso. Marilyn Espinoza viste el recordatorio «Nadia Peraza · Mamá Lin», símbolo de la memoria que sostiene este caso.",
       },
       {
         src: "/images/casos/nadia-peraza-tv-trivision.jpg",
-        alt: "Lic. Joseph Rivera identificado en Noticias Trivisión como Defensor de la Familia de Nadia Peraza",
+        alt: "Abogado penalista Joseph Rivera Cheves identificado en Noticias Trivisión como defensor de la familia de Nadia Peraza — caso femicidio Costa Rica",
         caption: "Noticias Trivisión · 12:21",
         sub: "Cobertura televisiva nacional. El Lic. Rivera Cheves se consolidó como vocero público de la familia Peraza durante toda la etapa procesal y mediática del caso.",
       },
       {
         src: "/images/casos/nadia-peraza-tribunal-prensa.jpg",
-        alt: "Lic. Joseph Rivera Cheves a la salida de audiencia con familiares de Nadia Peraza presentes",
+        alt: "Abogado Joseph Rivera Cheves a la salida de audiencia con familiares de Nadia Peraza — Tribunal Penal Heredia — condena histórica 50 años femicidio",
         caption: "Tribunales · acompañamiento familiar",
         sub: "Los familiares de Nadia llevaron al tribunal sus recordatorios y camisetas con el rostro de la víctima en cada audiencia — una presencia que dignificó el proceso.",
       },

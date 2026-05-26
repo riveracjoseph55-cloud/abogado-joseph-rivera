@@ -125,7 +125,7 @@ export default function Home() {
               }}>
                 <Image
                   src="/images/joseph/editorial.jpg"
-                  alt="Lic. Joseph Alfonso Rivera Cheves — abogado penalista costarricense"
+                  alt="Lic. Joseph Alfonso Rivera Cheves, abogado penalista en Costa Rica — femicidios, crimen organizado y delitos financieros — Bufete Rivera Cheves, San José"
                   fill
                   style={{ objectFit: "cover", objectPosition: "center" }}
                   priority

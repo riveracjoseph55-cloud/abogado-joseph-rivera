@@ -103,7 +103,7 @@ export default function AtestadosPage() {
             }}>
               <Image
                 src="/images/curriculo.jpg"
-                alt="Currículo y formación académica del Lic. Joseph Rivera Cheves"
+                alt="Currículo del abogado penalista Joseph Rivera Cheves — Máster en Compliance Penal, Maestría Derecho Penal, Auditor ISO 37001 — formación académica Costa Rica"
                 width={900} height={1200}
                 style={{ width: "100%", height: "auto" }}
                 sizes="(max-width: 900px) 100vw, 900px"
