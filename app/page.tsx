@@ -5,7 +5,7 @@ import Reveal from "@/components/Reveal";
 import InstagramReel from "@/components/InstagramReel";
 import SchemaOrg from "@/components/SchemaOrg";
 import { WA, RC_CASES, RC_AREAS, RC_PRESS } from "@/lib/data";
-import { SITE_URL, SITE_NAME, OG_IMAGE, schemaLegalService, schemaAttorney } from "@/lib/seo";
+import { SITE_URL, SITE_NAME, OG_IMAGE, schemaLegalService, schemaAttorney, schemaFAQPage } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: { absolute: "Abogado Penalista Costa Rica | Joseph Rivera Cheves" },
@@ -28,6 +28,29 @@ export const metadata: Metadata = {
 };
 
 const R = "#7e0102";
+
+const faqs = [
+  {
+    q: "¿Quién es el abogado Joseph Rivera Cheves?",
+    a: "El Lic. Joseph Alfonso Rivera Cheves es un abogado penalista costarricense con más de 10 años de trayectoria. Director del bufete Rivera Cheves & Asociados, ubicado en el Oficentro Sabana, San José. Máster en Compliance Penal, Auditor Líder ISO 37001 y docente en 6 universidades costarricenses. Ha representado a familias en los casos de femicidio más emblemáticos del país.",
+  },
+  {
+    q: "¿En qué especialidades se enfoca el bufete de Joseph Rivera en Costa Rica?",
+    a: "El bufete Rivera Cheves se especializa en derecho penal, lavado de dinero y crimen organizado, derecho corporativo y compliance, derecho laboral, derecho notarial, investigaciones criminales y asesoría estratégica internacional para empresas y particulares con vínculos en Centroamérica.",
+  },
+  {
+    q: "¿Qué es el caso Nadia Peraza?",
+    a: "El caso Nadia Peraza es uno de los femicidios más conmocionantes de Costa Rica: una adulta mayor de 79 años asesinada en circunstancias que sacudieron a la opinión pública. El Lic. Joseph Rivera Cheves representó a la familia y obtuvo una condena de 50 años de prisión — el máximo legal vigente en Costa Rica —, equivalente a una pena nominal de 79 años.",
+  },
+  {
+    q: "¿Cómo contactar al abogado penalista Joseph Rivera?",
+    a: "Puede contactar al Lic. Joseph Rivera Cheves por WhatsApp al +506 8998-0112 (disponible 24/7), por correo a jriveracheves@gmail.com, o visitando las oficinas en el Edificio 7, Oficentro La Sabana, San José, Costa Rica. El bufete atiende casos en todo el territorio nacional.",
+  },
+  {
+    q: "¿Cuánto cuesta una consulta con un abogado penalista en Costa Rica?",
+    a: "Los honorarios de un abogado penalista en Costa Rica varían según la complejidad del caso, el tipo de delito y la etapa procesal. El bufete Rivera Cheves & Asociados ofrece una primera consulta personalizada para evaluar el caso y proporcionar una estimación transparente. Contáctenos para coordinar una cita sin compromiso.",
+  },
+];
 
 export default function Home() {
   return (
@@ -401,6 +424,45 @@ export default function Home() {
         <style>{`
           @media (max-width: 1100px) { .press-grid { grid-template-columns: repeat(2,1fr) !important; } }
           @media (max-width: 640px)  { .press-grid { grid-template-columns: 1fr !important; } }
+        `}</style>
+      </section>
+
+      {/* ── FAQ ── */}
+      <section style={{ background: "var(--paper-2)", padding: "var(--pad-y) 0" }}>
+        <SchemaOrg data={schemaFAQPage(faqs)} />
+        <div className="rc-wrap">
+          <Reveal>
+            <div className="rc-eyebrow" style={{ marginBottom: 16 }}>Preguntas frecuentes</div>
+            <h2 className="rc-h2" style={{ marginBottom: "clamp(32px,4vw,64px)", maxWidth: "22ch" }}>
+              Todo sobre el <em className="rc-em">Abogado Joseph Rivera</em>
+            </h2>
+          </Reveal>
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            {faqs.map((f, i) => (
+              <Reveal key={i} delay={i * 60}>
+                <div style={{
+                  borderTop: "1px solid var(--hairline)",
+                  padding: "clamp(24px,3vw,40px) 0",
+                  display: "grid",
+                  gridTemplateColumns: "1fr 1.4fr",
+                  gap: "clamp(24px,4vw,64px)",
+                }} className="faq-row">
+                  <h3 style={{
+                    fontFamily: "var(--font-sans, system-ui)",
+                    fontWeight: 600,
+                    fontSize: "clamp(15px,1.6vw,18px)",
+                    lineHeight: 1.4,
+                    color: "#0d0d0d",
+                  }}>{f.q}</h3>
+                  <p className="rc-body">{f.a}</p>
+                </div>
+              </Reveal>
+            ))}
+            <div style={{ borderTop: "1px solid var(--hairline)" }}/>
+          </div>
+        </div>
+        <style>{`
+          @media (max-width: 760px) { .faq-row { grid-template-columns: 1fr !important; gap: 12px !important; } }
         `}</style>
       </section>
 

@@ -6,19 +6,19 @@ import { RC_AREAS, WA } from "@/lib/data";
 import { SITE_URL, SITE_NAME, OG_IMAGE } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Especialidades Jurídicas",
+  title: "Especialidades del Abogado Penalista Joseph Rivera | Costa Rica",
   description:
-    "7 especialidades: derecho penal, lavado de dinero, corporativo, laboral, notarial, asesoría estratégica internacional e investigaciones criminales en CR.",
+    "Abogado penalista Joseph Rivera Cheves — 7 especialidades: derecho penal, lavado de dinero, corporativo, laboral, notarial, asesoría internacional e investigaciones criminales en Costa Rica.",
   alternates: { canonical: `${SITE_URL}/especialidades` },
   openGraph: {
     type: "website",
     url: `${SITE_URL}/especialidades`,
-    title: `Especialidades Jurídicas | ${SITE_NAME}`,
+    title: `Especialidades del Abogado Penalista Joseph Rivera | ${SITE_NAME}`,
     description:
-      "Derecho penal, lavado de dinero, corporativo, laboral, notarial, asesoría internacional e investigaciones criminales en Costa Rica.",
+      "Abogado penalista Joseph Rivera Cheves — derecho penal, lavado de dinero, crimen organizado, corporativo, laboral, notarial e investigaciones criminales en Costa Rica.",
     images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: `Especialidades | ${SITE_NAME}` }],
   },
-  twitter: { card: "summary_large_image", title: `Especialidades Jurídicas | ${SITE_NAME}`, images: [OG_IMAGE] },
+  twitter: { card: "summary_large_image", title: `Especialidades Abogado Joseph Rivera | ${SITE_NAME}`, images: [OG_IMAGE] },
 };
 
 const serviceSchema = {

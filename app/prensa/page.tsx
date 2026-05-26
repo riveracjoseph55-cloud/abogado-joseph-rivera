@@ -5,7 +5,7 @@ import { RC_PRESS } from "@/lib/data";
 import PrensaClient from "./PrensaClient";
 
 export const metadata: Metadata = {
-  title: "Prensa y Publicaciones",
+  title: "Prensa | Abogado Penalista Joseph Rivera Costa Rica",
   description:
     `Cobertura mediática del bufete Rivera Cheves en La Nación, La Prensa (Nicaragua), Infobae, CRHoy, Diario Extra, Delfino.cr, ElMundo.cr y Tico Times. ${RC_PRESS.length} publicaciones documentadas.`,
   alternates: { canonical: `${SITE_URL}/prensa` },

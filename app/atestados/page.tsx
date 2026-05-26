@@ -7,9 +7,9 @@ import { RC_FORMACION, RC_DOCENCIA } from "@/lib/data";
 import { SITE_URL, SITE_NAME, OG_IMAGE, schemaAttorney } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Formación y Atestados",
+  title: "Formación y Atestados | Abogado Joseph Rivera Cheves",
   description:
-    "Formación académica del Lic. Joseph Rivera Cheves: Máster en Compliance (España/Murcia), Maestría Derecho Penal, Temple University. Docente en 6 universidades CR.",
+    "Formación académica del Lic. Joseph Rivera Cheves, abogado penalista en Costa Rica: Máster en Compliance, Maestría Derecho Penal, Temple University. Docente en 6 universidades.",
   alternates: { canonical: `${SITE_URL}/atestados` },
   openGraph: {
     type: "website",

@@ -53,6 +53,12 @@ export const metadata: Metadata = {
   generator: "Next.js",
   referrer: "origin-when-cross-origin",
   keywords: [
+    "abogado joseph rivera",
+    "joseph rivera",
+    "joseph rivera abogado",
+    "abogado penalista costa rica",
+    "nadia peraza",
+    "nadia peraza abogado",
     "abogado penal Costa Rica",
     "defensor penal Costa Rica",
     "femicidio Costa Rica",

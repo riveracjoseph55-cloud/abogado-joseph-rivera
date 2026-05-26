@@ -8,19 +8,19 @@ import { RC_CASES } from "@/lib/data";
 import { SITE_URL, SITE_NAME, OG_IMAGE } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Casos de Alto Perfil",
+  title: "Casos de Alto Perfil | Abogado Penalista Joseph Rivera Costa Rica",
   description:
-    "Casos emblemáticos de femicidio y crimen en Costa Rica: Nadia Peraza (79 años), Carla Stefaniak (internacional), Junieysis Merlo y violencia de género.",
+    "Casos de femicidio y crimen en Costa Rica: Nadia Peraza (79 años), Carla Stefaniak, Junieysis Merlo. Defensa legal del Lic. Joseph Rivera Cheves — abogado penalista.",
   alternates: { canonical: `${SITE_URL}/casos` },
   openGraph: {
     type: "website",
     url: `${SITE_URL}/casos`,
-    title: `Casos de Alto Perfil | ${SITE_NAME}`,
+    title: `Casos de Alto Perfil | Abogado Joseph Rivera | ${SITE_NAME}`,
     description:
-      "Representación legal en femicidios y casos de alto impacto en Costa Rica. Nadia Peraza (79 años), Carla Stefaniak y más.",
+      "Femicidios y casos de alto impacto en Costa Rica. Nadia Peraza (79 años), Carla Stefaniak, Junieysis Merlo — representación del Lic. Joseph Rivera Cheves.",
     images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: `Casos | ${SITE_NAME}` }],
   },
-  twitter: { card: "summary_large_image", title: `Casos de Alto Perfil | ${SITE_NAME}`, images: [OG_IMAGE] },
+  twitter: { card: "summary_large_image", title: `Casos Joseph Rivera | Abogado Penalista Costa Rica`, images: [OG_IMAGE] },
 };
 
 const caseListSchema = {
