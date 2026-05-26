@@ -229,6 +229,87 @@ export const RC_CASES = [
   },
 ];
 
+// ── SEO por caso — título, descripción y keywords específicos ─────────────
+
+export const RC_CASES_SEO: Record<string, {
+  title: string;
+  desc: string;
+  keywords: string[];
+}> = {
+  "nadia-peraza": {
+    title: "Nadia Peraza Espinoza — Femicidio Heredia 2026 | Abogado Joseph Rivera",
+    desc: "Caso Nadia Peraza: femicidio con desmembramiento en Heredia, CR. Condena histórica 50 años (máximo legal). Representación por el Lic. Joseph Rivera Cheves, abogado penalista.",
+    keywords: [
+      "nadia peraza",
+      "nadia peraza espinoza",
+      "caso nadia peraza",
+      "nadia peraza costa rica",
+      "jeremy buzano paisano",
+      "femicidio heredia 2024",
+      "pena maxima 50 años costa rica",
+      "caso refrigeradora heredia",
+      "nadia peraza abogado",
+      "nadia peraza sentencia",
+    ],
+  },
+  "carla-stefaniak": {
+    title: "Carla Stefaniak — Caso Escazú Costa Rica 2018 | Abogado Joseph Rivera",
+    desc: "Caso Carla Stefaniak: turista estadounidense asesinada en Airbnb de Escazú 2018. Cooperación FBI. Representación del padre por el Lic. Joseph Rivera Cheves, abogado penalista Costa Rica.",
+    keywords: [
+      "carla stefaniak",
+      "caso carla stefaniak",
+      "carla stefaniak costa rica",
+      "carla stefaniak escazu",
+      "carla stefaniak airbnb",
+      "fbi costa rica homicidio 2018",
+      "joseph rivera carla stefaniak",
+      "caso airbnb escazu",
+    ],
+  },
+  "junieysis-merlo": {
+    title: "Junieysis Merlo — Femicidio Santa Ana 2026 | Abogado Joseph Rivera",
+    desc: "Caso Junieysis Merlo: ciudadana nicaragüense asesinada en Santa Ana CR, 2026. Representación pro-bono. El régimen de Ortega vetó al Lic. Joseph Rivera Cheves. Abogado penalista Costa Rica.",
+    keywords: [
+      "junieysis merlo",
+      "junieysis merlo espinoza",
+      "caso junieysis merlo",
+      "femicidio santa ana 2026",
+      "caso nicaragua costa rica",
+      "abogado pro bono femicidio",
+      "joseph rivera junieysis merlo",
+      "ortega abogado costarricense",
+    ],
+  },
+  "luany-salazar": {
+    title: "Luany Salazar — Homicidio 3 Debates 35 Años | Abogado Joseph Rivera",
+    desc: "Caso Luany Salazar: 3 juicios en 4 años hasta lograr 35 años (pena máxima homicidio calificado). Representación de la madre por el Lic. Joseph Rivera Cheves, abogado penalista Costa Rica.",
+    keywords: [
+      "luany salazar",
+      "luany salazar zamora",
+      "caso luany salazar",
+      "kenneth mejia chavarria hippie",
+      "homicidio calificado pena maxima",
+      "tres debates orales costa rica",
+      "joseph rivera luany salazar",
+      "caso 3 juicios costa rica",
+    ],
+  },
+  "yendry-loaiza": {
+    title: "Yendry Loaiza — Caso Limón Costa Rica 2019 | Abogado Joseph Rivera",
+    desc: "Caso Yendry Loaiza: menor de 16 años hallada en fosa clandestina en Matina, Limón 2019. Bufete reactivó causa archivada. Representación por el Lic. Joseph Rivera Cheves, abogado penalista.",
+    keywords: [
+      "yendry loaiza",
+      "yendry loaiza fernandez",
+      "caso yendry loaiza",
+      "femicidio limon costa rica",
+      "fosa clandestina matina limon",
+      "caso limon costa rica 2019",
+      "joseph rivera yendry loaiza",
+      "caso menor edad limon",
+    ],
+  },
+};
+
 // Litigación recursiva ante Sala Tercera (Casación Penal)
 export const RC_CASACIONES = {
   intro: "Defensa exitosa de sentencias condenatorias en sede de casación penal ante la Sala Tercera de la Corte Suprema de Justicia. Cuando la defensa técnica de los imputados argumenta contaminación de escenas, prueba espuria o nulidades formales para revertir condenas, el bufete sostiene la firmeza técnica de la prueba testimonial y científica.",

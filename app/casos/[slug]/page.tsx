@@ -7,7 +7,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import CTABand from "@/components/CTABand";
 import Reveal from "@/components/Reveal";
 import InstagramReel from "@/components/InstagramReel";
-import { RC_CASES, WA } from "@/lib/data";
+import { RC_CASES, RC_CASES_SEO, WA } from "@/lib/data";
 import { SITE_URL, SITE_NAME, OG_IMAGE, AUTHOR } from "@/lib/seo";
 
 const R = "#7e0102";
@@ -21,39 +21,49 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const c = RC_CASES.find(x => x.slug === slug);
   if (!c) return { title: "Caso no encontrado" };
 
-  const title = `Caso ${c.name} | Abogado Joseph Rivera`;
-  const description = `Abogado Joseph Rivera Cheves — ${c.short.length > 130 ? c.short.slice(0, 127) + "..." : c.short}`;
+  const seo   = RC_CASES_SEO[slug];
+  const title = seo?.title ?? `Caso ${c.name} | Abogado Joseph Rivera Costa Rica`;
+  const description = seo?.desc ??
+    `Caso ${c.name} — ${c.location}. ${c.short.slice(0, 120)}... Lic. Joseph Rivera Cheves, abogado penalista Costa Rica.`;
   const image = `${SITE_URL}/images/${c.media}`;
-  const url = `${SITE_URL}/casos/${c.slug}`;
+  const url   = `${SITE_URL}/casos/${c.slug}`;
+
+  const keywords = [
+    ...(seo?.keywords ?? []),
+    c.name,
+    `caso ${c.name}`,
+    `${c.name} abogado`,
+    "joseph rivera",
+    "abogado joseph rivera",
+    "abogado penalista costa rica",
+    "femicidio costa rica",
+    ...c.tags,
+  ];
 
   return {
     title,
     description,
     alternates: { canonical: url },
-    keywords: [
-      c.name,
-      `caso ${c.name}`,
-      `${c.name} abogado`,
-      "joseph rivera",
-      "abogado joseph rivera",
-      "abogado penalista costa rica",
-      "femicidio costa rica",
-      ...c.tags,
-    ],
+    keywords,
     openGraph: {
       type: "article",
       url,
-      title: `${title} | ${SITE_NAME}`,
+      title,
       description,
-      images: [{ url: image, width: 1200, height: 630, alt: c.name }],
+      images: [{
+        url: image,
+        width: 1200,
+        height: 900,
+        alt: `Caso ${c.name} — abogado penalista Joseph Rivera Cheves — ${c.location}`,
+      }],
       publishedTime: `${c.year}-01-01`,
       authors: [`${SITE_URL}/quien`],
       section: "Casos de Alto Perfil",
-      tags: c.tags,
+      tags: keywords.slice(0, 10),
     },
     twitter: {
       card: "summary_large_image",
-      title: `${title} | ${SITE_NAME}`,
+      title,
       description,
       images: [image],
     },
@@ -70,35 +80,59 @@ export default async function CasoDetail({ params }: { params: Promise<{ slug: s
   const url = `${SITE_URL}/casos/${c.slug}`;
 
   // Schema NewsArticle + LegalCase combinado
+  const seo = RC_CASES_SEO[c.slug];
+  const allKeywords = [
+    ...(seo?.keywords ?? []),
+    c.name, `caso ${c.name}`,
+    "joseph rivera", "abogado joseph rivera",
+    "abogado penalista costa rica", "femicidio costa rica",
+    ...c.tags,
+  ].join(", ");
+
   const caseSchema = {
     "@context": "https://schema.org",
     "@type": ["NewsArticle", "LegalCase"],
     "@id": url,
-    headline: c.name,
+    headline: seo?.title ?? c.name,
     alternativeHeadline: c.headline,
-    description: c.short,
+    description: seo?.desc ?? c.short,
     url,
-    image: `${SITE_URL}/images/${c.media}`,
+    image: {
+      "@type": "ImageObject",
+      url: `${SITE_URL}/images/${c.media}`,
+      width: 1200,
+      height: 900,
+    },
     datePublished: `${c.year}-01-01`,
-    dateModified: `${c.year}-12-31`,
+    dateModified: new Date().toISOString().split("T")[0],
     author: {
       "@type": "Person",
       name: AUTHOR,
       url: `${SITE_URL}/quien`,
       jobTitle: "Abogado Penalista",
+      worksFor: { "@type": "LegalService", name: SITE_NAME, url: SITE_URL },
     },
     publisher: {
       "@type": "Organization",
       name: SITE_NAME,
-      logo: { "@type": "ImageObject", url: `${SITE_URL}/images/logo.png` },
+      url: SITE_URL,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/images/logo.png`,
+        width: 200,
+        height: 200,
+      },
     },
-    keywords: c.tags.join(", "),
-    locationCreated: { "@type": "Place", name: c.location },
-    about: {
-      "@type": "Person",
-      name: c.name,
+    keywords: allKeywords,
+    locationCreated: {
+      "@type": "Place",
+      name: c.location,
+      address: { "@type": "PostalAddress", addressCountry: "CR" },
     },
+    about: { "@type": "Person", name: c.name },
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    inLanguage: "es-CR",
+    isAccessibleForFree: true,
   };
 
   return (
