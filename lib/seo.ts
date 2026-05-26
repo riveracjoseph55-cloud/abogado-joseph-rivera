@@ -22,7 +22,7 @@ export const schemaLegalService = {
   alternateName: "Bufete Joseph Rivera Cheves",
   url: SITE_URL,
   logo: { "@type": "ImageObject", url: `${SITE_URL}/images/logo.png`, width: 200, height: 200 },
-  image: OG_IMAGE,
+  image: { "@type": "ImageObject", url: OG_IMAGE, width: 1200, height: 630 },
   description:
     "Bufete penalista en Costa Rica con más de 10 años de experiencia. Defensa en femicidios, crimen organizado, delitos financieros y asesoría internacional.",
   telephone: CONTACT.tel,
