@@ -19,9 +19,19 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `Prensa y Publicaciones | ${SITE_NAME}`,
+    title: `Prensa | Abogado Joseph Rivera | ${SITE_NAME}`,
     images: [OG_IMAGE],
   },
+  keywords: [
+    "joseph rivera prensa noticias",
+    "abogado joseph rivera entrevista",
+    "nadia peraza noticias prensa",
+    "abogado penalista costa rica medios",
+    "joseph rivera la nacion",
+    "joseph rivera infobae",
+    "rivera cheves publicaciones juridicas",
+    "abogado penalista cr noticias",
+  ],
 };
 
 const articleSchemas = RC_PRESS

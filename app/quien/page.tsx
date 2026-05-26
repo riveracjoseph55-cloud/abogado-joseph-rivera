@@ -24,6 +24,17 @@ export const metadata: Metadata = {
     title: `Abogado Penalista Joseph Rivera Cheves | ${SITE_NAME}`,
     images: [`${SITE_URL}/images/joseph-hero.png`],
   },
+  keywords: [
+    "joseph rivera abogado penalista",
+    "joseph rivera cheves",
+    "lic joseph rivera",
+    "joseph rivera",
+    "abogado penalista costa rica",
+    "abogado penal san jose curriculum",
+    "abogado compliance penal costa rica",
+    "master compliance abogado costa rica",
+    "docente derecho penal costa rica",
+  ],
 };
 
 const R = "#7e0102";

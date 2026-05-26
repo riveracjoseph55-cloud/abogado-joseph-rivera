@@ -76,11 +76,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     alternates: { languages: { "es-CR": `${BASE}/casos/${c.slug}` } },
   }));
 
-  const legalPages: MetadataRoute.Sitemap = [
-    { url: `${BASE}/privacidad`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
-    { url: `${BASE}/terminos`,   lastModified: now, changeFrequency: "yearly", priority: 0.3 },
-    { url: `${BASE}/cookies`,    lastModified: now, changeFrequency: "yearly", priority: 0.3 },
-  ];
+  // Páginas legales excluidas del sitemap (robots: noindex)
 
-  return [...staticPages, ...casePages, ...legalPages];
+  return [...staticPages, ...casePages];
 }

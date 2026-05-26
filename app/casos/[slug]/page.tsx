@@ -30,6 +30,16 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title,
     description,
     alternates: { canonical: url },
+    keywords: [
+      c.name,
+      `caso ${c.name}`,
+      `${c.name} abogado`,
+      "joseph rivera",
+      "abogado joseph rivera",
+      "abogado penalista costa rica",
+      "femicidio costa rica",
+      ...c.tags,
+    ],
     openGraph: {
       type: "article",
       url,

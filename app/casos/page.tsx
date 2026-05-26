@@ -21,6 +21,18 @@ export const metadata: Metadata = {
     images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: `Casos | ${SITE_NAME}` }],
   },
   twitter: { card: "summary_large_image", title: `Casos Joseph Rivera | Abogado Penalista Costa Rica`, images: [OG_IMAGE] },
+  keywords: [
+    "nadia peraza",
+    "caso nadia peraza",
+    "nadia peraza abogado",
+    "joseph rivera nadia peraza",
+    "casos femicidio costa rica",
+    "abogado femicidio costa rica",
+    "caso carla stefaniak",
+    "abogado joseph rivera casos",
+    "abogado penalista costa rica casos",
+    "femicidio abogado san jose",
+  ],
 };
 
 const caseListSchema = {

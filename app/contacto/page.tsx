@@ -21,6 +21,16 @@ export const metadata: Metadata = {
     title: `Contacto | ${SITE_NAME}`,
     images: [OG_IMAGE],
   },
+  keywords: [
+    "contacto abogado joseph rivera",
+    "abogado penalista costa rica contacto",
+    "bufete penal san jose telefono",
+    "abogado whatsapp costa rica",
+    "oficentro sabana abogado penal",
+    "abogado penal 24 horas costa rica",
+    "consulta abogado penal costa rica",
+    "joseph rivera cheves contacto",
+  ],
 };
 
 export default function ContactoPage() {

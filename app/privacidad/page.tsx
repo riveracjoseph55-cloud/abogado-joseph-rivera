@@ -16,6 +16,7 @@ export const metadata: Metadata = {
     description: "Tratamiento de datos personales conforme a Ley 8968 de Costa Rica.",
     images: [{ url: OG_IMAGE, width: 1200, height: 630 }],
   },
+  robots: { index: false, follow: false },
 };
 
 const lastUpdate = "16 de mayo de 2026";

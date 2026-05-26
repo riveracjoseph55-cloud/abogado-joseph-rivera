@@ -25,6 +25,18 @@ export const metadata: Metadata = {
     title: "Abogado Penalista Costa Rica | Joseph Rivera Cheves",
     images: [OG_IMAGE],
   },
+  keywords: [
+    "abogado joseph rivera",
+    "joseph rivera",
+    "joseph rivera cheves",
+    "abogado penalista costa rica",
+    "abogado penal san jose",
+    "nadia peraza",
+    "nadia peraza caso",
+    "bufete penal costa rica",
+    "abogado femicidio costa rica",
+    "defensa penal costa rica",
+  ],
 };
 
 const R = "#7e0102";

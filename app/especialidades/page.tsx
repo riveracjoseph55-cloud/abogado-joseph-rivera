@@ -19,6 +19,18 @@ export const metadata: Metadata = {
     images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: `Especialidades | ${SITE_NAME}` }],
   },
   twitter: { card: "summary_large_image", title: `Especialidades Abogado Joseph Rivera | ${SITE_NAME}`, images: [OG_IMAGE] },
+  keywords: [
+    "especialidades abogado penalista costa rica",
+    "derecho penal costa rica",
+    "lavado de dinero abogado costa rica",
+    "abogado crimen organizado costa rica",
+    "abogado notarial san jose",
+    "abogado corporativo costa rica",
+    "abogado laboral costa rica",
+    "investigaciones criminales costa rica",
+    "asesoría penal internacional costa rica",
+    "joseph rivera especialidades",
+  ],
 };
 
 const serviceSchema = {

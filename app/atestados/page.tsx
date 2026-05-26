@@ -20,6 +20,16 @@ export const metadata: Metadata = {
     images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: `Atestados | ${SITE_NAME}` }],
   },
   twitter: { card: "summary_large_image", title: `Formación y Atestados | ${SITE_NAME}`, images: [OG_IMAGE] },
+  keywords: [
+    "joseph rivera cheves curriculum vitae",
+    "abogado penalista titulado costa rica",
+    "master compliance penal costa rica",
+    "docente derecho penal universidades costa rica",
+    "joseph rivera formacion academica",
+    "auditor lider ISO 37001 costa rica",
+    "temple university abogado costa rica",
+    "abogado ealde business school",
+  ],
 };
 
 const R = "#7e0102";

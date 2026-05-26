@@ -16,6 +16,7 @@ export const metadata: Metadata = {
     description: "Información sobre las cookies que utiliza este sitio y cómo gestionarlas.",
     images: [{ url: OG_IMAGE, width: 1200, height: 630 }],
   },
+  robots: { index: false, follow: false },
 };
 
 const pageSchema = {

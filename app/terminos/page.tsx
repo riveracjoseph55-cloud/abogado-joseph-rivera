@@ -16,6 +16,7 @@ export const metadata: Metadata = {
     description: "Términos legales de uso del sitio web del Bufete Rivera Cheves & Asociados.",
     images: [{ url: OG_IMAGE, width: 1200, height: 630 }],
   },
+  robots: { index: false, follow: false },
 };
 
 const pageSchema = {
