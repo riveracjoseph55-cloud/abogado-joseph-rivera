@@ -92,12 +92,10 @@ export default function Home() {
                 </div>
               </Reveal>
 
-              <Reveal delay={80}>
-                <h1 className="rc-display" style={{ marginBottom: 32 }}>
-                  Abogado Penalista<br/>
-                  en <em className="rc-em">Costa Rica</em>.
-                </h1>
-              </Reveal>
+              <h1 className="rc-display" style={{ marginBottom: 32 }}>
+                Abogado Penalista<br/>
+                en <em className="rc-em">Costa Rica</em>.
+              </h1>
 
               <Reveal delay={160}>
                 <p className="rc-lede" style={{ marginBottom: 40 }}>
