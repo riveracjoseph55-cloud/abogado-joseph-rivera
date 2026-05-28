@@ -7,6 +7,7 @@ const LINKS = [
   ["/casos",          "Casos"],
   ["/especialidades", "Especialidades"],
   ["/prensa",         "Prensa"],
+  ["/comunicados",    "Comunicados"],
   ["/atestados",      "Atestados"],
   ["/contacto",       "Contacto"],
 ] as const;

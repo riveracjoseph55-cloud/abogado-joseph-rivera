@@ -4,7 +4,8 @@ import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import InstagramReel from "@/components/InstagramReel";
 import SchemaOrg from "@/components/SchemaOrg";
-import { WA, RC_CASES, RC_AREAS, RC_PRESS } from "@/lib/data";
+import { WA, RC_CASES, RC_PRESS } from "@/lib/data";
+import AreasExplorer from "@/components/AreasExplorer";
 import { SITE_URL, SITE_NAME, OG_IMAGE, schemaLegalService, schemaAttorney, schemaFAQPage } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -366,73 +367,8 @@ export default function Home() {
             </Reveal>
           </div>
 
-          {/* Card grid — cada tarjeta → página individual del servicio */}
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
-            gap: "var(--gut)",
-          }} className="areas-cards">
-            {RC_AREAS.map((a, i) => (
-              <Reveal key={a.n} delay={i * 55}>
-                <Link href={`/especialidades/${a.slug}`} className="rc-card" style={{
-                  display: "flex", flexDirection: "column",
-                  padding: 0, overflow: "hidden", height: "100%",
-                  textDecoration: "none",
-                }}>
-                  {/* Card top */}
-                  <div style={{
-                    padding: "clamp(22px,2.8vw,34px)",
-                    flex: 1,
-                  }}>
-                    <div style={{
-                      display: "flex", justifyContent: "space-between", alignItems: "flex-start",
-                      marginBottom: 20,
-                    }}>
-                      <span style={{
-                        fontFamily: "var(--font-mono, monospace)", fontSize: 11,
-                        letterSpacing: ".12em", color: "var(--fg-5)",
-                      }}>{a.n}</span>
-                      <span style={{
-                        fontFamily: "var(--font-mono, monospace)", fontSize: 9,
-                        letterSpacing: ".1em", textTransform: "uppercase",
-                        color: "var(--r)", background: "var(--r-tint, #fff0f0)",
-                        padding: "3px 8px", borderRadius: 2,
-                      }}>
-                        {a.items.length} servicios
-                      </span>
-                    </div>
-                    <h3 className="rc-h3" style={{
-                      fontSize: "clamp(16px,1.6vw,22px)",
-                      marginBottom: 12, lineHeight: 1.25,
-                    }}>{a.t}</h3>
-                    <p style={{
-                      fontSize: 13, color: "var(--fg-4)", lineHeight: 1.65,
-                    }}>
-                      {a.d.replace(/\*\*/g, "").slice(0, 100).trimEnd()}…
-                    </p>
-                  </div>
-                  {/* Card footer */}
-                  <div style={{
-                    padding: "14px clamp(22px,2.8vw,34px)",
-                    borderTop: "1px solid var(--hairline)",
-                    background: "var(--paper)",
-                    display: "flex", justifyContent: "space-between", alignItems: "center",
-                  }}>
-                    <span style={{
-                      fontFamily: "var(--font-sans, system-ui)",
-                      fontSize: 13, fontWeight: 600, color: R,
-                    }}>Ver servicio</span>
-                    <span style={{ color: R, fontSize: 16 }}>→</span>
-                  </div>
-                </Link>
-              </Reveal>
-            ))}
-          </div>
+          <AreasExplorer />
         </div>
-        <style>{`
-          @media (max-width: 1100px) { .areas-cards { grid-template-columns: repeat(2,1fr) !important; } }
-          @media (max-width:  640px) { .areas-cards { grid-template-columns: 1fr !important; } }
-        `}</style>
       </section>
 
       {/* ── PRENSA ── */}

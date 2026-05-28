@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { RC_CASES } from "@/lib/data";
+import { RC_CASES, RC_AREAS, RC_COMUNICADOS } from "@/lib/data";
 
 const R = "#7e0102";
 
@@ -10,6 +10,7 @@ const STATIC_PAGES = [
   { title: "Casos destacados",        href: "/casos",         desc: "Femicidios, crimen organizado y delitos financieros" },
   { title: "Especialidades",          href: "/especialidades",desc: "Áreas del derecho penal que cubre el bufete" },
   { title: "Prensa y publicaciones",  href: "/prensa",        desc: "Cobertura mediática nacional e internacional" },
+  { title: "Comunicados de prensa",   href: "/comunicados",   desc: "Comunicados y declaraciones oficiales del bufete" },
   { title: "Atestados y formación",   href: "/atestados",     desc: "Currículo y credenciales académicas" },
   { title: "Contacto",                href: "/contacto",      desc: "Consulta gratuita con el bufete" },
 ];
@@ -44,6 +45,22 @@ export default function SearchModal({ onClose }: { onClose: () => void }) {
         href:  `/casos/${c.slug}`,
         desc:  `${c.location} · ${c.year} · ${c.status}`,
         badge: "caso",
+      })),
+    ...RC_AREAS
+      .filter(a => (a.t + " " + a.d + " " + a.items.join(" ")).toLowerCase().includes(needle))
+      .map(a => ({
+        title: a.t,
+        href:  `/especialidades/${a.slug}`,
+        desc:  a.d.replace(/\*\*/g, "").slice(0, 90).trimEnd() + "…",
+        badge: "área",
+      })),
+    ...RC_COMUNICADOS
+      .filter(c => (c.title + " " + c.summary + " " + (c.tags ?? []).join(" ")).toLowerCase().includes(needle))
+      .map(c => ({
+        title: c.title,
+        href:  `/comunicados/${c.slug}`,
+        desc:  c.date + (c.tags?.length ? " · " + c.tags.slice(0, 2).join(" · ") : ""),
+        badge: "comunicado",
       })),
     ...STATIC_PAGES
       .filter(p => (p.title + " " + p.desc).toLowerCase().includes(needle))
