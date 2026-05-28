@@ -883,11 +883,14 @@ export const RC_DOCENCIA = [
 // Para agregar uno nuevo: copiar el bloque de ejemplo y cambiar los campos.
 export type ComunicadoEntry = {
   slug:         string;     // URL: /comunicados/[slug]
-  title:        string;     // Titular del comunicado
+  title:        string;     // Titular (H1 en la página)
+  seoTitle?:    string;     // Título meta corto ~55 chars (si omitido se usa title)
   date:         string;     // YYYY-MM-DD
-  summary:      string;     // 1-2 líneas para tarjetas y meta description
+  summary:      string;     // 1-2 líneas para tarjetas
+  metaDesc?:    string;     // Meta description ~155 chars (si omitido se usa summary)
   body:         string[];   // Párrafos del texto completo
-  tags?:        string[];
+  tags?:        string[];   // Etiquetas de contenido
+  keywords?:    string[];   // Keywords SEO específicas del comunicado
   relatedCase?: string;     // slug de RC_CASES
   area?:        string;     // slug de RC_AREAS
   image?:       string;     // ruta en /public, e.g. /images/comunicados/foto.jpg
@@ -898,8 +901,26 @@ export const RC_COMUNICADOS: ComunicadoEntry[] = [
   {
     slug: "condena-nadia-peraza-50-anos",
     title: "Bufete Rivera Cheves obtiene condena histórica de 50 años en caso Nadia Peraza",
+    seoTitle: "Condena 50 Años — Caso Nadia Peraza | Femicidio Costa Rica 2026",
     date: "2026-03-20",
     summary: "El Tribunal Penal de Heredia dictó sentencia de 79 años por concurso material, readecuados al máximo legal de 50 años de cárcel efectiva contra Jeremy Buzano Paisano por el femicidio de Nadia Peraza Espinoza.",
+    metaDesc: "Condena histórica de 50 años (máximo legal) contra Jeremy Buzano por el femicidio de Nadia Peraza Espinoza. El bufete Rivera Cheves logra la pena nominal de 79 años en Costa Rica.",
+    keywords: [
+      "nadia peraza espinoza",
+      "condena nadia peraza",
+      "jeremy buzano paisano condena",
+      "femicidio costa rica 2026",
+      "50 años femicidio costa rica",
+      "pena máxima femicidio",
+      "caso nadia peraza sentencia",
+      "tribunal penal heredia femicidio",
+      "joseph rivera cheves nadia peraza",
+      "compliance forense femicidio",
+      "querellante privado femicidio costa rica",
+      "condena histórica femicidio costa rica",
+      "79 años femicidio",
+      "por nadia por todas",
+    ],
     body: [
       "San José, Costa Rica, 20 de marzo de 2026. — El bufete Rivera Cheves & Asociados comunica que el día de hoy el Tribunal Penal de Heredia dictó sentencia condenatoria en la causa seguida contra Jeremy Buzano Paisano por el femicidio de Nadia Peraza Espinoza. La pena nominal impuesta asciende a 79 años de privación de libertad, readecuados al límite máximo legal vigente en Costa Rica: 50 años de cárcel efectiva.",
       "La acusación formal comprendió un concurso material de delitos: femicidio agravado por desmembramiento, ocho cargos de suplantación de identidad, once estafas informáticas y una sustracción patrimonial. Los hechos se remontan a febrero de 2024, cuando Nadia Peraza Espinoza, joven madre de 21 años, desapareció en San Pablo de Heredia. En mayo del mismo año sus restos fueron localizados desmembrados dentro de una refrigeradora en el jardín de una vivienda del mismo cantón.",
@@ -913,8 +934,23 @@ export const RC_COMUNICADOS: ComunicadoEntry[] = [
   {
     slug: "nicaragua-bloquea-ingreso-abogado",
     title: "Régimen nicaragüense bloquea el ingreso del Lic. Rivera Cheves en caso Junieysis Merlo",
+    seoTitle: "Nicaragua Bloquea Abogado CR — Caso Junieysis Merlo | Rivera Cheves",
     date: "2026-04-25",
     summary: "Las autoridades migratorias de Nicaragua impidieron la entrada al territorio del Lic. Rivera Cheves, quien representaba a la familia de Junieysis Merlo Espinoza en gestiones de custodia de menores.",
+    metaDesc: "Nicaragua bloqueó el ingreso del Lic. Joseph Rivera Cheves, quien representaba a la familia de Junieysis Merlo. El bufete evalúa denuncia ante la CIDH-OEA.",
+    keywords: [
+      "junieysis merlo espinoza",
+      "caso junieysis merlo nicaragua",
+      "abogado deportado nicaragua 2026",
+      "joseph rivera cheves nicaragua",
+      "régimen ortega murillo abogado",
+      "derechos humanos nicaragua costa rica",
+      "CIDH OEA denuncia costa rica",
+      "bufete rivera cheves asesoría internacional",
+      "custodia menores femicidio nicaragua",
+      "abogado costarricense bloqueado nicaragua",
+      "caso femicidio asesoría internacional",
+    ],
     body: [
       "San José, Costa Rica, 25 de abril de 2026. — El bufete Rivera Cheves & Asociados informa que el día 24 de abril de 2026, las autoridades migratorias de la República de Nicaragua impidieron arbitrariamente el ingreso al país del Lic. Joseph Alfonso Rivera Cheves, quien viajaba en representación de la familia de Junieysis Merlo Espinoza para reunirse con los padres de la víctima y gestionar la custodia de las hijas menores de la occisa.",
       "El Lic. Rivera Cheves fue retenido en el puesto migratorio durante varias horas y finalmente deportado sin que se le indicara fundamento legal alguno para la medida. Fuentes consultadas señalan que el régimen Ortega-Murillo habría ordenado la exclusión del jurista costarricense, a quien calificaron internamente como un operativo de inteligencia extranjera.",
@@ -927,8 +963,24 @@ export const RC_COMUNICADOS: ComunicadoEntry[] = [
   {
     slug: "apertura-celulares-caso-junieysis-merlo",
     title: "Apertura de celulares en caso Junieysis Merlo: imputado no se presentó a la diligencia",
+    seoTitle: "Apertura de Celulares — Caso Junieysis Merlo | OIJ Forense 2026",
     date: "2026-05-28",
     summary: "Este miércoles se realizó la diligencia de apertura de los teléfonos celulares en el caso Junieysis Merlo. El imputado no se presentó y su defensor abandonó el procedimiento a los cinco minutos.",
+    metaDesc: "Apertura de celulares en caso Junieysis Merlo: el imputado no se presentó y el defensor se retiró a los 5 minutos. Expertos del OIJ realizarán el respaldo forense.",
+    keywords: [
+      "junieysis merlo celulares",
+      "apertura celulares femicidio costa rica",
+      "caso junieysis merlo 2026",
+      "OIJ informática forense",
+      "cibercrimen poder judicial costa rica",
+      "extracción datos celular forense",
+      "joseph rivera cheves junieysis merlo",
+      "querellante femicidio costa rica",
+      "imputado ausente diligencia judicial",
+      "peritos cibercrimen OIJ costa rica",
+      "respaldo forense dispositivos móviles",
+      "femicidio nicaragua costa rica",
+    ],
     body: [
       "San José, Costa Rica, 28 de mayo de 2026. — Este miércoles se llevó a cabo la diligencia de apertura de los teléfonos celulares en el marco del proceso judicial por el femicidio de Junieysis Merlo. La actuación inició a las 8:00 a.m. y contó con la participación de los expertos en cibercrimen del Organismo de Investigación Judicial (OIJ) y el Ministerio Público.",
       "El licenciado Joseph Rivera Cheves, quien ejerce como querellante y actor civil en representación de la familia de la víctima, estuvo presente en la diligencia y confirmó el desarrollo de la misma.",

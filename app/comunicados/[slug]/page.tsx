@@ -5,7 +5,7 @@ import Reveal from "@/components/Reveal";
 import CTABand from "@/components/CTABand";
 import SchemaOrg from "@/components/SchemaOrg";
 import { RC_COMUNICADOS, RC_CASES, WA, EMAIL } from "@/lib/data";
-import { SITE_URL, SITE_NAME, OG_IMAGE, AUTHOR, schemaPressRelease } from "@/lib/seo";
+import { SITE_URL, SITE_NAME, OG_IMAGE, AUTHOR, schemaPressRelease, schemaBreadcrumbComunicado } from "@/lib/seo";
 
 // ── SSG ──────────────────────────────────────────────────────────
 export function generateStaticParams() {
@@ -14,27 +14,45 @@ export function generateStaticParams() {
 
 type Props = { params: Promise<{ slug: string }> };
 
+const BASE_KEYWORDS = [
+  "abogado joseph rivera cheves",
+  "bufete rivera cheves",
+  "abogado penalista costa rica",
+  "comunicado de prensa bufete",
+  "rivera cheves asociados",
+];
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const c = RC_COMUNICADOS.find(x => x.slug === slug);
   if (!c) return {};
+
+  const metaTitle = c.seoTitle ?? c.title;
+  const metaDesc  = c.metaDesc ?? c.summary;
+  const ogImage   = c.image ? `${SITE_URL}${c.image}` : OG_IMAGE;
+
   return {
-    title: `${c.title} | Comunicados | Rivera Cheves`,
-    description: c.summary,
+    title: `${metaTitle} | Rivera Cheves`,
+    description: metaDesc,
     alternates: { canonical: `${SITE_URL}/comunicados/${c.slug}` },
     openGraph: {
       type: "article",
       url: `${SITE_URL}/comunicados/${c.slug}`,
-      title: c.title,
-      description: c.summary,
+      title: metaTitle,
+      description: metaDesc,
       publishedTime: c.date,
       authors: [AUTHOR],
-      images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: `${c.title} | ${SITE_NAME}` }],
+      images: [{ url: ogImage, width: 1200, height: 630, alt: `${c.title} | ${SITE_NAME}` }],
     },
-    twitter: { card: "summary_large_image", title: c.title, images: [OG_IMAGE] },
+    twitter: {
+      card: "summary_large_image",
+      title: metaTitle,
+      description: metaDesc,
+      images: [ogImage],
+    },
     keywords: [
-      "comunicado prensa costa rica",
-      "rivera cheves comunicado",
+      ...BASE_KEYWORDS,
+      ...(c.keywords ?? []),
       ...(c.tags ?? []),
     ],
   };
@@ -69,18 +87,23 @@ export default async function ComunicadoPage({ params }: Props) {
     .sort((a, b) => b.date.localeCompare(a.date))
     .slice(0, 3);
 
-  const schema = schemaPressRelease({
-    slug:    c.slug,
-    title:   c.title,
-    summary: c.summary,
-    body:    c.body.join(" "),
-    date:    c.date,
-    tags:    c.tags,
+  const schema           = schemaPressRelease({
+    slug:     c.slug,
+    title:    c.title,
+    summary:  c.summary,
+    body:     c.body.join(" "),
+    date:     c.date,
+    tags:     c.tags,
+    keywords: c.keywords,
+    image:    c.image,
+    area:     c.area,
   });
+  const schemaBreadcrumb = schemaBreadcrumbComunicado(c.title, c.slug);
 
   return (
     <>
       <SchemaOrg data={schema} />
+      <SchemaOrg data={schemaBreadcrumb} />
       <div className="rc-page">
 
         {/* ── CABECERA DEL COMUNICADO ─────────────────────────── */}

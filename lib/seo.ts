@@ -232,37 +232,71 @@ export function schemaBlogPosting(article: {
 
 // NewsArticle schema para comunicados de prensa
 export function schemaPressRelease(pr: {
-  slug:     string;
-  title:    string;
-  summary:  string;
-  body:     string;
-  date:     string;
-  tags?:    string[];
+  slug:       string;
+  title:      string;
+  summary:    string;
+  body:       string;
+  date:       string;
+  tags?:      string[];
+  keywords?:  string[];
+  image?:     string;   // ruta relativa en /public
+  area?:      string;
 }) {
-  const url = `${SITE_URL}/comunicados/${pr.slug}`;
+  const url       = `${SITE_URL}/comunicados/${pr.slug}`;
+  const imageUrl  = pr.image ? `${SITE_URL}${pr.image}` : OG_IMAGE;
+  const allKw     = [...(pr.tags ?? []), ...(pr.keywords ?? [])];
+  const wordCount = pr.body.split(/\s+/).filter(Boolean).length;
   return {
     "@context": "https://schema.org",
     "@type": "NewsArticle",
     "@id": url,
-    headline:    pr.title,
-    description: pr.summary,
-    articleBody: pr.body,
-    datePublished: pr.date,
+    headline:       pr.title,
+    description:    pr.summary,
+    articleBody:    pr.body,
+    wordCount,
+    datePublished:  pr.date,
+    dateModified:   pr.date,
     url,
-    inLanguage: "es-CR",
-    genre: "press release",
+    inLanguage:     "es-CR",
+    genre:          "press release",
+    articleSection: pr.area ?? "Derecho Penal",
+    image: {
+      "@type":  "ImageObject",
+      url:      imageUrl,
+      width:    1200,
+      height:   630,
+    },
     author: {
-      "@type": "Person",
-      name: AUTHOR,
-      url: `${SITE_URL}/quien`,
-      jobTitle: "Abogado Penalista",
+      "@type":    "Person",
+      name:       AUTHOR,
+      url:        `${SITE_URL}/quien`,
+      jobTitle:   "Abogado Penalista",
     },
     publisher: {
       "@type": "Organization",
-      name: SITE_NAME,
+      name:    SITE_NAME,
       logo: { "@type": "ImageObject", url: `${SITE_URL}/images/logo.png` },
     },
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
-    keywords: pr.tags?.join(", "),
+    keywords: allKw.length ? allKw.join(", ") : undefined,
+    isPartOf: {
+      "@type": "WebPage",
+      "@id":   `${SITE_URL}/comunicados`,
+      name:    "Comunicados de Prensa — Rivera Cheves & Asociados",
+    },
+  };
+}
+
+// BreadcrumbList para páginas individuales de comunicados
+export function schemaBreadcrumbComunicado(title: string, slug: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Inicio",       item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Prensa",       item: `${SITE_URL}/prensa` },
+      { "@type": "ListItem", position: 3, name: "Comunicados",  item: `${SITE_URL}/comunicados` },
+      { "@type": "ListItem", position: 4, name: title,          item: `${SITE_URL}/comunicados/${slug}` },
+    ],
   };
 }
