@@ -270,6 +270,62 @@ export const RC_CASES = [
       { k: "Ubicación",       v: "Sta. Marta de Alajuelita · San José" },
       { k: "Rol del bufete",  v: "Querellante · pena máxima exigida" },
     ],
+    gallery: [
+      {
+        src: "/images/casos/finca-lajas-vista-panoramica.jpg",
+        alt: "Vista panorámica desde Finca Lajas Donde Toño en Santa Marta de Alajuelita — reconstrucción de hechos caso doble homicidio Toño Badilla y Maureen Molina — fotografía Carlos Valencia periodista mayo 2026",
+        caption: "Vista desde Finca Lajas · Alajuelita",
+        sub: "La finca está enclavada en las montañas de Santa Marta de Alajuelita. Desde su mirador se aprecian los valles y plantaciones agrícolas de la zona sur de San José. Fotografía de Carlos Valencia, periodista.",
+      },
+      {
+        src: "/images/casos/finca-lajas-cartel-restaurante-donde-tono.jpg",
+        alt: "Cartel interior del restaurante Finca Las Lajas Donde Toño en Alajuelita con información de pago Sinpemóvil — escena fotografiada durante reconstrucción judicial de hechos — doble homicidio adultos mayores Costa Rica 2025",
+        caption: "Cartel del restaurante · Finca Las Lajas «Donde Toño»",
+        sub: "«Un lugar diferente para disfrutar». El cartel con el nombre del restaurante y el número de pago por Sinpemóvil, tal como lo dejaron Toño y Maureen. Fotografía de Carlos Valencia, periodista.",
+      },
+      {
+        src: "/images/casos/finca-lajas-puerta-mensajes-visitantes.jpg",
+        alt: "Puerta roja del restaurante Finca Lajas Donde Toño en Alajuelita con mensajes escritos por visitantes — «Esperar Nada Agradecer Todo» — fotografiada durante reconstrucción de hechos caso doble homicidio Costa Rica mayo 2026",
+        caption: "Puerta roja · mensajes de visitantes de Finca Lajas",
+        sub: "«Esperar Nada, Agradecer Todo». Los visitantes de Finca Lajas dejaron sus huellas escritas en la puerta roja del restaurante — testimonio del impacto que este lugar tenía en la comunidad. Fotografía de Carlos Valencia, periodista.",
+      },
+      {
+        src: "/images/casos/finca-lajas-reconstruccion-medicion-interior.jpg",
+        alt: "Investigador midiendo la escena del crimen en el interior del restaurante Finca Lajas Alajuelita durante reconstrucción oficial de hechos — caso doble homicidio Toño Badilla Maureen Molina — cinta métrica y cinta de precaución — fotografía Carlos Valencia mayo 2026",
+        caption: "Reconstrucción oficial · interior del restaurante",
+        sub: "Durante la reconstrucción de hechos de mayo 2026, el equipo investigador tomó medidas precisas del interior del restaurante. La cinta amarilla de precaución delimita las zonas procesales clave. Fotografía de Carlos Valencia, periodista.",
+      },
+      {
+        src: "/images/casos/finca-lajas-mirador-reconstruccion-1.jpg",
+        alt: "Mirador del restaurante Finca Lajas Donde Toño en Alajuelita durante reconstrucción judicial de hechos — equipo de investigación en la escena del doble homicidio de adultos mayores — Costa Rica mayo 2026 — fotografía Carlos Valencia",
+        caption: "Mirador de Finca Lajas · reconstrucción de hechos",
+        sub: "El equipo del Lic. Rivera Cheves recorre el mirador del restaurante durante la reconstrucción de hechos. Al fondo, los valles de Alajuelita y la cordillera de San José. Fotografía de Carlos Valencia, periodista.",
+      },
+      {
+        src: "/images/casos/finca-lajas-mirador-reconstruccion-2.jpg",
+        alt: "Interior del mirador de Finca Lajas Donde Toño en Alajuelita — vista nocturna durante reconstrucción oficial caso doble homicidio adultos mayores Toño y Maureen — Costa Rica 2026 — fotografía Carlos Valencia periodista",
+        caption: "Mirador · segunda perspectiva",
+        sub: "Segunda perspectiva del mirador durante la reconstrucción. Las mesas y bancas de madera donde Toño y Maureen recibieron a cientos de familias durante años. Fotografía de Carlos Valencia, periodista.",
+      },
+      {
+        src: "/images/casos/finca-lajas-joseph-rivera-declaraciones-prensa.jpg",
+        alt: "Abogado penalista Joseph Rivera Cheves dando declaraciones a la prensa en el interior de Finca Lajas Donde Toño en Alajuelita durante reconstrucción de hechos del caso doble homicidio — Costa Rica mayo 2026 — fotografía Carlos Valencia",
+        caption: "Lic. Joseph Rivera Cheves · declaraciones en la escena",
+        sub: "El Lic. Rivera Cheves atiende a medios de comunicación en el interior del restaurante durante la reconstrucción de hechos. La estrategia del bufete combina rigor técnico con visibilidad mediática para garantizar justicia. Fotografía de Carlos Valencia, periodista.",
+      },
+      {
+        src: "/images/casos/finca-lajas-letrero-metalico.jpg",
+        alt: "Letrero metálico dorado del restaurante Finca Lajas Donde Toño en Santa Marta de Alajuelita Costa Rica — fotografiado durante reconstrucción de hechos caso doble homicidio adultos mayores noviembre 2025 — fotografía Carlos Valencia",
+        caption: "Letrero dorado · «Finca Lajas Donde Toño»",
+        sub: "El letrero dorado que identifica el restaurante contra el fondo verde de las montañas de Alajuelita. Símbolo de lo que Toño y Maureen construyeron durante décadas para la comunidad. Fotografía de Carlos Valencia, periodista.",
+      },
+      {
+        src: "/images/casos/finca-lajas-taza-recuerdo-tono-maureen.jpg",
+        alt: "Taza personalizada del restaurante Finca Lajas con fotografía de Antonio Toño Badilla y Maureen Molina junto a imagen religiosa — objetos personales hallados durante reconstrucción de hechos caso doble homicidio Alajuelita Costa Rica 2025",
+        caption: "Taza de Finca Lajas · recuerdo de Toño y Maureen",
+        sub: "Una taza personalizada con la fotografía de Toño y Maureen junto a una imagen religiosa — el testimonio más íntimo de quiénes eran las víctimas y del lugar que habían construido con sus propias manos. Fotografía de Carlos Valencia, periodista.",
+      },
+    ],
   },
 ];
 
