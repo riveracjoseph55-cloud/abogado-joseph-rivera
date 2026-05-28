@@ -229,3 +229,40 @@ export function schemaBlogPosting(article: {
     mainEntityOfPage: { "@type": "WebPage", "@id": article.url },
   };
 }
+
+// NewsArticle schema para comunicados de prensa
+export function schemaPressRelease(pr: {
+  slug:     string;
+  title:    string;
+  summary:  string;
+  body:     string;
+  date:     string;
+  tags?:    string[];
+}) {
+  const url = `${SITE_URL}/comunicados/${pr.slug}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "@id": url,
+    headline:    pr.title,
+    description: pr.summary,
+    articleBody: pr.body,
+    datePublished: pr.date,
+    url,
+    inLanguage: "es-CR",
+    genre: "press release",
+    author: {
+      "@type": "Person",
+      name: AUTHOR,
+      url: `${SITE_URL}/quien`,
+      jobTitle: "Abogado Penalista",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/images/logo.png` },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    keywords: pr.tags?.join(", "),
+  };
+}

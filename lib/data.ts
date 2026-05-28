@@ -877,3 +877,49 @@ export const RC_DOCENCIA = [
   "ULACIT",
   "Universidad de San José",
 ];
+
+// ── Comunicados de Prensa ──────────────────────────────────────
+// Cada entrada es un comunicado oficial del bufete enviado a medios.
+// Para agregar uno nuevo: copiar el bloque de ejemplo y cambiar los campos.
+export type ComunicadoEntry = {
+  slug:         string;     // URL: /comunicados/[slug]
+  title:        string;     // Titular del comunicado
+  date:         string;     // YYYY-MM-DD
+  summary:      string;     // 1-2 líneas para tarjetas y meta description
+  body:         string[];   // Párrafos del texto completo
+  tags?:        string[];
+  relatedCase?: string;     // slug de RC_CASES
+  area?:        string;     // slug de RC_AREAS
+};
+
+export const RC_COMUNICADOS: ComunicadoEntry[] = [
+  {
+    slug: "condena-nadia-peraza-50-anos",
+    title: "Bufete Rivera Cheves obtiene condena histórica de 50 años en caso Nadia Peraza",
+    date: "2026-03-20",
+    summary: "El Tribunal Penal de Heredia dictó sentencia de 79 años por concurso material, readecuados al máximo legal de 50 años de cárcel efectiva contra Jeremy Buzano Paisano por el femicidio de Nadia Peraza Espinoza.",
+    body: [
+      "San José, Costa Rica, 20 de marzo de 2026. — El bufete Rivera Cheves & Asociados comunica que el día de hoy el Tribunal Penal de Heredia dictó sentencia condenatoria en la causa seguida contra Jeremy Buzano Paisano por el femicidio de Nadia Peraza Espinoza. La pena nominal impuesta asciende a 79 años de privación de libertad, readecuados al límite máximo legal vigente en Costa Rica: 50 años de cárcel efectiva.",
+      "La acusación formal comprendió un concurso material de delitos: femicidio agravado por desmembramiento, ocho cargos de suplantación de identidad, once estafas informáticas y una sustracción patrimonial. Los hechos se remontan a febrero de 2024, cuando Nadia Peraza Espinoza, joven madre de 21 años, desapareció en San Pablo de Heredia. En mayo del mismo año sus restos fueron localizados desmembrados dentro de una refrigeradora en el jardín de una vivienda del mismo cantón.",
+      "El Lic. Joseph Alfonso Rivera Cheves, director del bufete y querellante privado en representación de Marilyn Espinoza, madre de la víctima, manifestó: «La clave de esta sentencia estuvo en ampliar la plataforma fáctica más allá del femicidio básico. Mediante compliance forense acreditamos cómo Buzano usó el teléfono y las tarjetas de Nadia para suplantar su identidad y costear fiestas personales mientras su cuerpo permanecía oculto. Eso elevó la pena de 35 a 79 años nominales. Por Nadia, por su hija, por todas».",
+      "El bufete Rivera Cheves & Asociados agradece la confianza depositada por la familia Espinoza durante dos años de proceso y reafirma su compromiso con la representación de víctimas en los casos de mayor complejidad técnica en Costa Rica. Para consultas de prensa, comunicarse al correo jriveracheves@gmail.com o al WhatsApp +506 8998-0112.",
+    ],
+    tags: ["femicidio", "condena", "nadia-peraza", "pena-maxima", "compliance-forense"],
+    relatedCase: "nadia-peraza",
+    area: "derecho-penal",
+  },
+  {
+    slug: "nicaragua-bloquea-ingreso-abogado",
+    title: "Régimen nicaragüense bloquea el ingreso del Lic. Rivera Cheves en caso Junieysis Merlo",
+    date: "2026-04-25",
+    summary: "Las autoridades migratorias de Nicaragua impidieron la entrada al territorio del Lic. Rivera Cheves, quien representaba a la familia de Junieysis Merlo Espinoza en gestiones de custodia de menores.",
+    body: [
+      "San José, Costa Rica, 25 de abril de 2026. — El bufete Rivera Cheves & Asociados informa que el día 24 de abril de 2026, las autoridades migratorias de la República de Nicaragua impidieron arbitrariamente el ingreso al país del Lic. Joseph Alfonso Rivera Cheves, quien viajaba en representación de la familia de Junieysis Merlo Espinoza para reunirse con los padres de la víctima y gestionar la custodia de las hijas menores de la occisa.",
+      "El Lic. Rivera Cheves fue retenido en el puesto migratorio durante varias horas y finalmente deportado sin que se le indicara fundamento legal alguno para la medida. Fuentes consultadas señalan que el régimen Ortega-Murillo habría ordenado la exclusión del jurista costarricense, a quien calificaron internamente como un operativo de inteligencia extranjera.",
+      "«Resulta sintomático que el régimen tema más a un abogado de familia que a la propia verdad judicial. No impiden mi ingreso por razones migratorias — me impiden porque saben que la familia tiene derechos y que vamos a hacerlos valer», declaró el Lic. Rivera Cheves al regresar a Costa Rica.",
+      "El bufete analiza las opciones legales disponibles en sede internacional, incluyendo una eventual denuncia ante la Comisión Interamericana de Derechos Humanos (CIDH-OEA), y continuará representando a la familia en todas las instancias accesibles. Para consultas de prensa: jriveracheves@gmail.com · +506 8998-0112.",
+    ],
+    tags: ["nicaragua", "junieysis-merlo", "derechos-humanos", "cidh", "asesoria-internacional"],
+    area: "asesoria-internacional",
+  },
+];

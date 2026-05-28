@@ -1,9 +1,10 @@
 "use client";
 import { useState, useMemo } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import CTABand from "@/components/CTABand";
-import { RC_PRESS, OUTLET_COLORS, type PressType, type PressEntry } from "@/lib/data";
+import { RC_PRESS, RC_COMUNICADOS, OUTLET_COLORS, type PressType, type PressEntry } from "@/lib/data";
 
 // Banner full-bleed con foto de Joseph ante prensa
 
@@ -111,6 +112,76 @@ export default function PrensaClient() {
           </div>
         </div>
       </section>
+
+      {/* ── COMUNICADOS BAND ── */}
+      {RC_COMUNICADOS.length > 0 && (
+        <section style={{ background: "var(--paper-2, #f3eee5)", padding: "clamp(40px,5vw,72px) 0" }}>
+          <div className="rc-wrap">
+            <div style={{
+              display: "flex", alignItems: "flex-end", justifyContent: "space-between",
+              gap: 24, flexWrap: "wrap", marginBottom: "clamp(28px,3.5vw,48px)",
+            }}>
+              <div>
+                <div className="rc-eyebrow" style={{ marginBottom: 12 }}>Del bufete</div>
+                <Reveal>
+                  <h2 className="rc-h2" style={{ fontSize: "clamp(24px,3.2vw,44px)" }}>
+                    Comunicados <em className="rc-em">oficiales</em>
+                  </h2>
+                </Reveal>
+              </div>
+              <Reveal delay={120}>
+                <Link href="/comunicados" className="rc-btn ghost">
+                  Ver todos →
+                </Link>
+              </Reveal>
+            </div>
+            <div style={{
+              display: "grid", gridTemplateColumns: "repeat(2,1fr)",
+              gap: "var(--gut)",
+            }} className="com-band-grid">
+              {[...RC_COMUNICADOS]
+                .sort((a, b) => b.date.localeCompare(a.date))
+                .slice(0, 2)
+                .map((c, i) => (
+                  <Reveal key={c.slug} delay={i * 80}>
+                    <Link href={`/comunicados/${c.slug}`} className="rc-card" style={{
+                      display: "flex", flexDirection: "column",
+                      padding: "clamp(22px,2.8vw,32px)",
+                      textDecoration: "none", height: "100%",
+                    }}>
+                      <div style={{
+                        display: "flex", alignItems: "center", gap: 10, marginBottom: 16,
+                      }}>
+                        <span style={{
+                          padding: "3px 8px",
+                          background: "var(--r-tint, #fff0f0)",
+                          fontFamily: "var(--font-mono, ui-monospace)", fontSize: 9,
+                          letterSpacing: ".12em", textTransform: "uppercase", color: R,
+                        }}>Comunicado</span>
+                        <span style={{
+                          fontFamily: "var(--font-mono, ui-monospace)", fontSize: 10,
+                          color: "var(--fg-4)",
+                        }}>{formatDate(c.date)}</span>
+                      </div>
+                      <h3 style={{
+                        fontFamily: "var(--font-sans, system-ui)", fontWeight: 500,
+                        fontSize: "clamp(15px,1.5vw,20px)", lineHeight: 1.3,
+                        color: "var(--ink)", flex: 1, marginBottom: 20,
+                      }}>{c.title}</h3>
+                      <div style={{
+                        paddingTop: 16, borderTop: "1px solid var(--hairline)",
+                        fontSize: 13, fontWeight: 600, color: R,
+                      }}>
+                        Leer comunicado →
+                      </div>
+                    </Link>
+                  </Reveal>
+                ))}
+            </div>
+          </div>
+          <style>{`@media (max-width:640px){ .com-band-grid{ grid-template-columns:1fr !important; } }`}</style>
+        </section>
+      )}
 
       {/* ── FILTROS + ARTÍCULOS ── */}
       <section style={{ background: "#fff", padding: "var(--pad-y) 0" }}>

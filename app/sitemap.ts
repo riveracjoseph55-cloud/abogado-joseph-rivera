@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { RC_CASES, RC_AREAS } from "@/lib/data";
+import { RC_CASES, RC_AREAS, RC_COMUNICADOS } from "@/lib/data";
 
 const BASE = "https://abogadojosephrivera.com";
 const now  = new Date().toISOString();
@@ -84,7 +84,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     alternates: { languages: { "es-CR": `${BASE}/especialidades/${a.slug}` } },
   }));
 
+  // Comunicados de prensa
+  const comunicadosHub: MetadataRoute.Sitemap = [{
+    url: `${BASE}/comunicados`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.75,
+    alternates: { languages: { "es-CR": `${BASE}/comunicados` } },
+  }];
+
+  const comunicadoPages: MetadataRoute.Sitemap = RC_COMUNICADOS.map(c => ({
+    url: `${BASE}/comunicados/${c.slug}`,
+    lastModified: c.date,
+    changeFrequency: "yearly" as const,
+    priority: 0.8,
+    alternates: { languages: { "es-CR": `${BASE}/comunicados/${c.slug}` } },
+  }));
+
   // Páginas legales excluidas del sitemap (robots: noindex)
 
-  return [...staticPages, ...casePages, ...areaPages];
+  return [...staticPages, ...casePages, ...areaPages, ...comunicadosHub, ...comunicadoPages];
 }
