@@ -118,7 +118,16 @@ export default function Navbar() {
               <span style={{ opacity: .35 }}>·</span>
               <a href="https://www.instagram.com/josephriveraabogado" target="_blank" rel="noopener" style={{ color: "rgba(255,255,255,.72)" }}>Instagram</a>
               <span style={{ opacity: .35 }}>·</span>
-              <span>ES · CR</span>
+              <span style={{ display: "inline-flex", alignItems: "center", gap: 5 }}>
+                <span style={{ opacity: .55 }}>ES</span>
+                <span style={{ opacity: .3 }}>|</span>
+                <a
+                  href={`https://translate.google.com/translate?sl=es&tl=en&u=https://abogadojosephrivera.com${pathname}`}
+                  target="_blank" rel="noopener"
+                  style={{ color: "#fff", fontWeight: 600 }}
+                  title="View in English"
+                >EN</a>
+              </span>
             </div>
           </div>
         </div>
@@ -475,6 +484,12 @@ export default function Navbar() {
                 <a href="mailto:jriveracheves@gmail.com" style={{ color: "rgba(0,0,0,.4)" }}>Correo</a>
                 <span style={{ opacity: .5 }}>·</span>
                 <span>San José, CR</span>
+                <span style={{ opacity: .5 }}>·</span>
+                <a
+                  href={`https://translate.google.com/translate?sl=es&tl=en&u=https://abogadojosephrivera.com${pathname}`}
+                  target="_blank" rel="noopener"
+                  style={{ color: R, fontWeight: 600 }}
+                >EN →</a>
               </div>
             </div>
           </div>
