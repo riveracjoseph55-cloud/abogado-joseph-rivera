@@ -5,7 +5,7 @@ import Reveal from "@/components/Reveal";
 import CTABand from "@/components/CTABand";
 import SchemaOrg from "@/components/SchemaOrg";
 import RichText from "@/components/RichText";
-import { RC_AREAS, RC_CASES, WA } from "@/lib/data";
+import { RC_AREAS, RC_AREAS_SEO, RC_CASES, WA } from "@/lib/data";
 import { SITE_URL, SITE_NAME, OG_IMAGE, schemaFAQPage } from "@/lib/seo";
 import FaqItem from "./FaqItem";
 
@@ -18,10 +18,12 @@ type Props = { params: Promise<{ slug: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const a = RC_AREAS.find(x => x.slug === slug);
+  const a   = RC_AREAS.find(x => x.slug === slug);
   if (!a) return {};
-  const title = `${a.t} en Costa Rica | Abogado Joseph Rivera`;
-  const desc  = a.d.replace(/\*\*/g, "");
+  const seo   = RC_AREAS_SEO[slug];
+  const title = seo?.title ?? `${a.t} en Costa Rica | Abogado Joseph Rivera`;
+  const desc  = seo?.desc  ?? a.d.replace(/\*\*/g, "");
+  const keys  = seo?.keys  ?? [a.t.toLowerCase(), "abogado joseph rivera", "abogado penalista costa rica"];
   return {
     title,
     description: desc,
@@ -34,14 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: `${a.t} | ${SITE_NAME}` }],
     },
     twitter: { card: "summary_large_image", title, images: [OG_IMAGE] },
-    keywords: [
-      a.t.toLowerCase(),
-      `${a.t.toLowerCase()} costa rica`,
-      `abogado ${a.t.toLowerCase()} costa rica`,
-      "abogado joseph rivera",
-      "joseph rivera abogado",
-      "abogado penalista costa rica",
-    ],
+    keywords: keys,
   };
 }
 
@@ -76,6 +71,7 @@ export default async function AreaPage({ params }: Props) {
   const a = RC_AREAS.find(x => x.slug === slug);
   if (!a) notFound();
 
+  const SEO       = RC_AREAS_SEO[a.slug];
   const idx       = RC_AREAS.indexOf(a);
   const others    = RC_AREAS.filter(x => x.slug !== slug).slice(0, 4);
   const related   = (a.relatedCases ?? [])
@@ -333,12 +329,101 @@ export default async function AreaPage({ params }: Props) {
           </div>
         </section>
 
+        {/* ─── EL ABOGADO ──────────────────────────────────── */}
+        <section style={{ background: "var(--ink)", color: "#fff", padding: "var(--pad-y) 0" }}>
+          <div className="rc-wrap" style={{ maxWidth: 1200 }}>
+            <div style={{
+              display: "grid",
+              gridTemplateColumns: "0.9fr 1.1fr",
+              gap: "clamp(40px,6vw,96px)",
+              alignItems: "end",
+            }} className="rc-attorney-grid">
+
+              {/* Foto */}
+              <Reveal>
+                <div style={{
+                  aspectRatio: "4/5",
+                  overflow: "hidden",
+                  position: "relative",
+                  background: "var(--r-deep, #5a0001)",
+                }}>
+                  <img
+                    src={SEO?.photo ?? "/images/joseph/retrato.jpg"}
+                    alt={`Abogado penalista Joseph Rivera Cheves — ${a.t} Costa Rica`}
+                    style={{
+                      width: "100%", height: "100%",
+                      objectFit: "cover", objectPosition: "top center",
+                    }}
+                  />
+                  <div aria-hidden="true" style={{
+                    position: "absolute", inset: 0,
+                    background: "linear-gradient(to top, rgba(126,1,2,.55) 0%, transparent 55%)",
+                    pointerEvents: "none",
+                  }} />
+                </div>
+              </Reveal>
+
+              {/* Info */}
+              <div>
+                <Kicker num="03" onR label="El abogado" />
+                <Reveal delay={80}>
+                  <h2 className="rc-h2" style={{ color: "#fff", marginBottom: 28 }}>
+                    Lic. Joseph{" "}
+                    <em className="rc-em" style={{ color: "#fff", opacity: 0.5 }}>Rivera Cheves</em>
+                  </h2>
+                </Reveal>
+                <Reveal delay={140}>
+                  <p style={{
+                    fontSize: "clamp(15px,1.3vw,18px)",
+                    color: "rgba(255,255,255,.72)",
+                    lineHeight: 1.65, marginBottom: 36,
+                  }}>
+                    {SEO?.credential ?? "Abogado y notario público en ejercicio en Costa Rica"}
+                  </p>
+                </Reveal>
+                <Reveal delay={200}>
+                  <div style={{
+                    borderTop: "1px solid rgba(255,255,255,.15)",
+                    paddingTop: 28, marginBottom: 40,
+                    display: "flex", flexDirection: "column", gap: 16,
+                  }}>
+                    {[
+                      "Licenciado y Máster en Derecho — Universidad de Costa Rica",
+                      "Máster en Compliance, Fraude y Blanqueo — EALDE Business School, España",
+                      "Ex abogado del Banco Nacional · Ex notario, Corporación Grupo Q",
+                    ].map((c, i) => (
+                      <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 16 }}>
+                        <span aria-hidden="true" style={{
+                          width: 6, height: 6, borderRadius: "50%",
+                          background: "var(--r)", flexShrink: 0, marginTop: 9,
+                        }} />
+                        <span style={{ fontSize: 14, color: "rgba(255,255,255,.65)", lineHeight: 1.65 }}>{c}</span>
+                      </div>
+                    ))}
+                  </div>
+                </Reveal>
+                <Reveal delay={260}>
+                  <Link href="/quien" className="rc-btn on-r">
+                    Ver perfil completo <span className="arrow">→</span>
+                  </Link>
+                </Reveal>
+              </div>
+            </div>
+          </div>
+          <style>{`
+            @media (max-width:900px){
+              .rc-attorney-grid{ grid-template-columns:1fr !important; }
+              .rc-attorney-grid > :first-child{ aspect-ratio:16/9 !important; }
+            }
+          `}</style>
+        </section>
+
         {/* ─── CASOS RELACIONADOS ──────────────────────────── */}
         {hasRelated && (
           <section style={{ background: "#fff", padding: "var(--pad-y) 0" }}>
             <div className="rc-wrap" style={{ maxWidth: 1200 }}>
               <div style={{ marginBottom: "clamp(40px,5vw,72px)" }}>
-                <Kicker num="03" label="Casos relacionados" />
+                <Kicker num="04" label="Casos relacionados" />
                 <Reveal>
                   <h2 className="rc-h2">Aplicación <em className="rc-em">real</em></h2>
                 </Reveal>
@@ -418,7 +503,7 @@ export default async function AreaPage({ params }: Props) {
         <section style={{ background: "var(--r)", color: "#fff", padding: "var(--pad-y) 0" }}>
           <div className="rc-wrap" style={{ maxWidth: 1200 }}>
             <div style={{ marginBottom: "clamp(40px,5vw,72px)" }}>
-              <Kicker num={hasRelated ? "04" : "03"} onR label="Proceso de trabajo" />
+              <Kicker num={hasRelated ? "05" : "04"} onR label="Proceso de trabajo" />
               <Reveal>
                 <h2 className="rc-h2" style={{ color: "#fff" }}>
                   Cómo <em className="rc-em" style={{ color: "#fff", opacity: 0.55 }}>trabajamos</em>
@@ -465,7 +550,7 @@ export default async function AreaPage({ params }: Props) {
                 gap: "clamp(32px,5vw,80px)",
               }} className="rc-area-body">
                 <div>
-                  <Kicker num={hasRelated ? "05" : "04"} label="Preguntas frecuentes" />
+                  <Kicker num={hasRelated ? "06" : "05"} label="Preguntas frecuentes" />
                   <Reveal>
                     <h2 className="rc-h2">Lo que más <em className="rc-em">nos consultan</em></h2>
                   </Reveal>

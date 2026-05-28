@@ -606,6 +606,65 @@ export const RC_AREAS = [
   },
 ];
 
+// ── Per-area SEO metadata + attorney photo ─────────────────────
+export const RC_AREAS_SEO: Record<string, {
+  title:      string;
+  desc:       string;
+  keys:       string[];
+  photo:      string;
+  credential: string;
+}> = {
+  "derecho-penal": {
+    title:      "Abogado Penalista Costa Rica | Derecho Penal · Rivera Cheves & Asociados",
+    desc:       "Defensa y querella en delitos graves: femicidio, homicidio, narcotráfico y crimen organizado. Litigación oral ante Tribunal de Juicio y Sala Tercera. Lic. Joseph Rivera Cheves.",
+    keys:       ["abogado penalista costa rica","abogado penal costa rica","defensa penal costa rica","abogado joseph rivera","joseph rivera abogado","abogado derecho penal san jose"],
+    photo:      "/images/joseph/tribunal.jpg",
+    credential: "10+ años en litigación oral penal · Penas máximas obtenidas en casos de alto perfil",
+  },
+  "compliance-forense": {
+    title:      "Abogado Lavado de Dinero Costa Rica | Compliance Forense · Rivera Cheves",
+    desc:       "Defensa en delitos de lavado de dinero, enriquecimiento ilícito y fraude corporativo. Máster en Compliance, Fraude y Blanqueo — EALDE Business School, España.",
+    keys:       ["abogado lavado dinero costa rica","compliance forense costa rica","fraude corporativo costa rica","abogado joseph rivera","blanqueo capitales costa rica"],
+    photo:      "/images/joseph/editorial.jpg",
+    credential: "Máster en Compliance, Fraude y Blanqueo · EALDE Business School (España)",
+  },
+  "derecho-corporativo": {
+    title:      "Abogado Corporativo Costa Rica | Sociedades y Empresas · Rivera Cheves",
+    desc:       "Constitución de sociedades, contratos mercantiles, cumplimiento SUGEF y estrategia corporativa. Experiencia en el Banco Nacional y Corporación Grupo Q.",
+    keys:       ["abogado corporativo costa rica","derecho societario costa rica","constitucion sociedades costa rica","abogado empresa costa rica","abogado joseph rivera"],
+    photo:      "/images/joseph/retrato.jpg",
+    credential: "Ex notario de planta, Corporación Grupo Q · Ex abogado del Banco Nacional de Costa Rica",
+  },
+  "derecho-laboral": {
+    title:      "Abogado Laboral Costa Rica | Despidos y Conflictos · Rivera Cheves",
+    desc:       "Representación en despidos injustificados, fueros especiales y conflictos colectivos. Rivera Cheves & Asociados atiende tanto trabajadores como empleadores.",
+    keys:       ["abogado laboral costa rica","abogado despido injustificado costa rica","fuero laboral costa rica","abogado joseph rivera","conflicto laboral costa rica"],
+    photo:      "/images/joseph/prensa.jpg",
+    credential: "Representación en ambos lados — trabajadores y empleadores en Costa Rica",
+  },
+  "derecho-notarial": {
+    title:      "Notario Público Costa Rica | Escrituras y Registro · Rivera Cheves",
+    desc:       "Escrituras de bienes raíces, traspasos, hipotecas y poderes notariales. Notario público en ejercicio con Maestría en Derecho Notarial y Registral (UCR).",
+    keys:       ["notario publico costa rica","escritura bienes raices costa rica","traspaso propiedades costa rica","hipoteca abogado costa rica","abogado joseph rivera"],
+    photo:      "/images/joseph/retrato.jpg",
+    credential: "Notario público en ejercicio · Maestría en Derecho Notarial y Registral (UCR)",
+  },
+  "asesoria-internacional": {
+    title:      "Abogado Crimen Organizado Costa Rica | Asesoría Internacional · Rivera Cheves",
+    desc:       "Defensa en crimen organizado, extradiciones y litigación ante organismos internacionales. Cooperación activa con el FBI (2018) y ante la CIDH-OEA.",
+    keys:       ["abogado crimen organizado costa rica","extradicion costa rica abogado","cooperacion internacional costa rica","abogado joseph rivera","litigacion cidh"],
+    photo:      "/images/joseph7.jpg",
+    credential: "Cooperación con el FBI (2018) · Litigación ante la CIDH-OEA",
+  },
+  "casacion-penal": {
+    title:      "Casación Penal Costa Rica | Sala Tercera · Abogado Joseph Rivera Cheves",
+    desc:       "Recursos de casación ante la Sala Tercera de la Corte Suprema de Justicia. Defensa técnica de sentencias condenatorias e impugnación de prueba en sede recursiva.",
+    keys:       ["casacion penal costa rica","sala tercera costa rica abogado","recurso casacion penal","abogado joseph rivera","impugnacion sentencia costa rica"],
+    photo:      "/images/joseph/prensa-tribunales.jpg",
+    credential: "Defensa exitosa en Sala Tercera · Voto Nº 000374 · Inadmisión de recursos obtenida",
+  },
+};
+
 export type PressType  = "reportaje" | "opinion" | "entrevista" | "doctrina" | "podcast";
 export type PressEntry = {
   medio:  string;
