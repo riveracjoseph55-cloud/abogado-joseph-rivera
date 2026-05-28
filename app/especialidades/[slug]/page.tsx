@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Reveal from "@/components/Reveal";
@@ -6,7 +7,7 @@ import CTABand from "@/components/CTABand";
 import SchemaOrg from "@/components/SchemaOrg";
 import RichText from "@/components/RichText";
 import { RC_AREAS, RC_AREAS_SEO, RC_CASES, WA } from "@/lib/data";
-import { SITE_URL, SITE_NAME, OG_IMAGE, schemaFAQPage, schemaBreadcrumbEspecialidad } from "@/lib/seo";
+import { SITE_URL, SITE_NAME, OG_IMAGE, schemaFAQPage, schemaBreadcrumbEspecialidad, schemaAttorney } from "@/lib/seo";
 import FaqItem from "./FaqItem";
 
 // ── Static generation ──────────────────────────────────────────
@@ -110,6 +111,7 @@ export default async function AreaPage({ params }: Props) {
     <>
       <SchemaOrg data={schemaBreadcrumb} />
       <SchemaOrg data={schemaMain} />
+      <SchemaOrg data={schemaAttorney} />
       {hasFaqs && <SchemaOrg data={schemaFAQPage(a.faqs!)} />}
 
       <div className="rc-page">
@@ -351,13 +353,13 @@ export default async function AreaPage({ params }: Props) {
                   position: "relative",
                   background: "var(--r-deep, #5a0001)",
                 }}>
-                  <img
+                  <Image
+                    fill
                     src={SEO?.photo ?? "/images/joseph/retrato.jpg"}
                     alt={`Abogado penalista Joseph Rivera Cheves — ${a.t} Costa Rica`}
-                    style={{
-                      width: "100%", height: "100%",
-                      objectFit: "cover", objectPosition: "top center",
-                    }}
+                    style={{ objectFit: "cover", objectPosition: "top center" }}
+                    sizes="(max-width: 900px) 100vw, 45vw"
+                    priority
                   />
                   <div aria-hidden="true" style={{
                     position: "absolute", inset: 0,

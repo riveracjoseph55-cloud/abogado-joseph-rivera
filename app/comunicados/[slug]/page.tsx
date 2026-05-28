@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Reveal from "@/components/Reveal";
@@ -166,17 +167,17 @@ export default async function ComunicadoPage({ params }: Props) {
         {/* ── IMAGEN DESTACADA ─────────────────────────────────── */}
         {c.image && (
           <div style={{ background: "#fff", borderBottom: "1px solid var(--hairline)" }}>
-            <div className="rc-wrap" style={{ maxWidth: 860, padding: "0 0 0 0" }}>
-              <img
-                src={c.image}
-                alt={c.title}
-                style={{
-                  width: "100%",
-                  maxHeight: 480,
-                  objectFit: "cover",
-                  display: "block",
-                }}
-              />
+            <div className="rc-wrap" style={{ maxWidth: 860, padding: 0 }}>
+              <div style={{ position: "relative", width: "100%", height: 420 }}>
+                <Image
+                  fill
+                  src={c.image}
+                  alt={c.title}
+                  style={{ objectFit: "cover" }}
+                  sizes="(max-width: 860px) 100vw, 860px"
+                  priority
+                />
+              </div>
             </div>
           </div>
         )}
