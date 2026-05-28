@@ -477,7 +477,7 @@ export const RC_DOCTRINA = {
     "Asesor ad honorem · Asamblea Legislativa de Costa Rica (2020–2022)",
     "Docencia en 6 universidades costarricenses",
     "Especialización en Litigación Oral · Temple University (Filadelfia, EE.UU.)",
-    "Máster en Compliance, Fraude y Blanqueo · EALDE Business School + Universidad de Murcia",
+    "Máster en Compliance, Fraude y Blanqueo · EALDE Business School + Universidad Católica de San Antonio de Murcia",
   ],
 };
 
@@ -507,7 +507,7 @@ export const RC_AREAS = [
     d: "Aplicación de técnicas de **compliance**, prevención del blanqueo y **análisis forense financiero** para resolver no solo casos económicos sino también crímenes de sangre complejos — como el rastreo post-mortem de transacciones que sustentó la **condena de 50 años en el caso Nadia Peraza**.",
     items: ["Lavado de activos","Capitalización ilícita","Legitimación de capitales","Compliance forense aplicado","Análisis forense financiero","Rastreo de transacciones post-mortem"],
     long: [
-      "El Lic. Joseph Rivera Cheves es Máster en Compliance, Fraude y Blanqueo por EALDE Business School (España) y la Universidad de Murcia, con doble titulación internacional. Esta especialización es el activo diferencial del bufete: aplicamos técnicas de análisis forense financiero no solo a delitos económicos clásicos sino también a casos de criminalidad violenta, donde el rastreo patrimonial frecuentemente sostiene la imputación.",
+      "El Lic. Joseph Rivera Cheves es Máster en Compliance, Fraude y Blanqueo por EALDE Business School (España) y la Universidad Católica de San Antonio de Murcia, con doble titulación internacional. Esta especialización es el activo diferencial del bufete: aplicamos técnicas de análisis forense financiero no solo a delitos económicos clásicos sino también a casos de criminalidad violenta, donde el rastreo patrimonial frecuentemente sostiene la imputación.",
       "Un ejemplo concreto es el caso Nadia Peraza Espinoza, donde el análisis post-mortem de transacciones bancarias fue parte de la prueba que sustentó la condena de máxima pena. La técnica forense aplicada al patrimonio del imputado permitió corroborar versiones, identificar contactos y construir cronologías que la prueba testimonial por sí sola no habría producido.",
       "En sede económica, defendemos a personas físicas y empresas en investigaciones por lavado de activos, capitalización ilícita y legitimación de capitales — tanto en sede administrativa (SUGEF, ICD) como penal. También asesoramos a corporaciones en el diseño de programas de compliance preventivos.",
     ],
@@ -850,7 +850,7 @@ export const RC_PRESS: PressEntry[] = [
 export const RC_FORMACION = [
   { t: "Auditor Líder · ISO 37001:2025 — Sistema de Gestión Antisobornos", s: "EALDE Business School, Madrid · 2026", d: "Certificación internacional para auditorías de **cumplimiento antisoborno**. Pilar técnico del **compliance forense** aplicado a delitos económicos, corrupción y delincuencia organizada." },
   { t: "Auditor Líder · ISO 31000:2018 — Risk Management",                  s: "EALDE Business School, Madrid · 2026", d: "Gestión integral de riesgos. Marco metodológico aplicado a **litigación penal compleja**, análisis forense de operaciones empresariales y casos bajo **riesgo geopolítico**." },
-  { t: "Máster en Compliance, Fraude y Blanqueo",  s: "EALDE Business School, España · Universidad de Murcia", d: "**Doble titulación internacional** con especialidad en **Gestión de Riesgos y Análisis Forense Financiero**." },
+  { t: "Máster en Compliance, Fraude y Blanqueo",  s: "EALDE Business School, España · Universidad Católica de San Antonio de Murcia", d: "**Doble titulación internacional** con especialidad en **Gestión de Riesgos y Análisis Forense Financiero**." },
   { t: "Maestría en Derecho Penal",                 s: "Universidad Latina de Costa Rica · 2015",               d: "Especialización en **litigación penal compleja**, teoría del delito y defensa de **derechos fundamentales**." },
   { t: "Maestría en Derecho Notarial y Registral",  s: "Universidad Latina de Costa Rica · 2010",               d: "Gestión de **escrituras públicas**, testamentos e inscripción en **registros públicos**." },
   { t: "Licenciado en Derecho",                     s: "Universidad de la Salle · 2008",                        d: "Formación integral en todas las ramas del **derecho costarricense e internacional**." },
