@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 // ── Proceso de trabajo (fijo para todas las áreas) ─────────────
 const PROCESO = [
-  { n: "01", t: "Primera consulta",       d: "Conversación inicial por WhatsApp o presencial. Diagnóstico preliminar gratuito y honorarios transparentes." },
+  { n: "01", t: "Primera consulta",       d: "Conversación inicial por WhatsApp o presencial. Honorarios transparentes y sin compromisos." },
   { n: "02", t: "Estudio del expediente", d: "Análisis técnico completo del caso, identificación de la teoría jurídica y plan de litigación." },
   { n: "03", t: "Ejecución",              d: "Representación en sede ministerial, judicial o notarial según el área. Comunicación constante con el cliente." },
   { n: "04", t: "Cierre",                 d: "Resolución del proceso, archivo del expediente y entrega de documentación. Acompañamiento post-cierre cuando aplica." },

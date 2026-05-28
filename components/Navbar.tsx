@@ -353,6 +353,43 @@ export default function Navbar() {
                 </div>
               );
 
+              /* ── Prensa: con sub-link a Comunicados ── */
+              if (href === "/prensa") return (
+                <div key={href} style={{ borderBottom: "1px solid rgba(255,255,255,.18)" }}>
+                  <Link
+                    href={href}
+                    onClick={() => setOpen(false)}
+                    style={{
+                      display: "flex", alignItems: "baseline", justifyContent: "space-between",
+                      padding: "18px 0 12px",
+                      fontFamily: "var(--font-sans, system-ui)", fontSize: 22, fontWeight: 500,
+                      color: pathname === href ? "#fff" : "rgba(255,255,255,.85)",
+                      textDecoration: "none",
+                    }}
+                  >
+                    <span>{label}</span>
+                    <span style={{ fontFamily: "var(--font-mono, monospace)", fontSize: 11, color: "rgba(255,255,255,.45)" }}>
+                      0{i + 1}
+                    </span>
+                  </Link>
+                  <Link
+                    href="/comunicados"
+                    onClick={() => setOpen(false)}
+                    style={{
+                      display: "flex", justifyContent: "space-between", alignItems: "center",
+                      padding: "9px 0 14px 28px",
+                      borderTop: "1px solid rgba(255,255,255,.09)",
+                      fontFamily: "var(--font-sans, system-ui)", fontSize: 15, fontWeight: 400,
+                      color: pathname.startsWith("/comunicados") ? "#fff" : "rgba(255,255,255,.65)",
+                      textDecoration: "none",
+                    }}
+                  >
+                    <span>Comunicados</span>
+                    <span style={{ fontFamily: "var(--font-mono, monospace)", fontSize: 11, color: "rgba(255,255,255,.3)" }}>→</span>
+                  </Link>
+                </div>
+              );
+
               /* ── Regular link ── */
               return (
                 <Link
