@@ -6,7 +6,7 @@ import CTABand from "@/components/CTABand";
 import SchemaOrg from "@/components/SchemaOrg";
 import RichText from "@/components/RichText";
 import { RC_AREAS, RC_AREAS_SEO, RC_CASES, WA } from "@/lib/data";
-import { SITE_URL, SITE_NAME, OG_IMAGE, schemaFAQPage } from "@/lib/seo";
+import { SITE_URL, SITE_NAME, OG_IMAGE, schemaFAQPage, schemaBreadcrumbEspecialidad } from "@/lib/seo";
 import FaqItem from "./FaqItem";
 
 // ── Static generation ──────────────────────────────────────────
@@ -81,6 +81,8 @@ export default async function AreaPage({ params }: Props) {
   const hasFaqs    = Boolean(a.faqs?.length);
   const hasRelated = related.length > 0;
 
+  const schemaBreadcrumb = schemaBreadcrumbEspecialidad(a.t, a.slug);
+
   const schemaMain = {
     "@context": "https://schema.org",
     "@type": "LegalService",
@@ -106,6 +108,7 @@ export default async function AreaPage({ params }: Props) {
 
   return (
     <>
+      <SchemaOrg data={schemaBreadcrumb} />
       <SchemaOrg data={schemaMain} />
       {hasFaqs && <SchemaOrg data={schemaFAQPage(a.faqs!)} />}
 

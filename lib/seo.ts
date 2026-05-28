@@ -300,3 +300,16 @@ export function schemaBreadcrumbComunicado(title: string, slug: string) {
     ],
   };
 }
+
+// BreadcrumbList para páginas individuales de especialidades
+export function schemaBreadcrumbEspecialidad(title: string, slug: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Inicio",          item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Especialidades",  item: `${SITE_URL}/especialidades` },
+      { "@type": "ListItem", position: 3, name: title,             item: `${SITE_URL}/especialidades/${slug}` },
+    ],
+  };
+}
