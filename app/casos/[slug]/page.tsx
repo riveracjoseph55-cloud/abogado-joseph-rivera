@@ -7,6 +7,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import CTABand from "@/components/CTABand";
 import Reveal from "@/components/Reveal";
 import InstagramReel from "@/components/InstagramReel";
+import RichText from "@/components/RichText";
 import { RC_CASES, RC_CASES_SEO, WA } from "@/lib/data";
 import { SITE_URL, SITE_NAME, OG_IMAGE, AUTHOR } from "@/lib/seo";
 
@@ -268,10 +269,10 @@ export default async function CasoDetail({ params }: { params: Promise<{ slug: s
                       color: "#0d0d0d", lineHeight: 1.1,
                     }}>Los <em className="rc-em">Hechos</em></h3>
                   </header>
-                  <p style={{
+                  <RichText text={c.hechos || c.summary || ""} style={{
                     fontSize: 16, lineHeight: 1.8, color: "var(--fg-2)",
                     paddingTop: 12, borderTop: "1px solid var(--hairline)",
-                  }}>{c.hechos || c.summary}</p>
+                  }} />
                 </article>
               </Reveal>
 
@@ -293,10 +294,10 @@ export default async function CasoDetail({ params }: { params: Promise<{ slug: s
                         color: "#0d0d0d", lineHeight: 1.1,
                       }}>El <em className="rc-em">Desafío</em></h3>
                     </header>
-                    <p style={{
+                    <RichText text={c.desafio || ""} style={{
                       fontSize: 16, lineHeight: 1.8, color: "var(--fg-2)",
                       paddingTop: 12, borderTop: "1px solid var(--hairline)",
-                    }}>{c.desafio}</p>
+                    }} />
                   </article>
                 </Reveal>
               )}
@@ -319,10 +320,10 @@ export default async function CasoDetail({ params }: { params: Promise<{ slug: s
                         color: "#0d0d0d", lineHeight: 1.1,
                       }}>La <em className="rc-em">Estrategia</em></h3>
                     </header>
-                    <p style={{
+                    <RichText text={c.estrategia || ""} style={{
                       fontSize: 16, lineHeight: 1.8, color: "var(--fg-2)",
                       paddingTop: 12, borderTop: `1px solid ${R}`,
-                    }}>{c.estrategia}</p>
+                    }} />
                   </article>
                 </Reveal>
               )}
@@ -569,7 +570,7 @@ export default async function CasoDetail({ params }: { params: Promise<{ slug: s
                         <span style={{ color: "var(--fg-5)" }}>{rc.location}</span>
                       </div>
                       <h3 className="rc-h3" style={{ flex: 1, marginBottom: 16, fontSize: 22 }}>{rc.name}</h3>
-                      <p style={{ fontSize: 14, color: "var(--fg-4)", lineHeight: 1.6, marginBottom: 18 }}>{rc.short}</p>
+                      <RichText as="p" text={rc.short} style={{ fontSize: 14, color: "var(--fg-4)", lineHeight: 1.6, marginBottom: 18 }} />
                       <span style={{ fontSize: 13, fontWeight: 600, color: R }}>Ver caso →</span>
                     </Link>
                   </Reveal>
