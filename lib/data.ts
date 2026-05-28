@@ -482,27 +482,128 @@ export const RC_DOCTRINA = {
 };
 
 export const RC_AREAS = [
-  { n: "01", t: "Derecho Penal y Delitos Complejos",
+  {
+    n: "01", slug: "derecho-penal",
+    t: "Derecho Penal y Delitos Complejos",
+    pre: "Derecho Penal y ", em: "Delitos Complejos", post: "",
     d: "**Homicidios**, femicidios, **delitos sexuales**, estafas, narcotráfico, extorsión, **delincuencia organizada** y asociaciones ilícitas.",
-    items: ["Homicidios y femicidios","Delitos sexuales","Estafas y fraudes","Narcotráfico y extorsión","Delincuencia organizada","Asociaciones ilícitas"] },
-  { n: "02", t: "Compliance Forense y Delitos Financieros",
+    items: ["Homicidios y femicidios","Delitos sexuales","Estafas y fraudes","Narcotráfico y extorsión","Delincuencia organizada","Asociaciones ilícitas"],
+    long: [
+      "El bufete Rivera Cheves & Asociados representa a familias y a personas imputadas en los procesos penales más complejos del ordenamiento jurídico costarricense. Más de 10 años de litigación oral en sede penal — desde audiencias preliminares hasta juicios orales y públicos de alta exposición mediática.",
+      "Nuestra práctica abarca el espectro completo de los delitos contra la vida (homicidios, femicidios), delitos sexuales, delitos patrimoniales (estafas, fraudes, apropiaciones), narcotráfico y extorsión, y la criminalidad organizada. Trabajamos tanto en representación de víctimas como en defensa técnica de personas imputadas, siempre bajo el estándar constitucional de presunción de inocencia y debido proceso.",
+      "Cada caso se aborda con un equipo multidisciplinario: jurídico, criminalístico y forense. Esta combinación nos permite construir teorías del caso sólidas, identificar prueba indirecta determinante, y litigar con base científica frente a tribunales de juicio y de casación.",
+    ],
+    relatedCases: ["nadia-peraza","luany-salazar","junieysis-merlo"],
+    faqs: [
+      { q: "¿Atienden tanto a víctimas como a personas imputadas?", a: "Sí. Representamos a familias de víctimas en delitos contra la vida y la integridad sexual, y también asumimos defensas técnicas de personas imputadas cuando el conflicto de interés lo permite." },
+      { q: "¿En qué etapas del proceso pueden intervenir?", a: "Desde la primera diligencia ante el Ministerio Público o el OIJ hasta el juicio oral, casación ante Sala Tercera y revisión. Lo recomendable es contactarnos lo antes posible." },
+      { q: "¿Atienden casos fuera de la zona metropolitana?", a: "Sí, litigamos en todos los circuitos judiciales de Costa Rica. Para casos urgentes coordinamos desplazamiento al circuito correspondiente." },
+    ],
+  },
+  {
+    n: "02", slug: "compliance-forense",
+    t: "Compliance Forense y Delitos Financieros",
+    pre: "Compliance Forense y ", em: "Delitos Financieros", post: "",
     d: "Aplicación de técnicas de **compliance**, prevención del blanqueo y **análisis forense financiero** para resolver no solo casos económicos sino también crímenes de sangre complejos — como el rastreo post-mortem de transacciones que sustentó la **condena de 50 años en el caso Nadia Peraza**.",
-    items: ["Lavado de activos","Capitalización ilícita","Legitimación de capitales","Compliance forense aplicado","Análisis forense financiero","Rastreo de transacciones post-mortem"] },
-  { n: "03", t: "Derecho Corporativo y Empresarial",
+    items: ["Lavado de activos","Capitalización ilícita","Legitimación de capitales","Compliance forense aplicado","Análisis forense financiero","Rastreo de transacciones post-mortem"],
+    long: [
+      "El Lic. Joseph Rivera Cheves es Máster en Compliance, Fraude y Blanqueo por EALDE Business School (España) y la Universidad de Murcia, con doble titulación internacional. Esta especialización es el activo diferencial del bufete: aplicamos técnicas de análisis forense financiero no solo a delitos económicos clásicos sino también a casos de criminalidad violenta, donde el rastreo patrimonial frecuentemente sostiene la imputación.",
+      "Un ejemplo concreto es el caso Nadia Peraza Espinoza, donde el análisis post-mortem de transacciones bancarias fue parte de la prueba que sustentó la condena de máxima pena. La técnica forense aplicada al patrimonio del imputado permitió corroborar versiones, identificar contactos y construir cronologías que la prueba testimonial por sí sola no habría producido.",
+      "En sede económica, defendemos a personas físicas y empresas en investigaciones por lavado de activos, capitalización ilícita y legitimación de capitales — tanto en sede administrativa (SUGEF, ICD) como penal. También asesoramos a corporaciones en el diseño de programas de compliance preventivos.",
+    ],
+    relatedCases: ["nadia-peraza"],
+    faqs: [
+      { q: "¿Qué diferencia al compliance forense del compliance preventivo?", a: "El compliance preventivo construye controles antes del evento. El forense reconstruye qué pasó después — sigue el rastro patrimonial, identifica anomalías, y prepara prueba pericial para sede penal o sancionatoria." },
+      { q: "¿Trabajan con peritos financieros propios?", a: "Sí. Coordinamos con peritos colegiados y con analistas forenses que han comparecido como peritos de parte en juicios de alto perfil." },
+      { q: "¿Pueden representar a empresas en sede SUGEF / ICD?", a: "Sí. Asesoramos a sujetos obligados durante inspecciones, requerimientos y procedimientos sancionatorios, así como en la implementación de programas preventivos." },
+    ],
+  },
+  {
+    n: "03", slug: "derecho-corporativo",
+    t: "Derecho Corporativo y Empresarial",
+    pre: "Derecho Corporativo y ", em: "Empresarial", post: "",
     d: "Constitución de **sociedades**, fusiones, adquisiciones, **fideicomisos** y optimización de estructuras corporativas.",
-    items: ["Constitución de sociedades","Fusiones y adquisiciones","Registro de accionistas","Fideicomisos","Compliance corporativo","Estructuras empresariales"] },
-  { n: "04", t: "Derecho Laboral",
+    items: ["Constitución de sociedades","Fusiones y adquisiciones","Registro de accionistas","Fideicomisos","Compliance corporativo","Estructuras empresariales"],
+    long: [
+      "Asesoramos a empresas y emprendimientos en la estructuración legal de su operación en Costa Rica — desde la constitución inicial de la sociedad anónima o SRL hasta la implementación de programas de compliance corporativo escalables a partir de la Ley 9986.",
+      "Nuestra práctica cubre fusiones y adquisiciones (M&A) de cuantías medias y altas, reorganizaciones societarias, transmisión de cuotas y acciones, fideicomisos de garantía y de administración, y el registro y mantenimiento del libro de accionistas conforme a la regulación vigente de transparencia y beneficiarios finales.",
+      "El Lic. Rivera Cheves fue notario público de planta de la Corporación Grupo Q (2014-2015), abogado de planta del Banco Nacional de Costa Rica (2010-2011) y asesor legal del Colegio de Ciencias Económicas. Esta trayectoria corporativa garantiza criterio de negocio, no solo criterio jurídico.",
+    ],
+    relatedCases: [] as string[],
+    faqs: [
+      { q: "¿Constituyen sociedades para no residentes en Costa Rica?", a: "Sí, frecuentemente. Coordinamos el cumplimiento migratorio y bancario para que la constitución se complete sin desplazamiento del cliente." },
+      { q: "¿Hacen due diligence pre-adquisición?", a: "Sí. Coordinamos due diligence legal, tributario y de compliance forense para operaciones de M&A." },
+    ],
+  },
+  {
+    n: "04", slug: "derecho-laboral",
+    t: "Derecho Laboral",
+    pre: "Derecho ", em: "Laboral", post: "",
     d: "Defensa en **despidos injustificados**, conciliaciones y conflictos laborales del sector privado.",
-    items: ["Despidos injustificados","Conciliaciones laborales","Conflictos laborales","Derechos del trabajador","Defensa del empleador","Procesos ante el MTSS"] },
-  { n: "05", t: "Derecho Notarial y Registral",
+    items: ["Despidos injustificados","Conciliaciones laborales","Conflictos laborales","Derechos del trabajador","Defensa del empleador","Procesos ante el MTSS"],
+    long: [
+      "Atendemos conflictos laborales del sector privado desde ambos lados de la mesa — defensa del trabajador frente a despidos injustificados o sin responsabilidad, y defensa del empleador en denuncias, demandas y procedimientos sancionatorios. Esto nos da ventaja estratégica al anticipar la posición contraria en cada caso.",
+      "Tramitamos conciliaciones administrativas ante el Ministerio de Trabajo y Seguridad Social (MTSS), demandas ante los Juzgados de Trabajo, recursos ante los Tribunales de Trabajo y la Sala Segunda de la Corte Suprema. Cuando el conflicto laboral conecta con materia penal (despido derivado de denuncia falsa, persecución penal por el empleador, etc.), integramos el equipo penalista del bufete.",
+      "Buscamos resoluciones rápidas y eficaces — la mayoría de conflictos laborales benefician a ambas partes cuando se concilian temprano. Cuando la conciliación no es viable, litigamos con preparación técnica completa.",
+    ],
+    relatedCases: [] as string[],
+    faqs: [
+      { q: "¿Atienden casos del sector público?", a: "Nuestra práctica principal es sector privado. Para sector público referimos a colegas especializados en empleo público / Servicio Civil." },
+      { q: "¿Cuánto tarda un proceso laboral en Costa Rica?", a: "Una conciliación administrativa puede resolverse en semanas. Un proceso judicial completo, considerando primera instancia y apelación, oscila entre 12 y 30 meses según el circuito." },
+    ],
+  },
+  {
+    n: "05", slug: "derecho-notarial",
+    t: "Derecho Notarial y Registral",
+    pre: "Derecho Notarial y ", em: "Registral", post: "",
     d: "Servicios notariales y registrales: **escrituras**, testamentos e inscripción de actos en **registros públicos**.",
-    items: ["Escrituras públicas","Testamentos","Inscripción registral","Autenticación de documentos","Traspasos de propiedad","Contratos notariales"] },
-  { n: "06", t: "Asesoría Estratégica Internacional",
+    items: ["Escrituras públicas","Testamentos","Inscripción registral","Autenticación de documentos","Traspasos de propiedad","Contratos notariales"],
+    long: [
+      "El Lic. Rivera Cheves es notario público en ejercicio con Maestría en Derecho Notarial y Registral (Universidad Latina de Costa Rica, 2010). Otorgamos escrituras públicas para todo tipo de actos — traspasos de bienes inmuebles, constitución y modificación de sociedades, testamentos, hipotecas, fideicomisos, mandatos y contratos atípicos.",
+      "Llevamos el trámite completo: desde el estudio de registro previo, redacción del proyecto, otorgamiento y autorización de la escritura, hasta su inscripción en el Registro Nacional. Coordinamos también las autenticaciones consulares cuando el cliente está fuera de Costa Rica.",
+      "Para clientes corporativos mantenemos el libro de accionistas y el libro de actas conforme a la normativa de transparencia vigente, y gestionamos los reportes de beneficiarios finales ante el Banco Central.",
+    ],
+    relatedCases: [] as string[],
+    faqs: [
+      { q: "¿Pueden hacer un testamento si la persona está enferma?", a: "Sí. Podemos desplazarnos a hospital o domicilio cuando las condiciones lo requieran. Coordinamos previamente con el médico tratante para confirmar capacidad cognitiva al momento del otorgamiento." },
+      { q: "¿Cuánto tarda la inscripción de un traspaso de inmueble?", a: "Entre 5 y 20 días hábiles según la complejidad del estudio registral y la carga del Registro Nacional al momento del depósito." },
+    ],
+  },
+  {
+    n: "06", slug: "asesoria-internacional",
+    t: "Asesoría Estratégica Internacional",
+    pre: "Asesoría Estratégica ", em: "Internacional", post: "",
     d: "Estrategia legal frente a **terrorismo**, subversión y **crimen organizado** a nivel nacional e internacional. Cooperación con agencias de seguridad (**FBI · 2018**) y litigio de **derechos humanos ante la OEA** contra regímenes autoritarios.",
-    items: ["Crimen organizado transnacional","Cooperación con FBI","Terrorismo y subversión","Derechos humanos · OEA","Extradiciones","Delitos transfronterizos"] },
-  { n: "07", t: "Casación Penal · Sala Tercera",
+    items: ["Crimen organizado transnacional","Cooperación con FBI","Terrorismo y subversión","Derechos humanos · OEA","Extradiciones","Delitos transfronterizos"],
+    long: [
+      "Asesoramos a clientes, gobiernos y organizaciones civiles en estrategia legal transfronteriza. Nuestra práctica incluye cooperación con agencias de seguridad internacional — destacando el trabajo con el FBI en 2018 en un caso de cobertura mediática internacional — y litigio de derechos humanos ante el Sistema Interamericano contra regímenes autoritarios.",
+      "En sede penal internacional manejamos extradiciones (activa y pasiva), asistencia judicial recíproca, y la coordinación con autoridades extranjeras durante investigaciones por delitos transfronterizos. Conocemos los protocolos de cooperación bilateral más utilizados desde Costa Rica.",
+      "En derechos humanos, hemos preparado peticiones y casos ante la Comisión Interamericana de Derechos Humanos (OEA) por violaciones graves cometidas por estados autoritarios de la región. Esta línea de trabajo se ejerce frecuentemente pro-bono o con financiamiento de organizaciones civiles.",
+    ],
+    relatedCases: ["carla-stefaniak","junieysis-merlo"],
+    faqs: [
+      { q: "¿Manejan extradiciones desde y hacia Costa Rica?", a: "Sí. Hemos asistido tanto a personas requeridas por estados extranjeros como a víctimas que buscan que un imputado fugitivo sea extraditado a Costa Rica." },
+      { q: "¿Aceptan casos pro-bono de derechos humanos?", a: "Sí, según disponibilidad. Los casos ante el SIDH suelen tramitarse con financiamiento de organizaciones civiles o fondos propios cuando la causa lo amerita." },
+    ],
+  },
+  {
+    n: "07", slug: "casacion-penal",
+    t: "Casación Penal · Sala Tercera",
+    pre: "Casación Penal · ", em: "Sala Tercera", post: "",
     d: "Defensa técnica de sentencias condenatorias en sede recursiva ante la **Sala Tercera de la Corte Suprema de Justicia**. Rechazo sistemático de pretensiones de nulidad e inadmisión de recursos por **defectos formales**.",
-    items: ["Casación de sentencias condenatorias","Defensa de prueba testimonial","Defensa de prueba científica","Litigación recursiva","Voto Nº 000374 (Sala Tercera)","Confirmación de condenas"] },
+    items: ["Casación de sentencias condenatorias","Defensa de prueba testimonial","Defensa de prueba científica","Litigación recursiva","Voto Nº 000374 (Sala Tercera)","Confirmación de condenas"],
+    long: [
+      "La casación penal es el último filtro técnico antes de que una sentencia condenatoria quede firme. Defendemos sentencias obtenidas en juicio oral frente a los recursos de casación interpuestos por la defensa de personas condenadas, así como representamos a víctimas y al Ministerio Público en sus posiciones procesales ante la Sala Tercera de la Corte Suprema de Justicia.",
+      "Nuestra estrategia recursiva busca el rechazo sistemático de las pretensiones de nulidad, defendiendo la validez de la prueba testimonial, pericial y científica admitida en debate, y demostrando que los recursos no superan los estándares formales de admisibilidad cuando ese es el caso. El Voto Nº 000374 de Sala Tercera es un ejemplo reciente del trabajo del bufete en esta sede.",
+      "La litigación recursiva requiere preparación distinta a la litigación oral — argumentación escrita densa, dominio de la jurisprudencia constitucional y casacional, y capacidad de oralizar en audiencia con tiempos muy acotados. Es una práctica especializada y el bufete la ofrece como línea propia.",
+    ],
+    relatedCases: ["nadia-peraza"],
+    faqs: [
+      { q: "¿En qué plazo se interpone un recurso de casación?", a: "El plazo ordinario es de 15 días hábiles contados desde la notificación de la sentencia. Es prudente contactarnos apenas se notifique el fallo." },
+      { q: "¿Defienden únicamente sentencias condenatorias?", a: "No. También representamos a víctimas y al Ministerio Público en sus pretensiones ante Sala Tercera, y a personas imputadas en recursos de revisión cuando se descubre prueba nueva." },
+      { q: "¿La casación suspende la ejecución de la pena?", a: "La sola interposición no suspende automáticamente la pena. Hay vías procesales para solicitar medidas alternativas según el caso." },
+    ],
+  },
 ];
 
 export type PressType  = "reportaje" | "opinion" | "entrevista" | "doctrina" | "podcast";

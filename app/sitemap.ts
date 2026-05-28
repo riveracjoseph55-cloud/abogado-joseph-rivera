@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { RC_CASES } from "@/lib/data";
+import { RC_CASES, RC_AREAS } from "@/lib/data";
 
 const BASE = "https://abogadojosephrivera.com";
 const now  = new Date().toISOString();
@@ -76,7 +76,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     alternates: { languages: { "es-CR": `${BASE}/casos/${c.slug}` } },
   }));
 
+  const areaPages: MetadataRoute.Sitemap = RC_AREAS.map(a => ({
+    url: `${BASE}/especialidades/${a.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.85,
+    alternates: { languages: { "es-CR": `${BASE}/especialidades/${a.slug}` } },
+  }));
+
   // Páginas legales excluidas del sitemap (robots: noindex)
 
-  return [...staticPages, ...casePages];
+  return [...staticPages, ...casePages, ...areaPages];
 }

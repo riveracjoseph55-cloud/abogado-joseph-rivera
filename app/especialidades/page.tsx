@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import CTABand from "@/components/CTABand";
 import SchemaOrg from "@/components/SchemaOrg";
@@ -45,7 +46,7 @@ const serviceSchema = {
     position: i + 1,
     name: a.t,
     description: a.d,
-    url: `${SITE_URL}/especialidades`,
+    url: `${SITE_URL}/especialidades/${a.slug}`,
   })),
 };
 
@@ -109,9 +110,14 @@ export default function EspecialidadesPage() {
                         </div>
                       ))}
                     </div>
-                    <a href={WA} target="_blank" rel="noopener" className="rc-link">
-                      Consultar sobre este servicio →
-                    </a>
+                    <div style={{ display: "flex", gap: 16, flexWrap: "wrap", alignItems: "center" }}>
+                      <Link href={`/especialidades/${a.slug}`} className="rc-link">
+                        Ver página del servicio →
+                      </Link>
+                      <a href={WA} target="_blank" rel="noopener" className="rc-link" style={{ color: "var(--fg-4)" }}>
+                        Consultar →
+                      </a>
+                    </div>
                   </div>
                 </div>
               </Reveal>
