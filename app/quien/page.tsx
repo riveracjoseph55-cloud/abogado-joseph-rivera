@@ -4,6 +4,7 @@ import Reveal from "@/components/Reveal";
 import CTABand from "@/components/CTABand";
 import SchemaOrg from "@/components/SchemaOrg";
 import { RC_FORMACION, RC_EXP, RC_DOCENCIA, RC_DOCTRINA } from "@/lib/data";
+import RichText from "@/components/RichText";
 import { SITE_URL, SITE_NAME, schemaAttorney, schemaLegalService } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -102,27 +103,25 @@ export default function QuienPage() {
             </div>
             <div>
               <Reveal>
-                <p className="rc-body" style={{ fontSize: 17, marginBottom: 22 }}>
-                  El Lic. Joseph Alfonso Rivera Cheves es un abogado penalista costarricense
-                  con destacada trayectoria en la defensa de derechos fundamentales y en la
-                  lucha contra la aplicación indebida de leyes que vulneran garantías constitucionales.
-                </p>
+                <RichText
+                  text="El Lic. **Joseph Alfonso Rivera Cheves** es un abogado penalista costarricense con destacada trayectoria en la defensa de **derechos fundamentales** y en la lucha contra la aplicación indebida de leyes que vulneran **garantías constitucionales**."
+                  className="rc-body"
+                  style={{ fontSize: 17, marginBottom: 22 }}
+                />
               </Reveal>
               <Reveal delay={80}>
-                <p className="rc-body" style={{ marginBottom: 22 }}>
-                  Desde diciembre de 2015 ejerce como abogado litigante en materia penal, con
-                  representación en casos penales y asesoría en política penal y litigación judicial
-                  a nivel nacional. Fue asesor ad honorem en la Asamblea Legislativa de Costa Rica
-                  entre mayo de 2020 y mayo de 2022.
-                </p>
+                <RichText
+                  text="Desde **diciembre de 2015** ejerce como abogado litigante en materia penal, con representación en casos penales y asesoría en política penal y litigación judicial a nivel nacional. Fue **asesor ad honorem en la Asamblea Legislativa de Costa Rica** entre mayo de 2020 y mayo de 2022."
+                  className="rc-body"
+                  style={{ marginBottom: 22 }}
+                />
               </Reveal>
               <Reveal delay={160}>
-                <p className="rc-body" style={{ marginBottom: 36 }}>
-                  Ha ocupado cargos como asesor legal en la Dirección General de Aviación Civil,
-                  abogado de planta del Banco Nacional de Costa Rica, asesor legal de la
-                  Municipalidad de Santa Bárbara de Heredia, notario público de planta de la
-                  Corporación Grupo Q y asesor legal del Colegio de Ciencias Económicas.
-                </p>
+                <RichText
+                  text="Ha ocupado cargos como asesor legal en la **Dirección General de Aviación Civil**, abogado de planta del **Banco Nacional de Costa Rica**, asesor legal de la **Municipalidad de Santa Bárbara de Heredia**, notario público de planta de la **Corporación Grupo Q** y asesor legal del **Colegio de Ciencias Económicas**."
+                  className="rc-body"
+                  style={{ marginBottom: 36 }}
+                />
               </Reveal>
               <Reveal delay={240}>
                 <blockquote style={{ borderLeft: "2px solid var(--r)", paddingLeft: 28 }}>
@@ -166,7 +165,7 @@ export default function QuienPage() {
                   </div>
                   <h3 className="rc-h3" style={{ marginBottom: 10 }}>{f.t}</h3>
                   <div style={{ fontSize: 12, color: "var(--fg-5)", marginBottom: 12, fontFamily: "var(--font-mono, monospace)", letterSpacing: ".06em" }}>{f.s}</div>
-                  <p style={{ fontSize: 14, color: "var(--fg-3)", lineHeight: 1.65 }}>{f.d}</p>
+                  <RichText text={f.d} style={{ fontSize: 14, color: "var(--fg-3)", lineHeight: 1.65 }} />
                 </div>
               </Reveal>
             ))}
@@ -200,7 +199,7 @@ export default function QuienPage() {
                     <div>
                       <h3 className="rc-h4" style={{ marginBottom: 4 }}>{e.cargo}</h3>
                       <div style={{ fontSize: 12, color: "var(--fg-5)", marginBottom: 8 }}>{e.lugar}</div>
-                      <p style={{ fontSize: 14, color: "var(--fg-3)", lineHeight: 1.65 }}>{e.desc}</p>
+                      <RichText text={e.desc} style={{ fontSize: 14, color: "var(--fg-3)", lineHeight: 1.65 }} />
                     </div>
                   </div>
                 </Reveal>
@@ -322,7 +321,7 @@ export default function QuienPage() {
                   <div key={i} style={{ marginBottom: i < RC_DOCTRINA.articulos.length - 1 ? 28 : 0 }}>
                     <h3 className="rc-h3" style={{ marginBottom: 8, fontSize: 22 }}>{a.titulo}</h3>
                     <div className="rc-meta" style={{ color: "var(--fg-5)", marginBottom: 10 }}>{a.tipo}</div>
-                    <p style={{ fontSize: 15, lineHeight: 1.7, color: "var(--fg-3)" }}>{a.desc}</p>
+                    <RichText text={a.desc} style={{ fontSize: 15, lineHeight: 1.7, color: "var(--fg-3)" }} />
                   </div>
                 ))}
               </div>
@@ -338,7 +337,7 @@ export default function QuienPage() {
                   <div key={i} style={{ marginBottom: i < RC_DOCTRINA.propuestas.length - 1 ? 28 : 0 }}>
                     <h3 className="rc-h3" style={{ marginBottom: 8, fontSize: 22 }}>{p.titulo}</h3>
                     <div className="rc-meta" style={{ color: "var(--fg-5)", marginBottom: 10 }}>{p.tipo}</div>
-                    <p style={{ fontSize: 15, lineHeight: 1.7, color: "var(--fg-3)" }}>{p.desc}</p>
+                    <RichText text={p.desc} style={{ fontSize: 15, lineHeight: 1.7, color: "var(--fg-3)" }} />
                   </div>
                 ))}
               </div>

@@ -4,6 +4,7 @@ import Reveal from "@/components/Reveal";
 import CTABand from "@/components/CTABand";
 import SchemaOrg from "@/components/SchemaOrg";
 import { RC_FORMACION, RC_DOCENCIA } from "@/lib/data";
+import RichText from "@/components/RichText";
 import { SITE_URL, SITE_NAME, OG_IMAGE, schemaAttorney } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -138,7 +139,7 @@ export default function AtestadosPage() {
                       fontFamily: "var(--font-mono, monospace)", fontSize: 11,
                       letterSpacing: ".06em", color: "var(--fg-5)", marginBottom: 10,
                     }}>{f.s}</div>
-                    <p style={{ fontSize: 14, color: "var(--fg-3)", lineHeight: 1.7 }}>{f.d}</p>
+                    <RichText text={f.d} style={{ fontSize: 14, color: "var(--fg-3)", lineHeight: 1.7 }} />
                   </div>
                 </div>
               </Reveal>

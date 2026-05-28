@@ -5,6 +5,7 @@ import Reveal from "@/components/Reveal";
 import CTABand from "@/components/CTABand";
 import SchemaOrg from "@/components/SchemaOrg";
 import { RC_CASES } from "@/lib/data";
+import RichText from "@/components/RichText";
 import { SITE_URL, SITE_NAME, OG_IMAGE } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -168,7 +169,7 @@ export default function CasosPage() {
                   </div>
 
                   <div>
-                    <p className="rc-body" style={{ marginBottom: 24, fontSize: 16 }}>{c.short}</p>
+                    <RichText text={c.short} className="rc-body" style={{ marginBottom: 24, fontSize: 16 }} />
                     <div style={{
                       display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14,
                       marginBottom: 28, paddingTop: 18, borderTop: "1px solid var(--hairline)",

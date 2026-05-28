@@ -3,6 +3,7 @@ import Reveal from "@/components/Reveal";
 import CTABand from "@/components/CTABand";
 import SchemaOrg from "@/components/SchemaOrg";
 import { RC_AREAS, WA } from "@/lib/data";
+import RichText from "@/components/RichText";
 import { SITE_URL, SITE_NAME, OG_IMAGE } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -93,7 +94,7 @@ export default function EspecialidadesPage() {
                   <h2 className="rc-h2" style={{ fontSize: "clamp(22px,3vw,40px)" }}>{a.t}</h2>
 
                   <div>
-                    <p className="rc-body" style={{ marginBottom: 24 }}>{a.d}</p>
+                    <RichText text={a.d} className="rc-body" style={{ marginBottom: 24 }} />
                     <div style={{
                       display: "grid", gap: "8px 20px", gridTemplateColumns: "repeat(2,1fr)",
                       marginBottom: 28,
