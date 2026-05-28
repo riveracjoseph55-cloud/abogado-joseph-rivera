@@ -83,18 +83,30 @@ export default function EspecialidadesPage() {
           <div style={{ display: "flex", flexDirection: "column" }}>
             {RC_AREAS.map((a, i) => (
               <Reveal key={a.n} delay={i * 50}>
+                {/* Overlay-link pattern: overlay <Link> is sibling of content, not nested inside another <a> */}
                 <div style={{
+                  position: "relative",
                   display: "grid", gridTemplateColumns: "96px 1fr 1.4fr",
                   gap: "clamp(24px,3vw,56px)",
                   padding: "clamp(32px,4vw,56px) 0",
                   borderTop: "1px solid var(--hairline)",
+                  cursor: "pointer",
+                  transition: "background .2s",
                 }} className="area-row">
 
-                  <div className="rc-meta" style={{ color: R, paddingTop: 4 }}>{a.n}</div>
+                  {/* Full-row clickable overlay */}
+                  <Link
+                    href={`/especialidades/${a.slug}`}
+                    style={{ position: "absolute", inset: 0, zIndex: 1 }}
+                    aria-label={`Ver ${a.t}`}
+                  />
 
-                  <h2 className="rc-h2" style={{ fontSize: "clamp(22px,3vw,40px)" }}>{a.t}</h2>
+                  <div className="rc-meta" style={{ color: R, paddingTop: 4, position: "relative", zIndex: 2 }}>{a.n}</div>
 
-                  <div>
+                  <h2 className="rc-h2" style={{ fontSize: "clamp(22px,3vw,40px)", position: "relative", zIndex: 2 }}>{a.t}</h2>
+
+                  {/* Right column — above overlay so text is selectable and WA link works */}
+                  <div style={{ position: "relative", zIndex: 2 }}>
                     <RichText text={a.d} className="rc-body" style={{ marginBottom: 24 }} />
                     <div style={{
                       display: "grid", gap: "8px 20px", gridTemplateColumns: "repeat(2,1fr)",
@@ -111,10 +123,15 @@ export default function EspecialidadesPage() {
                       ))}
                     </div>
                     <div style={{ display: "flex", gap: 16, flexWrap: "wrap", alignItems: "center" }}>
-                      <Link href={`/especialidades/${a.slug}`} className="rc-link">
+                      {/* Visual hint — the overlay Link handles the navigation */}
+                      <span className="rc-link" style={{ pointerEvents: "none" }}>
                         Ver página del servicio →
-                      </Link>
-                      <a href={WA} target="_blank" rel="noopener" className="rc-link" style={{ color: "var(--fg-4)" }}>
+                      </span>
+                      <a
+                        href={WA} target="_blank" rel="noopener noreferrer"
+                        className="rc-link"
+                        style={{ color: "var(--fg-4)", position: "relative", zIndex: 3 }}
+                      >
                         Consultar →
                       </a>
                     </div>
@@ -130,6 +147,8 @@ export default function EspecialidadesPage() {
             .area-row { grid-template-columns: 1fr !important; gap: 16px !important; }
             .items-grid { grid-template-columns: 1fr !important; }
           }
+          .area-row:hover { background: var(--paper-2); }
+          .area-row:hover h2 { color: ${R}; }
         `}</style>
       </section>
 

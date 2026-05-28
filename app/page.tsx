@@ -342,54 +342,96 @@ export default function Home() {
       {/* ── ÁREAS ── */}
       <section style={{ background: "#fff", padding: "var(--pad-y) 0" }}>
         <div className="rc-wrap">
+          {/* Header */}
           <div style={{
-            display: "grid", gridTemplateColumns: "1fr 2fr", gap: "clamp(40px,6vw,96px)",
-          }} className="areas-grid">
+            display: "flex", alignItems: "flex-end", justifyContent: "space-between",
+            gap: 24, flexWrap: "wrap",
+            marginBottom: "clamp(40px,5vw,72px)",
+          }}>
             <div>
               <div className="rc-eyebrow" style={{ marginBottom: 16 }}>02 / 04 · Práctica legal</div>
               <Reveal>
                 <h2 className="rc-h2">Áreas de <em className="rc-em">Especialización</em></h2>
               </Reveal>
-              <Reveal delay={120}>
-                <p className="rc-lede" style={{ marginTop: 24, marginBottom: 32 }}>
+              <Reveal delay={100}>
+                <p className="rc-lede" style={{ marginTop: 20, maxWidth: "46ch" }}>
                   Vasta experiencia en múltiples ramas del derecho costarricense e internacional.
-                  Representación sólida, profesional y adaptada a cada situación legal.
                 </p>
               </Reveal>
-              <Reveal delay={200}>
-                <Link href="/especialidades" className="rc-btn ghost">
-                  Ver todas las áreas →
+            </div>
+            <Reveal delay={160}>
+              <Link href="/especialidades" className="rc-btn ghost">
+                Ver todas las áreas →
+              </Link>
+            </Reveal>
+          </div>
+
+          {/* Card grid — cada tarjeta → página individual del servicio */}
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(3, 1fr)",
+            gap: "var(--gut)",
+          }} className="areas-cards">
+            {RC_AREAS.map((a, i) => (
+              <Reveal key={a.n} delay={i * 55}>
+                <Link href={`/especialidades/${a.slug}`} className="rc-card" style={{
+                  display: "flex", flexDirection: "column",
+                  padding: 0, overflow: "hidden", height: "100%",
+                  textDecoration: "none",
+                }}>
+                  {/* Card top */}
+                  <div style={{
+                    padding: "clamp(22px,2.8vw,34px)",
+                    flex: 1,
+                  }}>
+                    <div style={{
+                      display: "flex", justifyContent: "space-between", alignItems: "flex-start",
+                      marginBottom: 20,
+                    }}>
+                      <span style={{
+                        fontFamily: "var(--font-mono, monospace)", fontSize: 11,
+                        letterSpacing: ".12em", color: "var(--fg-5)",
+                      }}>{a.n}</span>
+                      <span style={{
+                        fontFamily: "var(--font-mono, monospace)", fontSize: 9,
+                        letterSpacing: ".1em", textTransform: "uppercase",
+                        color: "var(--r)", background: "var(--r-tint, #fff0f0)",
+                        padding: "3px 8px", borderRadius: 2,
+                      }}>
+                        {a.items.length} servicios
+                      </span>
+                    </div>
+                    <h3 className="rc-h3" style={{
+                      fontSize: "clamp(16px,1.6vw,22px)",
+                      marginBottom: 12, lineHeight: 1.25,
+                    }}>{a.t}</h3>
+                    <p style={{
+                      fontSize: 13, color: "var(--fg-4)", lineHeight: 1.65,
+                    }}>
+                      {a.d.replace(/\*\*/g, "").slice(0, 100).trimEnd()}…
+                    </p>
+                  </div>
+                  {/* Card footer */}
+                  <div style={{
+                    padding: "14px clamp(22px,2.8vw,34px)",
+                    borderTop: "1px solid var(--hairline)",
+                    background: "var(--paper)",
+                    display: "flex", justifyContent: "space-between", alignItems: "center",
+                  }}>
+                    <span style={{
+                      fontFamily: "var(--font-sans, system-ui)",
+                      fontSize: 13, fontWeight: 600, color: R,
+                    }}>Ver servicio</span>
+                    <span style={{ color: R, fontSize: 16 }}>→</span>
+                  </div>
                 </Link>
               </Reveal>
-            </div>
-
-            <div>
-              {RC_AREAS.slice(0, 5).map((a, i) => (
-                <Reveal key={a.n} delay={i * 60}>
-                  <Link href="/especialidades" className="area-row" style={{
-                    display: "grid", gridTemplateColumns: "72px 1fr auto",
-                    alignItems: "baseline", gap: 24,
-                    padding: "clamp(18px,2vw,28px) 0",
-                    borderTop: "1px solid var(--hairline)",
-                    transition: "border-top-color .25s ease",
-                  }}
-                  >
-                    <span style={{ fontFamily: "var(--font-mono, monospace)", fontSize: 12, color: "var(--fg-5)", letterSpacing: ".1em" }}>{a.n}</span>
-                    <div>
-                      <h3 className="rc-h3" style={{ marginBottom: 4 }}>{a.t}</h3>
-                      <p style={{ fontSize: 13, color: "var(--fg-4)" }}>{a.d}</p>
-                    </div>
-                    <span style={{ color: "var(--fg-5)", fontSize: 16 }}>→</span>
-                  </Link>
-                </Reveal>
-              ))}
-              <div style={{ borderTop: "1px solid var(--hairline)" }}/>
-            </div>
+            ))}
           </div>
         </div>
         <style>{`
-          @media (max-width: 900px) { .areas-grid { grid-template-columns: 1fr !important; } }
-          .area-row:hover { border-top-color: #7e0102 !important; }
+          @media (max-width: 1100px) { .areas-cards { grid-template-columns: repeat(2,1fr) !important; } }
+          @media (max-width:  640px) { .areas-cards { grid-template-columns: 1fr !important; } }
         `}</style>
       </section>
 

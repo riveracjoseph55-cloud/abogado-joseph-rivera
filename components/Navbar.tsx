@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { WA } from "@/lib/data";
+import { WA, RC_AREAS } from "@/lib/data";
 import SearchModal from "@/components/SearchModal";
 
 const LINKS = [
@@ -33,11 +33,12 @@ function LupaIcon({ size = 18 }: { size?: number }) {
 }
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [open,     setOpen]     = useState(false);
-  const [mobile,   setMobile]   = useState(false);
-  const [search,   setSearch]   = useState(false);
-  const pathname                = usePathname();
+  const [scrolled,    setScrolled]    = useState(false);
+  const [open,        setOpen]        = useState(false);
+  const [mobile,      setMobile]      = useState(false);
+  const [search,      setSearch]      = useState(false);
+  const [expandSpec,  setExpandSpec]  = useState(false);
+  const pathname                      = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 64);
@@ -51,8 +52,8 @@ export default function Navbar() {
     };
   }, []);
 
-  // Close drawer on route change
-  useEffect(() => { setOpen(false); }, [pathname]);
+  // Close drawer (and collapse sub-menu) on route change
+  useEffect(() => { setOpen(false); setExpandSpec(false); }, [pathname]);
 
   const logoH = scrolled ? 64 : 104;
   const utilH = scrolled ? 0 : 40;
@@ -275,29 +276,108 @@ export default function Navbar() {
             zIndex: 40, overflowY: "auto",
             animation: "rc-page-in .35s ease",
           }}>
-            {LINKS.map(([href, label], i) => (
-              <Link
-                key={href}
-                href={href}
-                onClick={() => setOpen(false)}
-                style={{
-                  display: "flex", alignItems: "baseline", justifyContent: "space-between",
-                  padding: "18px 0",
-                  borderBottom: "1px solid rgba(255,255,255,.18)",
-                  fontFamily: "var(--font-sans, system-ui)", fontSize: 22, fontWeight: 500,
-                  color: pathname === href ? "#fff" : "rgba(255,255,255,.85)",
-                  textDecoration: "none",
-                }}
-              >
-                <span>{label}</span>
-                <span style={{
-                  fontFamily: "var(--font-mono, monospace)", fontSize: 11,
-                  color: "rgba(255,255,255,.45)",
-                }}>
-                  0{i + 1}
-                </span>
-              </Link>
-            ))}
+            {LINKS.map(([href, label], i) => {
+              const isEsp = href === "/especialidades";
+
+              /* ── Especialidades: expandable with sub-pages ── */
+              if (isEsp) return (
+                <div key={href}>
+                  {/* Parent row */}
+                  <div style={{ borderBottom: expandSpec ? "none" : "1px solid rgba(255,255,255,.18)" }}>
+                    <button
+                      onClick={() => setExpandSpec(e => !e)}
+                      style={{
+                        width: "100%",
+                        display: "flex", alignItems: "baseline", justifyContent: "space-between",
+                        padding: "18px 0",
+                        fontFamily: "var(--font-sans, system-ui)", fontSize: 22, fontWeight: 500,
+                        color: pathname.startsWith("/especialidades") ? "#fff" : "rgba(255,255,255,.85)",
+                        background: "none", border: "none", cursor: "pointer",
+                      }}
+                    >
+                      <span>{label}</span>
+                      <span style={{
+                        fontFamily: "var(--font-mono, monospace)", fontSize: 11,
+                        color: "rgba(255,255,255,.45)",
+                        display: "flex", alignItems: "center", gap: 10,
+                      }}>
+                        <span style={{
+                          fontSize: 20, lineHeight: 1, display: "inline-block",
+                          transform: expandSpec ? "rotate(45deg)" : "none",
+                          transition: "transform .25s ease",
+                        }}>+</span>
+                        0{i + 1}
+                      </span>
+                    </button>
+                  </div>
+
+                  {/* Sub-items — all 7 área pages */}
+                  {expandSpec && (
+                    <div style={{ borderBottom: "1px solid rgba(255,255,255,.18)", paddingBottom: 10 }}>
+                      <Link
+                        href="/especialidades"
+                        onClick={() => setOpen(false)}
+                        style={{
+                          display: "block",
+                          padding: "8px 0 8px 28px",
+                          fontFamily: "var(--font-mono, monospace)", fontSize: 10,
+                          letterSpacing: ".14em", textTransform: "uppercase",
+                          color: "rgba(255,255,255,.4)", textDecoration: "none",
+                        }}
+                      >
+                        ← Todas las áreas
+                      </Link>
+                      {RC_AREAS.map(a => (
+                        <Link
+                          key={a.slug}
+                          href={`/especialidades/${a.slug}`}
+                          onClick={() => setOpen(false)}
+                          style={{
+                            display: "flex", justifyContent: "space-between", alignItems: "center",
+                            padding: "11px 0 11px 28px",
+                            fontFamily: "var(--font-sans, system-ui)", fontSize: 16, fontWeight: 400,
+                            color: pathname === `/especialidades/${a.slug}` ? "#fff" : "rgba(255,255,255,.75)",
+                            textDecoration: "none",
+                            borderTop: "1px solid rgba(255,255,255,.09)",
+                          }}
+                        >
+                          <span>{a.t}</span>
+                          <span style={{
+                            fontFamily: "var(--font-mono, monospace)", fontSize: 10,
+                            color: "rgba(255,255,255,.3)", marginLeft: 12,
+                          }}>{a.n}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+
+              /* ── Regular link ── */
+              return (
+                <Link
+                  key={href}
+                  href={href}
+                  onClick={() => setOpen(false)}
+                  style={{
+                    display: "flex", alignItems: "baseline", justifyContent: "space-between",
+                    padding: "18px 0",
+                    borderBottom: "1px solid rgba(255,255,255,.18)",
+                    fontFamily: "var(--font-sans, system-ui)", fontSize: 22, fontWeight: 500,
+                    color: pathname === href ? "#fff" : "rgba(255,255,255,.85)",
+                    textDecoration: "none",
+                  }}
+                >
+                  <span>{label}</span>
+                  <span style={{
+                    fontFamily: "var(--font-mono, monospace)", fontSize: 11,
+                    color: "rgba(255,255,255,.45)",
+                  }}>
+                    0{i + 1}
+                  </span>
+                </Link>
+              );
+            })}
             <a
               href={WA} target="_blank" rel="noopener"
               style={{
