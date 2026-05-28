@@ -890,6 +890,8 @@ export type ComunicadoEntry = {
   tags?:        string[];
   relatedCase?: string;     // slug de RC_CASES
   area?:        string;     // slug de RC_AREAS
+  image?:       string;     // ruta en /public, e.g. /images/comunicados/foto.jpg
+  audio?:       string;     // ruta en /public, e.g. /audio/comunicados/nota.ogg
 };
 
 export const RC_COMUNICADOS: ComunicadoEntry[] = [
@@ -921,5 +923,23 @@ export const RC_COMUNICADOS: ComunicadoEntry[] = [
     ],
     tags: ["nicaragua", "junieysis-merlo", "derechos-humanos", "cidh", "asesoria-internacional"],
     area: "asesoria-internacional",
+  },
+  {
+    slug: "apertura-celulares-caso-junieysis-merlo",
+    title: "Apertura de celulares en caso Junieysis Merlo: imputado no se presentó a la diligencia",
+    date: "2026-05-28",
+    summary: "Este miércoles se realizó la diligencia de apertura de los teléfonos celulares en el caso Junieysis Merlo. El imputado no se presentó y su defensor abandonó el procedimiento a los cinco minutos.",
+    body: [
+      "San José, Costa Rica, 28 de mayo de 2026. — Este miércoles se llevó a cabo la diligencia de apertura de los teléfonos celulares en el marco del proceso judicial por el femicidio de Junieysis Merlo. La actuación inició a las 8:00 a.m. y contó con la participación de los expertos en cibercrimen del Organismo de Investigación Judicial (OIJ) y el Ministerio Público.",
+      "El licenciado Joseph Rivera Cheves, quien ejerce como querellante y actor civil en representación de la familia de la víctima, estuvo presente en la diligencia y confirmó el desarrollo de la misma.",
+      "Un hecho relevante durante la actuación fue la ausencia del imputado, quien decidió no presentarse a la diligencia. Adicionalmente, el abogado defensor únicamente permaneció cinco minutos en el procedimiento antes de retirarse.",
+      "Conforme lo explicó el licenciado Rivera, los expertos en informática forense del Poder Judicial procederán a realizar un respaldo de la totalidad de la información contenida en los dispositivos móviles de la ofendida y del imputado. Posteriormente, se levantará un acta pericial que determinará con precisión qué información fue sustraída de dichos teléfonos, dato que podría resultar determinante para el avance de la investigación.",
+      "«Estamos a la espera de que el proceso continúe y de que los expertos en informática forense realicen el respaldo de la información y, posteriormente, el acta para determinar qué fue lo que se sustrajo en los teléfonos celulares de la ofendida y del imputado», manifestó el licenciado Rivera.",
+    ],
+    tags: ["junieysis-merlo", "apertura-celulares", "oij", "informatica-forense", "femicidio"],
+    relatedCase: "junieysis-merlo",
+    area: "derecho-penal",
+    image: "/images/comunicados/apertura-celulares-junieysis-merlo.jpg",
+    audio: "/audio/comunicados/apertura-celulares-junieysis-merlo.ogg",
   },
 ];

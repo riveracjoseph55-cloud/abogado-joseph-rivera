@@ -140,6 +140,24 @@ export default async function ComunicadoPage({ params }: Props) {
           </div>
         </section>
 
+        {/* ── IMAGEN DESTACADA ─────────────────────────────────── */}
+        {c.image && (
+          <div style={{ background: "#fff", borderBottom: "1px solid var(--hairline)" }}>
+            <div className="rc-wrap" style={{ maxWidth: 860, padding: "0 0 0 0" }}>
+              <img
+                src={c.image}
+                alt={c.title}
+                style={{
+                  width: "100%",
+                  maxHeight: 480,
+                  objectFit: "cover",
+                  display: "block",
+                }}
+              />
+            </div>
+          </div>
+        )}
+
         <div style={{ height: 1, background: "var(--hairline)" }} />
 
         {/* ── CUERPO + SIDEBAR ─────────────────────────────────── */}
@@ -165,6 +183,33 @@ export default async function ComunicadoPage({ params }: Props) {
                     </p>
                   </Reveal>
                 ))}
+
+                {/* Audio */}
+                {c.audio && (
+                  <Reveal delay={220}>
+                    <div style={{
+                      marginTop: 36, marginBottom: 36,
+                      padding: "20px 24px",
+                      background: "var(--paper)",
+                      borderLeft: `3px solid ${R}`,
+                    }}>
+                      <div style={{
+                        fontFamily: "var(--font-mono, ui-monospace)", fontSize: 10,
+                        letterSpacing: ".12em", textTransform: "uppercase",
+                        color: "var(--fg-4)", marginBottom: 12,
+                      }}>
+                        Declaraciones — Lic. Joseph Rivera Cheves
+                      </div>
+                      <audio
+                        controls
+                        style={{ width: "100%", accentColor: R }}
+                      >
+                        <source src={c.audio} type="audio/ogg" />
+                        Tu navegador no soporta reproducción de audio.
+                      </audio>
+                    </div>
+                  </Reveal>
+                )}
 
                 {/* Firma del bufete */}
                 <Reveal delay={240}>
