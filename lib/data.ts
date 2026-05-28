@@ -639,7 +639,7 @@ export const RC_AREAS_SEO: Record<string, {
     title:      "Abogado Laboral Costa Rica | Despidos y Conflictos · Rivera Cheves",
     desc:       "Representación en despidos injustificados, fueros especiales y conflictos colectivos. Rivera Cheves & Asociados atiende tanto trabajadores como empleadores.",
     keys:       ["abogado laboral costa rica","abogado despido injustificado costa rica","fuero laboral costa rica","abogado joseph rivera","conflicto laboral costa rica"],
-    photo:      "/images/joseph/prensa.jpg",
+    photo:      "/images/joseph/prensa-tribunales.jpg",
     credential: "Representación en ambos lados — trabajadores y empleadores en Costa Rica",
   },
   "derecho-notarial": {

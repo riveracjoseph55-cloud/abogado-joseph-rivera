@@ -312,16 +312,17 @@ export default async function AreaPage({ params }: Props) {
               <div>
                 {a.long.map((para, i) => (
                   <Reveal key={i} delay={i * 80}>
-                    <p style={{
-                      fontFamily: "var(--font-sans, system-ui)",
-                      fontSize: i === 0 ? "clamp(18px,1.5vw,22px)" : "16px",
-                      lineHeight: i === 0 ? 1.55 : 1.7,
-                      color: i === 0 ? "var(--ink)" : "var(--fg-3)",
-                      marginBottom: 24,
-                      letterSpacing: i === 0 ? "-0.005em" : "0",
-                    }}>
-                      {para}
-                    </p>
+                    <RichText
+                      text={para}
+                      style={{
+                        fontFamily: "var(--font-sans, system-ui)",
+                        fontSize: i === 0 ? "clamp(18px,1.5vw,22px)" : "16px",
+                        lineHeight: i === 0 ? 1.55 : 1.7,
+                        color: i === 0 ? "var(--ink)" : "var(--fg-3)",
+                        marginBottom: 24,
+                        letterSpacing: i === 0 ? "-0.005em" : "0",
+                      }}
+                    />
                   </Reveal>
                 ))}
               </div>
