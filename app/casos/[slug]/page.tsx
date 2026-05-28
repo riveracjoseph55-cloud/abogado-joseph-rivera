@@ -7,7 +7,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import CTABand from "@/components/CTABand";
 import Reveal from "@/components/Reveal";
 import InstagramReel from "@/components/InstagramReel";
-import FacebookVideo from "@/components/FacebookVideo";
+import TikTokVideo from "@/components/TikTokVideo";
 import RichText from "@/components/RichText";
 import { RC_CASES, RC_CASES_SEO, WA } from "@/lib/data";
 import { SITE_URL, SITE_NAME, OG_IMAGE, AUTHOR } from "@/lib/seo";
@@ -472,21 +472,35 @@ export default async function CasoDetail({ params }: { params: Promise<{ slug: s
           </section>
         )}
 
-        {/* ── FACEBOOK VIDEO ── */}
-        {"facebookVideo" in c && c.facebookVideo && (
+        {/* ── TIKTOK VIDEOS ── */}
+        {"tiktokVideos" in c && Array.isArray((c as any).tiktokVideos) && (c as any).tiktokVideos.length > 0 && (
           <section style={{ background: "#f9f7f5", padding: "clamp(48px,7vw,100px) 0" }}>
-            <div className="rc-wrap" style={{ maxWidth: 860 }}>
-              <div className="rc-eyebrow" style={{ marginBottom: 16, color: R }}>Cobertura · Video</div>
-              <h2 className="rc-h2" style={{ marginBottom: 32 }}>
+            <div className="rc-wrap">
+              <div className="rc-eyebrow" style={{ marginBottom: 16, color: R }}>Cobertura · TikTok</div>
+              <h2 className="rc-h2" style={{ marginBottom: 40 }}>
                 El caso en <em className="rc-em">video</em>
               </h2>
               <Reveal>
-                <FacebookVideo
-                  url={c.facebookVideo as string}
-                  label={`Video relacionado — caso ${c.name}`}
-                />
+                <div
+                  style={{
+                    display: "grid",
+                    gap: 24,
+                    gridTemplateColumns: `repeat(${Math.min((c as any).tiktokVideos.length, 2)}, 325px)`,
+                    justifyContent: "center",
+                  }}
+                  className="case-tiktok-grid"
+                >
+                  {((c as any).tiktokVideos as string[]).map((url: string, i: number) => (
+                    <TikTokVideo key={i} url={url} />
+                  ))}
+                </div>
               </Reveal>
             </div>
+            <style>{`
+              @media (max-width: 720px) {
+                .case-tiktok-grid { grid-template-columns: min(325px, 100%) !important; }
+              }
+            `}</style>
           </section>
         )}
 

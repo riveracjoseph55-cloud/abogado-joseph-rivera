@@ -165,7 +165,10 @@ export const RC_CASES = [
         sub: "Familiar de Junieysis Merlo Espinoza durante el proceso mediático del caso, acompañada por el equipo del bufete Rivera Cheves & Asociados.",
       },
     ],
-    facebookVideo: "https://www.facebook.com/share/v/1LkX2dh1Cv/",
+    tiktokVideos: [
+      "https://www.tiktok.com/@josephriveraabogado/video/7642726335940398357",
+      "https://www.tiktok.com/@josephriveraabogado/video/7631844776681180436",
+    ],
   },
   {
     slug: "luany-salazar",
@@ -340,6 +343,9 @@ export const RC_CASES = [
         caption: "Taza de Finca Lajas · recuerdo de Toño y Maureen",
         sub: "Una taza personalizada con la fotografía de Toño y Maureen junto a una imagen religiosa — el testimonio más íntimo de quiénes eran las víctimas y del lugar que habían construido con sus propias manos. Fotografía de Carlos Valencia, periodista.",
       },
+    ],
+    tiktokVideos: [
+      "https://www.tiktok.com/@josephriveraabogado/video/7644068550449040660",
     ],
   },
 ];
