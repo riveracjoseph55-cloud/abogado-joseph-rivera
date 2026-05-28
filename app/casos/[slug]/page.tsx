@@ -7,6 +7,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import CTABand from "@/components/CTABand";
 import Reveal from "@/components/Reveal";
 import InstagramReel from "@/components/InstagramReel";
+import FacebookVideo from "@/components/FacebookVideo";
 import RichText from "@/components/RichText";
 import { RC_CASES, RC_CASES_SEO, WA } from "@/lib/data";
 import { SITE_URL, SITE_NAME, OG_IMAGE, AUTHOR } from "@/lib/seo";
@@ -468,6 +469,24 @@ export default async function CasoDetail({ params }: { params: Promise<{ slug: s
             <style>{`
               @media (max-width: 900px) { .case-reel-grid { grid-template-columns: 1fr !important; } }
             `}</style>
+          </section>
+        )}
+
+        {/* ── FACEBOOK VIDEO ── */}
+        {"facebookVideo" in c && c.facebookVideo && (
+          <section style={{ background: "#f9f7f5", padding: "clamp(48px,7vw,100px) 0" }}>
+            <div className="rc-wrap" style={{ maxWidth: 860 }}>
+              <div className="rc-eyebrow" style={{ marginBottom: 16, color: R }}>Cobertura · Video</div>
+              <h2 className="rc-h2" style={{ marginBottom: 32 }}>
+                El caso en <em className="rc-em">video</em>
+              </h2>
+              <Reveal>
+                <FacebookVideo
+                  url={c.facebookVideo as string}
+                  label={`Video relacionado — caso ${c.name}`}
+                />
+              </Reveal>
+            </div>
           </section>
         )}
 

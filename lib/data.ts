@@ -151,6 +151,21 @@ export const RC_CASES = [
       { k: "Representación",       v: "Pro-bono" },
       { k: "Veto migratorio",      v: "Nicaragua · 25 abril 2026" },
     ],
+    gallery: [
+      {
+        src: "/images/casos/junieysis-merlo-prensa-joseph-rivera.jpg",
+        alt: "Abogado penalista Joseph Rivera Cheves con familiares de Junieysis Merlo Espinoza durante conferencia de prensa — caso femicidio Salitral de Santa Ana Costa Rica 2026",
+        caption: "Conferencia de prensa · caso Junieysis Merlo Espinoza",
+        sub: "El Lic. Rivera Cheves junto a familiares de la víctima en la conferencia de prensa en que se anunció la representación pro-bono del bufete en este caso humanitario.",
+      },
+      {
+        src: "/images/casos/junieysis-merlo-familiar-declaracion.jpg",
+        alt: "Familiar de Junieysis Merlo Espinoza durante declaración pública — caso femicidio Salitral de Santa Ana Costa Rica 2026 — representación pro-bono Rivera Cheves & Asociados",
+        caption: "Declaración pública · familiar de la víctima",
+        sub: "Familiar de Junieysis Merlo Espinoza durante el proceso mediático del caso, acompañada por el equipo del bufete Rivera Cheves & Asociados.",
+      },
+    ],
+    facebookVideo: "https://www.facebook.com/share/v/1LkX2dh1Cv/",
   },
   {
     slug: "luany-salazar",

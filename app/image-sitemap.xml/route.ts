@@ -53,6 +53,18 @@ function buildXml(pages: PageEntry[]): string {
 // ── Galería de casos con imágenes adicionales ──────────────────────────────
 
 const GALLERY: Record<string, Img[]> = {
+  "junieysis-merlo": [
+    {
+      loc: `${BASE}/images/casos/junieysis-merlo-prensa-joseph-rivera.jpg`,
+      title: "Abogado penalista Joseph Rivera Cheves con familiares de Junieysis Merlo Espinoza durante conferencia de prensa — caso femicidio Salitral de Santa Ana Costa Rica 2026",
+      caption: "Conferencia de prensa · caso Junieysis Merlo Espinoza — representación pro-bono Rivera Cheves & Asociados",
+    },
+    {
+      loc: `${BASE}/images/casos/junieysis-merlo-familiar-declaracion.jpg`,
+      title: "Familiar de Junieysis Merlo Espinoza durante declaración pública — caso femicidio Salitral de Santa Ana Costa Rica 2026 — bufete Rivera Cheves & Asociados",
+      caption: "Declaración pública de familiar de Junieysis Merlo Espinoza — proceso judicial Costa Rica 2026",
+    },
+  ],
   "nadia-peraza": [
     {
       loc: `${BASE}/images/casos/nadia-peraza-tribunal.jpg`,
