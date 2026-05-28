@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 import { WA, RC_AREAS } from "@/lib/data";
 import SearchModal from "@/components/SearchModal";
 
-// Desktop nav includes Comunicados as a top-level link
 const DESKTOP_LINKS = [
   ["/quien",          "Quién es"],
   ["/casos",          "Casos"],
@@ -17,7 +16,6 @@ const DESKTOP_LINKS = [
   ["/contacto",       "Contacto"],
 ] as const;
 
-// Mobile drawer: Comunicados lives as sub-link under Prensa
 const MOBILE_LINKS = [
   ["/quien",          "Quién es"],
   ["/casos",          "Casos"],
@@ -31,12 +29,9 @@ const R = "#7e0102";
 
 function LupaIcon({ size = 18 }: { size?: number }) {
   return (
-    <svg
-      width={size} height={size} viewBox="0 0 24 24" fill="none"
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none"
       stroke="currentColor" strokeWidth="2.2"
-      strokeLinecap="round" strokeLinejoin="round"
-      aria-hidden="true"
-    >
+      strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <circle cx="11" cy="11" r="8"/>
       <path d="m21 21-4.35-4.35"/>
     </svg>
@@ -63,10 +58,23 @@ export default function Navbar() {
     };
   }, []);
 
-  useEffect(() => { setOpen(false); setExpandSpec(false); }, [pathname]);
+  useEffect(() => {
+    setOpen(false);
+    setExpandSpec(false);
+  }, [pathname]);
+
+  // Lock body scroll when drawer is open
+  useEffect(() => {
+    if (open) document.body.style.overflow = "hidden";
+    else document.body.style.overflow = "";
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
 
   const logoH = scrolled ? 64 : 104;
   const utilH = scrolled ? 0 : 40;
+
+  // Header height for drawer top padding (so content appears below header)
+  const headerH = scrolled ? 96 : 200;
 
   return (
     <>
@@ -171,21 +179,14 @@ export default function Navbar() {
               {DESKTOP_LINKS.map(([href, label]) => {
                 const isActive = pathname === href || pathname.startsWith(href + "/");
                 return (
-                  <Link
-                    key={href}
-                    href={href}
-                    style={{
-                      position: "relative",
-                      padding: "12px 16px",
-                      fontFamily: "var(--font-sans, system-ui)",
-                      fontSize: 13,
-                      fontWeight: isActive ? 600 : 500,
-                      color: "#fff",
-                      opacity: isActive ? 1 : 0.78,
-                      transition: "opacity .2s ease",
-                    }}
-                    onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.opacity = "1"; }}
-                    onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.opacity = isActive ? "1" : "0.78"; }}
+                  <Link key={href} href={href} style={{
+                    position: "relative", padding: "12px 16px",
+                    fontFamily: "var(--font-sans, system-ui)", fontSize: 13,
+                    fontWeight: isActive ? 600 : 500, color: "#fff",
+                    opacity: isActive ? 1 : 0.78, transition: "opacity .2s ease",
+                  }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.opacity = "1"; }}
+                  onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.opacity = isActive ? "1" : "0.78"; }}
                   >
                     {isActive && (
                       <span style={{
@@ -198,14 +199,10 @@ export default function Navbar() {
                 );
               })}
 
-              <button
-                onClick={() => setSearch(true)}
-                aria-label="Buscar en el sitio"
+              <button onClick={() => setSearch(true)} aria-label="Buscar en el sitio"
                 style={{
-                  padding: "12px 14px",
-                  color: "rgba(255,255,255,.78)",
-                  display: "flex", alignItems: "center",
-                  transition: "opacity .2s ease",
+                  padding: "12px 14px", color: "rgba(255,255,255,.78)",
+                  display: "flex", alignItems: "center", transition: "opacity .2s ease",
                   background: "none", border: "none", cursor: "pointer",
                 }}
                 onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.opacity = "1"; }}
@@ -214,18 +211,14 @@ export default function Navbar() {
                 <LupaIcon size={18}/>
               </button>
 
-              <a
-                href={WA} target="_blank" rel="noopener"
-                style={{
-                  marginLeft: 16, padding: "10px 20px",
-                  background: "#fff", color: R,
-                  fontFamily: "var(--font-sans, system-ui)",
-                  fontSize: 13, fontWeight: 700,
-                  borderRadius: "var(--r-sm, 6px)",
-                  transition: "background .2s ease",
-                }}
-                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#f0efee"; }}
-                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#fff"; }}
+              <a href={WA} target="_blank" rel="noopener" style={{
+                marginLeft: 16, padding: "10px 20px",
+                background: "#fff", color: R,
+                fontFamily: "var(--font-sans, system-ui)", fontSize: 13, fontWeight: 700,
+                borderRadius: "var(--r-sm, 6px)", transition: "background .2s ease",
+              }}
+              onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#f0efee"; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#fff"; }}
               >
                 Consulta →
               </a>
@@ -235,14 +228,11 @@ export default function Navbar() {
           {/* ── Mobile: lupa + hamburger ── */}
           {mobile && (
             <div style={{ display: "flex", alignItems: "center", gap: 4, flexShrink: 0 }}>
-              <button
-                onClick={() => setSearch(true)}
-                aria-label="Buscar en el sitio"
+              <button onClick={() => setSearch(true)} aria-label="Buscar en el sitio"
                 style={{
                   width: 44, height: 44,
                   display: "flex", justifyContent: "center", alignItems: "center",
-                  color: "rgba(255,255,255,.85)",
-                  background: "none", border: "none", cursor: "pointer",
+                  color: "rgba(255,255,255,.85)", background: "none", border: "none", cursor: "pointer",
                 }}
               >
                 <LupaIcon size={20}/>
@@ -255,8 +245,7 @@ export default function Navbar() {
                   width: 48, height: 48,
                   display: "flex", flexDirection: "column",
                   justifyContent: "center", alignItems: "center", gap: 0,
-                  flexShrink: 0, position: "relative", zIndex: 60,
-                  background: "none", border: "none", cursor: "pointer",
+                  flexShrink: 0, background: "none", border: "none", cursor: "pointer",
                 }}
               >
                 <span className="rc-burger-line"/>
@@ -266,211 +255,6 @@ export default function Navbar() {
             </div>
           )}
         </div>
-
-        {/* ── Mobile drawer — full-screen, staggered ─────────────────────────── */}
-        {mobile && (
-          <div style={{
-            position: "fixed", inset: 0, zIndex: 55,
-            background: R,
-            display: "flex", flexDirection: "column",
-            padding: "calc(80px + var(--pad-x, 24px)) var(--pad-x, 24px) calc(var(--pad-x, 24px) + env(safe-area-inset-bottom))",
-            pointerEvents: open ? "auto" : "none",
-            opacity: open ? 1 : 0,
-            transform: open ? "translateY(0)" : "translateY(-12px)",
-            transition: "opacity .4s ease, transform .4s ease",
-            overflowY: "auto",
-          }}>
-            <nav style={{ display: "flex", flexDirection: "column", flex: 1, justifyContent: "center", gap: 2 }}>
-              {MOBILE_LINKS.map(([href, label], i) => {
-                const isEsp = href === "/especialidades";
-
-                /* ── Especialidades: expandable with sub-pages ── */
-                if (isEsp) return (
-                  <div key={href} style={{
-                    opacity: 0,
-                    animation: open ? `rc-drawer-item .5s ease-out forwards` : "none",
-                    animationDelay: open ? `${0.12 + i * 0.06}s` : "0s",
-                  }}>
-                    <div style={{ borderBottom: expandSpec ? "none" : "1px solid rgba(255,255,255,.18)" }}>
-                      <button
-                        onClick={() => setExpandSpec(e => !e)}
-                        style={{
-                          width: "100%",
-                          display: "flex", alignItems: "baseline", justifyContent: "space-between",
-                          padding: "clamp(12px,2.2vw,20px) 0",
-                          fontFamily: "var(--font-sans, system-ui)",
-                          fontSize: "clamp(30px,9vw,46px)",
-                          fontWeight: 500, letterSpacing: "-0.025em", lineHeight: 1.05,
-                          color: pathname.startsWith("/especialidades") ? "#fff" : "rgba(255,255,255,.82)",
-                          background: "none", border: "none", cursor: "pointer", textAlign: "left",
-                        }}
-                      >
-                        <span>{label}</span>
-                        <span style={{
-                          fontFamily: "var(--font-mono, monospace)", fontSize: 11,
-                          color: "rgba(255,255,255,.45)",
-                          display: "flex", alignItems: "center", gap: 10,
-                        }}>
-                          <span style={{
-                            fontSize: 20, lineHeight: 1, display: "inline-block",
-                            transform: expandSpec ? "rotate(45deg)" : "none",
-                            transition: "transform .25s ease",
-                          }}>+</span>
-                          0{i + 1}
-                        </span>
-                      </button>
-                    </div>
-                    {expandSpec && (
-                      <div style={{ borderBottom: "1px solid rgba(255,255,255,.18)", paddingBottom: 10 }}>
-                        <Link
-                          href="/especialidades"
-                          onClick={() => setOpen(false)}
-                          style={{
-                            display: "block",
-                            padding: "8px 0 8px 28px",
-                            fontFamily: "var(--font-mono, monospace)", fontSize: 10,
-                            letterSpacing: ".14em", textTransform: "uppercase",
-                            color: "rgba(255,255,255,.4)", textDecoration: "none",
-                          }}
-                        >
-                          ← Todas las áreas
-                        </Link>
-                        {RC_AREAS.map(a => (
-                          <Link
-                            key={a.slug}
-                            href={`/especialidades/${a.slug}`}
-                            onClick={() => setOpen(false)}
-                            style={{
-                              display: "flex", justifyContent: "space-between", alignItems: "center",
-                              padding: "11px 0 11px 28px",
-                              fontFamily: "var(--font-sans, system-ui)", fontSize: 16, fontWeight: 400,
-                              color: pathname === `/especialidades/${a.slug}` ? "#fff" : "rgba(255,255,255,.75)",
-                              textDecoration: "none",
-                              borderTop: "1px solid rgba(255,255,255,.09)",
-                            }}
-                          >
-                            <span>{a.t}</span>
-                            <span style={{
-                              fontFamily: "var(--font-mono, monospace)", fontSize: 10,
-                              color: "rgba(255,255,255,.3)", marginLeft: 12,
-                            }}>{a.n}</span>
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                );
-
-                /* ── Prensa: with Comunicados sub-link ── */
-                if (href === "/prensa") return (
-                  <div key={href} style={{
-                    opacity: 0,
-                    animation: open ? `rc-drawer-item .5s ease-out forwards` : "none",
-                    animationDelay: open ? `${0.12 + i * 0.06}s` : "0s",
-                  }}>
-                    <div style={{ borderBottom: "1px solid rgba(255,255,255,.18)" }}>
-                      <Link
-                        href={href}
-                        onClick={() => setOpen(false)}
-                        style={{
-                          display: "flex", alignItems: "baseline", justifyContent: "space-between",
-                          padding: "clamp(12px,2.2vw,20px) 0 12px",
-                          fontFamily: "var(--font-sans, system-ui)",
-                          fontSize: "clamp(30px,9vw,46px)",
-                          fontWeight: 500, letterSpacing: "-0.025em", lineHeight: 1.05,
-                          color: pathname === href ? "#fff" : "rgba(255,255,255,.82)",
-                          textDecoration: "none",
-                        }}
-                      >
-                        <span>{label}</span>
-                        <span style={{ fontFamily: "var(--font-mono, monospace)", fontSize: 11, color: "rgba(255,255,255,.45)" }}>
-                          0{i + 1}
-                        </span>
-                      </Link>
-                      <Link
-                        href="/comunicados"
-                        onClick={() => setOpen(false)}
-                        style={{
-                          display: "flex", justifyContent: "space-between", alignItems: "center",
-                          padding: "9px 0 14px 28px",
-                          borderTop: "1px solid rgba(255,255,255,.09)",
-                          fontFamily: "var(--font-sans, system-ui)", fontSize: 15, fontWeight: 400,
-                          color: pathname.startsWith("/comunicados") ? "#fff" : "rgba(255,255,255,.65)",
-                          textDecoration: "none",
-                        }}
-                      >
-                        <span>Comunicados</span>
-                        <span style={{ fontFamily: "var(--font-mono, monospace)", fontSize: 11, color: "rgba(255,255,255,.3)" }}>→</span>
-                      </Link>
-                    </div>
-                  </div>
-                );
-
-                /* ── Regular link ── */
-                return (
-                  <Link
-                    key={href}
-                    href={href}
-                    onClick={() => setOpen(false)}
-                    style={{
-                      display: "flex", alignItems: "baseline", justifyContent: "space-between",
-                      gap: 16,
-                      padding: "clamp(12px,2.2vw,20px) 0",
-                      borderBottom: "1px solid rgba(255,255,255,.18)",
-                      fontFamily: "var(--font-sans, system-ui)",
-                      fontSize: "clamp(30px,9vw,46px)",
-                      fontWeight: 500, letterSpacing: "-0.025em", lineHeight: 1.05,
-                      color: pathname === href ? "#fff" : "rgba(255,255,255,.82)",
-                      textDecoration: "none",
-                      opacity: 0,
-                      animation: open ? `rc-drawer-item .5s ease-out forwards` : "none",
-                      animationDelay: open ? `${0.12 + i * 0.06}s` : "0s",
-                    }}
-                  >
-                    <span>{label}</span>
-                    <span style={{ fontFamily: "var(--font-mono, monospace)", fontSize: 11, color: "rgba(255,255,255,.45)" }}>
-                      0{i + 1}
-                    </span>
-                  </Link>
-                );
-              })}
-            </nav>
-
-            {/* Contact strip */}
-            <div style={{
-              opacity: 0,
-              animation: open ? `rc-drawer-item .5s ease-out forwards` : "none",
-              animationDelay: open ? `${0.12 + MOBILE_LINKS.length * 0.06}s` : "0s",
-            }}>
-              <a
-                href={WA} target="_blank" rel="noopener"
-                style={{
-                  display: "flex", justifyContent: "center", alignItems: "center", gap: 10,
-                  marginBottom: 20, padding: 16,
-                  background: "#fff", color: R,
-                  fontFamily: "var(--font-sans, system-ui)",
-                  fontSize: 14, fontWeight: 700,
-                  borderRadius: "var(--r-sm, 6px)",
-                  textDecoration: "none",
-                }}
-              >
-                Consulta por WhatsApp →
-              </a>
-              <div style={{
-                display: "flex", flexWrap: "wrap", gap: "8px 20px",
-                fontFamily: "var(--font-mono, monospace)", fontSize: 11,
-                letterSpacing: ".12em", textTransform: "uppercase",
-                color: "rgba(255,255,255,.7)",
-              }}>
-                <a href="tel:+50689980112" style={{ color: "rgba(255,255,255,.7)" }}>8998-0112</a>
-                <span style={{ opacity: .4 }}>·</span>
-                <a href="mailto:jriveracheves@gmail.com" style={{ color: "rgba(255,255,255,.7)" }}>Correo</a>
-                <span style={{ opacity: .4 }}>·</span>
-                <span>San José, CR</span>
-              </div>
-            </div>
-          </div>
-        )}
 
         <style>{`
           @media (max-width: 720px) { .rc-util-hide-sm { display: none !important; } }
@@ -484,12 +268,225 @@ export default function Navbar() {
           .rc-burger--open .rc-burger-line:nth-child(1) { transform: translateY(8px) rotate(45deg); }
           .rc-burger--open .rc-burger-line:nth-child(2) { opacity: 0; transform: translateX(-8px); }
           .rc-burger--open .rc-burger-line:nth-child(3) { transform: translateY(-8px) rotate(-45deg); width: 26px; }
-          @keyframes rc-drawer-item {
-            from { opacity: 0; transform: translateY(16px); }
-            to   { opacity: 1; transform: translateY(0); }
-          }
         `}</style>
       </header>
+
+      {/* ── Mobile drawer — white panel, below sticky header ─────────────────
+          zIndex 45 < header zIndex 50 so the red header always shows on top  */}
+      {mobile && (
+        <div style={{
+          position: "fixed", inset: 0, zIndex: 45,
+          background: "#fff",
+          pointerEvents: open ? "auto" : "none",
+          opacity: open ? 1 : 0,
+          transform: open ? "translateY(0)" : "translateY(-8px)",
+          transition: "opacity .3s ease, transform .3s ease",
+          overflowY: "auto",
+          paddingTop: headerH,
+        }}>
+          <div style={{ padding: "20px var(--pad-x, 24px) 40px" }}>
+
+            {/* Section label */}
+            <div style={{
+              display: "flex", justifyContent: "space-between", alignItems: "center",
+              marginBottom: 8,
+              fontFamily: "var(--font-mono, monospace)", fontSize: 10,
+              letterSpacing: ".14em", textTransform: "uppercase",
+              color: "rgba(0,0,0,.35)",
+            }}>
+              <span>Secciones</span>
+              <span>{String(MOBILE_LINKS.length).padStart(2, "0")}</span>
+            </div>
+
+            {/* Nav list */}
+            <nav>
+              {MOBILE_LINKS.map(([href, label], i) => {
+                const isActive = pathname === href || pathname.startsWith(href + "/");
+                const isEsp = href === "/especialidades";
+                const isPrensa = href === "/prensa";
+
+                /* ── Especialidades: expandable ── */
+                if (isEsp) return (
+                  <div key={href} style={{
+                    opacity: 0,
+                    animation: open ? `rc-mi .4s ease-out forwards` : "none",
+                    animationDelay: open ? `${i * 0.045}s` : "0s",
+                  }}>
+                    <button
+                      onClick={() => setExpandSpec(e => !e)}
+                      style={{
+                        width: "100%",
+                        display: "grid", gridTemplateColumns: "44px 1fr 28px", gap: 8,
+                        alignItems: "center",
+                        padding: "17px 0",
+                        borderTop: "1px solid rgba(0,0,0,.07)",
+                        background: isActive || expandSpec ? "rgba(126,1,2,.04)" : "transparent",
+                        border: "none", cursor: "pointer", textAlign: "left",
+                      }}
+                    >
+                      <span style={{
+                        fontFamily: "var(--font-mono, monospace)", fontSize: 12,
+                        color: isActive ? R : "rgba(0,0,0,.35)",
+                      }}>0{i + 1}</span>
+                      <span style={{
+                        fontFamily: "var(--font-sans, system-ui)", fontSize: 19, fontWeight: 500,
+                        color: isActive ? R : "#111",
+                      }}>{label}</span>
+                      <span style={{
+                        fontSize: 18, color: isActive ? R : "rgba(0,0,0,.3)", textAlign: "right" as const,
+                        display: "inline-block",
+                        transform: expandSpec ? "rotate(45deg)" : "none",
+                        transition: "transform .25s ease",
+                      }}>+</span>
+                    </button>
+
+                    {expandSpec && (
+                      <div style={{
+                        borderTop: "1px solid rgba(0,0,0,.05)",
+                        background: "rgba(0,0,0,.02)",
+                        paddingBottom: 6,
+                      }}>
+                        <Link href="/especialidades" onClick={() => setOpen(false)} style={{
+                          display: "block", padding: "9px 0 9px 52px",
+                          fontFamily: "var(--font-mono, monospace)", fontSize: 10,
+                          letterSpacing: ".12em", textTransform: "uppercase",
+                          color: "rgba(0,0,0,.4)", textDecoration: "none",
+                        }}>
+                          ← Todas las áreas
+                        </Link>
+                        {RC_AREAS.map(a => (
+                          <Link key={a.slug} href={`/especialidades/${a.slug}`} onClick={() => setOpen(false)} style={{
+                            display: "grid", gridTemplateColumns: "52px 1fr 28px", gap: 8,
+                            alignItems: "center", padding: "10px 0",
+                            borderTop: "1px solid rgba(0,0,0,.05)",
+                            fontFamily: "var(--font-sans, system-ui)", fontSize: 15, fontWeight: 400,
+                            color: pathname === `/especialidades/${a.slug}` ? R : "#444",
+                            textDecoration: "none",
+                          }}>
+                            <span style={{
+                              fontFamily: "var(--font-mono, monospace)", fontSize: 10,
+                              color: "rgba(0,0,0,.3)", paddingLeft: 52,
+                            }}>{a.n}</span>
+                            <span>{a.t}</span>
+                            <span style={{ color: "rgba(0,0,0,.25)", fontSize: 14 }}>›</span>
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+
+                /* ── Prensa + Comunicados sub-link ── */
+                if (isPrensa) return (
+                  <div key={href} style={{
+                    borderTop: "1px solid rgba(0,0,0,.07)",
+                    opacity: 0,
+                    animation: open ? `rc-mi .4s ease-out forwards` : "none",
+                    animationDelay: open ? `${i * 0.045}s` : "0s",
+                  }}>
+                    <Link href={href} onClick={() => setOpen(false)} style={{
+                      display: "grid", gridTemplateColumns: "44px 1fr 28px", gap: 8,
+                      alignItems: "center", padding: "17px 0",
+                      background: isActive ? "rgba(126,1,2,.04)" : "transparent",
+                      textDecoration: "none",
+                    }}>
+                      <span style={{
+                        fontFamily: "var(--font-mono, monospace)", fontSize: 12,
+                        color: isActive ? R : "rgba(0,0,0,.35)",
+                      }}>0{i + 1}</span>
+                      <span style={{
+                        fontFamily: "var(--font-sans, system-ui)", fontSize: 19, fontWeight: 500,
+                        color: isActive ? R : "#111",
+                      }}>{label}</span>
+                      <span style={{ color: isActive ? R : "rgba(0,0,0,.25)", fontSize: 14, textAlign: "right" as const }}>›</span>
+                    </Link>
+                    <Link href="/comunicados" onClick={() => setOpen(false)} style={{
+                      display: "grid", gridTemplateColumns: "52px 1fr 28px", gap: 8,
+                      alignItems: "center", padding: "10px 0",
+                      borderTop: "1px solid rgba(0,0,0,.05)",
+                      background: "rgba(0,0,0,.02)",
+                      fontFamily: "var(--font-sans, system-ui)", fontSize: 15, fontWeight: 400,
+                      color: pathname.startsWith("/comunicados") ? R : "#555",
+                      textDecoration: "none",
+                    }}>
+                      <span style={{
+                        fontFamily: "var(--font-mono, monospace)", fontSize: 10,
+                        color: "rgba(0,0,0,.3)", textAlign: "center" as const,
+                      }}>→</span>
+                      <span>Comunicados</span>
+                      <span style={{ color: "rgba(0,0,0,.2)", fontSize: 14 }}>›</span>
+                    </Link>
+                  </div>
+                );
+
+                /* ── Regular link ── */
+                return (
+                  <Link key={href} href={href} onClick={() => setOpen(false)} style={{
+                    display: "grid", gridTemplateColumns: "44px 1fr 28px", gap: 8,
+                    alignItems: "center", padding: "17px 0",
+                    borderTop: "1px solid rgba(0,0,0,.07)",
+                    background: isActive ? "rgba(126,1,2,.04)" : "transparent",
+                    textDecoration: "none",
+                    opacity: 0,
+                    animation: open ? `rc-mi .4s ease-out forwards` : "none",
+                    animationDelay: open ? `${i * 0.045}s` : "0s",
+                  }}>
+                    <span style={{
+                      fontFamily: "var(--font-mono, monospace)", fontSize: 12,
+                      color: isActive ? R : "rgba(0,0,0,.35)",
+                    }}>0{i + 1}</span>
+                    <span style={{
+                      fontFamily: "var(--font-sans, system-ui)", fontSize: 19, fontWeight: 500,
+                      color: isActive ? R : "#111",
+                    }}>{label}</span>
+                    <span style={{
+                      color: isActive ? R : "rgba(0,0,0,.25)", fontSize: 14, textAlign: "right" as const,
+                    }}>›</span>
+                  </Link>
+                );
+              })}
+              <div style={{ borderTop: "1px solid rgba(0,0,0,.07)" }}/>
+            </nav>
+
+            {/* Bottom CTA */}
+            <div style={{
+              marginTop: 28,
+              opacity: 0,
+              animation: open ? `rc-mi .4s ease-out forwards` : "none",
+              animationDelay: open ? `${MOBILE_LINKS.length * 0.045 + 0.05}s` : "0s",
+            }}>
+              <a href={WA} target="_blank" rel="noopener" style={{
+                display: "flex", justifyContent: "center", alignItems: "center", gap: 10,
+                marginBottom: 18, padding: "14px 20px",
+                background: R, color: "#fff",
+                fontFamily: "var(--font-sans, system-ui)", fontSize: 14, fontWeight: 700,
+                borderRadius: "var(--r-sm, 6px)", textDecoration: "none",
+              }}>
+                Consulta por WhatsApp →
+              </a>
+              <div style={{
+                display: "flex", flexWrap: "wrap", gap: "6px 18px",
+                fontFamily: "var(--font-mono, monospace)", fontSize: 10,
+                letterSpacing: ".12em", textTransform: "uppercase",
+                color: "rgba(0,0,0,.4)",
+              }}>
+                <a href="tel:+50689980112" style={{ color: "rgba(0,0,0,.4)" }}>8998-0112</a>
+                <span style={{ opacity: .5 }}>·</span>
+                <a href="mailto:jriveracheves@gmail.com" style={{ color: "rgba(0,0,0,.4)" }}>Correo</a>
+                <span style={{ opacity: .5 }}>·</span>
+                <span>San José, CR</span>
+              </div>
+            </div>
+          </div>
+
+          <style>{`
+            @keyframes rc-mi {
+              from { opacity: 0; transform: translateX(-10px); }
+              to   { opacity: 1; transform: translateX(0); }
+            }
+          `}</style>
+        </div>
+      )}
 
       {search && <SearchModal onClose={() => setSearch(false)} />}
     </>
