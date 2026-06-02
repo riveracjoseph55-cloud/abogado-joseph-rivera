@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Reveal from "@/components/Reveal";
+import RichText from "@/components/RichText";
 import CTABand from "@/components/CTABand";
 import SchemaOrg from "@/components/SchemaOrg";
 import { RC_COMUNICADOS, RC_CASES, WA, EMAIL } from "@/lib/data";
@@ -196,15 +197,16 @@ export default async function ComunicadoPage({ params }: Props) {
               <article>
                 {c.body.map((para, i) => (
                   <Reveal key={i} delay={i * 60}>
-                    <p style={{
-                      fontFamily: "var(--font-sans, system-ui)",
-                      fontSize: i === 0 ? "clamp(17px,1.3vw,19px)" : 16,
-                      lineHeight: 1.8,
-                      color: i === 0 ? "var(--ink)" : "var(--fg-2)",
-                      marginBottom: 28,
-                    }}>
-                      {para}
-                    </p>
+                    <RichText
+                      text={para}
+                      style={{
+                        fontFamily: "var(--font-sans, system-ui)",
+                        fontSize: i === 0 ? "clamp(17px,1.3vw,19px)" : 16,
+                        lineHeight: 1.8,
+                        color: i === 0 ? "var(--ink)" : "var(--fg-2)",
+                        marginBottom: 28,
+                      }}
+                    />
                   </Reveal>
                 ))}
 
