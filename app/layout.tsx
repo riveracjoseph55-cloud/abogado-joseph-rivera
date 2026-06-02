@@ -109,14 +109,8 @@ export const metadata: Metadata = {
     images: [OG_IMAGE],
     creator: "@josephriveraabogado",
   },
-  icons: {
-    icon: [
-      { url: "/images/favicon.png", sizes: "any" },
-      { url: "/images/favicon.png", type: "image/png", sizes: "32x32" },
-    ],
-    apple: [{ url: "/images/favicon.png", sizes: "180x180" }],
-    shortcut: "/images/favicon.png",
-  },
+  // Los íconos se generan automáticamente desde app/icon.png, app/favicon.ico
+  // y app/apple-icon.png (convención de Next.js App Router) — todos cuadrados.
   appleWebApp: {
     capable: true,
     title: SITE_NAME,

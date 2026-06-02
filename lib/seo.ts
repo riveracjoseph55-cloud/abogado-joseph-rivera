@@ -21,7 +21,7 @@ export const schemaLegalService = {
   name: "Rivera Cheves & Asociados",
   alternateName: "Bufete Joseph Rivera Cheves",
   url: SITE_URL,
-  logo: { "@type": "ImageObject", url: `${SITE_URL}/images/logo.png`, width: 200, height: 200 },
+  logo: { "@type": "ImageObject", url: `${SITE_URL}/images/icon-512.png`, width: 512, height: 512 },
   image: { "@type": "ImageObject", url: OG_IMAGE, width: 1200, height: 630 },
   description:
     "Bufete penalista en Costa Rica con más de 10 años de experiencia. Defensa en femicidios, crimen organizado, delitos financieros y asesoría internacional.",
@@ -151,9 +151,9 @@ export const schemaOrganization = {
   logo: {
     "@type": "ImageObject",
     "@id": `${SITE_URL}/#logo`,
-    url: `${SITE_URL}/images/logo.png`,
-    width: 200,
-    height: 200,
+    url: `${SITE_URL}/images/icon-512.png`,
+    width: 512,
+    height: 512,
     caption: SITE_NAME,
   },
   image: { "@id": `${SITE_URL}/#logo` },
@@ -224,7 +224,7 @@ export function schemaBlogPosting(article: {
     publisher: {
       "@type": "Organization",
       name: SITE_NAME,
-      logo: { "@type": "ImageObject", url: `${SITE_URL}/images/logo.png` },
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/images/icon-512.png`, width: 512, height: 512 },
     },
     mainEntityOfPage: { "@type": "WebPage", "@id": article.url },
   };
@@ -275,7 +275,7 @@ export function schemaPressRelease(pr: {
     publisher: {
       "@type": "Organization",
       name:    SITE_NAME,
-      logo: { "@type": "ImageObject", url: `${SITE_URL}/images/logo.png` },
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/images/icon-512.png`, width: 512, height: 512 },
     },
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
     keywords: allKw.length ? allKw.join(", ") : undefined,

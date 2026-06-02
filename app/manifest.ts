@@ -14,9 +14,9 @@ export default function manifest(): MetadataRoute.Manifest {
     lang: "es-CR",
     categories: ["business", "legal", "professional"],
     icons: [
-      { src: "/images/favicon.png",  sizes: "any",      type: "image/png" },
-      { src: "/images/logo.png",     sizes: "512x512",  type: "image/png", purpose: "any" },
-      { src: "/images/logo.png",     sizes: "512x512",  type: "image/png", purpose: "maskable" },
+      { src: "/images/icon-192.png",          sizes: "192x192", type: "image/png", purpose: "any" },
+      { src: "/images/icon-512.png",          sizes: "512x512", type: "image/png", purpose: "any" },
+      { src: "/images/icon-maskable-512.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
     ],
   };
 }
