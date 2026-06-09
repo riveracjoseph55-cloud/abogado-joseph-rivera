@@ -53,7 +53,7 @@ const faqs = [
   },
   {
     q: "¿Qué es el caso Nadia Peraza?",
-    a: "El caso Nadia Peraza es uno de los femicidios más conmocionantes de Costa Rica: una adulta mayor de 79 años asesinada en circunstancias que sacudieron a la opinión pública. El Lic. Joseph Rivera Cheves representó a la familia y obtuvo una condena de 50 años de prisión — el máximo legal vigente en Costa Rica —, equivalente a una pena nominal de 79 años.",
+    a: "El caso Nadia Peraza es uno de los femicidios más conmocionantes de Costa Rica: Nadia Peraza Espinoza, una joven madre de 21 años, desapareció en San Pablo de Heredia en 2024 y fue hallada desmembrada dentro de una refrigeradora. El Lic. Joseph Rivera Cheves representó a la familia como querellante y obtuvo una condena de 79 años, readecuada al máximo legal vigente en Costa Rica: 50 años de cárcel efectiva.",
   },
   {
     q: "¿Cómo contactar al abogado penalista Joseph Rivera?",
@@ -256,7 +256,7 @@ export default function Home() {
           }} className="cases-grid">
             {RC_CASES.map((c, i) => (
               <Reveal key={c.slug} delay={i * 80}>
-                <Link href={`/casos#${c.slug}`} className="rc-card" style={{
+                <Link href={`/casos/${c.slug}`} className="rc-card" style={{
                   display: "flex", flexDirection: "column", height: "100%", overflow: "hidden",
                 }}>
                   <div style={{

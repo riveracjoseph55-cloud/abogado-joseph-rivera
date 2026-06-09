@@ -11,14 +11,14 @@ import { SITE_URL, SITE_NAME, OG_IMAGE } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Casos de Alto Perfil | Abogado Penalista Joseph Rivera Costa Rica",
   description:
-    "Casos de femicidio y crimen en Costa Rica: Nadia Peraza (79 años), Carla Stefaniak, Junieysis Merlo. Defensa legal del Lic. Joseph Rivera Cheves — abogado penalista.",
+    "Casos de femicidio y crimen en Costa Rica: Nadia Peraza (condena de 50 años), Carla Stefaniak, Junieysis Merlo. Defensa legal del Lic. Joseph Rivera Cheves — abogado penalista.",
   alternates: { canonical: `${SITE_URL}/casos` },
   openGraph: {
     type: "website",
     url: `${SITE_URL}/casos`,
     title: `Casos de Alto Perfil | Abogado Joseph Rivera | ${SITE_NAME}`,
     description:
-      "Femicidios y casos de alto impacto en Costa Rica. Nadia Peraza (79 años), Carla Stefaniak, Junieysis Merlo — representación del Lic. Joseph Rivera Cheves.",
+      "Femicidios y casos de alto impacto en Costa Rica. Nadia Peraza (condena de 50 años), Carla Stefaniak, Junieysis Merlo — representación del Lic. Joseph Rivera Cheves.",
     images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: `Casos | ${SITE_NAME}` }],
   },
   twitter: { card: "summary_large_image", title: `Casos Joseph Rivera | Abogado Penalista Costa Rica`, images: [OG_IMAGE] },
