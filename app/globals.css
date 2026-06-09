@@ -398,3 +398,95 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
   .cookie-banner .actions { width: 100%; }
   .cookie-banner button { flex: 1; }
 }
+
+/* ── Botón flotante de WhatsApp ─────────────────────────────────────
+   Fijo abajo-derecha en todas las páginas. z-index 40: sobre el
+   contenido pero debajo del menú móvil (45), buscador (200) y banner
+   de cookies (9000), de modo que nunca tapa esos overlays.
+   safe-area-inset evita que el notch/barra de gestos lo recorte.      */
+.wa-float {
+  position: fixed;
+  right: calc(env(safe-area-inset-right, 0px) + 20px);
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 20px);
+  z-index: 40;
+  display: inline-flex;
+  align-items: center;
+  height: 60px;
+  border-radius: 999px;
+  background: #25d366;
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, .32), 0 2px 8px rgba(0, 0, 0, .20);
+  transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.wa-float:hover {
+  background: #1db855;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(37, 211, 102, .42), 0 3px 10px rgba(0, 0, 0, .22);
+}
+.wa-float:active { transform: scale(.95); }
+.wa-float:focus-visible { outline: 3px solid rgba(37, 211, 102, .55); outline-offset: 3px; }
+
+.wa-float__ico {
+  flex: 0 0 60px;
+  width: 60px;
+  height: 60px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  z-index: 1;
+}
+.wa-float__ico svg { width: 30px; height: 30px; display: block; }
+
+.wa-float__label {
+  order: -1;                 /* el texto va a la izquierda del ícono */
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: var(--font-sans, system-ui);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: -.01em;
+  transition: max-width .3s cubic-bezier(.4, 0, .2, 1), opacity .2s ease, padding .3s ease;
+}
+
+.wa-float__pulse {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(37, 211, 102, .5);
+  animation: wa-pulse 2.6s ease-out infinite;
+  pointer-events: none;
+}
+@keyframes wa-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(37, 211, 102, .45); }
+  70%  { box-shadow: 0 0 0 18px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* Desktop: se expande mostrando "Escríbenos" al pasar el cursor */
+@media (hover: hover) and (min-width: 768px) {
+  .wa-float:hover .wa-float__label { max-width: 160px; opacity: 1; padding-left: 22px; }
+}
+
+/* Móvil: un poco más compacto y pegado al borde */
+@media (max-width: 600px) {
+  .wa-float {
+    height: 56px;
+    right: calc(env(safe-area-inset-right, 0px) + 16px);
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 16px);
+  }
+  .wa-float__ico { flex-basis: 56px; width: 56px; height: 56px; }
+  .wa-float__ico svg { width: 28px; height: 28px; }
+  .wa-float__pulse { width: 56px; height: 56px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wa-float__pulse { animation: none; }
+  .wa-float, .wa-float__label { transition: none; }
+}
