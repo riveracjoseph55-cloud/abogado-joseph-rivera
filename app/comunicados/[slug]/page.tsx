@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const ogImage   = c.image ? `${SITE_URL}${c.image}` : OG_IMAGE;
 
   return {
-    title: `${metaTitle} | Rivera Cheves`,
+    title: { absolute: metaTitle },
     description: metaDesc,
     alternates: { canonical: `${SITE_URL}/comunicados/${c.slug}` },
     openGraph: {
