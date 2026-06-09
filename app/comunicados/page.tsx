@@ -7,7 +7,7 @@ import { RC_COMUNICADOS } from "@/lib/data";
 import { SITE_URL, SITE_NAME, OG_IMAGE } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Comunicados de Prensa | Rivera Cheves & Asociados",
+  title: { absolute: "Comunicados de Prensa | Rivera Cheves & Asociados" },
   description: `Comunicados oficiales del bufete Rivera Cheves & Asociados — resoluciones judiciales, posiciones públicas y novedades del bufete. ${RC_COMUNICADOS.length} comunicados publicados.`,
   alternates: { canonical: `${SITE_URL}/comunicados` },
   openGraph: {

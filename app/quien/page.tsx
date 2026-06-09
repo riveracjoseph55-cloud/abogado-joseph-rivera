@@ -8,7 +8,7 @@ import RichText from "@/components/RichText";
 import { SITE_URL, SITE_NAME, schemaAttorney, schemaLegalService } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Joseph Rivera Abogado Penalista Costa Rica",
+  title: { absolute: "Joseph Rivera Cheves | Abogado Penalista Costa Rica" },
   description:
     "Joseph Rivera Cheves, abogado penalista en Costa Rica con +10 años de trayectoria. Máster en Compliance, Maestría en Derecho Penal. Director del bufete Rivera Cheves & Asociados.",
   alternates: { canonical: `${SITE_URL}/quien` },

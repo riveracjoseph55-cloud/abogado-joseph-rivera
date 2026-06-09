@@ -9,7 +9,7 @@ import RichText from "@/components/RichText";
 import { SITE_URL, SITE_NAME, OG_IMAGE } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Casos de Alto Perfil | Abogado Penalista Joseph Rivera Costa Rica",
+  title: { absolute: "Casos de Femicidio Costa Rica | Abogado Joseph Rivera" },
   description:
     "Casos de femicidio y crimen en Costa Rica: Nadia Peraza (condena de 50 años), Carla Stefaniak, Junieysis Merlo. Defensa legal del Lic. Joseph Rivera Cheves — abogado penalista.",
   alternates: { canonical: `${SITE_URL}/casos` },

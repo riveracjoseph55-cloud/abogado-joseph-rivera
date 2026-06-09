@@ -4,7 +4,7 @@ import { SITE_URL, SITE_NAME, OG_IMAGE, schemaLegalService } from "@/lib/seo";
 import ContactoClient from "./ContactoClient";
 
 export const metadata: Metadata = {
-  title: "Contacto | Abogado Penalista Joseph Rivera · Costa Rica",
+  title: { absolute: "Contacto | Abogado Penalista Joseph Rivera · Costa Rica" },
   description:
     "Contacte al Lic. Joseph Rivera Cheves, abogado penalista en Costa Rica. Edificio 7, Oficentro Sabana, San José. WhatsApp 8998-0112 disponible 24/7.",
   alternates: { canonical: `${SITE_URL}/contacto` },

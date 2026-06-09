@@ -8,7 +8,7 @@ import RichText from "@/components/RichText";
 import { SITE_URL, SITE_NAME, OG_IMAGE } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Especialidades del Abogado Penalista Joseph Rivera | Costa Rica",
+  title: { absolute: "Especialidades del Abogado Penalista Joseph Rivera" },
   description:
     "Abogado penalista Joseph Rivera Cheves — 7 especialidades: derecho penal, lavado de dinero, corporativo, laboral, notarial, asesoría internacional e investigaciones criminales en Costa Rica.",
   alternates: { canonical: `${SITE_URL}/especialidades` },
