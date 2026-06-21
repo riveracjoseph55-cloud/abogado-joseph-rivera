@@ -41,6 +41,14 @@ export const metadata: Metadata = {
 };
 
 const R = "#7e0102";
+const GOLD = "#c9a86a";
+
+// WhatsApp con mensaje para reservar el libro
+const WA_RESERVA =
+  "https://api.whatsapp.com/send?phone=50689980112&text=" +
+  encodeURIComponent(
+    'Hola, quiero reservar el libro «El Caníbal de la Refrigeradora» de Joseph Rivera. ¿Cómo lo adquiero?'
+  );
 
 // Casos ordenados cronológicamente — más reciente primero (igual que /casos)
 const sortedCases = [...RC_CASES].sort(
@@ -311,6 +319,98 @@ export default function Home() {
         </div>
         <style>{`
           @media (max-width: 760px) { .cases-grid { grid-template-columns: 1fr !important; } }
+        `}</style>
+      </section>
+
+      {/* ── PROMO LIBRO ── */}
+      <section style={{
+        position: "relative",
+        background:
+          "radial-gradient(1100px 520px at 78% 25%, rgba(126,1,2,.24), transparent 60%), linear-gradient(180deg, #0a0707 0%, #120b0b 55%, #0a0707 100%)",
+        overflow: "hidden",
+        padding: "clamp(56px,8vw,120px) 0",
+      }}>
+        <div className="rc-wrap">
+          <div style={{
+            display: "grid", gridTemplateColumns: "0.8fr 1fr",
+            gap: "clamp(32px,5vw,80px)", alignItems: "center",
+          }} className="home-book-grid">
+
+            {/* Portada del libro */}
+            <Reveal variant="scale">
+              <Link href="/libro" style={{ display: "block", position: "relative" }}>
+                <div className="libro-glow" />
+                <div className="libro-cover" style={{
+                  position: "relative", zIndex: 1, width: "min(300px, 72%)", margin: "0 auto",
+                }}>
+                  <Image
+                    src="/images/libro/canibal-portada.jpg"
+                    alt="Libro El Caníbal de la Refrigeradora — crónica forense del caso Nadia Peraza, nuevo libro del abogado Joseph Rivera Cheves"
+                    width={760} height={1140}
+                    sizes="300px"
+                    style={{ width: "100%", height: "auto", borderRadius: 3 }}
+                    loading="lazy"
+                  />
+                </div>
+              </Link>
+            </Reveal>
+
+            {/* Texto */}
+            <div>
+              <Reveal variant="fade">
+                <span className="libro-badge" style={{ marginBottom: 24 }}>
+                  <span className="dot" /> Próximamente · Libro
+                </span>
+              </Reveal>
+
+              <Reveal delay={60}>
+                <h2 style={{
+                  fontFamily: "var(--font-sans)", fontWeight: 300,
+                  fontSize: "clamp(30px,4.4vw,58px)", lineHeight: 1.08, letterSpacing: "-0.025em",
+                  color: "#f5ede0", marginBottom: 16, marginTop: 8,
+                }}>
+                  <span className="libro-gold">El Caníbal de la Refrigeradora</span>
+                </h2>
+              </Reveal>
+
+              <Reveal delay={100} variant="fade">
+                <p style={{
+                  fontFamily: "Georgia, serif", fontStyle: "italic",
+                  fontSize: "clamp(15px,1.6vw,20px)", lineHeight: 1.5,
+                  color: "rgba(245,237,224,.8)", maxWidth: "42ch", marginBottom: 22,
+                }}>
+                  Crónica forense y jurídica del femicidio de Nadia Peraza Espinoza.
+                </p>
+              </Reveal>
+
+              <Reveal delay={140} variant="fade">
+                <p style={{
+                  fontSize: 16, lineHeight: 1.8, color: "rgba(245,237,224,.7)",
+                  maxWidth: "54ch", marginBottom: 28,
+                }}>
+                  El Lic. Rivera Cheves narra este caso desde dentro — el episodio más fuerte de
+                  su carrera. <strong style={{ color: "#f5ede0" }}>Parte de las ganancias serán
+                  para Nashly, la hija de Nadia.</strong>
+                </p>
+              </Reveal>
+
+              <Reveal delay={200} variant="fade">
+                <div style={{ display: "flex", gap: 14, flexWrap: "wrap", alignItems: "center" }}>
+                  <Link href="/libro" className="libro-btn">
+                    Conocer el libro <span className="arrow">→</span>
+                  </Link>
+                  <a href={WA_RESERVA} target="_blank" rel="noopener" className="libro-btn-ghost">
+                    Muy pronto · Resérvalo
+                  </a>
+                </div>
+              </Reveal>
+            </div>
+          </div>
+        </div>
+        <style>{`
+          @media (max-width: 860px) {
+            .home-book-grid { grid-template-columns: 1fr !important; gap: 44px !important; }
+          }
         `}</style>
       </section>
 
