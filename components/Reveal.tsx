@@ -1,14 +1,18 @@
 "use client";
 import { useEffect, useRef } from "react";
 
+export type RevealVariant = "slide-up" | "slide-left" | "slide-right" | "fade" | "scale";
+
 export default function Reveal({
   children,
   delay = 0,
   className = "",
+  variant = "slide-up",
 }: {
   children: React.ReactNode;
   delay?: number;
   className?: string;
+  variant?: RevealVariant;
 }) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -16,9 +20,8 @@ export default function Reveal({
     const el = ref.current;
     if (!el) return;
 
-    // If already in viewport, show immediately
     const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight) {
+    if (rect.top < window.innerHeight * 0.98) {
       el.classList.remove("pre");
       return;
     }
@@ -31,7 +34,7 @@ export default function Reveal({
           obs.disconnect();
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.08, rootMargin: "0px 0px -32px 0px" }
     );
     obs.observe(el);
     return () => obs.disconnect();
@@ -40,7 +43,7 @@ export default function Reveal({
   return (
     <div
       ref={ref}
-      className={`rc-reveal ${className}`}
+      className={`rc-reveal rc-reveal--${variant} ${className}`}
       style={{ "--delay": `${delay}ms` } as React.CSSProperties}
     >
       {children}

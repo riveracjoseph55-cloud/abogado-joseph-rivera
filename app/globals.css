@@ -265,13 +265,19 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
 .rc-reveal {
   opacity: 1;
   transform: none;
-  transition: opacity .9s var(--ease-out), transform .9s var(--ease-out);
+  transition: opacity .75s cubic-bezier(.22,1,.36,1), transform .75s cubic-bezier(.22,1,.36,1);
   transition-delay: var(--delay, 0ms);
 }
+/* Default: slide-up */
 .rc-reveal.pre {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(28px);
 }
+/* Variant overrides — only change transform */
+.rc-reveal--fade.pre           { transform: none; }
+.rc-reveal--slide-left.pre     { transform: translateX(-36px); }
+.rc-reveal--slide-right.pre    { transform: translateX(36px); }
+.rc-reveal--scale.pre          { transform: scale(0.93); }
 
 /* ── Image hover ── */
 .rc-img-wrap { overflow: hidden; position: relative; background: var(--ink); }
@@ -489,4 +495,152 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
 @media (prefers-reduced-motion: reduce) {
   .wa-float__pulse { animation: none; }
   .wa-float, .wa-float__label { transition: none; }
+}
+
+/* ══════════════════════════════════════════════
+   ANIMACIONES MEJORADAS — Casos, Tags, Links
+   ══════════════════════════════════════════════ */
+
+/* ── Case row hover con acento rojo izquierdo ── */
+.case-row {
+  transition: background-color 0.4s cubic-bezier(.22,1,.36,1);
+}
+.case-row::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: #7e0102;
+  transform: scaleY(0);
+  transform-origin: bottom center;
+  transition: transform 0.45s cubic-bezier(.22,1,.36,1);
+  border-radius: 0 2px 2px 0;
+}
+.case-row:hover { background-color: rgba(126,1,2,0.018); }
+.case-row:hover::before { transform: scaleY(1); }
+
+/* ── Tag hover ── */
+.rc-tag:hover:not(.active) {
+  color: #7e0102;
+  border-color: rgba(126,1,2,0.35);
+  background: rgba(126,1,2,0.055);
+  transform: translateY(-1px);
+}
+
+/* ── "Ver caso →" link underline animation ── */
+.case-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #7e0102;
+  padding-bottom: 2px;
+  position: relative;
+  text-decoration: none;
+}
+.case-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%; height: 1px;
+  background: #7e0102;
+  transform-origin: left center;
+  transform: scaleX(1);
+  transition: transform 0.3s cubic-bezier(.22,1,.36,1);
+}
+.case-link:hover::after { transform: scaleX(0); }
+.case-link:hover { opacity: 0.75; }
+
+/* Arrow nudge on hover */
+.case-link .arrow { display: inline-block; transition: transform 0.3s cubic-bezier(.22,1,.36,1); }
+.case-link:hover .arrow { transform: translateX(5px); }
+
+/* ── Navbar link underline animada ── */
+.nav-link-animated {
+  position: relative;
+}
+.nav-link-animated::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 100%; height: 1.5px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.3s cubic-bezier(.22,1,.36,1);
+}
+.nav-link-animated:hover::after,
+.nav-link-animated[aria-current]::after { transform: scaleX(1); transform-origin: left center; }
+
+/* ── Stat number shimmer (páginas con grandes números) ── */
+@keyframes rc-num-appear {
+  0%   { opacity: 0; transform: translateY(12px) scale(0.95); filter: blur(4px); }
+  100% { opacity: 1; transform: translateY(0)  scale(1);    filter: blur(0); }
+}
+.rc-stat-num {
+  animation: rc-num-appear 0.7s cubic-bezier(.22,1,.36,1) both;
+  animation-delay: var(--delay, 0ms);
+}
+
+/* ── Brand accent line animated ── */
+@keyframes rc-line-expand {
+  from { width: 0; opacity: 0; }
+  to   { width: 56px; opacity: 1; }
+}
+.rc-hr.brand { animation: rc-line-expand 0.6s cubic-bezier(.22,1,.36,1) both; }
+
+/* ── Hero text clip reveal ── */
+@keyframes rc-clip-in {
+  from { clip-path: inset(0 100% 0 0); opacity: 0; }
+  to   { clip-path: inset(0 0% 0 0);   opacity: 1; }
+}
+.rc-clip-reveal { animation: rc-clip-in 0.9s cubic-bezier(.22,1,.36,1) both; }
+
+/* ── Smooth image zoom on hover (caso cards, prensa) ── */
+.rc-img-zoom-wrap {
+  overflow: hidden;
+  position: relative;
+  background: #0d0d0d;
+}
+.rc-img-zoom-wrap img {
+  transition: transform 1.2s cubic-bezier(.22,1,.36,1), opacity 0.4s ease;
+}
+.rc-img-zoom-wrap:hover img { transform: scale(1.05); }
+
+/* ── Page section fade on entering viewport ── */
+@keyframes rc-section-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Eyebrow line flash ── */
+@keyframes rc-eyebrow-flash {
+  0%   { opacity: 0; letter-spacing: 0.28em; }
+  100% { opacity: 1; letter-spacing: 0.16em; }
+}
+.rc-eyebrow-anim {
+  animation: rc-eyebrow-flash 0.55s cubic-bezier(.22,1,.36,1) both;
+  animation-delay: var(--delay, 100ms);
+}
+
+/* ── Stagger helpers for grids ── */
+.stagger > *:nth-child(1) { --delay: 0ms; }
+.stagger > *:nth-child(2) { --delay: 80ms; }
+.stagger > *:nth-child(3) { --delay: 160ms; }
+.stagger > *:nth-child(4) { --delay: 240ms; }
+.stagger > *:nth-child(5) { --delay: 320ms; }
+.stagger > *:nth-child(6) { --delay: 400ms; }
+
+/* ── Reduced motion: all off ── */
+@media (prefers-reduced-motion: reduce) {
+  .rc-reveal, .rc-reveal.pre,
+  .case-row, .case-row::before,
+  .rc-tag, .case-link, .case-link::after,
+  .rc-stat-num, .rc-hr.brand, .rc-clip-reveal {
+    animation: none !important;
+    transition: none !important;
+  }
 }
