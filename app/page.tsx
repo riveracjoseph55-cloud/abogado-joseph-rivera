@@ -84,17 +84,15 @@ export default function Home() {
           }} className="hero-grid">
 
             <div>
-              <Reveal>
-                <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 36 }}>
-                  <span className="rc-meta">CR · Penal</span>
-                  <span style={{ display: "inline-block", width: 40, height: 1, background: R }}/>
-                  <span className="rc-meta">10+ años</span>
-                </div>
-              </Reveal>
+              <div className="rc-hero-meta" style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 36 }}>
+                <span className="rc-meta">CR · Penal</span>
+                <span className="rc-hero-rule" style={{ display: "inline-block", width: 40, height: 1, background: R }}/>
+                <span className="rc-meta">10+ años</span>
+              </div>
 
-              <h1 className="rc-display" style={{ marginBottom: 32 }}>
-                Abogado Penalista<br/>
-                en <em className="rc-em">Costa Rica</em>.
+              <h1 className="rc-display rc-hero-title" style={{ marginBottom: 32 }}>
+                <span className="rc-hero-line"><span>Abogado Penalista</span></span>
+                <span className="rc-hero-line"><span>en&nbsp;<em className="rc-em">Costa Rica</em>.</span></span>
               </h1>
 
               <Reveal delay={160}>
@@ -118,7 +116,7 @@ export default function Home() {
             </div>
 
             <Reveal delay={120}>
-              <div style={{
+              <div className="rc-hero-media" style={{
                 position: "relative", aspectRatio: "4/3",
                 background: "var(--paper-2, #f3eee5)", overflow: "hidden",
               }}>
@@ -152,7 +150,7 @@ export default function Home() {
         </div>
 
         {/* Watermark */}
-        <div aria-hidden="true" style={{
+        <div aria-hidden="true" className="rc-hero-mark" style={{
           position: "absolute", right: "-2vw", bottom: "-3vw",
           fontFamily: "var(--font-sans, system-ui)", fontSize: "clamp(160px,26vw,340px)",
           fontWeight: 300, letterSpacing: "-0.03em",

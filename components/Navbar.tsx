@@ -188,48 +188,24 @@ export default function Navbar() {
               {DESKTOP_LINKS.map(([href, label]) => {
                 const isActive = pathname === href || pathname.startsWith(href + "/");
                 return (
-                  <Link key={href} href={href} style={{
-                    position: "relative", padding: "12px 16px",
-                    fontFamily: "var(--font-sans, system-ui)", fontSize: 13,
-                    fontWeight: isActive ? 600 : 500, color: "#fff",
-                    opacity: isActive ? 1 : 0.78, transition: "opacity .2s ease",
-                  }}
-                  onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.opacity = "1"; }}
-                  onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.opacity = isActive ? "1" : "0.78"; }}
+                  <Link
+                    key={href}
+                    href={href}
+                    className={`rc-nav-link${isActive ? " is-active" : ""}`}
                   >
-                    {isActive && (
-                      <span style={{
-                        position: "absolute", left: 16, right: 16, bottom: 4,
-                        height: 1.5, background: "#fff",
-                      }}/>
-                    )}
-                    {label}
+                    <span className="rc-nav-label">{label}</span>
                   </Link>
                 );
               })}
 
               <button onClick={() => setSearch(true)} aria-label="Buscar en el sitio"
-                style={{
-                  padding: "12px 14px", color: "rgba(255,255,255,.78)",
-                  display: "flex", alignItems: "center", transition: "opacity .2s ease",
-                  background: "none", border: "none", cursor: "pointer",
-                }}
-                onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.opacity = "1"; }}
-                onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.opacity = "0.78"; }}
+                className="rc-nav-search"
               >
                 <LupaIcon size={18}/>
               </button>
 
-              <a href={WA} target="_blank" rel="noopener" style={{
-                marginLeft: 16, padding: "10px 20px",
-                background: "#fff", color: R,
-                fontFamily: "var(--font-sans, system-ui)", fontSize: 13, fontWeight: 700,
-                borderRadius: "var(--r-sm, 6px)", transition: "background .2s ease",
-              }}
-              onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#f0efee"; }}
-              onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#fff"; }}
-              >
-                Consulta →
+              <a href={WA} target="_blank" rel="noopener" className="rc-nav-cta">
+                Consulta <span className="rc-nav-cta-arrow">→</span>
               </a>
             </nav>
           )}
@@ -268,6 +244,83 @@ export default function Navbar() {
         <style>{`
           @media (max-width: 720px) { .rc-util-hide-sm { display: none !important; } }
           @media (max-width: 560px) { .rc-brand-text   { display: none !important; } }
+
+          /* ── Desktop nav links ── */
+          .rc-nav-link {
+            position: relative;
+            padding: 11px 16px;
+            border-radius: 7px;
+            font-family: var(--font-sans, system-ui);
+            font-size: 13px;
+            font-weight: 500;
+            color: rgba(255,255,255,.82);
+            text-decoration: none;
+            transition: color .25s ease, background-color .3s cubic-bezier(.22,1,.36,1);
+          }
+          /* Pastilla de fondo que aparece al hover */
+          .rc-nav-link::before {
+            content: '';
+            position: absolute; inset: 4px 6px;
+            background: rgba(255,255,255,.13);
+            border-radius: 6px;
+            opacity: 0;
+            transform: scale(.86);
+            transition: opacity .28s cubic-bezier(.22,1,.36,1), transform .28s cubic-bezier(.22,1,.36,1);
+            z-index: 0;
+          }
+          .rc-nav-link:hover::before { opacity: 1; transform: scale(1); }
+          /* Subrayado animado que se dibuja desde el centro */
+          .rc-nav-link::after {
+            content: '';
+            position: absolute; left: 16px; right: 16px; bottom: 5px;
+            height: 2px; background: #fff;
+            transform: scaleX(0);
+            transform-origin: center;
+            transition: transform .32s cubic-bezier(.22,1,.36,1);
+            z-index: 1;
+          }
+          .rc-nav-link:hover { color: #fff; }
+          .rc-nav-link:hover::after { transform: scaleX(1); }
+          .rc-nav-label { position: relative; z-index: 1; }
+          /* Activo: subrayado permanente + texto pleno */
+          .rc-nav-link.is-active { color: #fff; font-weight: 600; }
+          .rc-nav-link.is-active::after { transform: scaleX(1); }
+
+          /* Lupa */
+          .rc-nav-search {
+            padding: 11px 14px; margin-left: 2px;
+            color: rgba(255,255,255,.8);
+            display: flex; align-items: center;
+            background: none; border: none; cursor: pointer;
+            border-radius: 7px;
+            transition: color .25s ease, background-color .3s ease, transform .25s ease;
+          }
+          .rc-nav-search:hover { color: #fff; background: rgba(255,255,255,.13); transform: scale(1.05); }
+
+          /* CTA Consulta */
+          .rc-nav-cta {
+            margin-left: 16px; padding: 11px 22px;
+            background: #fff; color: ${R};
+            font-family: var(--font-sans, system-ui); font-size: 13px; font-weight: 700;
+            border-radius: 7px; text-decoration: none;
+            display: inline-flex; align-items: center; gap: 7px;
+            box-shadow: 0 0 0 0 rgba(255,255,255,0);
+            transition: background-color .25s ease, color .25s ease, transform .25s cubic-bezier(.22,1,.36,1), box-shadow .3s ease;
+          }
+          .rc-nav-cta:hover {
+            background: #0d0d0d; color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 22px rgba(0,0,0,.28);
+          }
+          .rc-nav-cta-arrow { display: inline-block; transition: transform .3s cubic-bezier(.22,1,.36,1); }
+          .rc-nav-cta:hover .rc-nav-cta-arrow { transform: translateX(4px); }
+
+          @media (prefers-reduced-motion: reduce) {
+            .rc-nav-link::before, .rc-nav-link::after, .rc-nav-cta, .rc-nav-cta-arrow, .rc-nav-search {
+              transition: none !important;
+            }
+          }
+
           .rc-burger-line {
             display: block; width: 26px; height: 2px; background: #fff; border-radius: 2px;
             transition: transform .4s ease, opacity .25s ease, width .4s ease;
