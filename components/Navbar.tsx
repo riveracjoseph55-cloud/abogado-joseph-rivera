@@ -9,6 +9,7 @@ import SearchModal from "@/components/SearchModal";
 const DESKTOP_LINKS = [
   ["/quien",          "Quién es"],
   ["/casos",          "Casos"],
+  ["/libro",          "Libro"],
   ["/especialidades", "Especialidades"],
   ["/prensa",         "Prensa"],
   ["/comunicados",    "Comunicados"],
@@ -19,6 +20,7 @@ const DESKTOP_LINKS = [
 const MOBILE_LINKS = [
   ["/quien",          "Quién es"],
   ["/casos",          "Casos"],
+  ["/libro",          "Libro"],
   ["/especialidades", "Especialidades"],
   ["/prensa",         "Prensa"],
   ["/atestados",      "Atestados"],

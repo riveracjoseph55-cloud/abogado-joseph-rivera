@@ -433,6 +433,72 @@ export default async function CasoDetail({ params }: { params: Promise<{ slug: s
           </section>
         )}
 
+        {/* ── LIBRO · solo caso Nadia Peraza ── */}
+        {c.slug === "nadia-peraza" && (
+          <section style={{
+            position: "relative",
+            background:
+              "radial-gradient(1100px 500px at 80% 30%, rgba(126,1,2,.22), transparent 60%), linear-gradient(180deg, #0a0707 0%, #120b0b 100%)",
+            overflow: "hidden",
+            padding: "clamp(48px,7vw,96px) 0",
+          }}>
+            <div className="rc-wrap">
+              <div style={{
+                display: "grid", gridTemplateColumns: "auto 1fr",
+                gap: "clamp(28px,4vw,64px)", alignItems: "center",
+              }} className="case-book-grid">
+                <Reveal variant="scale">
+                  <Link href="/libro" style={{ display: "block", position: "relative", justifySelf: "center" }}>
+                    <div className="libro-glow" />
+                    <div className="libro-cover" style={{ position: "relative", zIndex: 1, width: "min(190px, 60vw)" }}>
+                      <Image
+                        src="/images/libro/canibal-portada.jpg"
+                        alt="Libro El Caníbal de la Refrigeradora — crónica forense del caso Nadia Peraza, por el abogado Joseph Rivera Cheves"
+                        width={760} height={1140}
+                        sizes="190px"
+                        style={{ width: "100%", height: "auto", borderRadius: 3 }}
+                        loading="lazy"
+                      />
+                    </div>
+                  </Link>
+                </Reveal>
+
+                <div>
+                  <Reveal variant="fade">
+                    <span className="libro-badge" style={{ marginBottom: 22 }}>
+                      <span className="dot" /> Próximamente · Libro
+                    </span>
+                  </Reveal>
+                  <Reveal delay={60}>
+                    <h2 style={{
+                      fontFamily: "var(--font-sans)", fontWeight: 300,
+                      fontSize: "clamp(26px,3.8vw,48px)", lineHeight: 1.1, letterSpacing: "-0.02em",
+                      color: "#f5ede0", marginBottom: 18, marginTop: 8,
+                    }}>
+                      <span className="libro-gold">El Caníbal de la Refrigeradora</span>
+                    </h2>
+                  </Reveal>
+                  <Reveal delay={120} variant="fade">
+                    <p style={{ fontSize: 16, lineHeight: 1.75, color: "rgba(245,237,224,.72)", maxWidth: "54ch", marginBottom: 28 }}>
+                      El Lic. Rivera Cheves narra este caso desde dentro en su nuevo libro — el episodio
+                      más fuerte de su carrera. <strong style={{ color: "#f5ede0" }}>Parte de las ganancias
+                      serán para Nashly, la hija de Nadia.</strong>
+                    </p>
+                  </Reveal>
+                  <Reveal delay={180} variant="fade">
+                    <Link href="/libro" className="libro-btn">
+                      Conocer el libro <span className="arrow">→</span>
+                    </Link>
+                  </Reveal>
+                </div>
+              </div>
+            </div>
+            <style>{`
+              @media (max-width: 700px) { .case-book-grid { grid-template-columns: 1fr !important; text-align: left; } }
+            `}</style>
+          </section>
+        )}
+
         {/* ── INSTAGRAM REEL · MEMORIA Y ESPERANZA ── */}
         {c.instagramReel && (
           <section style={{ background: "#fff", padding: "var(--pad-y) 0" }}>

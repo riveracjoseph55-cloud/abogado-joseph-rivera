@@ -737,6 +737,164 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
   animation: rc-hero-fade-up 1.4s ease-out 0.5s both;
 }
 
+/* ══════════════════════════════════════════════
+   LIBRO — "El Caníbal de la Refrigeradora"
+   Estética noir: negro + dorado + rojo
+   ══════════════════════════════════════════════ */
+
+:root {
+  --gold: #c9a86a;
+  --gold-soft: #e3c9a0;
+  --book-bg: #0a0707;
+}
+
+/* Texto con degradado dorado */
+.libro-gold {
+  background: linear-gradient(135deg, #e8d3a0 0%, #c9a86a 45%, #9c7c44 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #c9a86a;
+}
+
+/* Portada del libro: levitación + sombra/resplandor */
+.libro-cover {
+  position: relative;
+  animation: libro-float 6s ease-in-out infinite;
+  filter: drop-shadow(0 30px 60px rgba(0,0,0,.65))
+          drop-shadow(0 0 50px rgba(126,1,2,.28));
+  transform: perspective(1400px) rotateY(-8deg);
+  transition: transform .6s cubic-bezier(.22,1,.36,1);
+  will-change: transform;
+}
+.libro-cover:hover { transform: perspective(1400px) rotateY(0deg) scale(1.02); }
+@keyframes libro-float {
+  0%, 100% { transform: perspective(1400px) rotateY(-8deg) translateY(0); }
+  50%      { transform: perspective(1400px) rotateY(-8deg) translateY(-14px); }
+}
+
+/* Resplandor rojo detrás de la portada */
+.libro-glow {
+  position: absolute;
+  inset: -8% -12%;
+  background: radial-gradient(ellipse at center, rgba(126,1,2,.42) 0%, rgba(126,1,2,.12) 38%, transparent 70%);
+  filter: blur(28px);
+  z-index: 0;
+  animation: libro-glow-pulse 5s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes libro-glow-pulse {
+  0%, 100% { opacity: .7; transform: scale(1); }
+  50%      { opacity: 1;  transform: scale(1.06); }
+}
+
+/* Badge "Próximamente" con destello que recorre */
+.libro-badge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px;
+  border: 1px solid rgba(201,168,106,.45);
+  border-radius: 999px;
+  overflow: hidden;
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: #c9a86a;
+}
+.libro-badge::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -60%;
+  width: 40%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(201,168,106,.28), transparent);
+  animation: libro-sheen 3.2s ease-in-out infinite;
+}
+@keyframes libro-sheen {
+  0%   { left: -60%; }
+  60%, 100% { left: 130%; }
+}
+.libro-badge .dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #7e0102;
+  box-shadow: 0 0 0 0 rgba(126,1,2,.7);
+  animation: libro-dot 2s ease-out infinite;
+}
+@keyframes libro-dot {
+  0%   { box-shadow: 0 0 0 0 rgba(126,1,2,.7); }
+  70%  { box-shadow: 0 0 0 10px rgba(126,1,2,0); }
+  100% { box-shadow: 0 0 0 0 rgba(126,1,2,0); }
+}
+
+/* Botón "Muy pronto" dorado */
+.libro-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 30px;
+  font-family: var(--font-sans, system-ui);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .01em;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  background: linear-gradient(135deg, #d8be86 0%, #c9a86a 50%, #a8854c 100%);
+  color: #1a1208;
+  box-shadow: 0 8px 28px rgba(201,168,106,.28);
+  transition: transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s ease;
+}
+.libro-btn:hover { transform: translateY(-2px); box-shadow: 0 14px 38px rgba(201,168,106,.42); }
+.libro-btn .arrow { transition: transform .3s cubic-bezier(.22,1,.36,1); }
+.libro-btn:hover .arrow { transform: translateX(5px); }
+
+/* Botón fantasma sobre fondo oscuro (dorado) */
+.libro-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 30px;
+  font-family: var(--font-sans, system-ui);
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  border: 1px solid rgba(201,168,106,.4);
+  color: #e3c9a0;
+  transition: border-color .3s ease, background-color .3s ease, transform .3s ease;
+}
+.libro-btn-ghost:hover {
+  border-color: #c9a86a;
+  background: rgba(201,168,106,.08);
+  transform: translateY(-2px);
+}
+
+/* Hairline dorada decorativa */
+.libro-rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,106,.6), transparent);
+}
+
+/* Promo cards con zoom */
+.libro-promo {
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(201,168,106,.18);
+  background: #0a0707;
+}
+.libro-promo img { transition: transform 1.2s cubic-bezier(.22,1,.36,1); display: block; }
+.libro-promo:hover img { transform: scale(1.04); }
+
+@media (prefers-reduced-motion: reduce) {
+  .libro-cover, .libro-glow, .libro-badge::after, .libro-badge .dot {
+    animation: none !important;
+  }
+  .libro-cover { transform: none !important; }
+}
+
 /* ── Reduced motion: all off ── */
 @media (prefers-reduced-motion: reduce) {
   .rc-reveal, .rc-reveal.pre,

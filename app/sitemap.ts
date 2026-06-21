@@ -65,6 +65,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
       alternates: { languages: { "es-CR": `${BASE}/contacto` } },
     },
+    {
+      url: `${BASE}/libro`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.9,
+      images: [
+        `${BASE}/images/libro/canibal-og.jpg`,
+        `${BASE}/images/libro/canibal-portada.jpg`,
+        `${BASE}/images/libro/canibal-banner.jpg`,
+      ],
+      alternates: { languages: { "es-CR": `${BASE}/libro` } },
+    },
   ];
 
   const casePages: MetadataRoute.Sitemap = RC_CASES.map(c => ({
