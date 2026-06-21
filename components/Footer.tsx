@@ -5,6 +5,7 @@ import { WA, EMAIL, TEL } from "@/lib/data";
 const LINKS = [
   ["/quien",          "Quién es"],
   ["/casos",          "Casos"],
+  ["/libro",          "Libro"],
   ["/especialidades", "Especialidades"],
   ["/prensa",         "Prensa"],
   ["/comunicados",    "Comunicados"],
