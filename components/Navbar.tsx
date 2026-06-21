@@ -378,29 +378,26 @@ export default function Navbar() {
                   }}>
                     <button
                       onClick={() => setExpandSpec(e => !e)}
+                      className={`rc-mob-link${isActive || expandSpec ? " is-active" : ""}`}
                       style={{
                         width: "100%",
                         display: "grid", gridTemplateColumns: "44px 1fr 28px", gap: 8,
                         alignItems: "center",
                         padding: "17px 0",
                         borderTop: "1px solid rgba(0,0,0,.07)",
-                        background: isActive || expandSpec ? "rgba(126,1,2,.04)" : "transparent",
                         border: "none", cursor: "pointer", textAlign: "left",
                       }}
                     >
-                      <span style={{
+                      <span className="rc-mob-num" style={{
                         fontFamily: "var(--font-mono, monospace)", fontSize: 12,
-                        color: isActive ? R : "rgba(0,0,0,.35)",
                       }}>0{i + 1}</span>
-                      <span style={{
+                      <span className="rc-mob-label" style={{
                         fontFamily: "var(--font-sans, system-ui)", fontSize: 19, fontWeight: 500,
-                        color: isActive ? R : "#111",
                       }}>{label}</span>
-                      <span style={{
-                        fontSize: 18, color: isActive ? R : "rgba(0,0,0,.3)", textAlign: "right" as const,
+                      <span className="rc-mob-plus" style={{
+                        fontSize: 18, color: isActive || expandSpec ? R : "rgba(0,0,0,.3)", textAlign: "right" as const,
                         display: "inline-block",
                         transform: expandSpec ? "rotate(45deg)" : "none",
-                        transition: "transform .25s ease",
                       }}>+</span>
                     </button>
 
@@ -448,21 +445,20 @@ export default function Navbar() {
                     animation: open ? `rc-mi .4s ease-out forwards` : "none",
                     animationDelay: open ? `${i * 0.045}s` : "0s",
                   }}>
-                    <Link href={href} onClick={() => setOpen(false)} style={{
+                    <Link href={href} onClick={() => setOpen(false)}
+                      className={`rc-mob-link${isActive ? " is-active" : ""}`}
+                      style={{
                       display: "grid", gridTemplateColumns: "44px 1fr 28px", gap: 8,
                       alignItems: "center", padding: "17px 0",
-                      background: isActive ? "rgba(126,1,2,.04)" : "transparent",
                       textDecoration: "none",
                     }}>
-                      <span style={{
+                      <span className="rc-mob-num" style={{
                         fontFamily: "var(--font-mono, monospace)", fontSize: 12,
-                        color: isActive ? R : "rgba(0,0,0,.35)",
                       }}>0{i + 1}</span>
-                      <span style={{
+                      <span className="rc-mob-label" style={{
                         fontFamily: "var(--font-sans, system-ui)", fontSize: 19, fontWeight: 500,
-                        color: isActive ? R : "#111",
                       }}>{label}</span>
-                      <span style={{ color: isActive ? R : "rgba(0,0,0,.25)", fontSize: 14, textAlign: "right" as const }}>›</span>
+                      <span className="rc-mob-arrow" style={{ fontSize: 14, textAlign: "right" as const }}>›</span>
                     </Link>
                     <Link href="/comunicados" onClick={() => setOpen(false)} style={{
                       display: "grid", gridTemplateColumns: "52px 1fr 28px", gap: 8,
@@ -485,26 +481,25 @@ export default function Navbar() {
 
                 /* ── Regular link ── */
                 return (
-                  <Link key={href} href={href} onClick={() => setOpen(false)} style={{
+                  <Link key={href} href={href} onClick={() => setOpen(false)}
+                    className={`rc-mob-link${isActive ? " is-active" : ""}`}
+                    style={{
                     display: "grid", gridTemplateColumns: "44px 1fr 28px", gap: 8,
                     alignItems: "center", padding: "17px 0",
                     borderTop: "1px solid rgba(0,0,0,.07)",
-                    background: isActive ? "rgba(126,1,2,.04)" : "transparent",
                     textDecoration: "none",
                     opacity: 0,
                     animation: open ? `rc-mi .4s ease-out forwards` : "none",
                     animationDelay: open ? `${i * 0.045}s` : "0s",
                   }}>
-                    <span style={{
+                    <span className="rc-mob-num" style={{
                       fontFamily: "var(--font-mono, monospace)", fontSize: 12,
-                      color: isActive ? R : "rgba(0,0,0,.35)",
                     }}>0{i + 1}</span>
-                    <span style={{
+                    <span className="rc-mob-label" style={{
                       fontFamily: "var(--font-sans, system-ui)", fontSize: 19, fontWeight: 500,
-                      color: isActive ? R : "#111",
                     }}>{label}</span>
-                    <span style={{
-                      color: isActive ? R : "rgba(0,0,0,.25)", fontSize: 14, textAlign: "right" as const,
+                    <span className="rc-mob-arrow" style={{
+                      fontSize: 14, textAlign: "right" as const,
                     }}>›</span>
                   </Link>
                 );
@@ -553,6 +548,46 @@ export default function Navbar() {
             @keyframes rc-mi {
               from { opacity: 0; transform: translateX(-10px); }
               to   { opacity: 1; transform: translateX(0); }
+            }
+
+            /* ── Items del drawer: acento rojo que se revela al interactuar ── */
+            .rc-mob-link {
+              position: relative;
+              -webkit-tap-highlight-color: transparent;
+              transition: background-color .32s cubic-bezier(.22,1,.36,1);
+            }
+            .rc-mob-link::before {
+              content: '';
+              position: absolute;
+              left: 0; top: 10px; bottom: 10px;
+              width: 3px; border-radius: 0 3px 3px 0;
+              background: ${R};
+              transform: scaleY(0);
+              transform-origin: center;
+              transition: transform .42s cubic-bezier(.22,1,.36,1);
+            }
+            .rc-mob-num   { color: rgba(0,0,0,.35); transition: color .3s ease, transform .32s cubic-bezier(.22,1,.36,1); }
+            .rc-mob-label { color: #111;            transition: color .3s ease, transform .32s cubic-bezier(.22,1,.36,1); }
+            .rc-mob-arrow { color: rgba(0,0,0,.28);  transition: color .3s ease, transform .32s cubic-bezier(.22,1,.36,1); }
+
+            .rc-mob-link:hover, .rc-mob-link:active, .rc-mob-link.is-active {
+              background: rgba(126,1,2,.05);
+            }
+            .rc-mob-link:hover::before, .rc-mob-link:active::before, .rc-mob-link.is-active::before {
+              transform: scaleY(1);
+            }
+            .rc-mob-link:hover  .rc-mob-num,   .rc-mob-link:active  .rc-mob-num,   .rc-mob-link.is-active .rc-mob-num   { color: ${R}; transform: translateX(7px); }
+            .rc-mob-link:hover  .rc-mob-label, .rc-mob-link:active  .rc-mob-label, .rc-mob-link.is-active .rc-mob-label { color: ${R}; transform: translateX(7px); }
+            .rc-mob-link:hover  .rc-mob-arrow, .rc-mob-link:active  .rc-mob-arrow, .rc-mob-link.is-active .rc-mob-arrow { color: ${R}; transform: translateX(5px); }
+
+            /* El "+" de Especialidades sigue su estado de expansión */
+            .rc-mob-plus { transition: color .3s ease, transform .28s ease; }
+
+            @media (prefers-reduced-motion: reduce) {
+              .rc-mob-link, .rc-mob-link::before,
+              .rc-mob-num, .rc-mob-label, .rc-mob-arrow, .rc-mob-plus {
+                transition: none !important;
+              }
             }
           `}</style>
         </div>
