@@ -42,6 +42,11 @@ export const metadata: Metadata = {
 
 const R = "#7e0102";
 
+// Casos ordenados cronológicamente — más reciente primero (igual que /casos)
+const sortedCases = [...RC_CASES].sort(
+  (a, b) => parseInt(b.year) - parseInt(a.year)
+);
+
 const faqs = [
   {
     q: "¿Quién es el abogado Joseph Rivera Cheves?",
@@ -252,7 +257,7 @@ export default function Home() {
           <div style={{
             display: "grid", gap: "var(--gut)", gridTemplateColumns: "repeat(2,1fr)",
           }} className="cases-grid">
-            {RC_CASES.map((c, i) => (
+            {sortedCases.map((c, i) => (
               <Reveal key={c.slug} delay={i * 80}>
                 <Link href={`/casos/${c.slug}`} className="rc-card" style={{
                   display: "flex", flexDirection: "column", height: "100%", overflow: "hidden",
@@ -261,7 +266,7 @@ export default function Home() {
                     display: "flex", justifyContent: "space-between", alignItems: "center",
                     padding: "20px 26px", borderBottom: "1px solid var(--hairline)",
                   }}>
-                    <span className="rc-meta">Caso · {String(i + 1).padStart(2, "0")} / {String(RC_CASES.length).padStart(2, "0")}</span>
+                    <span className="rc-meta">Caso · {String(i + 1).padStart(2, "0")} / {String(sortedCases.length).padStart(2, "0")}</span>
                     <span style={{
                       padding: "4px 10px",
                       background: c.statusTone === "active" ? R : "#0d0d0d",

@@ -51,7 +51,7 @@ export default function Footer() {
             <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 10 }}>
               {LINKS.map(([href, label]) => (
                 <li key={href}>
-                  <Link href={href} style={{ fontSize: 14, color: "rgba(255,255,255,.85)" }}>{label}</Link>
+                  <Link href={href} className="rc-foot-link" style={{ fontSize: 14 }}>{label}</Link>
                 </li>
               ))}
             </ul>
@@ -63,8 +63,8 @@ export default function Footer() {
             <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 10, fontSize: 14, color: "rgba(255,255,255,.85)" }}>
               <li>Edificio 7, Oficentro Sabana</li>
               <li>San José, Costa Rica</li>
-              <li><a href={`tel:${TEL}`} style={{ color: "rgba(255,255,255,.85)" }}>8998-0112</a></li>
-              <li><a href={`mailto:${EMAIL}`} style={{ color: "rgba(255,255,255,.85)" }}>{EMAIL}</a></li>
+              <li><a href={`tel:${TEL}`} className="rc-foot-link subtle">8998-0112</a></li>
+              <li><a href={`mailto:${EMAIL}`} className="rc-foot-link subtle">{EMAIL}</a></li>
             </ul>
           </div>
 
@@ -72,9 +72,9 @@ export default function Footer() {
           <div>
             <div className="rc-meta" style={{ color: "rgba(255,255,255,.4)", marginBottom: 16 }}>Redes</div>
             <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 10, fontSize: 14, color: "rgba(255,255,255,.85)" }}>
-              <li><a href="https://www.tiktok.com/@josephriveraabogado" target="_blank" rel="noopener" style={{ color: "rgba(255,255,255,.85)" }}>TikTok →</a></li>
-              <li><a href={WA} target="_blank" rel="noopener" style={{ color: "rgba(255,255,255,.85)" }}>WhatsApp →</a></li>
-              <li><a href={`mailto:${EMAIL}`} style={{ color: "rgba(255,255,255,.85)" }}>Correo →</a></li>
+              <li><a href="https://www.tiktok.com/@josephriveraabogado" target="_blank" rel="noopener" className="rc-foot-link subtle">TikTok →</a></li>
+              <li><a href={WA} target="_blank" rel="noopener" className="rc-foot-link subtle">WhatsApp →</a></li>
+              <li><a href={`mailto:${EMAIL}`} className="rc-foot-link subtle">Correo →</a></li>
             </ul>
           </div>
         </div>
@@ -90,9 +90,9 @@ export default function Footer() {
         }}>
           <span>© 2026 Rivera Cheves &amp; Asociados</span>
           <div style={{ display: "flex", gap: 18, flexWrap: "wrap" }}>
-            <Link href="/privacidad" style={{ color: "rgba(255,255,255,.55)" }}>Privacidad</Link>
-            <Link href="/terminos"   style={{ color: "rgba(255,255,255,.55)" }}>Términos</Link>
-            <Link href="/cookies"    style={{ color: "rgba(255,255,255,.55)" }}>Cookies</Link>
+            <Link href="/privacidad" className="rc-foot-link subtle" style={{ color: "rgba(255,255,255,.55)" }}>Privacidad</Link>
+            <Link href="/terminos"   className="rc-foot-link subtle" style={{ color: "rgba(255,255,255,.55)" }}>Términos</Link>
+            <Link href="/cookies"    className="rc-foot-link subtle" style={{ color: "rgba(255,255,255,.55)" }}>Cookies</Link>
           </div>
           <span>
             Creado por{" "}

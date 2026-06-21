@@ -571,6 +571,34 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
 .case-link .arrow { display: inline-block; transition: transform 0.3s cubic-bezier(.22,1,.36,1); }
 .case-link:hover .arrow { transform: translateX(5px); }
 
+/* ── Footer links — resalte animado sobre fondo rojo ── */
+.rc-foot-link {
+  position: relative;
+  display: inline-block;
+  color: rgba(255,255,255,.85);
+  text-decoration: none;
+  transition: color .25s ease;
+}
+.rc-foot-link::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -2px;
+  width: 100%; height: 1.5px;
+  background: #fff;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform .32s cubic-bezier(.22,1,.36,1);
+}
+.rc-foot-link:hover { color: #fff; }
+.rc-foot-link:hover::after { transform: scaleX(1); }
+
+/* Variante para enlaces más tenues (contacto / redes) */
+.rc-foot-link.subtle::after { background: rgba(255,255,255,.6); }
+
+@media (prefers-reduced-motion: reduce) {
+  .rc-foot-link::after { transition: none !important; }
+}
+
 /* ── Navbar link underline animada ── */
 .nav-link-animated {
   position: relative;
