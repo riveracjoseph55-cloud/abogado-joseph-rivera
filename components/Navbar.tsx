@@ -157,14 +157,15 @@ export default function Navbar() {
               priority
             />
             <div style={{
-              lineHeight: 1, paddingLeft: 22,
+              paddingLeft: 22,
               borderLeft: "1px solid rgba(255,255,255,.25)",
-              display: "flex", flexDirection: "column", gap: 8,
+              display: "flex", flexDirection: "column", gap: 9,
             }} className="rc-brand-text">
               <div style={{
                 fontFamily: "var(--font-sans, system-ui)",
                 fontSize: scrolled ? 20 : 26,
                 fontWeight: 500, letterSpacing: "-0.02em", color: "#fff",
+                lineHeight: 1.12,
                 transition: "font-size .4s ease",
               }}>
                 Rivera{" "}
@@ -177,6 +178,7 @@ export default function Navbar() {
               <div style={{
                 fontFamily: "var(--font-mono, monospace)", fontSize: 10,
                 letterSpacing: ".22em", textTransform: "uppercase",
+                lineHeight: 1.2,
                 color: "rgba(255,255,255,.65)", whiteSpace: "nowrap",
               }}>
                 &amp; Asociados · Derecho Penal
