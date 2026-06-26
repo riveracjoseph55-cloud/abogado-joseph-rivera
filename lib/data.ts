@@ -26,7 +26,8 @@ export const RC_CASES = [
       { date: "2024 · Mayo",     label: "Hallazgo",          text: "Restos desmembrados localizados dentro de una refrigeradora en el jardín de una vivienda. Detención inmediata de Jeremy Buzano Paisano." },
       { date: "2024 · Mayo",     label: "Asunción del caso", text: "El Lic. Rivera Cheves asume la representación legal de Marilyn Espinoza, madre de la víctima, como querellante privado." },
       { date: "2024 — 2025",     label: "Investigación",     text: "Compliance forense: rastreo de transacciones bancarias, suplantación de identidad en redes y estafas informáticas. Vinculación científica de la herida del imputado con la desmembración." },
-      { date: "2026 · Marzo 20", label: "Sentencia firme",   text: "Tribunal Penal de Heredia dicta condena: 79 años por concurso material, readecuados al máximo legal de 50 años de cárcel efectiva. Sentencia histórica." },
+      { date: "2026 · Marzo 20", label: "Sentencia condenatoria", text: "El Tribunal Penal de Heredia dicta condena: 79 años por concurso material, readecuados al máximo legal de 50 años de cárcel efectiva. Sentencia histórica." },
+      { date: "2026 · Julio 15", label: "Vista Oral de apelación", text: "El Tribunal de Apelación de Sentencia de San Ramón resolverá los recursos de apelación contra la condena. El bufete, como Abogado Director de la Querella, defenderá la pena en todos sus extremos." },
     ],
     quote: "Por Nadia, por su hija, por todas.",
     quoteContext: "Palabras finales del Lic. Rivera Cheves en las conclusiones del juicio — virales en redes sociales.",
@@ -129,7 +130,7 @@ export const RC_CASES = [
     summary: "Ciudadana nicaragüense de 29 años hallada sin vida en una fosa dentro de un condominio residencial en Salitral de Santa Ana. El bufete asumió la representación de los padres de la víctima — residentes del departamento de Madriz, Nicaragua — de manera totalmente gratuita debido a sus condiciones de pobreza extrema. El caso escaló de las salas penales costarricenses a un conflicto político bilateral: el régimen de Daniel Ortega y Rosario Murillo denegó formalmente el ingreso del Lic. Rivera Cheves a Nicaragua bajo la paranoia de que era un agente encubierto de la CIA.",
     hechos: "El 31 de marzo de 2026, **Junieysis Merlo Espinoza**, ciudadana nicaragüense de 29 años, desaparece. El 9 de abril del mismo año, **su cuerpo es hallado enterrado en una fosa dentro de un condominio residencial** en Salitral de Santa Ana, San José. El dictamen del OIJ determinó que la causa del deceso fue **asfixia mecánica por compresión del cuello con fractura del cartílago laríngeo**. El principal sospechoso, **Ramírez Calvo (57 años, expareja de la joven)**, fue detenido de forma inmediata.",
     desafio: "Los padres de la víctima residen en **condiciones de pobreza extrema** en el departamento de Madriz, Nicaragua, sin capacidad económica para contratar representación legal. La víctima dejó huérfanas a **hijas gemelas de 4 años** cuya custodia y repatriación segura debían gestionarse en simultáneo al proceso penal. El 25 de abril de 2026, **el gobierno nicaragüense denegó formalmente el ingreso del Lic. Rivera Cheves al país**, bajo la sospecha de que era un agente encubierto de la CIA.",
-    estrategia: "El bufete asumió **la representación pro-bono** atendiendo a la situación humanitaria. Pese a la prohibición migratoria nicaragüense, la firma continúa **dirigiendo la estrategia penal en Costa Rica para exigir la pena máxima** y gestiona —junto con el **PANI y la Cancillería General de la República**— la custodia y repatriación segura de las hijas gemelas de la víctima.",
+    estrategia: "El bufete asumió **la representación pro-bono** atendiendo a la situación humanitaria. Pese a la prohibición migratoria nicaragüense, la firma continúa **dirigiendo la estrategia penal en Costa Rica para exigir la pena máxima**. En el plano humanitario, la gestión del bufete —en articulación con el **PANI y la Cancillería General de la República**— logró que, en junio de 2026, **las hijas de la víctima quedaran al cuidado de su familia materna y viajaran a Nicaragua** junto a su abuela, doña Vilma, y sus tíos maternos.",
     media: "joseph3.jpg",
     tags: ["Caso activo", "Pro-bono", "Cooperación binacional", "Riesgo geopolítico"],
     timeline: [
@@ -138,7 +139,9 @@ export const RC_CASES = [
       { date: "2026 · Abril",     label: "Detención",            text: "Detención inmediata del principal sospechoso, Ramírez Calvo (57 años, expareja)." },
       { date: "2026 · Abril",     label: "Asunción pro-bono",    text: "El bufete asume gratuitamente la representación de los padres de la víctima, residentes en Madriz, Nicaragua." },
       { date: "2026 · Abril 25",  label: "Veto migratorio",      text: "El gobierno de Daniel Ortega y Rosario Murillo deniega el ingreso a Nicaragua del Lic. Rivera Cheves, alegando vinculación con la CIA." },
-      { date: "En curso",         label: "Estrategia paralela",  text: "Litigio penal en CR para exigir pena máxima + gestión con PANI y Cancillería para repatriación de hijas gemelas (4 años) de la víctima." },
+      { date: "2026 · Mayo 28",   label: "Apertura de celulares",text: "Diligencia de extracción forense de los teléfonos de la víctima y del imputado ante el OIJ. El imputado no se presentó y su defensor se retiró a los cinco minutos." },
+      { date: "2026 · Junio 26",  label: "Custodia resuelta",    text: "Las hijas de Junieysis quedan al cuidado de su familia materna y viajan a Nicaragua con su abuela, doña Vilma, y sus tíos maternos, tras la gestión del bufete con las autoridades costarricenses." },
+      { date: "En curso",         label: "Causa penal",          text: "El bufete continúa la estrategia penal en Costa Rica exigiendo la pena máxima por el femicidio de Junieysis Merlo Espinoza." },
     ],
     quote: "Trabajamos activamente para garantizar que se haga justicia y que los derechos de la familia sean respetados durante todo el proceso judicial.",
     quoteContext: "Comunicado del bufete · 2026",
@@ -150,6 +153,7 @@ export const RC_CASES = [
       { k: "Imputado",             v: "Ramírez Calvo (57)" },
       { k: "Representación",       v: "Pro-bono" },
       { k: "Veto migratorio",      v: "Nicaragua · 25 abril 2026" },
+      { k: "Custodia de las hijas",v: "Resuelta · familia materna (jun 2026)" },
     ],
     gallery: [
       {
