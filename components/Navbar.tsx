@@ -50,7 +50,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 64);
-    const onResize = () => setMobile(window.innerWidth < 980);
+    const onResize = () => setMobile(window.innerWidth < 1060);
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onResize);
     onScroll(); onResize();
@@ -72,11 +72,11 @@ export default function Navbar() {
     return () => { document.body.style.overflow = ""; };
   }, [open]);
 
-  const logoH = scrolled ? 64 : 104;
+  const logoH = scrolled ? 54 : 68;
   const utilH = scrolled ? 0 : 40;
 
   // Header height for drawer top padding (so content appears below header)
-  const headerH = scrolled ? 96 : 200;
+  const headerH = scrolled ? 84 : 152;
 
   return (
     <>
@@ -137,17 +137,17 @@ export default function Navbar() {
         {/* ── Main row ──────────────────────────────────────────────────────── */}
         <div style={{
           maxWidth: "var(--max)", margin: "0 auto",
-          padding: scrolled ? "14px var(--pad-x)" : "22px var(--pad-x)",
+          padding: scrolled ? "14px var(--pad-x)" : "20px var(--pad-x)",
           display: "flex", alignItems: "center", justifyContent: "space-between",
-          gap: 32,
+          gap: 40,
           transition: "padding .4s ease",
         }}>
 
-          <Link href="/" style={{ display: "flex", alignItems: "center", gap: 22, minWidth: 0 }}>
+          <Link href="/" style={{ display: "flex", alignItems: "center", gap: 18, minWidth: 0 }}>
             <Image
-              src="/images/logo.png"
+              src="/images/logo-emblema.png"
               alt="Rivera Cheves & Asociados — Bufete Penalista Costa Rica"
-              width={200} height={104}
+              width={72} height={72}
               style={{
                 height: logoH, width: "auto",
                 filter: "brightness(0) invert(1)",
@@ -157,9 +157,9 @@ export default function Navbar() {
               priority
             />
             <div style={{
-              paddingLeft: 22,
-              borderLeft: "1px solid rgba(255,255,255,.25)",
-              display: "flex", flexDirection: "column", gap: 9,
+              paddingLeft: 18,
+              borderLeft: "1px solid rgba(255,255,255,.22)",
+              display: "flex", flexDirection: "column", gap: 7,
             }} className="rc-brand-text">
               <div style={{
                 fontFamily: "var(--font-sans, system-ui)",
