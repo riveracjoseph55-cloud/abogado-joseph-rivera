@@ -414,6 +414,53 @@ export default function Home() {
         `}</style>
       </section>
 
+      {/* ── ENTREVISTA DESTACADA ── */}
+      <section style={{ background: "var(--paper-2)", padding: "var(--pad-y) 0" }}>
+        <div className="rc-wrap">
+          <div style={{ marginBottom: "clamp(28px,4vw,48px)" }}>
+            <div className="rc-eyebrow" style={{ marginBottom: 14, color: R }}>En video · Entrevista</div>
+            <Reveal><h2 className="rc-h2">En la <em className="rc-em">voz pública</em></h2></Reveal>
+          </div>
+          <Reveal>
+            <Link href="/entrevistas/canal-opa-nadia-peraza" className="home-int-card" style={{
+              display: "grid", gridTemplateColumns: "1.15fr 1fr",
+              alignItems: "stretch", textDecoration: "none",
+              border: "1px solid var(--hairline)", background: "#fff", overflow: "hidden",
+            }}>
+              <div style={{ position: "relative", aspectRatio: "16/9", background: "#0d0d0d", overflow: "hidden" }}>
+                <Image
+                  src="/images/entrevistas/opa-nadia-peraza-og.jpg"
+                  alt="Entrevista al abogado Joseph Rivera Cheves en #NoTanCristiana de Canal Opa sobre el caso de Nadia Peraza"
+                  fill sizes="(max-width: 900px) 100vw, 55vw"
+                  style={{ objectFit: "cover" }}
+                />
+                <span aria-hidden="true" style={{
+                  position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)",
+                  width: 66, height: 66, borderRadius: "50%", background: R, color: "#fff",
+                  display: "grid", placeItems: "center", boxShadow: "0 10px 34px rgba(0,0,0,.45)",
+                }}>
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
+                </span>
+              </div>
+              <div style={{ padding: "clamp(24px,3vw,44px)", display: "flex", flexDirection: "column", justifyContent: "center", gap: 14 }}>
+                <div className="rc-meta" style={{ color: R }}>Canal Opa · #NoTanCristiana</div>
+                <h3 className="rc-h3" style={{ lineHeight: 1.2 }}>
+                  El caso de Nadia Peraza, en primera persona
+                </h3>
+                <p style={{ fontSize: 15, lineHeight: 1.65, color: "var(--fg-3)", maxWidth: "42ch" }}>
+                  Christiana Nassar conversa con el Lic. Joseph Rivera sobre el caso, las fallas del
+                  sistema y el libro «El Caníbal de la Refrigeradora».
+                </p>
+                <span style={{ marginTop: 6, fontSize: 14, fontWeight: 700, color: R }}>Ver la entrevista →</span>
+              </div>
+            </Link>
+          </Reveal>
+        </div>
+        <style>{`
+          @media (max-width: 900px){ .home-int-card{ grid-template-columns:1fr !important; } }
+        `}</style>
+      </section>
+
       {/* ── QUOTE ── */}
       <section style={{ background: R, padding: "clamp(64px,9vw,120px) 0" }}>
         <div className="rc-wrap">

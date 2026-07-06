@@ -27,6 +27,7 @@ const INT = {
   dateISO:   "2026-07-06",
   dateLabel: "Julio de 2026",
   image:     "/images/entrevistas/opa-no-tan-cristiana-nadia-peraza.png",
+  ogImage:   "/images/entrevistas/opa-nadia-peraza-og.jpg",
   sourceUrl: "https://genteopa.com/no-tan-cristiana/%F0%9F%8E%99%EF%B8%8F-entrevista-a-joseph-alfonso-rivera-cheves-abogado-caso-de-nadia-peraza/",
   videoUrl:  "https://www.youtube.com/watch?v=eavyxcMT7Ww",
 };
@@ -46,20 +47,30 @@ export const metadata: Metadata = {
     description: SEO_DESC,
     publishedTime: INT.dateISO,
     authors: ["Lic. Joseph Alfonso Rivera Cheves"],
-    images: [{ url: `${SITE_URL}${INT.image}`, width: 1640, height: 773, alt: `Entrevista a Joseph Rivera Cheves en ${INT.program} de ${INT.outlet}` }],
+    images: [{ url: `${SITE_URL}${INT.ogImage}`, width: 1200, height: 630, alt: `Entrevista a Joseph Rivera Cheves con Christiana Nassar en ${INT.program} de ${INT.outlet} — caso Nadia Peraza` }],
   },
-  twitter: { card: "summary_large_image", title: SEO_TITLE, description: SEO_DESC, images: [`${SITE_URL}${INT.image}`] },
+  twitter: { card: "summary_large_image", title: SEO_TITLE, description: SEO_DESC, images: [`${SITE_URL}${INT.ogImage}`] },
   keywords: [
     "entrevista joseph rivera",
     "joseph rivera cheves entrevista",
+    "joseph rivera abogado nadia peraza",
     "caso nadia peraza",
+    "caso nadia peraza entrevista",
     "canal opa",
+    "opa no tan cristiana",
     "no tan cristiana",
     "christiana nassar",
+    "christiana nassar joseph rivera",
     "el caníbal de la refrigeradora",
+    "libro el caníbal de la refrigeradora",
+    "libro nadia peraza joseph rivera",
     "abogado nadia peraza",
-    "femicidio nadia peraza entrevista",
+    "abogado femicidio costa rica",
+    "femicidio nadia peraza",
+    "querellante nadia peraza",
     "violencia contra las mujeres costa rica",
+    "violencia doméstica costa rica",
+    "nashly hija de nadia peraza",
   ],
 };
 
@@ -83,7 +94,7 @@ export default function EntrevistaOpaPage() {
     title: "Entrevista a Joseph Rivera Cheves en #NoTanCristiana: el caso Nadia Peraza y el libro «El Caníbal de la Refrigeradora»",
     description: SEO_DESC,
     date: INT.dateISO,
-    image: INT.image,
+    image: INT.ogImage,
     sourceUrl: INT.sourceUrl,
   });
   const videoSchema = schemaVideoObject({
@@ -258,22 +269,19 @@ export default function EntrevistaOpaPage() {
               gap: "clamp(28px,4vw,64px)", alignItems: "center",
             }} className="int-book-grid">
               <Reveal variant="slide-right">
-                <div style={{
-                  aspectRatio: "3/4",
-                  background: "linear-gradient(180deg, #120b0b 0%, #0a0707 100%)",
-                  border: "1px solid rgba(201,168,106,.28)",
-                  display: "grid", placeItems: "center", padding: "clamp(28px,4vw,48px)",
-                  position: "relative", overflow: "hidden",
-                }}>
-                  <div style={{
-                    fontFamily: "var(--font-sans, system-ui)", fontWeight: 300,
-                    fontSize: "clamp(24px,3.2vw,38px)", lineHeight: 1.12, textAlign: "center",
-                  }}>
-                    <span style={{ color: "#c9a86a" }}>El&nbsp;Caníbal</span><br />
-                    <span style={{ fontFamily: "Georgia, serif", fontStyle: "italic", fontSize: ".55em", color: "#f5ede0" }}>de&nbsp;la</span><br />
-                    <span style={{ color: "#c9a86a" }}>Refrigeradora</span>
-                  </div>
-                  <span aria-hidden="true" style={{ position: "absolute", left: 20, bottom: 18, width: 40, height: 1, background: "rgba(201,168,106,.55)" }} />
+                <div style={{ display: "grid", placeItems: "center" }}>
+                  {/* Portada real del libro (avif ~9KB, ya optimizada) */}
+                  <img
+                    src="/images/libro/canibal-portada.avif"
+                    alt="Portada del libro «El Caníbal de la Refrigeradora», del abogado Joseph Rivera Cheves"
+                    loading="lazy"
+                    decoding="async"
+                    style={{
+                      display: "block", width: "100%", maxWidth: 300, height: "auto",
+                      border: "1px solid rgba(201,168,106,.30)",
+                      boxShadow: "0 24px 60px rgba(0,0,0,.5)",
+                    }}
+                  />
                 </div>
               </Reveal>
               <div>
