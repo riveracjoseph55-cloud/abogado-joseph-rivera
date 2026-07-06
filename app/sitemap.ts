@@ -113,7 +113,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     alternates: { languages: { "es-CR": `${BASE}/comunicados/${c.slug}` } },
   }));
 
+  // Entrevistas / cobertura mediática
+  const entrevistaPages: MetadataRoute.Sitemap = [{
+    url: `${BASE}/entrevistas/canal-opa-nadia-peraza`,
+    lastModified: "2026-07-06",
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+    images: [`${BASE}/images/entrevistas/opa-no-tan-cristiana-nadia-peraza.png`],
+    alternates: { languages: { "es-CR": `${BASE}/entrevistas/canal-opa-nadia-peraza` } },
+  }];
+
   // Páginas legales excluidas del sitemap (robots: noindex)
 
-  return [...staticPages, ...casePages, ...areaPages, ...comunicadosHub, ...comunicadoPages];
+  return [...staticPages, ...casePages, ...areaPages, ...comunicadosHub, ...comunicadoPages, ...entrevistaPages];
 }

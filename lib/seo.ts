@@ -313,3 +313,63 @@ export function schemaBreadcrumbEspecialidad(title: string, slug: string) {
     ],
   };
 }
+
+// ── Entrevistas / cobertura mediática ──────────────────────────
+// Article de una entrevista publicada en el sitio (cobertura editorial).
+export function schemaInterviewArticle(a: {
+  slug:       string;
+  title:      string;
+  description:string;
+  date:       string;   // YYYY-MM-DD
+  image:      string;   // ruta en /public
+  sourceUrl?: string;   // publicación original del medio (backlink mutuo)
+}) {
+  const url = `${SITE_URL}/entrevistas/${a.slug}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": url,
+    headline: a.title,
+    description: a.description,
+    datePublished: a.date,
+    dateModified: a.date,
+    url,
+    inLanguage: "es-CR",
+    image: { "@type": "ImageObject", url: `${SITE_URL}${a.image}` },
+    author: { "@type": "Person", name: AUTHOR, url: `${SITE_URL}/quien`, jobTitle: "Abogado Penalista" },
+    publisher: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/images/icon-512.png`, width: 512, height: 512 },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    ...(a.sourceUrl ? { isBasedOn: a.sourceUrl, citation: a.sourceUrl } : {}),
+  };
+}
+
+// VideoObject para un video de YouTube incrustado.
+export function schemaVideoObject(v: {
+  name:        string;
+  description: string;
+  videoId:     string;
+  date:        string;   // YYYY-MM-DD (uploadDate)
+  publisherName?: string;
+  publisherUrl?:  string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: v.name,
+    description: v.description,
+    thumbnailUrl: [
+      `https://i.ytimg.com/vi/${v.videoId}/hqdefault.jpg`,
+      `https://i.ytimg.com/vi/${v.videoId}/maxresdefault.jpg`,
+    ],
+    uploadDate: v.date,
+    contentUrl: `https://www.youtube.com/watch?v=${v.videoId}`,
+    embedUrl: `https://www.youtube-nocookie.com/embed/${v.videoId}`,
+    ...(v.publisherName
+      ? { publisher: { "@type": "Organization", name: v.publisherName, ...(v.publisherUrl ? { url: v.publisherUrl } : {}) } }
+      : {}),
+  };
+}

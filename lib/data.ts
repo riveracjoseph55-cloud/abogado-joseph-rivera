@@ -822,6 +822,13 @@ export const OUTLET_COLORS: Record<string, string> = {
 export const RC_PRESS: PressEntry[] = [
   // ── 2026 ────────────────────────────────────────────────────────
   {
+    medio: "Canal Opa",     year: "2026", date: "2026-07-06",   type: "entrevista", lang: "es",
+    t: "Entrevista en #NoTanCristiana: el caso Nadia Peraza y el libro «El Caníbal de la Refrigeradora»",
+    u: "/entrevistas/canal-opa-nadia-peraza",
+    desc: "Christiana Nassar conversa con el Lic. Joseph Rivera sobre el caso de Nadia Peraza, las fallas del sistema y el libro cuyos fondos irán a la hija de la víctima.",
+    image: "/images/entrevistas/opa-no-tan-cristiana-nadia-peraza.png",
+  },
+  {
     medio: "La Prensa",     year: "2026", date: "2026-04-27",   type: "entrevista", lang: "es",
     t: "«Creen que soy un espía de la CIA»: régimen Ortega-Murillo habría investigado a abogado costarricense Joseph Rivera",
     u: "https://www.laprensani.com/2026/04/27/nacionales/3683937-abogado-costarricense-espia-cia-nicaragua",
