@@ -245,45 +245,60 @@ export default function EntrevistaOpaPage() {
           </div>
         </section>
 
-        {/* ── FRANJA DEL LIBRO ─────────────────────────────────── */}
-        <section style={{ background: "var(--ink)", color: "#fff", padding: "var(--pad-y) 0" }}>
-          <div className="rc-wrap" style={{ maxWidth: 1080 }}>
+        {/* ── FRANJA DEL LIBRO (misma línea visual que /libro) ── */}
+        <section style={{ position: "relative", background: "#0a0707", color: "#f5ede0", padding: "var(--pad-y) 0", overflow: "hidden" }}>
+          <div aria-hidden="true" style={{
+            position: "absolute", inset: 0,
+            background: "radial-gradient(900px 500px at 78% 30%, rgba(126,1,2,.20), transparent 60%)",
+            pointerEvents: "none",
+          }} />
+          <div className="rc-wrap" style={{ maxWidth: 1080, position: "relative" }}>
             <div style={{
               display: "grid", gridTemplateColumns: "1fr 1.1fr",
               gap: "clamp(28px,4vw,64px)", alignItems: "center",
             }} className="int-book-grid">
               <Reveal variant="slide-right">
                 <div style={{
-                  aspectRatio: "3/4", background: "var(--r-deep, #5a0001)",
+                  aspectRatio: "3/4",
+                  background: "linear-gradient(180deg, #120b0b 0%, #0a0707 100%)",
+                  border: "1px solid rgba(201,168,106,.28)",
                   display: "grid", placeItems: "center", padding: "clamp(28px,4vw,48px)",
                   position: "relative", overflow: "hidden",
                 }}>
                   <div style={{
                     fontFamily: "var(--font-sans, system-ui)", fontWeight: 300,
-                    fontSize: "clamp(22px,3vw,34px)", lineHeight: 1.15, color: "#fff", textAlign: "center",
+                    fontSize: "clamp(24px,3.2vw,38px)", lineHeight: 1.12, textAlign: "center",
                   }}>
-                    «El Caníbal<br />de la<br /><em className="rc-em" style={{ color: "#fff", opacity: .6 }}>Refrigeradora</em>»
+                    <span style={{ color: "#c9a86a" }}>El&nbsp;Caníbal</span><br />
+                    <span style={{ fontFamily: "Georgia, serif", fontStyle: "italic", fontSize: ".55em", color: "#f5ede0" }}>de&nbsp;la</span><br />
+                    <span style={{ color: "#c9a86a" }}>Refrigeradora</span>
                   </div>
-                  <span aria-hidden="true" style={{ position: "absolute", left: 20, bottom: 18, width: 40, height: 1, background: "rgba(255,255,255,.5)" }} />
+                  <span aria-hidden="true" style={{ position: "absolute", left: 20, bottom: 18, width: 40, height: 1, background: "rgba(201,168,106,.55)" }} />
                 </div>
               </Reveal>
               <div>
                 <Reveal>
-                  <div className="rc-eyebrow on-r" style={{ marginBottom: 14 }}>Libro · Próximamente</div>
-                  <h2 className="rc-h2" style={{ color: "#fff", marginBottom: 18 }}>
-                    El libro que nació <em className="rc-em" style={{ color: "#fff", opacity: .55 }}>de este caso</em>
+                  <div className="rc-eyebrow" style={{ color: "#c9a86a", marginBottom: 14 }}>Libro · Próximamente</div>
+                  <h2 className="rc-h2" style={{ color: "#f5ede0", marginBottom: 18 }}>
+                    El libro que nació <em className="rc-em" style={{ color: "#c9a86a", opacity: 1 }}>de este caso</em>
                   </h2>
                 </Reveal>
                 <Reveal delay={80}>
-                  <p style={{ fontSize: 16, lineHeight: 1.7, color: "rgba(255,255,255,.72)", marginBottom: 24, maxWidth: "48ch" }}>
+                  <p style={{ fontSize: 16, lineHeight: 1.7, color: "rgba(245,237,224,.72)", marginBottom: 26, maxWidth: "48ch" }}>
                     En la entrevista, Joseph Rivera presentó <em>«El Caníbal de la Refrigeradora»</em>. Anunció que
-                    <strong style={{ color: "#fff", fontWeight: 600 }}> parte de los fondos irán a un fideicomiso</strong> para la
-                    educación de la hija de Nadia. Más que una crónica judicial, es un testimonio y un llamado contra la violencia.
+                    <strong style={{ color: "#f5ede0", fontWeight: 600 }}> parte de los fondos irán a un fideicomiso</strong> para
+                    la educación de <strong style={{ color: "#f5ede0", fontWeight: 600 }}>Nashly, la hija de Nadia</strong>. Más que una
+                    crónica judicial, es un testimonio y un llamado contra la violencia.
                   </p>
                 </Reveal>
                 <Reveal delay={140}>
-                  <Link href="/comunicados/libro-el-canibal-de-la-refrigeradora" className="rc-btn on-r">
-                    Conocer el libro <span className="arrow">→</span>
+                  <Link href="/libro" style={{
+                    display: "inline-flex", alignItems: "center", gap: 10,
+                    padding: "13px 26px", background: "#c9a86a", color: "#1a1310",
+                    fontFamily: "var(--font-sans, system-ui)", fontSize: 14, fontWeight: 700,
+                    textDecoration: "none",
+                  }}>
+                    Conocer el libro <span aria-hidden="true">→</span>
                   </Link>
                 </Reveal>
               </div>
