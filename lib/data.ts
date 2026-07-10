@@ -997,6 +997,45 @@ export const RC_PRESS: PressEntry[] = [
   },
 ];
 
+// ── Entrevistas en video (páginas dedicadas en /entrevistas/) ──
+// Orden: más reciente primero. Usado por la portada y reutilizable.
+export type EntrevistaEntry = {
+  slug:     string;   // /entrevistas/[slug]
+  medio:    string;
+  program?: string;
+  title:    string;   // titular corto para tarjetas
+  desc:     string;
+  date:     string;   // YYYY-MM-DD
+  image:    string;   // 1200x630
+};
+
+export const RC_ENTREVISTAS: EntrevistaEntry[] = [
+  {
+    slug:  "la-teja-bolados-legales-femicidio",
+    medio: "La Teja", program: "Bolados Legales",
+    title: "Qué es un femicidio en Costa Rica",
+    desc:  "La figura penal, sus penas y la reforma de 2022 — y el anuncio del libro.",
+    date:  "2026-07-09",
+    image: "/images/entrevistas/la-teja-nadia-peraza-og.jpg",
+  },
+  {
+    slug:  "trivision-apelacion-nadia-peraza",
+    medio: "Trivisión",
+    title: "La apelación del caso Nadia Peraza",
+    desc:  "A una semana de la Vista Oral, la respuesta a la solicitud de la defensa.",
+    date:  "2026-07-08",
+    image: "/images/entrevistas/trivision-nadia-peraza-og.jpg",
+  },
+  {
+    slug:  "canal-opa-nadia-peraza",
+    medio: "Canal Opa", program: "#NoTanCristiana",
+    title: "El caso de Nadia Peraza, en primera persona",
+    desc:  "Christiana Nassar conversa sobre el caso, las fallas del sistema y el libro.",
+    date:  "2026-07-06",
+    image: "/images/entrevistas/opa-nadia-peraza-og.jpg",
+  },
+];
+
 export const RC_FORMACION = [
   { t: "Auditor Líder · ISO 37001:2025 — Sistema de Gestión Antisobornos", s: "EALDE Business School, Madrid · 2026", d: "Certificación internacional para auditorías de **cumplimiento antisoborno**. Pilar técnico del **compliance forense** aplicado a delitos económicos, corrupción y delincuencia organizada." },
   { t: "Auditor Líder · ISO 31000:2018 — Risk Management",                  s: "EALDE Business School, Madrid · 2026", d: "Gestión integral de riesgos. Marco metodológico aplicado a **litigación penal compleja**, análisis forense de operaciones empresariales y casos bajo **riesgo geopolítico**." },

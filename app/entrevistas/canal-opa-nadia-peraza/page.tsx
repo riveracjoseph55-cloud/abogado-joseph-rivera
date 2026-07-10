@@ -34,7 +34,7 @@ const INT = {
 
 const SEO_TITLE = "Entrevista a Joseph Rivera — Caso Nadia Peraza | Canal Opa";
 const SEO_DESC  =
-  "Christiana Nassar entrevista al abogado Joseph Rivera Cheves en #NoTanCristiana (Canal Opa) sobre el caso de Nadia Peraza y el libro «El Caníbal de la Refrigeradora».";
+  "Christiana Nassar entrevista a Joseph Rivera Cheves en #NoTanCristiana (Canal Opa) sobre el caso Nadia Peraza y el libro «El Caníbal de la Refrigeradora».";
 
 export const metadata: Metadata = {
   title: { absolute: SEO_TITLE },
