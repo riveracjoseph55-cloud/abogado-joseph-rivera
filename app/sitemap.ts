@@ -114,14 +114,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   // Entrevistas / cobertura mediática
-  const entrevistaPages: MetadataRoute.Sitemap = [{
-    url: `${BASE}/entrevistas/canal-opa-nadia-peraza`,
-    lastModified: "2026-07-06",
-    changeFrequency: "monthly" as const,
-    priority: 0.8,
-    images: [`${BASE}/images/entrevistas/opa-no-tan-cristiana-nadia-peraza.png`],
-    alternates: { languages: { "es-CR": `${BASE}/entrevistas/canal-opa-nadia-peraza` } },
-  }];
+  const entrevistaPages: MetadataRoute.Sitemap = [
+    {
+      url: `${BASE}/entrevistas/canal-opa-nadia-peraza`,
+      lastModified: "2026-07-06",
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+      images: [`${BASE}/images/entrevistas/opa-nadia-peraza-og.jpg`],
+      alternates: { languages: { "es-CR": `${BASE}/entrevistas/canal-opa-nadia-peraza` } },
+    },
+    {
+      url: `${BASE}/entrevistas/trivision-apelacion-nadia-peraza`,
+      lastModified: "2026-07-08",
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+      images: [`${BASE}/images/entrevistas/trivision-nadia-peraza-og.jpg`],
+      alternates: { languages: { "es-CR": `${BASE}/entrevistas/trivision-apelacion-nadia-peraza` } },
+    },
+  ];
 
   // Páginas legales excluidas del sitemap (robots: noindex)
 

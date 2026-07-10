@@ -357,6 +357,9 @@ export default function EntrevistaOpaPage() {
                 <Link href="/comunicados/vista-oral-apelacion-nadia-peraza" className="rc-btn ghost">
                   La apelación (Vista Oral)
                 </Link>
+                <Link href="/entrevistas/trivision-apelacion-nadia-peraza" className="rc-btn ghost">
+                  Entrevista en Trivisión
+                </Link>
               </div>
             </Reveal>
           </div>

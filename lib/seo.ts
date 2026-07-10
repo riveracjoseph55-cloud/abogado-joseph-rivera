@@ -347,6 +347,32 @@ export function schemaInterviewArticle(a: {
   };
 }
 
+// VideoObject genérico (video alojado fuera de YouTube: Facebook, Vimeo, etc.)
+export function schemaVideoObjectExternal(v: {
+  name:         string;
+  description:  string;
+  thumbnailUrl: string;   // URL absoluta
+  date:         string;   // YYYY-MM-DD (uploadDate)
+  contentUrl:   string;   // enlace público al video
+  embedUrl?:    string;   // URL de incrustación
+  publisherName?: string;
+  publisherUrl?:  string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: v.name,
+    description: v.description,
+    thumbnailUrl: [v.thumbnailUrl],
+    uploadDate: v.date,
+    contentUrl: v.contentUrl,
+    ...(v.embedUrl ? { embedUrl: v.embedUrl } : {}),
+    ...(v.publisherName
+      ? { publisher: { "@type": "Organization", name: v.publisherName, ...(v.publisherUrl ? { url: v.publisherUrl } : {}) } }
+      : {}),
+  };
+}
+
 // VideoObject para un video de YouTube incrustado.
 export function schemaVideoObject(v: {
   name:        string;

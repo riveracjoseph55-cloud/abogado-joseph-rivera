@@ -822,6 +822,13 @@ export const OUTLET_COLORS: Record<string, string> = {
 export const RC_PRESS: PressEntry[] = [
   // ── 2026 ────────────────────────────────────────────────────────
   {
+    medio: "Trivisión",     year: "2026", date: "2026-07-08",   type: "entrevista", lang: "es",
+    t: "La apelación del caso Nadia Peraza: Joseph Rivera responde a la solicitud de la defensa",
+    u: "/entrevistas/trivision-apelacion-nadia-peraza",
+    desc: "A una semana de la Vista Oral, el abogado de la familia de Nadia Peraza responde en Trivisión, con Alejandro Urbina, a la gestión planteada por la defensa del condenado.",
+    image: "/images/entrevistas/trivision-nadia-peraza-og.jpg",
+  },
+  {
     medio: "Canal Opa",     year: "2026", date: "2026-07-06",   type: "entrevista", lang: "es",
     t: "Entrevista en #NoTanCristiana: el caso Nadia Peraza y el libro «El Caníbal de la Refrigeradora»",
     u: "/entrevistas/canal-opa-nadia-peraza",
