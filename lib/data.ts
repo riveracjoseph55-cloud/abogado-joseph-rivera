@@ -32,6 +32,7 @@ export const RC_CASES = [
     quote: "Por Nadia, por su hija, por todas.",
     quoteContext: "Palabras finales del Lic. Rivera Cheves en las conclusiones del juicio — virales en redes sociales.",
     press: [
+      { medio: "La Teja · Bolados Legales", t: "Qué es un femicidio en Costa Rica, y el anuncio del libro sobre el caso", u: "/entrevistas/la-teja-bolados-legales-femicidio" },
       { medio: "Trivisión", t: "La apelación del caso: Joseph Rivera responde a la solicitud de la defensa", u: "/entrevistas/trivision-apelacion-nadia-peraza" },
       { medio: "Canal Opa · #NoTanCristiana", t: "Entrevista: el caso de Nadia Peraza y el libro «El Caníbal de la Refrigeradora»", u: "/entrevistas/canal-opa-nadia-peraza" },
       { medio: "Diario Extra", t: "Algunos jueces le tienen miedo a poner la pena máxima", u: "https://www.diarioextra.com/noticia/algunos-jueces-les-da-miedo-poner-la-pena-maxima/" },
@@ -823,6 +824,13 @@ export const OUTLET_COLORS: Record<string, string> = {
 
 export const RC_PRESS: PressEntry[] = [
   // ── 2026 ────────────────────────────────────────────────────────
+  {
+    medio: "La Teja",       year: "2026", date: "2026-07-09",   type: "entrevista", lang: "es",
+    t: "Bolados Legales: qué es un femicidio en Costa Rica (y el anuncio del libro)",
+    u: "/entrevistas/la-teja-bolados-legales-femicidio",
+    desc: "El penalista explica la figura del femicidio, sus penas y la reforma de 2022, y anuncia «El Caníbal de la Refrigeradora», su libro sobre el caso de Nadia Peraza.",
+    image: "/images/entrevistas/la-teja-nadia-peraza-og.jpg",
+  },
   {
     medio: "Trivisión",     year: "2026", date: "2026-07-08",   type: "entrevista", lang: "es",
     t: "La apelación del caso Nadia Peraza: Joseph Rivera responde a la solicitud de la defensa",

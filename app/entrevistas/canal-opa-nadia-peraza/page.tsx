@@ -360,6 +360,9 @@ export default function EntrevistaOpaPage() {
                 <Link href="/entrevistas/trivision-apelacion-nadia-peraza" className="rc-btn ghost">
                   Entrevista en Trivisión
                 </Link>
+                <Link href="/entrevistas/la-teja-bolados-legales-femicidio" className="rc-btn ghost">
+                  Entrevista en La Teja
+                </Link>
               </div>
             </Reveal>
           </div>

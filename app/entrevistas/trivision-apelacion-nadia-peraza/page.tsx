@@ -310,6 +310,9 @@ export default function EntrevistaTrivisionPage() {
                 <Link href="/entrevistas/canal-opa-nadia-peraza" className="rc-btn ghost">
                   Entrevista en Canal Opa
                 </Link>
+                <Link href="/entrevistas/la-teja-bolados-legales-femicidio" className="rc-btn ghost">
+                  Entrevista en La Teja
+                </Link>
               </div>
             </Reveal>
           </div>

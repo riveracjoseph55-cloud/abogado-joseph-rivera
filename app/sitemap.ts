@@ -131,6 +131,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       images: [`${BASE}/images/entrevistas/trivision-nadia-peraza-og.jpg`],
       alternates: { languages: { "es-CR": `${BASE}/entrevistas/trivision-apelacion-nadia-peraza` } },
     },
+    {
+      url: `${BASE}/entrevistas/la-teja-bolados-legales-femicidio`,
+      lastModified: "2026-07-09",
+      changeFrequency: "monthly" as const,
+      priority: 0.85,
+      images: [`${BASE}/images/entrevistas/la-teja-nadia-peraza-og.jpg`],
+      alternates: { languages: { "es-CR": `${BASE}/entrevistas/la-teja-bolados-legales-femicidio` } },
+    },
   ];
 
   // Páginas legales excluidas del sitemap (robots: noindex)
