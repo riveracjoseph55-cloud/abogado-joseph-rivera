@@ -23,7 +23,8 @@ const INT = {
   dateLabel: "Julio de 2026",
   image:     "/images/entrevistas/trivision-apelacion-nadia-peraza.png",
   ogImage:   "/images/entrevistas/trivision-nadia-peraza-og.jpg",
-  videoUrl:  "https://www.facebook.com/share/v/1QFXakf7DC/",
+  // Permalink canónico (el enlace corto /share/v/… no lo resuelve el plugin de Facebook)
+  videoUrl:  "https://www.facebook.com/trivisioncostarica/videos/1379875277396525/",
 };
 
 const SEO_TITLE = "Apelación Caso Nadia Peraza — Entrevista en Trivisión";
@@ -137,11 +138,22 @@ export default function EntrevistaTrivisionPage() {
               </h1>
             </Reveal>
             <Reveal delay={140}>
-              <p className="rc-lede" style={{ maxWidth: "62ch", marginBottom: 24 }}>
-                A una semana de la Vista Oral, el Lic. Joseph Rivera Cheves —abogado de la familia de
-                Nadia Peraza— responde en Trivisión a la solicitud de la defensa de trasladar al
-                condenado a una valoración psiquiátrica.
+              <p className="rc-lede" style={{ maxWidth: "62ch", marginBottom: 16 }}>
+                A una semana de la Vista Oral, el Lic. Joseph Rivera Cheves —abogado de la familia de{" "}
+                <Link href="/casos/nadia-peraza" style={{ color: R, borderBottom: `1px solid ${R}` }}>
+                  Nadia Peraza
+                </Link>{" "}
+                — responde en Trivisión a la solicitud de la defensa de trasladar al condenado a una
+                valoración psiquiátrica.
               </p>
+            </Reveal>
+            <Reveal delay={170}>
+              <Link href="/casos/nadia-peraza" style={{
+                display: "inline-flex", alignItems: "center", gap: 8, marginBottom: 24,
+                fontFamily: "var(--font-sans, system-ui)", fontSize: 14, fontWeight: 700, color: R,
+              }}>
+                Ver el dossier completo del caso <span aria-hidden="true">→</span>
+              </Link>
             </Reveal>
             <Reveal delay={200}>
               <div style={{

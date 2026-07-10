@@ -32,6 +32,8 @@ export const RC_CASES = [
     quote: "Por Nadia, por su hija, por todas.",
     quoteContext: "Palabras finales del Lic. Rivera Cheves en las conclusiones del juicio — virales en redes sociales.",
     press: [
+      { medio: "Trivisión", t: "La apelación del caso: Joseph Rivera responde a la solicitud de la defensa", u: "/entrevistas/trivision-apelacion-nadia-peraza" },
+      { medio: "Canal Opa · #NoTanCristiana", t: "Entrevista: el caso de Nadia Peraza y el libro «El Caníbal de la Refrigeradora»", u: "/entrevistas/canal-opa-nadia-peraza" },
       { medio: "Diario Extra", t: "Algunos jueces le tienen miedo a poner la pena máxima", u: "https://www.diarioextra.com/noticia/algunos-jueces-les-da-miedo-poner-la-pena-maxima/" },
     ],
     facts: [
