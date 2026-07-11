@@ -497,6 +497,37 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
   .wa-float, .wa-float__label { transition: none; }
 }
 
+/* ── Toggle de idioma ES | EN (Navbar) ──────────────────────────── */
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, .34);
+  font-family: var(--font-mono, monospace);
+  font-size: 12px;
+  letter-spacing: .06em;
+  line-height: 1;
+  color: rgba(255, 255, 255, .8);
+  flex-shrink: 0;
+  transition: border-color .2s ease, background .2s ease;
+}
+.lang-toggle:hover { border-color: rgba(255, 255, 255, .65); background: rgba(255, 255, 255, .07); }
+.lang-toggle__globe { opacity: .85; flex-shrink: 0; }
+.lang-toggle .lang-opt {
+  color: rgba(255, 255, 255, .6);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 1px 1px;
+  transition: color .2s ease;
+}
+.lang-toggle .lang-opt:hover { color: #fff; }
+.lang-toggle .lang-opt.is-active { color: #fff; font-weight: 700; }
+.lang-toggle .lang-opt:focus-visible { outline: 2px solid #fff; outline-offset: 2px; border-radius: 2px; }
+.lang-toggle__sep { opacity: .3; }
+.lang-toggle--compact { padding: 5px 10px; gap: 5px; font-size: 11px; }
+
 /* ── LiteYouTube (facade de video) ──────────────────────────────── */
 .lite-yt {
   position: relative;

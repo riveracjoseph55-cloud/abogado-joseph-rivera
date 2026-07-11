@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { WA, RC_AREAS } from "@/lib/data";
 import SearchModal from "@/components/SearchModal";
+import LangToggle from "@/components/LangToggle";
 
 const DESKTOP_LINKS = [
   ["/quien",          "Quién es"],
@@ -119,17 +120,6 @@ export default function Navbar() {
               <a href="https://www.tiktok.com/@josephriveraabogado" target="_blank" rel="noopener" style={{ color: "rgba(255,255,255,.72)" }}>TikTok</a>
               <span style={{ opacity: .35 }}>·</span>
               <a href="https://www.instagram.com/josephriveraabogado" target="_blank" rel="noopener" style={{ color: "rgba(255,255,255,.72)" }}>Instagram</a>
-              <span style={{ opacity: .35 }}>·</span>
-              <span style={{ display: "inline-flex", alignItems: "center", gap: 5 }}>
-                <span style={{ opacity: .55 }}>ES</span>
-                <span style={{ opacity: .3 }}>|</span>
-                <a
-                  href={`https://translate.google.com/translate?sl=es&tl=en&u=https://abogadojosephrivera.com${pathname}`}
-                  target="_blank" rel="noopener"
-                  style={{ color: "#fff", fontWeight: 600 }}
-                  title="View in English"
-                >EN</a>
-              </span>
             </div>
           </div>
         </div>
@@ -202,6 +192,8 @@ export default function Navbar() {
                 );
               })}
 
+              <LangToggle />
+
               <button onClick={() => setSearch(true)} aria-label="Buscar en el sitio"
                 className="rc-nav-search"
               >
@@ -216,7 +208,8 @@ export default function Navbar() {
 
           {/* ── Mobile: lupa + hamburger ── */}
           {mobile && (
-            <div style={{ display: "flex", alignItems: "center", gap: 4, flexShrink: 0 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
+              <LangToggle compact />
               <button onClick={() => setSearch(true)} aria-label="Buscar en el sitio"
                 style={{
                   width: 44, height: 44,
