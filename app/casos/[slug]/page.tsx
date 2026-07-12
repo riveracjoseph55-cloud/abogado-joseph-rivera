@@ -482,7 +482,7 @@ export default async function CasoDetail({ params }: { params: Promise<{ slug: s
                     <p style={{ fontSize: 16, lineHeight: 1.75, color: "rgba(245,237,224,.72)", maxWidth: "54ch", marginBottom: 28 }}>
                       El Lic. Rivera Cheves narra este caso desde dentro en su nuevo libro — el episodio
                       más fuerte de su carrera. <strong style={{ color: "#f5ede0" }}>Parte de las ganancias
-                      serán para Nashly, la hija de Nadia.</strong>
+                      serán para la hija de la ofendida.</strong>
                     </p>
                   </Reveal>
                   <Reveal delay={180} variant="fade">

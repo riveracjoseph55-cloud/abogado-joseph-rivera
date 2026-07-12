@@ -345,7 +345,7 @@ export default function Home() {
                 }}>
                   <Image
                     src="/images/libro/canibal-portada.jpg"
-                    alt="Libro El Caníbal de la Refrigeradora — crónica forense del caso Nadia Peraza, nuevo libro del abogado Joseph Rivera Cheves"
+                    alt="Libro El Caníbal de la Refrigeradora — crónica forense de un femicidio en Costa Rica, nuevo libro del abogado Joseph Rivera Cheves"
                     width={760} height={1140}
                     sizes="300px"
                     style={{ width: "100%", height: "auto", borderRadius: 3 }}
@@ -379,7 +379,7 @@ export default function Home() {
                   fontSize: "clamp(15px,1.6vw,20px)", lineHeight: 1.5,
                   color: "rgba(245,237,224,.8)", maxWidth: "42ch", marginBottom: 22,
                 }}>
-                  Crónica forense y jurídica del femicidio de Nadia Peraza Espinoza.
+                  Crónica forense y jurídica de uno de los femicidios más atroces de Costa Rica.
                 </p>
               </Reveal>
 
@@ -390,7 +390,7 @@ export default function Home() {
                 }}>
                   El Lic. Rivera Cheves narra este caso desde dentro — el episodio más fuerte de
                   su carrera. <strong style={{ color: "#f5ede0" }}>Parte de las ganancias serán
-                  para Nashly, la hija de Nadia.</strong>
+                  para la hija de la ofendida.</strong>
                 </p>
               </Reveal>
 

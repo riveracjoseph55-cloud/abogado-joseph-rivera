@@ -97,7 +97,7 @@ const RESUMEN = [
   "El abogado repasó el marco legal vigente: qué constituye un femicidio, cuál es la pena aplicable, en qué se diferencia del homicidio calificado y cómo la **reforma de 2022** amplió el supuesto a relaciones sentimentales que antes quedaban fuera.",
   "Rivera advirtió sobre el **aumento sostenido de los femicidios** desde la entrada en vigencia de la ley en 2007 y citó, entre los factores asociados, el consumo de alcohol y drogas, la desintegración familiar, los celos patológicos, el machismo y la **violencia vicaria** —cuando el agresor utiliza a los hijos o el control económico para someter a la mujer.",
   "También fue crítico con la respuesta institucional: a su juicio, distintas instituciones del Estado no atendieron a tiempo las alertas en el caso que llevó, y sostuvo que un abordaje oportuno pudo cambiar el desenlace.",
-  "Finalmente, adelantó **«El Caníbal de la Refrigeradora»**, una crónica jurídica y forense del caso. Explicó que la obra busca mostrar cómo la medicina legal y las ciencias auxiliares del derecho penal permitieron esclarecer los hechos, y confirmó que **parte de los fondos se destinarán a un fideicomiso** para **Nashly**, la hija de Nadia.",
+  "Finalmente, adelantó **«El Caníbal de la Refrigeradora»**, una crónica jurídica y forense del caso. Explicó que la obra busca mostrar cómo la medicina legal y las ciencias auxiliares del derecho penal permitieron esclarecer los hechos, y confirmó que **parte de los fondos se destinarán a un fideicomiso** para **la hija de la ofendida**.",
 ];
 
 const QUOTES = [
@@ -336,7 +336,7 @@ export default function EntrevistaLaTejaPage() {
                     En esta entrevista Joseph Rivera presentó <em>«El Caníbal de la Refrigeradora»</em>, una
                     crónica jurídica y forense del caso.{" "}
                     <strong style={{ color: "#f5ede0", fontWeight: 600 }}>Parte de los fondos irán a un fideicomiso</strong>{" "}
-                    para la educación de <strong style={{ color: "#f5ede0", fontWeight: 600 }}>Nashly, la hija de Nadia</strong>.
+                    para la educación de <strong style={{ color: "#f5ede0", fontWeight: 600 }}>la hija de la ofendida</strong>.
                   </p>
                 </Reveal>
                 <Reveal delay={140}>

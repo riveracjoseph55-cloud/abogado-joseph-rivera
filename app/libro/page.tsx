@@ -10,7 +10,7 @@ const R = "#7e0102";
 const GOLD = "#c9a86a";
 
 const TITLE = "El Caníbal de la Refrigeradora";
-const SUBTITLE = "Crónica forense y jurídica del femicidio de Nadia Peraza Espinoza";
+const SUBTITLE = "Crónica forense y jurídica del femicidio de la ofendida";
 const OG = `${SITE_URL}/images/libro/canibal-og.jpg`;
 
 // WhatsApp con mensaje para reservar el libro
@@ -23,32 +23,31 @@ const WA_RESERVA =
 export const metadata: Metadata = {
   title: { absolute: "El Caníbal de la Refrigeradora | Nuevo libro de Joseph Rivera" },
   description:
-    "«El Caníbal de la Refrigeradora» — el nuevo libro del abogado penalista Joseph Rivera Cheves: crónica forense y jurídica del femicidio de Nadia Peraza Espinoza. Próximamente. Parte de las ganancias serán para Nashly, la hija de Nadia.",
+    "«El Caníbal de la Refrigeradora» — el nuevo libro del abogado penalista Joseph Rivera Cheves: crónica forense y jurídica del femicidio de la ofendida. Próximamente. Parte de las ganancias serán para la hija de la ofendida.",
   alternates: { canonical: `${SITE_URL}/libro` },
   keywords: [
     "el canibal de la refrigeradora",
     "libro joseph rivera",
     "joseph rivera libro",
-    "libro nadia peraza",
     "el canibal de la refrigeradora libro",
-    "caso nadia peraza libro",
+    "libro true crime costa rica",
     "libro femicidio costa rica",
-    "cronica forense nadia peraza",
+    "cronica forense costa rica",
     "joseph rivera cheves libro",
-    "abogado joseph rivera libro nadia",
+    "abogado joseph rivera libro",
   ],
   openGraph: {
     type: "book",
     url: `${SITE_URL}/libro`,
     title: "El Caníbal de la Refrigeradora | Nuevo libro de Joseph Rivera",
     description:
-      "Crónica forense y jurídica del femicidio de Nadia Peraza Espinoza, por el abogado querellante Joseph Rivera Cheves. Próximamente. Parte de las ganancias serán para Nashly, la hija de Nadia.",
+      "Crónica forense y jurídica del femicidio de la ofendida, por el abogado querellante Joseph Rivera Cheves. Próximamente. Parte de las ganancias serán para la hija de la ofendida.",
     images: [{ url: OG, width: 1200, height: 630, alt: `${TITLE} — nuevo libro de ${AUTHOR}` }],
   },
   twitter: {
     card: "summary_large_image",
     title: "El Caníbal de la Refrigeradora | Nuevo libro de Joseph Rivera",
-    description: "Crónica forense y jurídica del femicidio de Nadia Peraza Espinoza. Próximamente.",
+    description: "Crónica forense y jurídica del femicidio de la ofendida. Próximamente.",
     images: [OG],
   },
 };
@@ -59,9 +58,9 @@ const bookSchema = {
   "@type": "Book",
   "@id": `${SITE_URL}/libro#book`,
   name: TITLE,
-  alternateName: "El Caníbal de la Refrigeradora — Caso Nadia Peraza",
+  alternateName: "El Caníbal de la Refrigeradora — crónica forense",
   description:
-    "Crónica forense y jurídica del femicidio de Nadia Peraza Espinoza, narrada por el abogado querellante de la familia. Un testimonio honesto del dolor, la indignación y la búsqueda de justicia en uno de los casos más atroces de la historia de Costa Rica.",
+    "Crónica forense y jurídica del femicidio de la ofendida, narrada por el abogado querellante de la familia. Un testimonio honesto del dolor, la indignación y la búsqueda de justicia en uno de los casos más atroces de la historia de Costa Rica.",
   url: `${SITE_URL}/libro`,
   image: `${SITE_URL}/images/libro/canibal-portada.jpg`,
   inLanguage: "es",
@@ -75,12 +74,11 @@ const bookSchema = {
   },
   publisher: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
   about: [
-    { "@type": "Person", name: "Nadia Peraza Espinoza" },
     { "@type": "Thing", name: "Femicidio en Costa Rica" },
     { "@type": "Thing", name: "Violencia contra las mujeres" },
   ],
   abstract:
-    "Más que una crónica judicial, el libro nace desde lo personal: el episodio más fuerte de la carrera del abogado Joseph Rivera. Parte de las ganancias serán destinadas a Nashly, la hija de Nadia Peraza.",
+    "Más que una crónica judicial, el libro nace desde lo personal: el episodio más fuerte de la carrera del abogado Joseph Rivera. Parte de las ganancias serán destinadas a la hija de la ofendida.",
 };
 
 const announceSchema = {
@@ -89,7 +87,7 @@ const announceSchema = {
   "@id": `${SITE_URL}/libro#announcement`,
   headline: "Próximamente: «El Caníbal de la Refrigeradora», nuevo libro de Joseph Rivera",
   description:
-    "El abogado penalista Joseph Rivera anuncia la próxima publicación de su libro sobre el caso de Nadia Peraza. Parte de las ganancias serán para Nashly, la hija de Nadia.",
+    "El abogado penalista Joseph Rivera anuncia la próxima publicación de su libro sobre uno de los casos más atroces de Costa Rica. Parte de las ganancias serán para la hija de la ofendida.",
   url: `${SITE_URL}/libro`,
   image: { "@type": "ImageObject", url: OG, width: 1200, height: 630 },
   datePublished: "2026-06-20",
@@ -170,7 +168,7 @@ export default function LibroPage() {
                       Muy pronto · Resérvalo <span className="arrow">→</span>
                     </a>
                     <Link href="/casos/nadia-peraza" className="libro-btn-ghost">
-                      Conocer el caso de Nadia
+                      Conocer el caso
                     </Link>
                   </div>
                 </Reveal>
@@ -183,7 +181,7 @@ export default function LibroPage() {
                   <div className="libro-cover" style={{ position: "relative", zIndex: 1, width: "min(340px, 78%)" }}>
                     <Image
                       src="/images/libro/canibal-portada.jpg"
-                      alt="Portada del libro El Caníbal de la Refrigeradora — crónica forense del femicidio de Nadia Peraza Espinoza, por el abogado penalista Joseph Rivera Cheves"
+                      alt="Portada del libro El Caníbal de la Refrigeradora — crónica forense del femicidio de la ofendida, por el abogado penalista Joseph Rivera Cheves"
                       width={760} height={1140}
                       priority
                       sizes="(max-width: 900px) 78vw, 340px"
@@ -213,7 +211,7 @@ export default function LibroPage() {
               {[
                 { k: "Género", v: "Crónica forense y jurídica" },
                 { k: "Origen", v: "Testimonio personal del abogado querellante" },
-                { k: "Causa", v: "Parte de las ganancias → Nashly, hija de Nadia" },
+                { k: "Causa", v: "Parte de las ganancias → la hija de la ofendida" },
               ].map((s, i) => (
                 <Reveal key={s.k} delay={i * 80} variant="fade">
                   <div>
@@ -255,7 +253,7 @@ export default function LibroPage() {
                     El abogado penalista <strong>Joseph Rivera</strong> anuncia la próxima
                     publicación de su libro <strong>«El Caníbal de la Refrigeradora»</strong>, una
                     obra que documenta uno de los casos más difíciles y atroces en la historia de
-                    Costa Rica: el <strong>femicidio de Nadia Peraza Espinoza</strong>, joven madre
+                    Costa Rica: el <strong>femicidio de la ofendida</strong>, joven madre
                     cuyo cuerpo fue desmembrado y ocultado durante meses dentro de una refrigeradora.
                   </p>
                 </Reveal>
@@ -264,7 +262,7 @@ export default function LibroPage() {
                     Más que una crónica judicial, el libro <strong>nace desde lo personal</strong>.
                     Joseph Rivera escribió esta obra tras vivir el que ha sido, sin lugar a dudas,
                     <strong> el episodio más fuerte y desgarrador de toda su carrera profesional</strong>.
-                    Acompañar a la familia de Nadia, enfrentarse a la crudeza de la evidencia y luchar
+                    Acompañar a la familia de la ofendida, enfrentarse a la crudeza de la evidencia y luchar
                     por que este crimen no quedara impune dejó una huella imborrable en quien escribe
                     estas páginas.
                   </p>
@@ -291,7 +289,7 @@ export default function LibroPage() {
                     {AUTHOR}
                   </div>
                   <div style={{ fontSize: 13, color: "var(--fg-4)", lineHeight: 1.6, marginBottom: 20 }}>
-                    Abogado penalista · Querellante de la familia Peraza Espinoza en el caso que obtuvo
+                    Abogado penalista · Querellante de la familia de la ofendida en el caso que obtuvo
                     una condena de 50 años, máximo legal en Costa Rica.
                   </div>
                   <Link href="/quien" className="rc-link">Ver perfil del abogado →</Link>
@@ -316,7 +314,7 @@ export default function LibroPage() {
                 fontSize: "clamp(22px,3.2vw,40px)", lineHeight: 1.32, color: "#fff",
                 marginBottom: 28,
               }}>
-                Esto es por Nadia, por su hija y por su mamá. Por ella y por todas las que murieron
+                Esto es por ella, por su hija y por su mamá. Por ella y por todas las que murieron
                 a manos de un hombre. <span style={{ color: "rgba(255,255,255,.82)" }}>Seguimos buscando justicia.</span>
               </blockquote>
             </Reveal>
@@ -367,14 +365,14 @@ export default function LibroPage() {
                     fontSize: "clamp(26px,3.6vw,46px)", lineHeight: 1.12, letterSpacing: "-0.02em",
                     color: "#f5ede0", marginBottom: 24, maxWidth: "20ch",
                   }}>
-                    Parte de las ganancias serán para <span className="libro-gold">Nashly</span>, la hija de Nadia
+                    Parte de las ganancias serán para <span className="libro-gold">la hija de la ofendida</span>
                   </h2>
                 </Reveal>
                 <Reveal delay={80} variant="fade">
                   <p style={{ fontSize: 17, lineHeight: 1.8, color: "rgba(245,237,224,.72)", maxWidth: "60ch", marginBottom: 16 }}>
                     El abogado Joseph Rivera anuncia con especial énfasis que una parte de las
                     ganancias generadas por la venta del libro será destinada directamente a{" "}
-                    <strong style={{ color: "#f5ede0" }}>Nashly, la hija de Nadia Peraza</strong>, ante
+                    <strong style={{ color: "#f5ede0" }}>la hija de la ofendida</strong>, ante
                     las dificultades económicas que atraviesa su familia. La pequeña, que apenas tenía{" "}
                     <strong style={{ color: "#f5ede0" }}>dos años al momento de los hechos</strong>,
                     quedó al cuidado de su familia tras la pérdida de su madre.
@@ -383,7 +381,7 @@ export default function LibroPage() {
                 <Reveal delay={140} variant="fade">
                   <p style={{ fontSize: 17, lineHeight: 1.8, color: "rgba(245,237,224,.72)", maxWidth: "60ch" }}>
                     Con esta iniciativa, la obra no solo busca <strong style={{ color: "#f5ede0" }}>preservar
-                    la memoria de Nadia</strong> y visibilizar la violencia contra las mujeres en Costa
+                    la memoria de la ofendida</strong> y visibilizar la violencia contra las mujeres en Costa
                     Rica, sino también brindar un <strong style={{ color: "#f5ede0" }}>apoyo concreto y
                     tangible</strong> a quien más sufrió esta tragedia: su hija.
                   </p>
@@ -411,7 +409,7 @@ export default function LibroPage() {
               <div className="libro-promo" style={{ marginBottom: "clamp(20px,3vw,32px)" }}>
                 <Image
                   src="/images/libro/canibal-banner.jpg"
-                  alt="Anuncio oficial del libro El Caníbal de la Refrigeradora con el abogado Joseph Rivera Cheves — próximamente, crónica forense del caso Nadia Peraza"
+                  alt="Anuncio oficial del libro El Caníbal de la Refrigeradora con el abogado Joseph Rivera Cheves — próximamente, crónica forense de un femicidio en Costa Rica"
                   width={1672} height={941}
                   sizes="(max-width: 1440px) 100vw, 1440px"
                   style={{ width: "100%", height: "auto" }}
@@ -425,8 +423,8 @@ export default function LibroPage() {
               display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(20px,3vw,32px)",
             }} className="libro-promo-grid">
               {[
-                { src: "/images/libro/canibal-promo-1.jpg", alt: "Pieza promocional del libro El Caníbal de la Refrigeradora — próximamente, nuevo libro de Joseph Rivera sobre el caso de Nadia Peraza Espinoza" },
-                { src: "/images/libro/canibal-promo-2.jpg", alt: "Anuncio del libro El Caníbal de la Refrigeradora — crónica forense y jurídica del caso Nadia Peraza, parte de los fondos para la familia" },
+                { src: "/images/libro/canibal-promo-1.jpg", alt: "Pieza promocional del libro El Caníbal de la Refrigeradora — próximamente, nuevo libro del abogado Joseph Rivera sobre un femicidio en Costa Rica" },
+                { src: "/images/libro/canibal-promo-2.jpg", alt: "Anuncio del libro El Caníbal de la Refrigeradora — crónica forense y jurídica de un femicidio, parte de los fondos para la familia de la ofendida" },
               ].map((g, i) => (
                 <Reveal key={g.src} delay={i * 100} variant="scale">
                   <div className="libro-promo">
@@ -460,7 +458,7 @@ export default function LibroPage() {
                   <div>
                     <div className="rc-eyebrow" style={{ marginBottom: 14 }}>El caso detrás del libro</div>
                     <h2 className="rc-h3" style={{ fontSize: "clamp(22px,3vw,34px)", marginBottom: 12 }}>
-                      Caso <em className="rc-em">Nadia Peraza Espinoza</em>
+                      El <em className="rc-em">caso detrás</em>
                     </h2>
                     <p style={{ fontSize: 15, color: "var(--fg-3)", lineHeight: 1.7, maxWidth: "60ch" }}>
                       Femicidio agravado por desmembramiento. El Lic. Rivera Cheves representó a la
@@ -510,7 +508,7 @@ export default function LibroPage() {
             <Reveal delay={120} variant="fade">
               <p style={{ fontSize: 16, lineHeight: 1.7, color: "rgba(245,237,224,.65)", marginBottom: 40, maxWidth: "46ch", marginLeft: "auto", marginRight: "auto" }}>
                 Aparta tu ejemplar de «El Caníbal de la Refrigeradora». Te avisamos apenas esté
-                disponible — y tu compra apoya directamente a la familia de Nadia.
+                disponible — y tu compra apoya directamente a la familia de la ofendida.
               </p>
             </Reveal>
             <Reveal delay={180} variant="fade">

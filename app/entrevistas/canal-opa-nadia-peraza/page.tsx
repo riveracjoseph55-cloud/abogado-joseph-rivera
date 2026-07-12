@@ -295,7 +295,7 @@ export default function EntrevistaOpaPage() {
                   <p style={{ fontSize: 16, lineHeight: 1.7, color: "rgba(245,237,224,.72)", marginBottom: 26, maxWidth: "48ch" }}>
                     En la entrevista, Joseph Rivera presentó <em>«El Caníbal de la Refrigeradora»</em>. Anunció que
                     <strong style={{ color: "#f5ede0", fontWeight: 600 }}> parte de los fondos irán a un fideicomiso</strong> para
-                    la educación de <strong style={{ color: "#f5ede0", fontWeight: 600 }}>Nashly, la hija de Nadia</strong>. Más que una
+                    la educación de <strong style={{ color: "#f5ede0", fontWeight: 600 }}>la hija de la ofendida</strong>. Más que una
                     crónica judicial, es un testimonio y un llamado contra la violencia.
                   </p>
                 </Reveal>

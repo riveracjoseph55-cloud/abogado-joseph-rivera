@@ -12,7 +12,7 @@ Dossier: `/casos/nadia-peraza` (`RC_CASES`, `lib/data.ts`). Datos consistentes:
 - **Nadia Peraza Espinoza**, joven madre de **21 años**. Desaparecida (feb 2024), hallada en San Pablo de Heredia (may 2024).
 - Imputado: **Jeremy Buzano Paisano** (expareja). Rol del bufete: **querellante y acción civil** (representando a la madre, Marilyn Espinoza).
 - Sentencia (mar 2026): **79 años nominales, readecuados a 50 años** (máximo legal CR). **En apelación** — Vista Oral 15 jul 2026 (Tribunal de San Ramón).
-- Ley Nadia + fideicomiso para su hija (Najli/Nashly).
+- Ley Nadia + fideicomiso para su hija (en contenido del LIBRO no se nombra: usar «la hija de la ofendida»).
 - ⚠️ El "79" es la **pena**, NO la edad. Nunca presentar a Nadia como "79 años".
 
 ## Estructura de la sección

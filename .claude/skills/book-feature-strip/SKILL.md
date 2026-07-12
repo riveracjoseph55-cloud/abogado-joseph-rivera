@@ -10,7 +10,8 @@ Franja reutilizable que presenta el libro y conecta con su página. Coherente co
 ## Fuente de verdad
 - **Página dedicada del libro: `/libro`** (`app/libro/page.tsx`) — enlazar SIEMPRE aquí como CTA principal. También existe el comunicado `/comunicados/libro-el-canibal-de-la-refrigeradora`.
 - Título de la obra: **«El Caníbal de la Refrigeradora»**. Autor: Lic. Joseph Rivera.
-- Destino solidario: parte de las ganancias va a un fideicomiso (BCR) para **Nashly**, hija de Nadia Peraza.
+- Destino solidario: parte de las ganancias va a un fideicomiso (BCR) para **la hija de la ofendida**.
+- ⚠️ DISCRECIÓN (obligatoria): en TODO el contenido del libro NO se nombra a la víctima ni a su hija. Usar **«la ofendida»** y **«la hija de la ofendida»**. Nada de "Nadia" ni "Nashly" en páginas/promos/comunicado del libro. (El dossier del caso sí puede nombrar a la víctima; el libro no.)
 
 ## Paleta del libro (usar EXACTA para "misma línea visual")
 - Fondo: `#0a0707` (casi negro) + glow rojo sutil `radial-gradient(... rgba(126,1,2,.20) ...)`.
@@ -28,5 +29,5 @@ Franja reutilizable que presenta el libro y conecta con su página. Coherente co
 
 ## Reglas
 - **Misma línea visual** que el comunicado del libro (tipografía, acento rojo único, sobriedad).
-- Mensaje digno: enfatizar el propósito (memoria de Nadia, apoyo a su hija, llamado contra la violencia), no el morbo.
+- Mensaje digno: enfatizar el propósito (memoria de la ofendida, apoyo a su hija, llamado contra la violencia), no el morbo.
 - Siempre incluir el enlace interno a la página del libro (SEO + navegación).
