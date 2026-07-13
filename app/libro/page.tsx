@@ -302,6 +302,70 @@ export default function LibroPage() {
           `}</style>
         </section>
 
+        {/* ══ PORTADA Y CONTRAPORTADA ══ */}
+        <section style={{ background: "#0a0707", padding: "var(--pad-y) 0", position: "relative", overflow: "hidden" }}>
+          <div aria-hidden="true" style={{
+            position: "absolute", inset: 0,
+            background: "radial-gradient(900px 520px at 50% 35%, rgba(126,1,2,.18), transparent 60%)",
+          }} />
+          <div className="rc-wrap" style={{ position: "relative", zIndex: 1 }}>
+            <Reveal variant="fade">
+              <div style={{
+                fontFamily: "var(--font-mono, monospace)", fontSize: 11, letterSpacing: ".2em",
+                textTransform: "uppercase", color: GOLD, marginBottom: 40, textAlign: "center",
+              }}>
+                El libro · por fuera
+              </div>
+            </Reveal>
+            <div style={{
+              display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(24px,4vw,56px)",
+              alignItems: "start", maxWidth: 760, margin: "0 auto",
+            }} className="libro-covers-grid">
+              <Reveal variant="slide-right">
+                <figure style={{ margin: 0 }}>
+                  <div className="libro-cover" style={{ borderRadius: 3 }}>
+                    <Image
+                      src="/images/libro/canibal-portada.jpg"
+                      alt="Portada del libro El Caníbal de la Refrigeradora, del abogado penalista Joseph Rivera Cheves"
+                      width={840} height={1262}
+                      sizes="(max-width: 700px) 80vw, 340px"
+                      style={{ width: "100%", height: "auto", borderRadius: 3, display: "block" }}
+                      loading="lazy"
+                    />
+                  </div>
+                  <figcaption style={{
+                    textAlign: "center", marginTop: 16, fontFamily: "var(--font-mono, monospace)",
+                    fontSize: 11, letterSpacing: ".14em", textTransform: "uppercase", color: "rgba(245,237,224,.5)",
+                  }}>Portada</figcaption>
+                </figure>
+              </Reveal>
+              <Reveal variant="slide-left" delay={80}>
+                <figure style={{ margin: 0 }}>
+                  <div className="libro-cover" style={{ borderRadius: 3 }}>
+                    <Image
+                      src="/images/libro/canibal-contraportada.jpg"
+                      alt="Contraportada del libro El Caníbal de la Refrigeradora: sinopsis del caso, expediente judicial y reseña del autor Joseph Rivera Cheves"
+                      width={840} height={1260}
+                      sizes="(max-width: 700px) 80vw, 340px"
+                      style={{ width: "100%", height: "auto", borderRadius: 3, display: "block" }}
+                      loading="lazy"
+                    />
+                  </div>
+                  <figcaption style={{
+                    textAlign: "center", marginTop: 16, fontFamily: "var(--font-mono, monospace)",
+                    fontSize: 11, letterSpacing: ".14em", textTransform: "uppercase", color: "rgba(245,237,224,.5)",
+                  }}>Contraportada</figcaption>
+                </figure>
+              </Reveal>
+            </div>
+          </div>
+          <style>{`
+            @media (max-width: 560px) {
+              .libro-covers-grid { grid-template-columns: 1fr !important; max-width: 300px !important; gap: 36px !important; }
+            }
+          `}</style>
+        </section>
+
         {/* ══ CITA ══ */}
         <section style={{ background: R, padding: "clamp(56px,8vw,110px) 0" }}>
           <div className="rc-wrap" style={{ textAlign: "center", maxWidth: 940 }}>
@@ -328,7 +392,7 @@ export default function LibroPage() {
           </div>
         </section>
 
-        {/* ══ NASHLY — causa solidaria ══ */}
+        {/* ══ Causa solidaria — la hija de la ofendida ══ */}
         <section style={{ background: "#0a0707", padding: "var(--pad-y) 0", position: "relative", overflow: "hidden" }}>
           <div aria-hidden="true" style={{
             position: "absolute", inset: 0,
@@ -340,7 +404,7 @@ export default function LibroPage() {
             </Reveal>
             <div style={{
               display: "grid", gridTemplateColumns: "auto 1fr", gap: "clamp(24px,4vw,48px)", alignItems: "start",
-            }} className="libro-nashly-grid">
+            }} className="libro-cause-grid">
               <Reveal variant="scale">
                 <div aria-hidden="true" style={{
                   width: 72, height: 72, flexShrink: 0,
@@ -390,7 +454,7 @@ export default function LibroPage() {
             </div>
           </div>
           <style>{`
-            @media (max-width: 640px) { .libro-nashly-grid { grid-template-columns: 1fr !important; } }
+            @media (max-width: 640px) { .libro-cause-grid { grid-template-columns: 1fr !important; } }
           `}</style>
         </section>
 

@@ -70,7 +70,7 @@ export const metadata: Metadata = {
     "querellante nadia peraza",
     "violencia contra las mujeres costa rica",
     "violencia doméstica costa rica",
-    "nashly hija de nadia peraza",
+    "libro el caníbal de la refrigeradora",
   ],
 };
 
@@ -131,7 +131,7 @@ export default function EntrevistaOpaPage() {
               <p className="rc-lede" style={{ maxWidth: "60ch", marginBottom: 24 }}>
                 Christiana Nassar conversa con el Lic. Joseph Rivera Cheves sobre el femicidio de
                 Nadia Peraza, las fallas del sistema que no la protegió y el libro
-                {" "}<em>«El Caníbal de la Refrigeradora»</em>, cuyos fondos se destinarán a la hija de la víctima.
+                {" "}<em>«El Caníbal de la Refrigeradora»</em>, cuyos fondos se destinarán a la hija de la ofendida.
               </p>
             </Reveal>
             <Reveal delay={200}>
@@ -272,7 +272,7 @@ export default function EntrevistaOpaPage() {
                 <div style={{ display: "grid", placeItems: "center" }}>
                   {/* Portada real del libro (avif ~9KB, ya optimizada) */}
                   <img
-                    src="/images/libro/canibal-portada.avif"
+                    src="/images/libro/canibal-portada.jpg"
                     alt="Portada del libro «El Caníbal de la Refrigeradora», del abogado Joseph Rivera Cheves"
                     loading="lazy"
                     decoding="async"

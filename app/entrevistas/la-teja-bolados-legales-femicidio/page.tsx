@@ -313,7 +313,7 @@ export default function EntrevistaLaTejaPage() {
               <Reveal variant="slide-right">
                 <div style={{ display: "grid", placeItems: "center" }}>
                   <img
-                    src="/images/libro/canibal-portada.avif"
+                    src="/images/libro/canibal-portada.jpg"
                     alt="Portada del libro «El Caníbal de la Refrigeradora», del abogado Joseph Rivera Cheves"
                     loading="lazy" decoding="async"
                     style={{

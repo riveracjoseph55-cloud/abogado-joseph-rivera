@@ -453,7 +453,7 @@ export default async function CasoDetail({ params }: { params: Promise<{ slug: s
                     <div className="libro-cover" style={{ position: "relative", zIndex: 1, width: "min(190px, 60vw)" }}>
                       <Image
                         src="/images/libro/canibal-portada.jpg"
-                        alt="Libro El Caníbal de la Refrigeradora — crónica forense del caso Nadia Peraza, por el abogado Joseph Rivera Cheves"
+                        alt="Libro El Caníbal de la Refrigeradora — crónica forense de un femicidio en Costa Rica, por el abogado Joseph Rivera Cheves"
                         width={760} height={1140}
                         sizes="190px"
                         style={{ width: "100%", height: "auto", borderRadius: 3 }}
