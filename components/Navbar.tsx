@@ -125,7 +125,7 @@ export default function Navbar() {
         </div>
 
         {/* ── Main row ──────────────────────────────────────────────────────── */}
-        <div style={{
+        <div className="rc-navrow" style={{
           maxWidth: "var(--max)", margin: "0 auto",
           padding: scrolled ? "14px var(--pad-x)" : "20px var(--pad-x)",
           display: "flex", alignItems: "center", justifyContent: "space-between",
@@ -241,6 +241,9 @@ export default function Navbar() {
         <style>{`
           @media (max-width: 720px) { .rc-util-hide-sm { display: none !important; } }
           @media (max-width: 560px) { .rc-brand-text   { display: none !important; } }
+          /* En móvil, menos separación entre el logo y los controles para evitar desbordes */
+          @media (max-width: 1060px) { .rc-navrow { gap: 16px !important; } }
+          @media (max-width: 380px)  { .rc-navrow { gap: 10px !important; } }
 
           /* ── Desktop nav links ── */
           .rc-nav-link {
