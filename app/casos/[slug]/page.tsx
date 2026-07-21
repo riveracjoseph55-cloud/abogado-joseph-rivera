@@ -452,7 +452,7 @@ export default async function CasoDetail({ params }: { params: Promise<{ slug: s
                     <div className="libro-glow" />
                     <div className="libro-cover" style={{ position: "relative", zIndex: 1, width: "min(190px, 60vw)" }}>
                       <Image
-                        src="/images/libro/canibal-portada.jpg"
+                        src="/images/libro/canibal-portada.jpg?v=2"
                         alt="Libro El Caníbal de la Refrigeradora — crónica forense de un femicidio en Costa Rica, por el abogado Joseph Rivera Cheves"
                         width={760} height={1140}
                         sizes="190px"

@@ -272,7 +272,7 @@ export default function EntrevistaOpaPage() {
                 <div style={{ display: "grid", placeItems: "center" }}>
                   {/* Portada real del libro (avif ~9KB, ya optimizada) */}
                   <img
-                    src="/images/libro/canibal-portada.jpg"
+                    src="/images/libro/canibal-portada.jpg?v=2"
                     alt="Portada del libro «El Caníbal de la Refrigeradora», del abogado Joseph Rivera Cheves"
                     loading="lazy"
                     decoding="async"

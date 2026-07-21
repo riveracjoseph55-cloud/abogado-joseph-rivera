@@ -11,7 +11,7 @@ const GOLD = "#c9a86a";
 
 const TITLE = "El Caníbal de la Refrigeradora";
 const SUBTITLE = "Crónica forense y jurídica del femicidio de la ofendida";
-const OG = `${SITE_URL}/images/libro/canibal-og.jpg`;
+const OG = `${SITE_URL}/images/libro/canibal-og.jpg?v=2`;
 
 // WhatsApp con mensaje para reservar el libro
 const WA_RESERVA =
@@ -62,7 +62,7 @@ const bookSchema = {
   description:
     "Crónica forense y jurídica del femicidio de la ofendida, narrada por el abogado querellante de la familia. Un testimonio honesto del dolor, la indignación y la búsqueda de justicia en uno de los casos más atroces de la historia de Costa Rica.",
   url: `${SITE_URL}/libro`,
-  image: `${SITE_URL}/images/libro/canibal-portada.jpg`,
+  image: `${SITE_URL}/images/libro/canibal-portada.jpg?v=2`,
   inLanguage: "es",
   bookFormat: "https://schema.org/Hardcover",
   genre: ["True Crime", "Crónica jurídica", "Ensayo forense"],
@@ -180,7 +180,7 @@ export default function LibroPage() {
                   <div className="libro-glow" />
                   <div className="libro-cover" style={{ position: "relative", zIndex: 1, width: "min(340px, 78%)" }}>
                     <Image
-                      src="/images/libro/canibal-portada.jpg"
+                      src="/images/libro/canibal-portada.jpg?v=2"
                       alt="Portada del libro El Caníbal de la Refrigeradora — crónica forense del femicidio de la ofendida, por el abogado penalista Joseph Rivera Cheves"
                       width={760} height={1140}
                       priority
@@ -325,7 +325,7 @@ export default function LibroPage() {
                 <figure style={{ margin: 0 }}>
                   <div className="libro-cover" style={{ borderRadius: 3 }}>
                     <Image
-                      src="/images/libro/canibal-portada.jpg"
+                      src="/images/libro/canibal-portada.jpg?v=2"
                       alt="Portada del libro El Caníbal de la Refrigeradora, del abogado penalista Joseph Rivera Cheves"
                       width={840} height={1262}
                       sizes="(max-width: 700px) 80vw, 340px"
@@ -343,7 +343,7 @@ export default function LibroPage() {
                 <figure style={{ margin: 0 }}>
                   <div className="libro-cover" style={{ borderRadius: 3 }}>
                     <Image
-                      src="/images/libro/canibal-contraportada.jpg"
+                      src="/images/libro/canibal-contraportada.jpg?v=2"
                       alt="Contraportada del libro El Caníbal de la Refrigeradora: sinopsis del caso, expediente judicial y reseña del autor Joseph Rivera Cheves"
                       width={840} height={1260}
                       sizes="(max-width: 700px) 80vw, 340px"
@@ -472,7 +472,7 @@ export default function LibroPage() {
             <Reveal variant="scale">
               <div className="libro-promo" style={{ marginBottom: "clamp(20px,3vw,32px)" }}>
                 <Image
-                  src="/images/libro/canibal-banner.jpg"
+                  src="/images/libro/canibal-banner.jpg?v=2"
                   alt="Anuncio oficial del libro El Caníbal de la Refrigeradora con el abogado Joseph Rivera Cheves — próximamente, crónica forense de un femicidio en Costa Rica"
                   width={1672} height={941}
                   sizes="(max-width: 1440px) 100vw, 1440px"
@@ -487,8 +487,8 @@ export default function LibroPage() {
               display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(20px,3vw,32px)",
             }} className="libro-promo-grid">
               {[
-                { src: "/images/libro/canibal-promo-1.jpg", alt: "Pieza promocional del libro El Caníbal de la Refrigeradora — próximamente, nuevo libro del abogado Joseph Rivera sobre un femicidio en Costa Rica" },
-                { src: "/images/libro/canibal-promo-2.jpg", alt: "Anuncio del libro El Caníbal de la Refrigeradora — crónica forense y jurídica de un femicidio, parte de los fondos para la familia de la ofendida" },
+                { src: "/images/libro/canibal-promo-1.jpg?v=2", alt: "Pieza promocional del libro El Caníbal de la Refrigeradora — próximamente, nuevo libro del abogado Joseph Rivera sobre un femicidio en Costa Rica" },
+                { src: "/images/libro/canibal-promo-2.jpg?v=2", alt: "Anuncio del libro El Caníbal de la Refrigeradora — crónica forense y jurídica de un femicidio, parte de los fondos para la familia de la ofendida" },
               ].map((g, i) => (
                 <Reveal key={g.src} delay={i * 100} variant="scale">
                   <div className="libro-promo">

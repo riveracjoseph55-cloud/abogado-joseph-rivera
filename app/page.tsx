@@ -344,7 +344,7 @@ export default function Home() {
                   position: "relative", zIndex: 1, width: "min(300px, 72%)", margin: "0 auto",
                 }}>
                   <Image
-                    src="/images/libro/canibal-portada.jpg"
+                    src="/images/libro/canibal-portada.jpg?v=2"
                     alt="Libro El Caníbal de la Refrigeradora — crónica forense de un femicidio en Costa Rica, nuevo libro del abogado Joseph Rivera Cheves"
                     width={760} height={1140}
                     sizes="300px"

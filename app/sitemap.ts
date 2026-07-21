@@ -71,9 +71,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.9,
       images: [
-        `${BASE}/images/libro/canibal-og.jpg`,
-        `${BASE}/images/libro/canibal-portada.jpg`,
-        `${BASE}/images/libro/canibal-banner.jpg`,
+        `${BASE}/images/libro/canibal-og.jpg?v=2`,
+        `${BASE}/images/libro/canibal-portada.jpg?v=2`,
+        `${BASE}/images/libro/canibal-banner.jpg?v=2`,
       ],
       alternates: { languages: { "es-CR": `${BASE}/libro` } },
     },
