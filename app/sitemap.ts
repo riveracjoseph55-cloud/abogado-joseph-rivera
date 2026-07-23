@@ -116,6 +116,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Entrevistas / cobertura mediática
   const entrevistaPages: MetadataRoute.Sitemap = [
     {
+      url: `${BASE}/entrevistas/columbia-por-tres-razones-reinsercion-social`,
+      lastModified: "2026-07-22",
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+      images: [`${BASE}/images/entrevistas/columbia-por-tres-razones-og.jpg`],
+      alternates: { languages: { "es-CR": `${BASE}/entrevistas/columbia-por-tres-razones-reinsercion-social` } },
+    },
+    {
       url: `${BASE}/entrevistas/canal-opa-nadia-peraza`,
       lastModified: "2026-07-06",
       changeFrequency: "monthly" as const,

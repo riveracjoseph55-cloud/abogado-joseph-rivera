@@ -23,7 +23,6 @@ const INT = {
   host:      "Ovidio",
   dateISO:   "2026-07-09",
   dateLabel: "Julio de 2026",
-  image:     "/images/entrevistas/la-teja-volados-legales.png",
   ogImage:   "/images/entrevistas/la-teja-nadia-peraza-og.jpg",
   // Permalink canónico (el enlace /watch/?v= no lo resuelve el plugin)
   videoUrl:  "https://www.facebook.com/latejaoficial/videos/1272365534759557/",
@@ -378,6 +377,9 @@ export default function EntrevistaLaTejaPage() {
                 </Link>
                 <Link href="/entrevistas/canal-opa-nadia-peraza" className="rc-btn ghost">
                   Entrevista en Canal Opa
+                </Link>
+                <Link href="/entrevistas/columbia-por-tres-razones-reinsercion-social" className="rc-btn ghost">
+                  Debate en Noticias Columbia
                 </Link>
               </div>
             </Reveal>

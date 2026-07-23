@@ -313,6 +313,9 @@ export default function EntrevistaTrivisionPage() {
                 <Link href="/entrevistas/la-teja-bolados-legales-femicidio" className="rc-btn ghost">
                   Entrevista en La Teja
                 </Link>
+                <Link href="/entrevistas/columbia-por-tres-razones-reinsercion-social" className="rc-btn ghost">
+                  Debate en Noticias Columbia
+                </Link>
               </div>
             </Reveal>
           </div>

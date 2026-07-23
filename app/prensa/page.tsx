@@ -34,13 +34,16 @@ export const metadata: Metadata = {
   ],
 };
 
+// Resuelve rutas internas (/entrevistas/...) a URL absoluta; deja intactas las externas
+const absoluteUrl = (u: string) => (u.startsWith("http") ? u : `${SITE_URL}${u}`);
+
 const articleSchemas = RC_PRESS
   .filter(p => p.u && !p.u.startsWith("#"))
   .map(p =>
     schemaBlogPosting({
       title: p.t,
       description: p.desc,
-      url: p.u,
+      url: absoluteUrl(p.u),
       datePublished: p.date
         ? (p.date.split("-").length === 3 ? p.date : `${p.date}-01`)
         : `${p.year}-01-01`,
@@ -58,7 +61,7 @@ const itemListSchema = {
     "@type": "ListItem",
     position: i + 1,
     name: p.t,
-    url: p.u.startsWith("#") ? `${SITE_URL}/prensa` : p.u,
+    url: p.u.startsWith("#") ? `${SITE_URL}/prensa` : absoluteUrl(p.u),
   })),
 };
 

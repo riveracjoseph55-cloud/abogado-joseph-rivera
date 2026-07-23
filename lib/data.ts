@@ -32,6 +32,7 @@ export const RC_CASES = [
     quote: "Por Nadia, por su hija, por todas.",
     quoteContext: "Palabras finales del Lic. Rivera Cheves en las conclusiones del juicio — virales en redes sociales.",
     press: [
+      { medio: "Noticias Columbia · Por Tres Razones", t: "Debate: ¿es posible la reinserción social tras un homicidio?", u: "/entrevistas/columbia-por-tres-razones-reinsercion-social" },
       { medio: "La Teja · Bolados Legales", t: "Qué es un femicidio en Costa Rica, y el anuncio del libro sobre el caso", u: "/entrevistas/la-teja-bolados-legales-femicidio" },
       { medio: "Trivisión", t: "La apelación del caso: Joseph Rivera responde a la solicitud de la defensa", u: "/entrevistas/trivision-apelacion-nadia-peraza" },
       { medio: "Canal Opa · #NoTanCristiana", t: "Entrevista: el caso de Nadia Peraza y el libro «El Caníbal de la Refrigeradora»", u: "/entrevistas/canal-opa-nadia-peraza" },
@@ -820,10 +821,18 @@ export const OUTLET_COLORS: Record<string, string> = {
   "Tico Times":        "#1d6b46",
   "Masterlex":         "#2a2a2a",
   "Radio Monumental":  "#7e0102",
+  "Noticias Columbia": "#0d3a75",
 };
 
 export const RC_PRESS: PressEntry[] = [
   // ── 2026 ────────────────────────────────────────────────────────
+  {
+    medio: "Noticias Columbia", year: "2026", date: "2026-07-22", type: "entrevista", lang: "es",
+    t: "Por Tres Razones: ¿es posible la reinserción social tras un homicidio?",
+    u: "/entrevistas/columbia-por-tres-razones-reinsercion-social",
+    desc: "Joseph Rivera debate junto a Rogelio Ramírez y Rodrigo Campos sobre mano dura, justicia restaurativa y el caso Nadia Peraza.",
+    image: "/images/entrevistas/columbia-por-tres-razones-og.jpg",
+  },
   {
     medio: "La Teja",       year: "2026", date: "2026-07-09",   type: "entrevista", lang: "es",
     t: "Bolados Legales: qué es un femicidio en Costa Rica (y el anuncio del libro)",
@@ -1010,6 +1019,14 @@ export type EntrevistaEntry = {
 };
 
 export const RC_ENTREVISTAS: EntrevistaEntry[] = [
+  {
+    slug:  "columbia-por-tres-razones-reinsercion-social",
+    medio: "Noticias Columbia", program: "Por Tres Razones",
+    title: "¿Es posible la reinserción social tras un homicidio?",
+    desc:  "Debate junto a Rogelio Ramírez y Rodrigo Campos sobre mano dura, justicia restaurativa y el caso Nadia Peraza.",
+    date:  "2026-07-22",
+    image: "/images/entrevistas/columbia-por-tres-razones-og.jpg",
+  },
   {
     slug:  "la-teja-bolados-legales-femicidio",
     medio: "La Teja", program: "Bolados Legales",
