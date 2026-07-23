@@ -139,8 +139,17 @@ export default function Home() {
 
       {/* ── HERO ── */}
       <section className="hero2" style={{ background: HERO_BLACK }}>
-        <span className="hero2-diagonal" aria-hidden="true" />
-        <span className="hero2-glow" aria-hidden="true" />
+        <Image
+          src="/images/hero-judicial-bg.jpg"
+          alt=""
+          fill
+          priority
+          aria-hidden="true"
+          className="hero2-bg"
+          style={{ objectFit: "cover", objectPosition: "center 30%" }}
+          sizes="100vw"
+        />
+        <span className="hero2-overlay" aria-hidden="true" />
 
         <div className="rc-wrap hero2-wrap">
           <div className="hero2-grid">
@@ -228,17 +237,12 @@ export default function Home() {
 
         <style>{`
           .hero2 { position: relative; overflow: hidden; }
-          .hero2-diagonal {
-            position: absolute; inset: 0; pointer-events: none;
-            background-image: repeating-linear-gradient(-35deg, rgba(165,7,7,.10) 0px, rgba(165,7,7,.10) 1px, transparent 1px, transparent 16px);
-            -webkit-mask-image: radial-gradient(600px 420px at 100% 55%, #000 0%, transparent 70%);
-                    mask-image: radial-gradient(600px 420px at 100% 55%, #000 0%, transparent 70%);
-          }
-          .hero2-glow {
-            position: absolute; inset: 0; pointer-events: none;
+          .hero2-bg { z-index: 0; opacity: .8; }
+          .hero2-overlay {
+            position: absolute; inset: 0; pointer-events: none; z-index: 1;
             background:
-              radial-gradient(640px 520px at 88% 55%, rgba(71,6,6,.34), transparent 62%),
-              radial-gradient(480px 380px at 6% 100%, rgba(71,6,6,.14), transparent 58%);
+              linear-gradient(90deg, rgba(7,7,7,.88) 0%, rgba(7,7,7,.62) 42%, rgba(7,7,7,.25) 70%, rgba(7,7,7,.55) 100%),
+              linear-gradient(0deg, ${HERO_BLACK} 0%, transparent 14%, transparent 88%, ${HERO_BLACK} 100%);
           }
           .hero2-wrap { position: relative; z-index: 2; }
           .hero2-grid {
