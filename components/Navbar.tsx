@@ -18,16 +18,6 @@ const DESKTOP_LINKS = [
   ["/contacto",       "Contacto"],
 ] as const;
 
-const MOBILE_LINKS = [
-  ["/quien",          "Quién es"],
-  ["/casos",          "Casos"],
-  ["/libro",          "Libro"],
-  ["/especialidades", "Especialidades"],
-  ["/prensa",         "Prensa"],
-  ["/atestados",      "Atestados"],
-  ["/contacto",       "Contacto"],
-] as const;
-
 const R = "#7e0102";
 
 function LupaIcon({ size = 18 }: { size?: number }) {
@@ -41,12 +31,34 @@ function LupaIcon({ size = 18 }: { size?: number }) {
   );
 }
 
+function ShieldIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M12 2 4 5v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V5l-8-3Z"/>
+    </svg>
+  );
+}
+function UndoIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M3 10h9a5 5 0 0 1 0 10H8"/><path d="m7 5-4 5 4 5"/>
+    </svg>
+  );
+}
+function HomeIcon() {
+  return (
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="m3 10 9-7 9 7"/><path d="M5 9v11h14V9"/>
+    </svg>
+  );
+}
+
 export default function Navbar() {
   const [scrolled,   setScrolled]   = useState(false);
   const [open,       setOpen]       = useState(false);
   const [mobile,     setMobile]     = useState(false);
   const [search,     setSearch]     = useState(false);
-  const [expandSpec, setExpandSpec] = useState(false);
+  const [drawerView, setDrawerView] = useState<"main" | "especialidades">("main");
   const pathname                    = usePathname();
 
   useEffect(() => {
@@ -63,7 +75,7 @@ export default function Navbar() {
 
   useEffect(() => {
     setOpen(false);
-    setExpandSpec(false);
+    setDrawerView("main");
   }, [pathname]);
 
   // Lock body scroll when drawer is open
@@ -83,10 +95,10 @@ export default function Navbar() {
     <>
       <header style={{
         position: "sticky", top: 0, zIndex: 50,
-        background: R,
-        borderBottom: scrolled ? "1px solid rgba(0,0,0,.18)" : "1px solid transparent",
-        boxShadow: scrolled ? "0 2px 28px rgba(0,0,0,.22)" : "none",
-        transition: "box-shadow .4s ease, border-color .4s ease",
+        background: "#0a0808",
+        borderBottom: `2px solid ${R}`,
+        boxShadow: scrolled ? "0 2px 28px rgba(0,0,0,.35)" : "none",
+        transition: "box-shadow .4s ease",
       }}>
 
         {/* ── Utility strip ─────────────────────────────────────────────────── */}
@@ -169,9 +181,10 @@ export default function Navbar() {
                 fontFamily: "var(--font-mono, monospace)", fontSize: 10,
                 letterSpacing: ".22em", textTransform: "uppercase",
                 lineHeight: 1.2,
-                color: "rgba(255,255,255,.65)", whiteSpace: "nowrap",
+                whiteSpace: "nowrap",
               }}>
-                &amp; Asociados · Derecho Penal
+                <span style={{ color: "rgba(255,255,255,.65)" }}>&amp; Asociados</span>{" "}
+                <span style={{ color: "var(--premium-gold)" }}>· Derecho Penal</span>
               </div>
             </div>
           </Link>
@@ -276,7 +289,7 @@ export default function Navbar() {
           .rc-nav-link::after {
             content: '';
             position: absolute; left: 16px; right: 16px; bottom: 5px;
-            height: 2px; background: #fff;
+            height: 2px; background: ${R};
             transform: scaleX(0);
             transform-origin: center;
             transition: transform .32s cubic-bezier(.22,1,.36,1);
@@ -303,7 +316,7 @@ export default function Navbar() {
           /* CTA Consulta */
           .rc-nav-cta {
             margin-left: 16px; padding: 11px 22px;
-            background: #fff; color: ${R};
+            background: ${R}; color: #fff;
             font-family: var(--font-sans, system-ui); font-size: 13px; font-weight: 700;
             border-radius: 7px; text-decoration: none;
             display: inline-flex; align-items: center; gap: 7px;
@@ -311,9 +324,9 @@ export default function Navbar() {
             transition: background-color .25s ease, color .25s ease, transform .25s cubic-bezier(.22,1,.36,1), box-shadow .3s ease;
           }
           .rc-nav-cta:hover {
-            background: #0d0d0d; color: #fff;
+            background: #a30102; color: #fff;
             transform: translateY(-2px);
-            box-shadow: 0 8px 22px rgba(0,0,0,.28);
+            box-shadow: 0 8px 22px rgba(0,0,0,.4);
           }
           .rc-nav-cta-arrow { display: inline-block; transition: transform .3s cubic-bezier(.22,1,.36,1); }
           .rc-nav-cta:hover .rc-nav-cta-arrow { transform: translateX(4px); }
@@ -336,12 +349,12 @@ export default function Navbar() {
         `}</style>
       </header>
 
-      {/* ── Mobile drawer — white panel, below sticky header ─────────────────
-          zIndex 45 < header zIndex 50 so the red header always shows on top  */}
+      {/* ── Mobile drawer — panel oscuro, debajo del header sticky ───────────
+          zIndex 45 < header zIndex 50 so the header always shows on top  */}
       {mobile && (
         <div style={{
           position: "fixed", inset: 0, zIndex: 45,
-          background: "#fff",
+          background: "#0a0808",
           pointerEvents: open ? "auto" : "none",
           opacity: open ? 1 : 0,
           transform: open ? "translateY(0)" : "translateY(-8px)",
@@ -349,171 +362,152 @@ export default function Navbar() {
           overflowY: "auto",
           paddingTop: headerH,
         }}>
-          <div style={{ padding: "20px var(--pad-x, 24px) 40px" }}>
+          <div style={{ padding: "24px var(--pad-x, 24px) 40px" }}>
 
-            {/* Section label */}
-            <div style={{
-              display: "flex", justifyContent: "space-between", alignItems: "center",
-              marginBottom: 8,
-              fontFamily: "var(--font-mono, monospace)", fontSize: 10,
-              letterSpacing: ".14em", textTransform: "uppercase",
-              color: "rgba(0,0,0,.35)",
-            }}>
-              <span>Secciones</span>
-              <span>{String(MOBILE_LINKS.length).padStart(2, "0")}</span>
-            </div>
+            {drawerView === "main" && (
+              <nav>
+                {DESKTOP_LINKS.map(([href, label], i) => {
+                  const isActive = pathname === href || pathname.startsWith(href + "/");
+                  const isEsp = href === "/especialidades";
 
-            {/* Nav list */}
-            <nav>
-              {MOBILE_LINKS.map(([href, label], i) => {
-                const isActive = pathname === href || pathname.startsWith(href + "/");
-                const isEsp = href === "/especialidades";
-                const isPrensa = href === "/prensa";
+                  /* ── Especialidades: abre el submenú ── */
+                  if (isEsp) return (
+                    <div key={href} style={{
+                      opacity: 0,
+                      animation: open ? `rc-mi .4s ease-out forwards` : "none",
+                      animationDelay: open ? `${i * 0.045}s` : "0s",
+                    }}>
+                      <button
+                        onClick={() => setDrawerView("especialidades")}
+                        className={`rc-mob-link${isActive ? " is-active" : ""}`}
+                        style={{
+                          width: "100%",
+                          display: "grid", gridTemplateColumns: "44px 1fr 28px", gap: 8,
+                          alignItems: "center",
+                          padding: "17px 0",
+                          borderTop: "1px solid rgba(255,255,255,.08)",
+                          border: "none", background: "none", cursor: "pointer", textAlign: "left",
+                        }}
+                      >
+                        <span className="rc-mob-num" style={{
+                          fontFamily: "var(--font-mono, monospace)", fontSize: 12,
+                        }}>0{i + 1}</span>
+                        <span className="rc-mob-label" style={{
+                          fontFamily: "var(--font-serif)", fontSize: 19, fontWeight: 500,
+                        }}>{label}</span>
+                        <span className="rc-mob-arrow" style={{ fontSize: 14, textAlign: "right" as const }}>›</span>
+                      </button>
+                    </div>
+                  );
 
-                /* ── Especialidades: expandable ── */
-                if (isEsp) return (
-                  <div key={href} style={{
-                    opacity: 0,
-                    animation: open ? `rc-mi .4s ease-out forwards` : "none",
-                    animationDelay: open ? `${i * 0.045}s` : "0s",
-                  }}>
-                    <button
-                      onClick={() => setExpandSpec(e => !e)}
-                      className={`rc-mob-link${isActive || expandSpec ? " is-active" : ""}`}
-                      style={{
-                        width: "100%",
-                        display: "grid", gridTemplateColumns: "44px 1fr 28px", gap: 8,
-                        alignItems: "center",
-                        padding: "17px 0",
-                        borderTop: "1px solid rgba(0,0,0,.07)",
-                        border: "none", cursor: "pointer", textAlign: "left",
-                      }}
-                    >
-                      <span className="rc-mob-num" style={{
-                        fontFamily: "var(--font-mono, monospace)", fontSize: 12,
-                      }}>0{i + 1}</span>
-                      <span className="rc-mob-label" style={{
-                        fontFamily: "var(--font-sans, system-ui)", fontSize: 19, fontWeight: 500,
-                      }}>{label}</span>
-                      <span className="rc-mob-plus" style={{
-                        fontSize: 18, color: isActive || expandSpec ? R : "rgba(0,0,0,.3)", textAlign: "right" as const,
-                        display: "inline-block",
-                        transform: expandSpec ? "rotate(45deg)" : "none",
-                      }}>+</span>
-                    </button>
-
-                    {expandSpec && (
-                      <div style={{
-                        borderTop: "1px solid rgba(0,0,0,.05)",
-                        background: "rgba(0,0,0,.02)",
-                        paddingBottom: 6,
-                      }}>
-                        <Link href="/especialidades" onClick={() => setOpen(false)} style={{
-                          display: "block", padding: "9px 0 9px 52px",
-                          fontFamily: "var(--font-mono, monospace)", fontSize: 10,
-                          letterSpacing: ".12em", textTransform: "uppercase",
-                          color: "rgba(0,0,0,.4)", textDecoration: "none",
-                        }}>
-                          ← Todas las áreas
-                        </Link>
-                        {RC_AREAS.map(a => (
-                          <Link key={a.slug} href={`/especialidades/${a.slug}`} onClick={() => setOpen(false)} style={{
-                            display: "grid", gridTemplateColumns: "52px 1fr 28px", gap: 8,
-                            alignItems: "center", padding: "10px 0",
-                            borderTop: "1px solid rgba(0,0,0,.05)",
-                            fontFamily: "var(--font-sans, system-ui)", fontSize: 15, fontWeight: 400,
-                            color: pathname === `/especialidades/${a.slug}` ? R : "#444",
-                            textDecoration: "none",
-                          }}>
-                            <span style={{
-                              fontFamily: "var(--font-mono, monospace)", fontSize: 10,
-                              color: "rgba(0,0,0,.3)", paddingLeft: 52,
-                            }}>{a.n}</span>
-                            <span>{a.t}</span>
-                            <span style={{ color: "rgba(0,0,0,.25)", fontSize: 14 }}>›</span>
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                );
-
-                /* ── Prensa + Comunicados sub-link ── */
-                if (isPrensa) return (
-                  <div key={href} style={{
-                    borderTop: "1px solid rgba(0,0,0,.07)",
-                    opacity: 0,
-                    animation: open ? `rc-mi .4s ease-out forwards` : "none",
-                    animationDelay: open ? `${i * 0.045}s` : "0s",
-                  }}>
-                    <Link href={href} onClick={() => setOpen(false)}
+                  /* ── Enlace regular ── */
+                  return (
+                    <Link key={href} href={href} onClick={() => setOpen(false)}
                       className={`rc-mob-link${isActive ? " is-active" : ""}`}
                       style={{
                       display: "grid", gridTemplateColumns: "44px 1fr 28px", gap: 8,
                       alignItems: "center", padding: "17px 0",
+                      borderTop: "1px solid rgba(255,255,255,.08)",
                       textDecoration: "none",
+                      opacity: 0,
+                      animation: open ? `rc-mi .4s ease-out forwards` : "none",
+                      animationDelay: open ? `${i * 0.045}s` : "0s",
                     }}>
                       <span className="rc-mob-num" style={{
                         fontFamily: "var(--font-mono, monospace)", fontSize: 12,
                       }}>0{i + 1}</span>
                       <span className="rc-mob-label" style={{
-                        fontFamily: "var(--font-sans, system-ui)", fontSize: 19, fontWeight: 500,
+                        fontFamily: "var(--font-serif)", fontSize: 19, fontWeight: 500,
                       }}>{label}</span>
-                      <span className="rc-mob-arrow" style={{ fontSize: 14, textAlign: "right" as const }}>›</span>
+                      <span className="rc-mob-arrow" style={{
+                        fontSize: 14, textAlign: "right" as const,
+                      }}>›</span>
                     </Link>
-                    <Link href="/comunicados" onClick={() => setOpen(false)} style={{
-                      display: "grid", gridTemplateColumns: "52px 1fr 28px", gap: 8,
-                      alignItems: "center", padding: "10px 0",
-                      borderTop: "1px solid rgba(0,0,0,.05)",
-                      background: "rgba(0,0,0,.02)",
-                      fontFamily: "var(--font-sans, system-ui)", fontSize: 15, fontWeight: 400,
-                      color: pathname.startsWith("/comunicados") ? R : "#555",
-                      textDecoration: "none",
-                    }}>
-                      <span style={{
-                        fontFamily: "var(--font-mono, monospace)", fontSize: 10,
-                        color: "rgba(0,0,0,.3)", textAlign: "center" as const,
-                      }}>→</span>
-                      <span>Comunicados</span>
-                      <span style={{ color: "rgba(0,0,0,.2)", fontSize: 14 }}>›</span>
-                    </Link>
-                  </div>
-                );
+                  );
+                })}
+              </nav>
+            )}
 
-                /* ── Regular link ── */
-                return (
-                  <Link key={href} href={href} onClick={() => setOpen(false)}
-                    className={`rc-mob-link${isActive ? " is-active" : ""}`}
-                    style={{
-                    display: "grid", gridTemplateColumns: "44px 1fr 28px", gap: 8,
-                    alignItems: "center", padding: "17px 0",
-                    borderTop: "1px solid rgba(0,0,0,.07)",
-                    textDecoration: "none",
-                    opacity: 0,
-                    animation: open ? `rc-mi .4s ease-out forwards` : "none",
-                    animationDelay: open ? `${i * 0.045}s` : "0s",
-                  }}>
-                    <span className="rc-mob-num" style={{
-                      fontFamily: "var(--font-mono, monospace)", fontSize: 12,
-                    }}>0{i + 1}</span>
-                    <span className="rc-mob-label" style={{
-                      fontFamily: "var(--font-sans, system-ui)", fontSize: 19, fontWeight: 500,
-                    }}>{label}</span>
-                    <span className="rc-mob-arrow" style={{
-                      fontSize: 14, textAlign: "right" as const,
-                    }}>›</span>
-                  </Link>
-                );
-              })}
-              <div style={{ borderTop: "1px solid rgba(0,0,0,.07)" }}/>
-            </nav>
+            {drawerView === "especialidades" && (
+              <div>
+                <button
+                  onClick={() => setDrawerView("main")}
+                  style={{
+                    display: "flex", alignItems: "center", gap: 8,
+                    background: "none", border: "none", cursor: "pointer", padding: 0,
+                    marginBottom: 22,
+                    color: "var(--premium-gold)",
+                    fontFamily: "var(--font-sans, system-ui)", fontSize: 14, fontWeight: 600,
+                  }}
+                >
+                  <span aria-hidden="true">←</span> Volver
+                </button>
+
+                <h2 style={{
+                  fontFamily: "var(--font-serif)", fontWeight: 700,
+                  fontSize: 26, color: "#fff", marginBottom: 18,
+                }}>Especialidades</h2>
+
+                <div style={{
+                  display: "flex", alignItems: "center", gap: 8, marginBottom: 22,
+                  fontFamily: "var(--font-mono, monospace)", fontSize: 12,
+                  color: "rgba(255,255,255,.4)",
+                }}>
+                  <span style={{ display: "inline-flex", color: "rgba(255,255,255,.4)" }}><HomeIcon /></span>
+                  <button onClick={() => setDrawerView("main")} style={{
+                    background: "none", border: "none", padding: 0, cursor: "pointer",
+                    color: "rgba(255,255,255,.4)", fontFamily: "inherit", fontSize: "inherit",
+                  }}>Menú</button>
+                  <span>/</span>
+                  <span style={{ color: "var(--premium-gold)" }}>Especialidades</span>
+                </div>
+
+                <div style={{
+                  display: "flex", gap: 14, alignItems: "flex-start",
+                  padding: "16px 18px", marginBottom: 26,
+                  borderLeft: `2px solid ${R}`, background: "rgba(255,255,255,.03)",
+                }}>
+                  <span aria-hidden="true" style={{ color: "var(--premium-gold)", flexShrink: 0, marginTop: 1 }}><UndoIcon /></span>
+                  <div>
+                    <div style={{ color: "var(--premium-gold)", fontSize: 14, fontWeight: 600, marginBottom: 4 }}>
+                      Navegación sin salir del menú.
+                    </div>
+                    <div style={{ color: "rgba(255,255,255,.5)", fontSize: 13, lineHeight: 1.5 }}>
+                      Volver al menú anterior.
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  {RC_AREAS.map((a, i) => (
+                    <Link key={a.slug} href={`/especialidades/${a.slug}`} onClick={() => setOpen(false)}
+                      style={{
+                        display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12,
+                        padding: "16px 0",
+                        borderTop: "1px solid rgba(255,255,255,.08)",
+                        textDecoration: "none",
+                        opacity: 0,
+                        animation: open ? `rc-mi .4s ease-out forwards` : "none",
+                        animationDelay: open ? `${i * 0.045}s` : "0s",
+                      }}>
+                      <span style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                        <span aria-hidden="true" style={{ color: R, fontSize: 9 }}>◆</span>
+                        <span style={{ fontFamily: "var(--font-serif)", fontSize: 17, color: "#fff" }}>{a.t}</span>
+                      </span>
+                      <span style={{ color: "rgba(255,255,255,.35)" }}>›</span>
+                    </Link>
+                  ))}
+                  <div style={{ borderTop: "1px solid rgba(255,255,255,.08)" }}/>
+                </div>
+              </div>
+            )}
 
             {/* Bottom CTA */}
             <div style={{
-              marginTop: 28,
+              marginTop: 32,
               opacity: 0,
               animation: open ? `rc-mi .4s ease-out forwards` : "none",
-              animationDelay: open ? `${MOBILE_LINKS.length * 0.045 + 0.05}s` : "0s",
+              animationDelay: open ? `${DESKTOP_LINKS.length * 0.045 + 0.05}s` : "0s",
             }}>
               <a href={WA} target="_blank" rel="noopener" style={{
                 display: "flex", justifyContent: "center", alignItems: "center", gap: 10,
@@ -525,22 +519,12 @@ export default function Navbar() {
                 Consulta por WhatsApp →
               </a>
               <div style={{
-                display: "flex", flexWrap: "wrap", gap: "6px 18px",
-                fontFamily: "var(--font-mono, monospace)", fontSize: 10,
-                letterSpacing: ".12em", textTransform: "uppercase",
-                color: "rgba(0,0,0,.4)",
+                display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
+                fontFamily: "var(--font-mono, monospace)", fontSize: 11,
+                letterSpacing: ".04em", color: "var(--premium-gold)",
               }}>
-                <a href="tel:+50689980112" style={{ color: "rgba(0,0,0,.4)" }}>8998-0112</a>
-                <span style={{ opacity: .5 }}>·</span>
-                <a href="mailto:jriveracheves@gmail.com" style={{ color: "rgba(0,0,0,.4)" }}>Correo</a>
-                <span style={{ opacity: .5 }}>·</span>
-                <span>San José, CR</span>
-                <span style={{ opacity: .5 }}>·</span>
-                <a
-                  href={`https://translate.google.com/translate?sl=es&tl=en&u=https://abogadojosephrivera.com${pathname}`}
-                  target="_blank" rel="noopener"
-                  style={{ color: R, fontWeight: 600 }}
-                >EN →</a>
+                <span aria-hidden="true"><ShieldIcon /></span>
+                Defensa estratégica. Resultados reales.
               </div>
             </div>
           </div>
@@ -567,26 +551,23 @@ export default function Navbar() {
               transform-origin: center;
               transition: transform .42s cubic-bezier(.22,1,.36,1);
             }
-            .rc-mob-num   { color: rgba(0,0,0,.35); transition: color .3s ease, transform .32s cubic-bezier(.22,1,.36,1); }
-            .rc-mob-label { color: #111;            transition: color .3s ease, transform .32s cubic-bezier(.22,1,.36,1); }
-            .rc-mob-arrow { color: rgba(0,0,0,.28);  transition: color .3s ease, transform .32s cubic-bezier(.22,1,.36,1); }
+            .rc-mob-num   { color: ${R};                 transition: transform .32s cubic-bezier(.22,1,.36,1); }
+            .rc-mob-label { color: #fff;                 transition: color .3s ease, transform .32s cubic-bezier(.22,1,.36,1); }
+            .rc-mob-arrow { color: rgba(255,255,255,.35); transition: color .3s ease, transform .32s cubic-bezier(.22,1,.36,1); }
 
             .rc-mob-link:hover, .rc-mob-link:active, .rc-mob-link.is-active {
-              background: rgba(126,1,2,.05);
+              background: rgba(255,255,255,.04);
             }
             .rc-mob-link:hover::before, .rc-mob-link:active::before, .rc-mob-link.is-active::before {
               transform: scaleY(1);
             }
-            .rc-mob-link:hover  .rc-mob-num,   .rc-mob-link:active  .rc-mob-num,   .rc-mob-link.is-active .rc-mob-num   { color: ${R}; transform: translateX(7px); }
-            .rc-mob-link:hover  .rc-mob-label, .rc-mob-link:active  .rc-mob-label, .rc-mob-link.is-active .rc-mob-label { color: ${R}; transform: translateX(7px); }
-            .rc-mob-link:hover  .rc-mob-arrow, .rc-mob-link:active  .rc-mob-arrow, .rc-mob-link.is-active .rc-mob-arrow { color: ${R}; transform: translateX(5px); }
-
-            /* El "+" de Especialidades sigue su estado de expansión */
-            .rc-mob-plus { transition: color .3s ease, transform .28s ease; }
+            .rc-mob-link:hover  .rc-mob-num,   .rc-mob-link:active  .rc-mob-num                                            { transform: translateX(7px); }
+            .rc-mob-link:hover  .rc-mob-label, .rc-mob-link:active  .rc-mob-label, .rc-mob-link.is-active .rc-mob-label    { color: var(--premium-gold); transform: translateX(7px); }
+            .rc-mob-link:hover  .rc-mob-arrow, .rc-mob-link:active  .rc-mob-arrow, .rc-mob-link.is-active .rc-mob-arrow    { color: ${R}; transform: translateX(5px); }
 
             @media (prefers-reduced-motion: reduce) {
               .rc-mob-link, .rc-mob-link::before,
-              .rc-mob-num, .rc-mob-label, .rc-mob-arrow, .rc-mob-plus {
+              .rc-mob-num, .rc-mob-label, .rc-mob-arrow {
                 transition: none !important;
               }
             }
