@@ -241,6 +241,9 @@ export default function Navbar() {
         <style>{`
           @media (max-width: 720px) { .rc-util-hide-sm { display: none !important; } }
           @media (max-width: 560px) { .rc-brand-text   { display: none !important; } }
+          /* El menú de escritorio aparece desde 1060px; el subtítulo choca con "Quién es"
+             en ese rango, así que se oculta mientras el nav esté activo. */
+          @media (min-width: 1060px) { .rc-brand-text  { display: none !important; } }
           /* En móvil, menos separación entre el logo y los controles para evitar desbordes */
           @media (max-width: 1060px) { .rc-navrow { gap: 16px !important; } }
           @media (max-width: 380px)  { .rc-navrow { gap: 10px !important; } }
