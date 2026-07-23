@@ -73,6 +73,22 @@ function ShieldIcon() {
   );
 }
 
+function WhatsAppIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.55L3 20l1.05-5.4A8.5 8.5 0 1 1 21 11.5Z"/>
+    </svg>
+  );
+}
+
+// Paleta específica del hero principal (spec del usuario) — no toca --gold/--r globales
+const HERO_BLACK    = "#070707";
+const HERO_WINE     = "#720707";
+const HERO_RED      = "#A50707";
+const HERO_GOLD     = "#C8A45B";
+const HERO_CREAM    = "#F4F1EA";
+const HERO_GRAY     = "#B7B7B7";
+
 const HERO_STATS = [
   { num: "50",   label: "Años — máximo legal CR, caso Nadia Peraza", icon: PeopleIcon },
   { num: "10+",  label: "Años de ejercicio como litigante penalista", icon: ShieldCheckIcon },
@@ -122,34 +138,30 @@ export default function Home() {
     <div className="rc-page">
 
       {/* ── HERO ── */}
-      <section className="rc-premium-panel" style={{
-        padding: "clamp(48px,7vw,96px) 0 0",
-      }}>
-        <span className="rc-premium-wave" aria-hidden="true" />
-        <span className="rc-premium-r" aria-hidden="true" style={{ opacity: .5 }}>R</span>
+      <section className="hero2" style={{ background: HERO_BLACK }}>
+        <span className="hero2-diagonal" aria-hidden="true" />
+        <span className="hero2-glow" aria-hidden="true" />
 
-        <div className="rc-wrap" style={{ position: "relative", zIndex: 2 }}>
-          <div style={{
-            display: "grid", gridTemplateColumns: "1.3fr 1fr",
-            gap: "clamp(32px,5vw,72px)", alignItems: "center",
-          }} className="hero-grid">
+        <div className="rc-wrap hero2-wrap">
+          <div className="hero2-grid">
+            <div className="hero2-copy">
+              <Reveal>
+                <div className="rc-hero-meta" style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 26 }}>
+                  <span className="rc-hero-rule" style={{ display: "inline-block", width: 40, height: 1, background: HERO_WINE }}/>
+                  <span style={{
+                    fontFamily: "var(--font-mono, monospace)", fontSize: 11,
+                    letterSpacing: ".14em", textTransform: "uppercase", color: HERO_GOLD,
+                  }}>Defensa penal con compromiso y ética</span>
+                </div>
+              </Reveal>
 
-            <div>
-              <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 28 }}>
-                <span style={{ display: "inline-block", width: 40, height: 1, background: R }}/>
-                <span style={{
-                  fontFamily: "var(--font-mono, monospace)", fontSize: 11,
-                  letterSpacing: ".14em", textTransform: "uppercase", color: "var(--premium-gold)",
-                }}>Defensa penal con compromiso y ética</span>
-              </div>
-
-              <h1 className="rc-display rc-hero-title" style={{ marginBottom: 28, color: "#fff" }}>
+              <h1 className="rc-display rc-hero-title hero2-title" style={{ color: HERO_CREAM }}>
                 <span className="rc-hero-line"><span>Abogado Penalista</span></span>
-                <span className="rc-hero-line"><span>en&nbsp;<em className="rc-em" style={{ color: R, opacity: 1 }}>Costa Rica</em>.</span></span>
+                <span className="rc-hero-line"><span>en&nbsp;<em style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", color: HERO_WINE }}>Costa Rica</em>.</span></span>
               </h1>
 
               <Reveal delay={160}>
-                <p className="rc-lede" style={{ marginBottom: 36, color: "rgba(255,255,255,.65)" }}>
+                <p className="hero2-lede" style={{ color: HERO_GRAY }}>
                   Representación legal estratégica en los casos más complejos del país
                   — femicidios, crimen organizado, delitos financieros y asesoría
                   estratégica internacional.
@@ -157,80 +169,55 @@ export default function Home() {
               </Reveal>
 
               <Reveal delay={240}>
-                <div style={{ display: "flex", gap: 12, flexWrap: "wrap", alignItems: "center", marginBottom: 28 }}>
-                  <a href={WA} target="_blank" rel="noopener" className="rc-btn brand">
-                    Consulta por WhatsApp →
+                <div className="hero2-btns">
+                  <a href={WA} target="_blank" rel="noopener" className="hero2-btn-primary">
+                    <WhatsAppIcon /> Consulta por WhatsApp →
                   </a>
-                  <Link href="/casos" className="rc-btn ghost-on-r">
+                  <Link href="/casos" className="hero2-btn-ghost">
                     Ver casos destacados →
                   </Link>
                 </div>
               </Reveal>
 
               <Reveal delay={280}>
-                <div style={{
-                  display: "flex", alignItems: "center", gap: 10,
-                  fontFamily: "var(--font-mono, monospace)", fontSize: 11,
-                  letterSpacing: ".08em", textTransform: "uppercase", color: "rgba(255,255,255,.5)",
-                }}>
+                <div className="hero2-confidential">
                   <ShieldIcon /> Atención confidencial 24/7
                 </div>
               </Reveal>
             </div>
 
             <Reveal delay={120}>
-              <div style={{ position: "relative", aspectRatio: "3/4", overflow: "hidden" }}>
-                <Image
-                  src="/images/joseph/editorial.jpg"
-                  alt="Lic. Joseph Alfonso Rivera Cheves, abogado penalista en Costa Rica — femicidios, crimen organizado y delitos financieros — Bufete Rivera Cheves, San José"
-                  fill
-                  style={{ objectFit: "cover", objectPosition: "center" }}
-                  priority
-                  sizes="(max-width: 900px) 100vw, 40vw"
-                />
-                <div style={{
-                  position: "absolute", left: 16, right: 16, bottom: 16,
-                  padding: "14px 18px", display: "flex", alignItems: "center", gap: 12,
-                  background: "rgba(10,8,8,.9)",
-                  border: "1px solid rgba(201,168,106,.4)",
-                  backdropFilter: "blur(8px)",
-                }}>
-                  <span style={{ color: "var(--premium-gold)", flexShrink: 0 }}><ScaleIcon /></span>
-                  <div>
-                    <div style={{ fontFamily: "var(--font-mono, monospace)", fontSize: 9, letterSpacing: ".14em", textTransform: "uppercase", color: "rgba(255,255,255,.5)", marginBottom: 4 }}>
-                      Lic. Joseph Alfonso
-                    </div>
-                    <div style={{ fontSize: 15, fontWeight: 700, color: "#fff", lineHeight: 1.2, fontFamily: "var(--font-serif)" }}>
-                      Rivera Cheves
-                    </div>
-                    <div style={{ fontFamily: "var(--font-mono, monospace)", fontSize: 9, letterSpacing: ".12em", textTransform: "uppercase", color: "var(--premium-gold)", marginTop: 4 }}>
-                      Abogado Penalista
-                    </div>
+              <div className="hero2-photo-col">
+                <div className="hero2-photo-wrap rc-hero-media">
+                  <Image
+                    src="/images/joseph/editorial-cutout.png"
+                    alt="Lic. Joseph Alfonso Rivera Cheves, abogado penalista en Costa Rica — femicidios, crimen organizado y delitos financieros — Bufete Rivera Cheves, San José"
+                    fill
+                    style={{ objectFit: "contain", objectPosition: "bottom" }}
+                    priority
+                    sizes="(max-width: 900px) 80vw, 40vw"
+                  />
+                  <div className="hero2-badge">
+                    <div className="hero2-badge-name1">Lic. Joseph Alfonso</div>
+                    <div className="hero2-badge-name2">Rivera Cheves</div>
+                    <div className="hero2-badge-role">Abogado Penalista</div>
                   </div>
                 </div>
               </div>
             </Reveal>
           </div>
 
-          {/* Franja de estadísticas */}
-          <div style={{
-            display: "grid", gap: "var(--gut)", gridTemplateColumns: "repeat(4,1fr)",
-            marginTop: "clamp(48px,6vw,72px)",
-            borderTop: "1px solid rgba(255,255,255,.1)",
-            padding: "clamp(32px,4vw,44px) 0",
-          }} className="stats-grid">
+          {/* Franja de indicadores */}
+          <div className="hero2-stats">
             {HERO_STATS.map((s, i) => {
               const StatIcon = s.icon;
               return (
                 <Reveal key={s.num} delay={i * 80}>
-                  <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-                    <span style={{ color: R, flexShrink: 0 }}><StatIcon /></span>
+                  <div className="hero2-stat">
+                    <span className="hero2-stat-icon"><StatIcon /></span>
                     <div>
-                      <div style={{
-                        fontFamily: "var(--font-sans, system-ui)", fontWeight: 700,
-                        fontSize: 22, lineHeight: 1, color: "#fff", marginBottom: 6,
-                      }}>{s.num}</div>
-                      <div style={{ fontSize: 12, color: "rgba(255,255,255,.5)", lineHeight: 1.4 }}>{s.label}</div>
+                      <div className="hero2-stat-num">{s.num}</div>
+                      <div className="hero2-stat-label">{s.label}</div>
                     </div>
                   </div>
                 </Reveal>
@@ -240,8 +227,92 @@ export default function Home() {
         </div>
 
         <style>{`
-          @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr !important; } }
-          @media (max-width: 900px) { .stats-grid { grid-template-columns: 1fr 1fr !important; gap: clamp(28px,5vw,44px) var(--gut) !important; } }
+          .hero2 { position: relative; overflow: hidden; }
+          .hero2-diagonal {
+            position: absolute; inset: 0; pointer-events: none;
+            background-image: repeating-linear-gradient(-35deg, rgba(165,7,7,.10) 0px, rgba(165,7,7,.10) 1px, transparent 1px, transparent 16px);
+            -webkit-mask-image: radial-gradient(600px 420px at 100% 55%, #000 0%, transparent 70%);
+                    mask-image: radial-gradient(600px 420px at 100% 55%, #000 0%, transparent 70%);
+          }
+          .hero2-glow {
+            position: absolute; inset: 0; pointer-events: none;
+            background:
+              radial-gradient(640px 520px at 88% 55%, rgba(71,6,6,.34), transparent 62%),
+              radial-gradient(480px 380px at 6% 100%, rgba(71,6,6,.14), transparent 58%);
+          }
+          .hero2-wrap { position: relative; z-index: 2; }
+          .hero2-grid {
+            display: grid; grid-template-columns: 54% 46%;
+            align-items: end;
+            min-height: clamp(560px, 62vw, 740px);
+          }
+          .hero2-copy { padding: clamp(56px,8vw,88px) 0 clamp(40px,6vw,64px); max-width: 720px; }
+          .hero2-title { margin-bottom: 26px; }
+          .hero2-lede { font-size: clamp(15px,1.4vw,17px); line-height: 1.7; max-width: 52ch; margin-bottom: 32px; }
+          .hero2-btns { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; margin-bottom: 26px; }
+          .hero2-btn-primary {
+            display: inline-flex; align-items: center; gap: 10px;
+            height: 58px; padding: 0 26px;
+            background: ${HERO_WINE}; color: #fff;
+            font-family: var(--font-sans, system-ui); font-size: 15px; font-weight: 700;
+            border-radius: 8px; text-decoration: none;
+            transition: background-color .25s ease, transform .25s ease;
+          }
+          .hero2-btn-primary:hover { background: ${HERO_RED}; transform: translateY(-2px); }
+          .hero2-btn-ghost {
+            display: inline-flex; align-items: center; gap: 8px;
+            height: 58px; padding: 0 26px;
+            background: transparent; color: #fff;
+            border: 1px solid ${HERO_GOLD}; border-radius: 8px;
+            font-family: var(--font-sans, system-ui); font-size: 15px; font-weight: 600;
+            text-decoration: none;
+            transition: background-color .25s ease;
+          }
+          .hero2-btn-ghost:hover { background: rgba(200,164,91,.12); }
+          .hero2-confidential {
+            display: flex; align-items: center; gap: 10px;
+            font-family: var(--font-mono, monospace); font-size: 11px;
+            letter-spacing: .1em; text-transform: uppercase; color: ${HERO_GOLD};
+          }
+
+          .hero2-photo-col { position: relative; height: 100%; display: flex; align-items: flex-end; justify-content: center; }
+          .hero2-photo-wrap {
+            position: relative; width: 100%; max-width: 480px;
+            aspect-ratio: 857 / 1228; margin-left: auto;
+          }
+          .hero2-badge {
+            position: absolute; left: 6%; right: 6%; bottom: 4%;
+            padding: 14px 20px;
+            background: rgba(7,7,7,.82);
+            border: 1px solid rgba(200,164,91,.45);
+            backdrop-filter: blur(6px);
+          }
+          .hero2-badge-name1 { font-family: var(--font-mono, monospace); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-bottom: 3px; }
+          .hero2-badge-name2 { font-family: var(--font-serif); font-size: 18px; font-weight: 700; color: #fff; line-height: 1.15; }
+          .hero2-badge-role { font-family: var(--font-mono, monospace); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: ${HERO_GOLD}; margin-top: 4px; }
+
+          .hero2-stats {
+            display: grid; grid-template-columns: repeat(4,1fr);
+            border-top: 1px solid rgba(255,255,255,.1);
+            padding: clamp(28px,3.5vw,40px) 0;
+          }
+          .hero2-stat { display: flex; align-items: center; gap: 14px; padding: 0 clamp(8px,1.5vw,20px); }
+          .hero2-stat:not(:first-child) { border-left: 1px solid rgba(255,255,255,.1); }
+          .hero2-stat-icon { color: ${HERO_RED}; flex-shrink: 0; }
+          .hero2-stat-num { font-family: var(--font-sans, system-ui); font-weight: 700; font-size: 22px; line-height: 1; color: #fff; margin-bottom: 6px; }
+          .hero2-stat-label { font-size: 12px; color: rgba(255,255,255,.5); line-height: 1.4; }
+
+          @media (max-width: 900px) {
+            .hero2-grid { grid-template-columns: 1fr; min-height: 0; align-items: stretch; }
+            .hero2-copy { padding-bottom: 32px; max-width: none; }
+            .hero2-photo-col { justify-content: center; margin-top: 8px; }
+            .hero2-photo-wrap { max-width: 360px; margin: 0 auto; }
+            .hero2-btns { flex-direction: column; align-items: stretch; }
+            .hero2-btn-primary, .hero2-btn-ghost { width: 100%; justify-content: center; }
+            .hero2-stats { grid-template-columns: 1fr 1fr; gap: 24px 16px; }
+            .hero2-stat:nth-child(2n) { border-left: none; }
+            .hero2-stat:nth-child(n+3) { border-top: 1px solid rgba(255,255,255,.1); padding-top: 20px; }
+          }
         `}</style>
       </section>
 
