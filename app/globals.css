@@ -996,7 +996,12 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
 .rc-premium-panel {
   position: relative;
   overflow: hidden;
-  /* Mayormente negro — el rojo es solo un resplandor localizado abajo-izquierda, no un tinte general */
+  background:
+    radial-gradient(1100px 720px at 8% 105%, rgba(190,20,20,.40), transparent 62%),
+    linear-gradient(150deg, #2c0505 0%, #4d0909 45%, #170202 100%);
+}
+/* Variante mayormente negra (footer): el rojo es solo un resplandor localizado, no un tinte general */
+.rc-premium-panel--dark {
   background:
     radial-gradient(1200px 800px at 6% 102%, rgba(200,20,20,.38), transparent 55%),
     radial-gradient(700px 500px at 96% 40%, rgba(120,10,10,.14), transparent 60%),

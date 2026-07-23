@@ -73,7 +73,7 @@ function ChevronIcon() {
 
 export default function Footer() {
   return (
-    <footer className="rc-premium-panel" style={{ color: "#fff", padding: "clamp(48px,7vw,88px) 0 0" }}>
+    <footer className="rc-premium-panel rc-premium-panel--dark" style={{ color: "#fff", padding: "clamp(48px,7vw,88px) 0 0" }}>
       <span className="rc-premium-wave" aria-hidden="true" />
       <span className="rc-premium-r" aria-hidden="true">R</span>
 
