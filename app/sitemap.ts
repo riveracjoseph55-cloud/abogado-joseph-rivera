@@ -55,7 +55,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.7,
-      images: [`${BASE}/images/curriculo.jpg`],
+      images: [`${BASE}/images/curriculo.jpg?v=2`],
       alternates: { languages: { "es-CR": `${BASE}/atestados` } },
     },
     {
