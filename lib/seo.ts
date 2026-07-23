@@ -107,6 +107,7 @@ export const schemaAttorney = {
     { "@type": "EducationalOrganization", name: "EALDE Business School" },
     { "@type": "EducationalOrganization", name: "Temple University" },
     { "@type": "EducationalOrganization", name: "Universidad de Costa Rica" },
+    { "@type": "EducationalOrganization", name: "INTERCERT LATAM" },
   ],
   knowsAbout: [
     "Derecho Penal",
@@ -116,6 +117,7 @@ export const schemaAttorney = {
     "Derecho Notarial",
     "Litigación Oral",
     "Compras Públicas",
+    "Gestión de Riesgos ISO 31000",
   ],
   sameAs: ["https://www.tiktok.com/@josephriveraabogado"],
 };

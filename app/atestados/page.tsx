@@ -28,8 +28,10 @@ export const metadata: Metadata = {
     "docente derecho penal universidades costa rica",
     "joseph rivera formacion academica",
     "auditor lider ISO 37001 costa rica",
+    "auditor ISO 31000 gestion de riesgos",
     "temple university abogado costa rica",
     "abogado ealde business school",
+    "intercert latam auditor",
   ],
 };
 
