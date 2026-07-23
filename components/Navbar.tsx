@@ -31,13 +31,6 @@ function LupaIcon({ size = 18 }: { size?: number }) {
   );
 }
 
-function ShieldIcon() {
-  return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M12 2 4 5v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V5l-8-3Z"/>
-    </svg>
-  );
-}
 function UndoIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -511,21 +504,13 @@ export default function Navbar() {
             }}>
               <a href={WA} target="_blank" rel="noopener" style={{
                 display: "flex", justifyContent: "center", alignItems: "center", gap: 10,
-                marginBottom: 18, padding: "14px 20px",
+                padding: "14px 20px",
                 background: R, color: "#fff",
                 fontFamily: "var(--font-sans, system-ui)", fontSize: 14, fontWeight: 700,
                 borderRadius: "var(--r-sm, 6px)", textDecoration: "none",
               }}>
                 Consulta por WhatsApp →
               </a>
-              <div style={{
-                display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
-                fontFamily: "var(--font-mono, monospace)", fontSize: 11,
-                letterSpacing: ".04em", color: "var(--premium-gold)",
-              }}>
-                <span aria-hidden="true"><ShieldIcon /></span>
-                Defensa estratégica. Resultados reales.
-              </div>
             </div>
           </div>
 
