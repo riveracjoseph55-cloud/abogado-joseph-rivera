@@ -44,6 +44,42 @@ export const metadata: Metadata = {
 const R = "#7e0102";
 const GOLD = "#c9a86a";
 
+function PeopleIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+    </svg>
+  );
+}
+function ShieldCheckIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M12 2 4 5v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V5l-8-3Z"/><path d="m9 12 2 2 4-4"/>
+    </svg>
+  );
+}
+function ScaleIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M12 3v18"/><path d="M5 8h14"/><path d="M5 8 2 15a3 3 0 0 0 6 0Z"/><path d="M19 8l-3 7a3 3 0 0 0 6 0Z"/>
+    </svg>
+  );
+}
+function ShieldIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M12 2 4 5v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V5l-8-3Z"/>
+    </svg>
+  );
+}
+
+const HERO_STATS = [
+  { num: "50",   label: "Años — máximo legal CR, caso Nadia Peraza", icon: PeopleIcon },
+  { num: "10+",  label: "Años de ejercicio como litigante penalista", icon: ShieldCheckIcon },
+  { num: "07",   label: "Áreas de especialización jurídica", icon: ScaleIcon },
+  { num: "24/7", label: "Disponibilidad para emergencias legales", icon: ShieldIcon },
+];
+
 // WhatsApp con mensaje para reservar el libro
 const WA_RESERVA =
   "https://api.whatsapp.com/send?phone=50689980112&text=" +
@@ -86,54 +122,64 @@ export default function Home() {
     <div className="rc-page">
 
       {/* ── HERO ── */}
-      <section style={{
-        position: "relative", background: "var(--paper)",
-        padding: "clamp(48px,7vw,96px) 0 clamp(80px,11vw,160px)",
-        overflow: "hidden",
+      <section className="rc-premium-panel" style={{
+        padding: "clamp(48px,7vw,96px) 0 0",
       }}>
-        <div className="rc-wrap">
+        <span className="rc-premium-wave" aria-hidden="true" />
+        <span className="rc-premium-r" aria-hidden="true" style={{ opacity: .5 }}>R</span>
+
+        <div className="rc-wrap" style={{ position: "relative", zIndex: 2 }}>
           <div style={{
-            display: "grid", gridTemplateColumns: "1.4fr .9fr",
-            gap: "clamp(32px,5vw,72px)", alignItems: "end",
+            display: "grid", gridTemplateColumns: "1.3fr 1fr",
+            gap: "clamp(32px,5vw,72px)", alignItems: "center",
           }} className="hero-grid">
 
             <div>
-              <div className="rc-hero-meta" style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 36 }}>
-                <span className="rc-meta">CR · Penal</span>
-                <span className="rc-hero-rule" style={{ display: "inline-block", width: 40, height: 1, background: R }}/>
-                <span className="rc-meta">10+ años</span>
+              <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 28 }}>
+                <span style={{ display: "inline-block", width: 40, height: 1, background: R }}/>
+                <span style={{
+                  fontFamily: "var(--font-mono, monospace)", fontSize: 11,
+                  letterSpacing: ".14em", textTransform: "uppercase", color: "var(--premium-gold)",
+                }}>Defensa penal con compromiso y ética</span>
               </div>
 
-              <h1 className="rc-display rc-hero-title" style={{ marginBottom: 32 }}>
+              <h1 className="rc-display rc-hero-title" style={{ marginBottom: 28, color: "#fff" }}>
                 <span className="rc-hero-line"><span>Abogado Penalista</span></span>
-                <span className="rc-hero-line"><span>en&nbsp;<em className="rc-em">Costa Rica</em>.</span></span>
+                <span className="rc-hero-line"><span>en&nbsp;<em className="rc-em" style={{ color: R, opacity: 1 }}>Costa Rica</em>.</span></span>
               </h1>
 
               <Reveal delay={160}>
-                <p className="rc-lede" style={{ marginBottom: 40 }}>
-                  Bufete penalista en Costa Rica con representación en los casos más
-                  complejos del país — femicidios, crimen organizado, delitos financieros
-                  y asesoría estratégica internacional.
+                <p className="rc-lede" style={{ marginBottom: 36, color: "rgba(255,255,255,.65)" }}>
+                  Representación legal estratégica en los casos más complejos del país
+                  — femicidios, crimen organizado, delitos financieros y asesoría
+                  estratégica internacional.
                 </p>
               </Reveal>
 
               <Reveal delay={240}>
-                <div style={{ display: "flex", gap: 12, flexWrap: "wrap", alignItems: "center" }}>
+                <div style={{ display: "flex", gap: 12, flexWrap: "wrap", alignItems: "center", marginBottom: 28 }}>
                   <a href={WA} target="_blank" rel="noopener" className="rc-btn brand">
                     Consulta por WhatsApp →
                   </a>
-                  <Link href="/casos" className="rc-btn ghost">
-                    Ver casos destacados
+                  <Link href="/casos" className="rc-btn ghost-on-r">
+                    Ver casos destacados →
                   </Link>
+                </div>
+              </Reveal>
+
+              <Reveal delay={280}>
+                <div style={{
+                  display: "flex", alignItems: "center", gap: 10,
+                  fontFamily: "var(--font-mono, monospace)", fontSize: 11,
+                  letterSpacing: ".08em", textTransform: "uppercase", color: "rgba(255,255,255,.5)",
+                }}>
+                  <ShieldIcon /> Atención confidencial 24/7
                 </div>
               </Reveal>
             </div>
 
             <Reveal delay={120}>
-              <div className="rc-hero-media" style={{
-                position: "relative", aspectRatio: "4/3",
-                background: "var(--paper-2, #f3eee5)", overflow: "hidden",
-              }}>
+              <div style={{ position: "relative", aspectRatio: "3/4", overflow: "hidden" }}>
                 <Image
                   src="/images/joseph/editorial.jpg"
                   alt="Lic. Joseph Alfonso Rivera Cheves, abogado penalista en Costa Rica — femicidios, crimen organizado y delitos financieros — Bufete Rivera Cheves, San José"
@@ -144,67 +190,58 @@ export default function Home() {
                 />
                 <div style={{
                   position: "absolute", left: 16, right: 16, bottom: 16,
-                  padding: "14px 18px",
-                  background: "rgba(13,13,13,0.85)",
+                  padding: "14px 18px", display: "flex", alignItems: "center", gap: 12,
+                  background: "rgba(10,8,8,.9)",
+                  border: "1px solid rgba(201,168,106,.4)",
                   backdropFilter: "blur(8px)",
                 }}>
-                  <div style={{ fontFamily: "var(--font-mono, monospace)", fontSize: 9, letterSpacing: ".14em", textTransform: "uppercase", color: "rgba(255,255,255,.5)", marginBottom: 6 }}>
-                    Bufete · Director
-                  </div>
-                  <div style={{ fontSize: 14, fontWeight: 500, color: "#fff", lineHeight: 1.3 }}>
-                    Lic. Joseph Alfonso Rivera Cheves
-                  </div>
-                  <div style={{ fontSize: 11, color: "rgba(255,255,255,.6)", marginTop: 4 }}>
-                    Abogado penalista · Máster en Compliance · Auditor Líder ISO 37001
+                  <span style={{ color: "var(--premium-gold)", flexShrink: 0 }}><ScaleIcon /></span>
+                  <div>
+                    <div style={{ fontFamily: "var(--font-mono, monospace)", fontSize: 9, letterSpacing: ".14em", textTransform: "uppercase", color: "rgba(255,255,255,.5)", marginBottom: 4 }}>
+                      Lic. Joseph Alfonso
+                    </div>
+                    <div style={{ fontSize: 15, fontWeight: 700, color: "#fff", lineHeight: 1.2, fontFamily: "var(--font-serif)" }}>
+                      Rivera Cheves
+                    </div>
+                    <div style={{ fontFamily: "var(--font-mono, monospace)", fontSize: 9, letterSpacing: ".12em", textTransform: "uppercase", color: "var(--premium-gold)", marginTop: 4 }}>
+                      Abogado Penalista
+                    </div>
                   </div>
                 </div>
               </div>
             </Reveal>
           </div>
-        </div>
 
-        {/* Watermark */}
-        <div aria-hidden="true" className="rc-hero-mark" style={{
-          position: "absolute", right: "-2vw", bottom: "-3vw",
-          fontFamily: "var(--font-sans, system-ui)", fontSize: "clamp(160px,26vw,340px)",
-          fontWeight: 300, letterSpacing: "-0.03em",
-          color: "rgba(126,1,2,.04)", pointerEvents: "none", lineHeight: 1, userSelect: "none",
-        }}>
-          &apos;26
+          {/* Franja de estadísticas */}
+          <div style={{
+            display: "grid", gap: "var(--gut)", gridTemplateColumns: "repeat(4,1fr)",
+            marginTop: "clamp(48px,6vw,72px)",
+            borderTop: "1px solid rgba(255,255,255,.1)",
+            padding: "clamp(32px,4vw,44px) 0",
+          }} className="stats-grid">
+            {HERO_STATS.map((s, i) => {
+              const StatIcon = s.icon;
+              return (
+                <Reveal key={s.num} delay={i * 80}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+                    <span style={{ color: R, flexShrink: 0 }}><StatIcon /></span>
+                    <div>
+                      <div style={{
+                        fontFamily: "var(--font-sans, system-ui)", fontWeight: 700,
+                        fontSize: 22, lineHeight: 1, color: "#fff", marginBottom: 6,
+                      }}>{s.num}</div>
+                      <div style={{ fontSize: 12, color: "rgba(255,255,255,.5)", lineHeight: 1.4 }}>{s.label}</div>
+                    </div>
+                  </div>
+                </Reveal>
+              );
+            })}
+          </div>
         </div>
 
         <style>{`
           @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr !important; } }
-        `}</style>
-      </section>
-
-      {/* ── STATS ── */}
-      <section style={{ background: "#0d0d0d", padding: "clamp(48px,7vw,88px) 0" }}>
-        <div className="rc-wrap">
-          <div style={{
-            display: "grid", gap: "var(--gut)", gridTemplateColumns: "repeat(4,1fr)",
-          }} className="stats-grid">
-            {[
-              { num: "50",   label: "Años — máximo legal CR, caso Nadia Peraza (pena nominal 79)" },
-              { num: "10+",  label: "Años de ejercicio como litigante penalista" },
-              { num: "07",   label: "Áreas de especialización jurídica" },
-              { num: "24/7", label: "Disponibilidad para emergencias legales" },
-            ].map((s, i) => (
-              <Reveal key={s.num} delay={i * 80}>
-                <div>
-                  <div style={{
-                    fontFamily: "var(--font-sans, system-ui)", fontWeight: 300,
-                    fontSize: "clamp(40px,5vw,72px)", lineHeight: 1, letterSpacing: "-0.03em",
-                    color: "#fff", marginBottom: 12,
-                  }}>{s.num}</div>
-                  <div style={{ fontSize: 12, color: "rgba(255,255,255,.5)", lineHeight: 1.5 }}>{s.label}</div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-        <style>{`
-          @media (max-width: 900px) { .stats-grid { grid-template-columns: 1fr 1fr !important; gap: clamp(32px,5vw,56px) var(--gut) !important; } }
+          @media (max-width: 900px) { .stats-grid { grid-template-columns: 1fr 1fr !important; gap: clamp(28px,5vw,44px) var(--gut) !important; } }
         `}</style>
       </section>
 
