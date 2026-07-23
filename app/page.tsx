@@ -485,7 +485,7 @@ export default function Home() {
         <PremiumPanel>
           <Reveal>
             <div style={{ display: "flex", alignItems: "center", gap: 18, marginBottom: 26 }}>
-              <span style={{ fontFamily: "var(--font-serif)", fontSize: 44, lineHeight: 1, color: "var(--gold)" }}>&ldquo;</span>
+              <span style={{ fontFamily: "var(--font-serif)", fontSize: 44, lineHeight: 1, color: "var(--premium-gold)" }}>&ldquo;</span>
               <span style={{ width: 64, height: 1, background: "rgba(201,168,106,.5)" }} />
             </div>
           </Reveal>
@@ -497,7 +497,7 @@ export default function Home() {
             }}>
               En nuestro bufete, trabajamos con compromiso, ética y dedicación,
               garantizando una defensa{" "}
-              <em className="rc-em" style={{ color: "var(--gold)", opacity: 1 }}>eficiente, confiable y adaptada a cada caso</em>.
+              <em className="rc-em" style={{ color: "var(--premium-gold)", opacity: 1 }}>eficiente, confiable y adaptada a cada caso</em>.
             </h2>
           </Reveal>
           <Reveal delay={160}>
@@ -636,7 +636,7 @@ export default function Home() {
           }} className="cta-grid">
             <Reveal>
               <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 20 }}>
-                <span style={{ width: 28, height: 2, background: "var(--gold)" }} />
+                <span style={{ width: 28, height: 2, background: "var(--premium-gold)" }} />
                 <span className="rc-eyebrow on-r">04 / 04 · Hablemos</span>
               </div>
               <h2 className="rc-h1" style={{ color: "#fff", marginBottom: 24 }}>

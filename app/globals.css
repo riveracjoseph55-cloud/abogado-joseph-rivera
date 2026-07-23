@@ -988,6 +988,11 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
    dorado, para secciones de cierre/cita destacadas
    ══════════════════════════════════════════════ */
 
+:root {
+  /* Dorado más claro/pálido que --gold (el de /libro) — el de referencia del panel premium */
+  --premium-gold: #f5deae;
+}
+
 .rc-premium-panel {
   position: relative;
   overflow: hidden;
@@ -1016,7 +1021,7 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
   font-weight: 700;
   font-size: clamp(200px, 32vw, 480px);
   line-height: 1;
-  color: rgba(225,35,35,.16);
+  color: rgba(210,18,18,.62);
   pointer-events: none;
   user-select: none;
   z-index: 0;
@@ -1042,7 +1047,7 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
   font-size: 10px;
   letter-spacing: .18em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--premium-gold);
   margin-top: 3px;
 }
 .rc-premium-rule {
@@ -1057,7 +1062,7 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
 .rc-premium-rule-line { flex: 1; height: 1px; }
 .rc-premium-rule-line.l { background: linear-gradient(90deg, transparent, rgba(201,168,106,.55)); }
 .rc-premium-rule-line.r { background: linear-gradient(90deg, rgba(201,168,106,.55), transparent); }
-.rc-premium-rule-dot { color: var(--gold); font-size: 11px; padding: 0 12px; line-height: 1; }
+.rc-premium-rule-dot { color: var(--premium-gold); font-size: 11px; padding: 0 12px; line-height: 1; }
 
 @media (max-width: 760px) {
   .rc-premium-r { font-size: clamp(130px, 42vw, 240px); opacity: .55; right: -8%; }

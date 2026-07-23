@@ -93,14 +93,14 @@ export default function Footer() {
                 <div style={{ fontFamily: "var(--font-serif)", fontSize: 17, fontWeight: 700, letterSpacing: "-0.01em" }}>
                   Rivera Cheves &amp; Asociados
                 </div>
-                <div style={{ fontFamily: "var(--font-mono, monospace)", fontSize: 10, letterSpacing: ".18em", textTransform: "uppercase", color: "var(--gold)", marginTop: 4 }}>
+                <div style={{ fontFamily: "var(--font-mono, monospace)", fontSize: 10, letterSpacing: ".18em", textTransform: "uppercase", color: "var(--premium-gold)", marginTop: 4 }}>
                   Derecho Penal
                 </div>
               </div>
             </div>
             <p style={{ fontSize: 14, lineHeight: 1.75, color: "rgba(255,255,255,.68)", maxWidth: "32ch" }}>
               Defensa penal con compromiso,{" "}
-              <em className="rc-em" style={{ color: "var(--gold)", opacity: 1 }}>ética y resultados</em> — Costa Rica e internacional.
+              <em className="rc-em" style={{ color: "var(--premium-gold)", opacity: 1 }}>ética y resultados</em> — Costa Rica e internacional.
             </p>
             <span aria-hidden="true" style={{ display: "block", width: 48, height: 2, background: R, marginTop: 22, marginBottom: 22 }} />
             <a href={WA} target="_blank" rel="noopener" className="rc-btn on-r" style={{ fontSize: 13 }}>
@@ -110,7 +110,7 @@ export default function Footer() {
 
           {/* Nav col */}
           <div>
-            <div className="rc-meta" style={{ color: "var(--gold)", marginBottom: 18 }}>Navegar</div>
+            <div className="rc-meta" style={{ color: "var(--premium-gold)", marginBottom: 18 }}>Navegar</div>
             <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 12 }}>
               {LINKS.map(([href, label]) => (
                 <li key={href}>
@@ -127,7 +127,7 @@ export default function Footer() {
 
           {/* Contact col */}
           <div>
-            <div className="rc-meta" style={{ color: "var(--gold)", marginBottom: 18 }}>Contacto</div>
+            <div className="rc-meta" style={{ color: "var(--premium-gold)", marginBottom: 18 }}>Contacto</div>
             <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 16, fontSize: 14, color: "rgba(255,255,255,.85)" }}>
               <li style={{ display: "flex", alignItems: "center", gap: 12 }}>
                 <IconBadge><PinIcon /></IconBadge>
@@ -149,7 +149,7 @@ export default function Footer() {
 
           {/* Social col */}
           <div>
-            <div className="rc-meta" style={{ color: "var(--gold)", marginBottom: 18 }}>Redes</div>
+            <div className="rc-meta" style={{ color: "var(--premium-gold)", marginBottom: 18 }}>Redes</div>
             <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 16, fontSize: 14, color: "rgba(255,255,255,.85)" }}>
               <li style={{ display: "flex", alignItems: "center", gap: 12 }}>
                 <IconBadge><TikTokIcon /></IconBadge>
