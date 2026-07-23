@@ -4,6 +4,7 @@ import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import InstagramReel from "@/components/InstagramReel";
 import SchemaOrg from "@/components/SchemaOrg";
+import PremiumPanel from "@/components/PremiumPanel";
 import { WA, RC_CASES, RC_PRESS, RC_ENTREVISTAS } from "@/lib/data";
 import AreasExplorer from "@/components/AreasExplorer";
 import { SITE_URL, SITE_NAME, OG_IMAGE, schemaLegalService, schemaAttorney, schemaFAQPage } from "@/lib/seo";
@@ -480,10 +481,13 @@ export default function Home() {
       </section>
 
       {/* ── QUOTE ── */}
-      <section style={{ background: R, padding: "clamp(64px,9vw,120px) 0" }}>
-        <div className="rc-wrap">
+      <section>
+        <PremiumPanel>
           <Reveal>
-            <div style={{ fontFamily: "var(--font-sans, system-ui)", fontSize: 56, lineHeight: 1, color: "rgba(255,255,255,.2)", marginBottom: 20 }}>&ldquo;</div>
+            <div style={{ display: "flex", alignItems: "center", gap: 18, marginBottom: 26 }}>
+              <span style={{ fontFamily: "var(--font-serif)", fontSize: 44, lineHeight: 1, color: "var(--gold)" }}>&ldquo;</span>
+              <span style={{ width: 64, height: 1, background: "rgba(201,168,106,.5)" }} />
+            </div>
           </Reveal>
           <Reveal delay={80}>
             <h2 style={{
@@ -492,18 +496,19 @@ export default function Home() {
               color: "#fff", maxWidth: "28ch",
             }}>
               En nuestro bufete, trabajamos con compromiso, ética y dedicación,
-              garantizando una defensa <em className="rc-em on-r">eficiente, confiable y adaptada a cada caso</em>.
+              garantizando una defensa{" "}
+              <em className="rc-em" style={{ color: "var(--gold)", opacity: 1 }}>eficiente, confiable y adaptada a cada caso</em>.
             </h2>
           </Reveal>
           <Reveal delay={160}>
             <div style={{
               marginTop: 40, fontFamily: "var(--font-mono, monospace)", fontSize: 11,
-              letterSpacing: ".12em", textTransform: "uppercase", color: "rgba(255,255,255,.5)",
+              letterSpacing: ".12em", textTransform: "uppercase", color: "rgba(255,255,255,.6)",
             }}>
               — Lic. Joseph Alfonso Rivera Cheves
             </div>
           </Reveal>
-        </div>
+        </PremiumPanel>
       </section>
 
       {/* ── ÁREAS ── */}
@@ -623,14 +628,17 @@ export default function Home() {
       </section>
 
       {/* ── CTA FINAL ── */}
-      <section style={{ background: "#0d0d0d", padding: "clamp(80px,11vw,160px) 0" }}>
-        <div className="rc-wrap">
+      <section>
+        <PremiumPanel bottomRule paddingY="clamp(80px,11vw,160px)">
           <div style={{
             display: "grid", gridTemplateColumns: "1.2fr 1fr",
             gap: "clamp(40px,6vw,96px)", alignItems: "end",
           }} className="cta-grid">
             <Reveal>
-              <div className="rc-eyebrow on-r" style={{ marginBottom: 20 }}>04 / 04 · Hablemos</div>
+              <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 20 }}>
+                <span style={{ width: 28, height: 2, background: "var(--gold)" }} />
+                <span className="rc-eyebrow on-r">04 / 04 · Hablemos</span>
+              </div>
               <h2 className="rc-h1" style={{ color: "#fff", marginBottom: 24 }}>
                 ¿Necesita representación <em className="rc-em" style={{ color: R, opacity: 1 }}>legal</em>?
               </h2>
@@ -647,7 +655,7 @@ export default function Home() {
               </div>
             </Reveal>
           </div>
-        </div>
+        </PremiumPanel>
         <style>{`
           @media (max-width: 900px) { .cta-grid { grid-template-columns: 1fr !important; } }
         `}</style>
