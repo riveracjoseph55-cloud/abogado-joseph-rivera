@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
+import RichText from "@/components/RichText";
 import InstagramReel from "@/components/InstagramReel";
 import SchemaOrg from "@/components/SchemaOrg";
 import PremiumPanel from "@/components/PremiumPanel";
@@ -88,6 +89,18 @@ const HERO_RED      = "#A50707";
 const HERO_GOLD     = "#C8A45B";
 const HERO_CREAM    = "#F4F1EA";
 const HERO_GRAY     = "#B7B7B7";
+
+// Paleta específica de la sección "Casos destacados / Femicidios" (spec del usuario)
+const CS_CREAM      = "#F4F1EB";
+const CS_BLACK      = "#0A0A0A";
+const CS_CHARCOAL   = "#161616";
+const CS_WINE       = "#7A0808";
+const CS_RED        = "#A20A0A";
+const CS_GOLD       = "#C7A45C";
+const CS_GOLD_DK    = "#9A7C3C";
+const CS_GRAY       = "#6C6C6C";
+const CS_BORDER     = "rgba(20,20,20,0.12)";
+const CS_CREAM_FOOT = "#EFEAE0";
 
 const HERO_STATS = [
   { num: "50",   label: "Años — máximo legal CR, caso Nadia Peraza", icon: PeopleIcon },
@@ -357,81 +370,194 @@ export default function Home() {
       </section>
 
       {/* ── CASOS ── */}
-      <section style={{ background: "var(--paper)", padding: "var(--pad-y) 0" }}>
+      <section className="cases2" style={{ background: CS_CREAM, padding: "var(--pad-y) 0" }}>
         <div className="rc-wrap">
           <Reveal>
-            <div style={{
-              display: "flex", alignItems: "flex-end", justifyContent: "space-between",
-              gap: 24, flexWrap: "wrap", marginBottom: "clamp(40px,5vw,72px)",
-            }}>
-              <div>
-                <div className="rc-eyebrow" style={{ marginBottom: 16 }}>01 / 04 · Casos destacados</div>
-                <h2 className="rc-h2">Defensa en <em className="rc-em">Femicidios</em></h2>
+            <div className="cases2-head">
+              <div className="cases2-head-l">
+                <div className="rc-eyebrow" style={{ marginBottom: 20, color: CS_RED }}>01 / 04 · Casos destacados</div>
+                <h2 className="cases2-title">Defensa en <em className="cases2-title-em">Femicidios</em></h2>
+                <div className="cases2-rule" aria-hidden="true">
+                  <span className="cases2-rule-line" />
+                  <svg width="26" height="20" viewBox="0 0 26 20" fill="none" className="cases2-rule-icon">
+                    <path d="M13 1.5 24 6H2L13 1.5Z" stroke={CS_GOLD} strokeWidth="1.1" strokeLinejoin="round"/>
+                    <path d="M4.5 6.5v9M9.5 6.5v9M16.5 6.5v9M21.5 6.5v9" stroke={CS_GOLD} strokeWidth="1.1"/>
+                    <path d="M2 16.5h22M1 18.5h24" stroke={CS_GOLD} strokeWidth="1.1" strokeLinecap="round"/>
+                  </svg>
+                  <span className="cases2-rule-line" />
+                </div>
               </div>
-              <p className="rc-lede" style={{ maxWidth: "40ch", marginBottom: 4 }}>
+              <p className="cases2-intro">
                 Representación legal a familias de víctimas en los casos más emblemáticos
                 de violencia de género en Costa Rica y Centroamérica.
               </p>
             </div>
           </Reveal>
 
-          <div style={{
-            display: "grid", gap: "var(--gut)", gridTemplateColumns: "repeat(2,1fr)",
-          }} className="cases-grid">
-            {sortedCases.map((c, i) => (
-              <Reveal key={c.slug} delay={i * 80}>
-                <Link href={`/casos/${c.slug}`} className="rc-card" style={{
-                  display: "flex", flexDirection: "column", height: "100%", overflow: "hidden",
-                }}>
-                  <div style={{
-                    display: "flex", justifyContent: "space-between", alignItems: "center",
-                    padding: "20px 26px", borderBottom: "1px solid var(--hairline)",
-                  }}>
-                    <span className="rc-meta">Caso · {String(i + 1).padStart(2, "0")} / {String(sortedCases.length).padStart(2, "0")}</span>
-                    <span style={{
-                      padding: "4px 10px",
-                      background: c.statusTone === "active" ? R : "#0d0d0d",
-                      color: "#fff",
-                      fontFamily: "var(--font-mono, monospace)", fontSize: 10, letterSpacing: ".12em",
-                      textTransform: "uppercase",
-                    }}>{c.status}</span>
-                  </div>
+          <div className="cases2-grid">
+            {sortedCases.map((c, i) => {
+              const active = c.statusTone === "active";
+              const arch = i % 2 === 0 ? "/images/casos/arch-columns-a.webp" : "/images/casos/arch-columns-b.webp";
+              return (
+                <Reveal key={c.slug} delay={i * 80}>
+                  <Link href={`/casos/${c.slug}`} className="cases2-card" aria-label={`Ver el dossier del caso ${c.name}`}>
+                    <img src={arch} alt="" aria-hidden="true" loading="lazy" decoding="async" className="cases2-arch" />
 
-                  <div style={{
-                    padding: "clamp(28px,4vw,48px) clamp(20px,3vw,32px)",
-                    display: "flex", flexDirection: "column", gap: 20, flex: 1,
-                  }}>
-                    <div style={{
-                      fontFamily: "var(--font-sans, system-ui)", fontWeight: 200,
-                      fontSize: "clamp(56px,8vw,120px)", lineHeight: 0.88, letterSpacing: "-0.04em",
-                      color: "#0d0d0d",
-                    }}>{c.year}</div>
-                    <div>
-                      <h3 className="rc-h3" style={{ marginBottom: 6 }}>{c.name}</h3>
-                      <div className="rc-meta">{c.location}</div>
-                    </div>
-                    <p style={{ fontSize: 14, color: "var(--fg-3)", lineHeight: 1.65, flex: 1 }}>{c.short}</p>
-                  </div>
+                    <div className="cases2-body">
+                      <div className="cases2-cardhead">
+                        <span className="cases2-num">Caso · {String(i + 1).padStart(2, "0")} / {String(sortedCases.length).padStart(2, "0")}</span>
+                        <span className={`cases2-badge${active ? " is-active" : ""}`}>{c.status}</span>
+                      </div>
+                      <span className="cases2-cardrule" aria-hidden="true" />
 
-                  <div style={{
-                    display: "flex", justifyContent: "space-between", alignItems: "center",
-                    padding: "18px 26px", borderTop: "1px solid var(--hairline)",
-                    background: "var(--paper-2)",
-                  }}>
-                    <div style={{ fontSize: 15, fontWeight: 600, color: c.statusTone === "active" ? R : "#0d0d0d" }}>
-                      {c.sentence}
+                      <div className="cases2-year">{c.year}</div>
+                      <h3 className="cases2-name">{c.name}</h3>
+                      <div className="cases2-loc">{c.location}</div>
+                      <RichText as="p" text={c.short} className="cases2-desc" />
                     </div>
-                    <span style={{ fontSize: 13, fontWeight: 600, color: R }}>
-                      Leer dossier →
-                    </span>
-                  </div>
-                </Link>
-              </Reveal>
-            ))}
+
+                    <div className="cases2-foot">
+                      <span className={`cases2-foot-icon${active ? " is-active" : ""}`} aria-hidden="true">
+                        {active ? (
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                            <path d="M6 2h12M6 22h12M7 2c0 5 10 5 10 10S7 17 7 22M17 2c0 5-10 5-10 10s10 5 10 10" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        ) : (
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 3v16M5 21h14M6 8h12M6 8 4 13a3 3 0 0 0 6 0L8 8M18 8l-2 5a3 3 0 0 0 6 0l-2-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        )}
+                      </span>
+                      <div className={`cases2-result${active ? " is-active" : ""}`}>{c.sentence}</div>
+                      <span className="cases2-dossier">Leer dossier <span className="cases2-arrow">→</span></span>
+                    </div>
+                  </Link>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
+
         <style>{`
-          @media (max-width: 760px) { .cases-grid { grid-template-columns: 1fr !important; } }
+          .cases2 { --cs-white:#FBFAF7; }
+          .cases2-head {
+            display: grid; grid-template-columns: 1.15fr 0.85fr;
+            gap: clamp(24px,5vw,80px); align-items: end;
+            margin-bottom: clamp(36px,4.5vw,64px);
+          }
+          .cases2-title {
+            font-family: var(--font-serif);
+            font-weight: 400; letter-spacing: -0.015em; line-height: 0.98;
+            font-size: clamp(40px,6vw,86px); color: ${CS_BLACK};
+          }
+          .cases2-title-em { font-family: var(--font-serif); font-style: italic; color: ${CS_WINE}; }
+          .cases2-rule { display: flex; align-items: center; gap: 14px; margin-top: 22px; max-width: 420px; }
+          .cases2-rule-line { height: 1px; background: linear-gradient(90deg, ${CS_GOLD}, rgba(199,164,92,0)); flex: 1; }
+          .cases2-rule-line:last-child { background: linear-gradient(90deg, rgba(199,164,92,0), ${CS_GOLD}); }
+          .cases2-rule-icon { flex-shrink: 0; opacity: .9; }
+          .cases2-intro {
+            font-family: var(--font-sans, system-ui); font-size: clamp(16px,1.25vw,19px);
+            line-height: 1.6; color: ${CS_GRAY}; max-width: 42ch; padding-bottom: 6px;
+          }
+
+          .cases2-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: clamp(20px,2.4vw,32px); }
+
+          .cases2-card {
+            position: relative; display: flex; flex-direction: column; height: 100%;
+            background: var(--cs-white); border: 1px solid ${CS_BORDER}; border-radius: 6px;
+            overflow: hidden; text-decoration: none;
+            box-shadow: 0 1px 2px rgba(20,20,20,.03);
+            transition: transform .4s var(--ease), border-color .4s var(--ease), box-shadow .4s var(--ease);
+          }
+          .cases2-card:hover {
+            transform: translateY(-4px); border-color: ${CS_GOLD};
+            box-shadow: 0 18px 46px rgba(20,20,20,.10);
+          }
+          .cases2-card:focus-visible { outline: 2px solid ${CS_RED}; outline-offset: 3px; }
+
+          .cases2-arch {
+            position: absolute; top: 0; right: 0; height: 100%; width: 62%;
+            object-fit: cover; object-position: right top;
+            opacity: .09; pointer-events: none; z-index: 0;
+            -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.35) 42%, #000 100%);
+            mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.35) 42%, #000 100%);
+            transition: opacity .4s var(--ease);
+          }
+          .cases2-card:hover .cases2-arch { opacity: .14; }
+
+          .cases2-body {
+            position: relative; z-index: 1; flex: 1;
+            padding: clamp(24px,3vw,34px) clamp(22px,2.6vw,34px) clamp(22px,2.6vw,30px);
+            display: flex; flex-direction: column;
+          }
+          .cases2-cardhead { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+          .cases2-num {
+            font-family: var(--font-mono, monospace); font-size: 11px; letter-spacing: .14em;
+            text-transform: uppercase; color: ${CS_GRAY};
+          }
+          .cases2-badge {
+            padding: 5px 11px; background: ${CS_BLACK}; color: #fff;
+            font-family: var(--font-mono, monospace); font-size: 10px; font-weight: 500;
+            letter-spacing: .12em; text-transform: uppercase; white-space: nowrap; border-radius: 2px;
+          }
+          .cases2-badge.is-active { background: ${CS_WINE}; }
+          .cases2-cardrule { display: block; height: 1px; background: ${CS_BORDER}; margin: 16px 0 clamp(18px,2.4vw,26px); }
+
+          .cases2-year {
+            font-family: var(--font-serif); font-weight: 400; color: ${CS_BLACK};
+            font-size: clamp(52px,6.2vw,92px); line-height: 0.9; letter-spacing: -0.01em;
+          }
+          .cases2-name {
+            font-family: var(--font-serif); font-weight: 400; color: ${CS_CHARCOAL};
+            font-size: clamp(23px,2.2vw,30px); line-height: 1.12; letter-spacing: -0.005em;
+            margin: 14px 0 10px; max-width: 15ch;
+          }
+          .cases2-loc {
+            font-family: var(--font-sans, system-ui); font-size: 11px; font-weight: 600;
+            letter-spacing: .16em; text-transform: uppercase; color: ${CS_GOLD_DK};
+            margin-bottom: clamp(16px,2vw,22px);
+          }
+          .cases2-desc {
+            font-family: var(--font-sans, system-ui); font-size: 14.5px; line-height: 1.65;
+            color: ${CS_GRAY}; max-width: 46ch;
+          }
+          .cases2-desc strong { color: ${CS_CHARCOAL}; font-weight: 600; }
+
+          .cases2-foot {
+            position: relative; z-index: 1; display: flex; align-items: center; gap: 14px;
+            padding: 16px clamp(22px,2.6vw,30px); min-height: 92px;
+            border-top: 1px solid ${CS_BORDER}; background: ${CS_CREAM_FOOT};
+          }
+          .cases2-foot-icon {
+            flex-shrink: 0; width: 44px; height: 44px; border-radius: 50%;
+            display: grid; place-items: center; color: ${CS_GOLD_DK};
+            border: 1px solid ${CS_GOLD}; background: rgba(199,164,92,.06);
+          }
+          .cases2-foot-icon.is-active { color: ${CS_RED}; border-color: rgba(162,10,10,.4); background: rgba(162,10,10,.05); }
+          .cases2-result {
+            flex: 1; font-family: var(--font-serif); font-size: clamp(15px,1.15vw,17px);
+            line-height: 1.3; color: ${CS_BLACK}; font-weight: 600;
+          }
+          .cases2-result.is-active { color: ${CS_WINE}; }
+          .cases2-dossier {
+            flex-shrink: 0; font-family: var(--font-serif); font-style: italic; font-size: 15px;
+            color: ${CS_RED}; display: inline-flex; align-items: center; gap: 8px; white-space: nowrap;
+          }
+          .cases2-arrow { transition: transform .28s var(--ease); font-style: normal; }
+          .cases2-card:hover .cases2-arrow { transform: translateX(5px); }
+
+          @media (max-width: 900px) {
+            .cases2-head { grid-template-columns: 1fr; align-items: start; gap: 20px; }
+            .cases2-intro { max-width: 56ch; }
+          }
+          @media (max-width: 720px) {
+            .cases2-grid { grid-template-columns: 1fr; }
+            .cases2-arch { width: 70%; opacity: .06; }
+            .cases2-foot { flex-wrap: wrap; min-height: 0; row-gap: 12px; padding: 18px 22px; }
+            .cases2-result { flex: 1 1 100%; order: 1; }
+            .cases2-foot-icon { order: 0; }
+            .cases2-dossier { order: 2; margin-left: auto; }
+          }
         `}</style>
       </section>
 
