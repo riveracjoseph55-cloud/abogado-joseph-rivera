@@ -316,6 +316,9 @@ export default function EntrevistaTrivisionPage() {
                 <Link href="/entrevistas/columbia-por-tres-razones-reinsercion-social" className="rc-btn ghost">
                   Debate en Noticias Columbia
                 </Link>
+                <Link href="/entrevistas/conclusiones-apelacion-nadia-peraza-san-ramon" className="rc-btn ghost">
+                  Conclusiones de la apelación
+                </Link>
               </div>
             </Reveal>
           </div>

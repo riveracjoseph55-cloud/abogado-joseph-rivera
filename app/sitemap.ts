@@ -124,6 +124,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: { languages: { "es-CR": `${BASE}/entrevistas/columbia-por-tres-razones-reinsercion-social` } },
     },
     {
+      url: `${BASE}/entrevistas/conclusiones-apelacion-nadia-peraza-san-ramon`,
+      lastModified: "2026-07-15",
+      changeFrequency: "monthly" as const,
+      priority: 0.85,
+      images: [`${BASE}/images/entrevistas/conclusiones-apelacion-og.jpg`],
+      alternates: { languages: { "es-CR": `${BASE}/entrevistas/conclusiones-apelacion-nadia-peraza-san-ramon` } },
+    },
+    {
       url: `${BASE}/entrevistas/canal-opa-nadia-peraza`,
       lastModified: "2026-07-06",
       changeFrequency: "monthly" as const,

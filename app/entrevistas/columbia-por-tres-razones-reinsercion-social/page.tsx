@@ -353,6 +353,9 @@ export default function EntrevistaColumbiaPage() {
                 <Link href="/entrevistas/la-teja-bolados-legales-femicidio" className="rc-btn ghost">
                   Entrevista en La Teja
                 </Link>
+                <Link href="/entrevistas/conclusiones-apelacion-nadia-peraza-san-ramon" className="rc-btn ghost">
+                  Conclusiones de la apelación
+                </Link>
               </div>
             </Reveal>
           </div>
