@@ -81,20 +81,27 @@ const CONCEPTOS: { q: string; a: string }[] = [
     q: "¿Cuándo resuelve el Tribunal de Apelación?",
     a: "Tras la Vista Oral, el tribunal delibera y notifica su resolución por escrito en un plazo posterior — no se resuelve de forma inmediata en la misma audiencia.",
   },
+  {
+    q: "¿Qué es la doctrina del «fruto del árbol envenenado»?",
+    a: "Un principio de derecho procesal penal según el cual la **prueba obtenida de forma ilegal** —y todo lo que se derive de ella— no puede usarse en el proceso. La defensa del condenado invocó esta doctrina para cuestionar parte de la prueba; el querellante argumentó ante el tribunal que no aplicaba a la forma en que esa prueba fue obtenida e incorporada al expediente.",
+  },
 ];
 
 const RESUMEN = [
-  "En la Vista Oral de apelación del caso **Nadia Peraza Espinoza**, celebrada ante el **Tribunal de Apelación de Sentencia Penal de San Ramón**, el **Lic. Joseph Rivera Cheves** presentó sus conclusiones como querellante, defendiendo la solidez técnica de la condena dictada en marzo de 2026 por el Tribunal Penal de Heredia: **79 años nominales**, readecuados al máximo legal vigente de **50 años** de cárcel efectiva.",
-  "El propio bufete había presentado un recurso de apelación con un motivo único: la sentencia de instancia no valoró, para efectos de la **dosificación de la pena**, la **sustracción patrimonial** cometida tras la muerte de Nadia —el uso de sus tarjetas en el BAC San José, el Banco Nacional y el Banco de Costa Rica—, adicional al femicidio, la estafa informática y la suplantación de identidad ya acreditados.",
+  "En la Vista Oral de apelación del caso **Nadia Peraza Espinoza**, celebrada ante el **Tribunal de Apelación de Sentencia Penal de San Ramón**, el **Lic. Joseph Rivera Cheves** presentó sus conclusiones como querellante, defendiendo la solidez técnica de la condena dictada en marzo de 2026 por el Tribunal Penal de Heredia: **79 años nominales** por un concurso material de **femicidio agravado por desmembramiento**, **ocho cargos de suplantación de identidad**, **once estafas informáticas** y **sustracción patrimonial**, readecuados al máximo legal vigente de **50 años** de cárcel efectiva.",
+  "Rivera Cheves recordó ante el tribunal la magnitud de los hechos probados en juicio: **Jeremy Buzano Paisano**, expareja de Nadia y padre de su hija de tres años, la asesinó y **desmembró su cuerpo a lo largo de tres meses**, ocultando los restos dentro de una refrigeradora en una vivienda de San Pablo de Heredia y en un lote baldío en Bajo de los Molinos. Durante ese tiempo usó el teléfono y las tarjetas de la víctima para **hacerse pasar por ella** ante familiares y amigos, al punto de solicitar una transferencia por **SINPE Móvil** al propio hermano de Nadia.",
+  "Ese es, precisamente, el motivo único del recurso que presentó el propio bufete: la sentencia de instancia no valoró, para efectos de la **dosificación de la pena**, la **sustracción patrimonial** cometida tras la muerte de Nadia —el uso de sus tarjetas en el **BAC San José**, el **Banco Nacional** y el **Banco de Costa Rica**— como un hecho adicional y autónomo al femicidio, la estafa informática y la suplantación de identidad ya acreditados.",
   "Rivera Cheves argumentó que, de haberse ponderado ese concurso adicional, la pena nominal habría sido mayor a los 79 años impuestos, y solicitó al tribunal un **reenvío** a otro tribunal de juicio para que se valore específicamente ese extremo.",
-  "Buena parte de su alegato se dedicó a defender la sentencia de instancia frente a los cuestionamientos de la defensa del condenado: sostuvo que la resolución cumple con los requisitos del **Código Procesal Penal** —motivación, fundamentación y correlación entre acusación y sentencia (artículo 142)— y que el recurso de la defensa no señaló, de forma concreta, qué prueba habría sido valorada incorrectamente.",
-  "El abogado recordó que el proceso incluyó una investigación de más de dos años, con participación de la Unidad de Planes y Operaciones del OIJ y la Medicatura Forense, y que declararon 34 testigos entre familiares, peritos y personal especializado. Según expuso en la audiencia, la investigación contó además con apoyo técnico internacional.",
-  "Al cierre, pidió al tribunal rechazar el recurso de la defensa y confirmar la condena. «Las mujeres no se tocan», dijo, subrayando que sentencias como esta buscan sentar un precedente frente a la violencia contra las mujeres en Costa Rica.",
+  "Buena parte de su alegato se dedicó a rebatir, punto por punto, el recurso de la defensa del condenado. Sostuvo que la sentencia cumple con los requisitos del **Código Procesal Penal** —motivación, fundamentación y correlación entre acusación y sentencia, **artículo 142**— y que el recurso no señaló, con base en la **teoría del delito**, qué prueba concreta habría sido valorada de forma incorrecta. Rechazó también el planteamiento de la defensa sobre la doctrina del **«fruto del árbol envenenado»**, al considerar que no aplicaba a la forma en que esa prueba fue obtenida e incorporada al proceso.",
+  "El abogado repasó además la magnitud de la investigación: más de dos años de trabajo con participación de la **Unidad de Planes y Operaciones del OIJ** y la **Medicatura Forense**, con **34 testigos** entre familiares, peritos y personal especializado —varios de ellos con entrenamiento técnico del **FBI** en escena del crimen— que, según expuso, respaldan la solidez científica de la condena.",
+  "Al cierre, pidió al tribunal rechazar el recurso de la defensa y confirmar íntegramente la condena. «**Las mujeres no se tocan**», dijo, subrayando que sentencias como esta buscan sentar un precedente frente a la violencia contra las mujeres en Costa Rica.",
 ];
 
 const QUOTES = [
   { t: "La sentencia se sostiene por sí sola porque cumple con todos los requisitos que establece el Código Procesal Penal.", c: "Sobre la solidez de la condena" },
   { t: "Esa sustracción tan grave no se valoró en la sentencia para efectos de la dosificación de la pena — eso es lo que venimos a corregir en esta apelación.", c: "Sobre el motivo del recurso" },
+  { t: "Nadie ha explicado, con base en la teoría del delito, cuál prueba concreta fue valorada de forma incorrecta en esta sentencia.", c: "Sobre el recurso de la defensa" },
+  { t: "No fue una sustracción menor: usó las tarjetas de Nadia en tres bancos distintos después de matarla.", c: "Sobre la sustracción patrimonial" },
   { t: "Las mujeres no se tocan.", c: "Mensaje de cierre al tribunal" },
 ];
 
@@ -193,8 +200,9 @@ export default function EntrevistaConclusionesApelacionPage() {
             }}>
               <span aria-hidden="true" style={{ width: 3, alignSelf: "stretch", background: R, flexShrink: 0 }} />
               <p style={{ fontSize: 13, lineHeight: 1.6, color: "var(--fg-3)", margin: 0 }}>
-                Este contenido corresponde a una audiencia judicial pública sobre un caso de femicidio.
-                Se resume con fines informativos, en tono jurídico y sin detalles gráficos.
+                Este contenido corresponde a una audiencia judicial pública sobre un caso de femicidio
+                y contiene referencias directas a los hechos acreditados en el proceso.
+                Se presenta con fines informativos y en tono jurídico.
               </p>
             </div>
           </div>
@@ -271,9 +279,10 @@ export default function EntrevistaConclusionesApelacionPage() {
                     }}>
                       {f.q}
                     </h3>
-                    <p style={{ fontSize: 16, lineHeight: 1.75, color: "var(--fg-2)", margin: 0 }}>
-                      {f.a}
-                    </p>
+                    <RichText
+                      text={f.a}
+                      style={{ fontSize: 16, lineHeight: 1.75, color: "var(--fg-2)", margin: 0 }}
+                    />
                   </div>
                 </Reveal>
               ))}
