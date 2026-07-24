@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import RichText from "@/components/RichText";
+import LiteFacebookVideo from "@/components/LiteFacebookVideo";
 import SchemaOrg from "@/components/SchemaOrg";
 import PremiumPanel from "@/components/PremiumPanel";
 import { WA, RC_CASES, RC_PRESS, RC_ENTREVISTAS } from "@/lib/data";
@@ -416,14 +417,10 @@ export default function Home() {
                 </div>
 
                 <div className="voz-embed">
-                  <iframe
-                    className="voz-embed-frame"
-                    src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1601301907826599%2F&show_text=false&width=360&height=640&t=0"
+                  <LiteFacebookVideo
+                    url="https://www.facebook.com/reel/1601301907826599/"
                     title="Reel de Facebook: «Por Nadia, por su hija, por todas» — Lic. Joseph Rivera Cheves, conclusiones del juicio por el femicidio de Nadia Peraza"
-                    loading="lazy"
-                    scrolling="no"
-                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                    allowFullScreen
+                    poster="/images/casos/voz-reel-poster.webp"
                   />
                 </div>
 
@@ -569,10 +566,10 @@ export default function Home() {
           }
 
           .voz-embed {
-            position: relative; width: 100%; max-width: 340px; margin: 0 auto;
-            aspect-ratio: 9 / 16; background: #000; border-radius: 3px; overflow: hidden;
+            position: relative; width: 100%; max-width: 400px; margin: 0 auto;
+            background: #000; border-radius: 3px; overflow: hidden;
+            box-shadow: 0 14px 40px rgba(0,0,0,.5);
           }
-          .voz-embed-frame { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 
           .voz-embed-cap {
             font-family: var(--font-serif); font-style: italic; font-size: 14px; line-height: 1.5;
@@ -609,7 +606,7 @@ export default function Home() {
             .voz-quote { font-size: 120px; }
             .voz-seal { display: none; }
             .voz-left-arch { opacity: .05; }
-            .voz-embed { max-width: 300px; }
+            .voz-embed { max-width: 100%; }
             .voz-frame-label { font-size: 9px; letter-spacing: .12em; }
           }
         `}</style>
