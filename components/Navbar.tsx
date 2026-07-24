@@ -358,6 +358,22 @@ export default function Navbar() {
           <div style={{ padding: "24px var(--pad-x, 24px) 40px" }}>
 
             {drawerView === "main" && (
+              <>
+                <button
+                  onClick={() => setOpen(false)}
+                  aria-label="Cerrar el menú y volver al sitio"
+                  style={{
+                    display: "flex", alignItems: "center", gap: 8,
+                    background: "none", border: "none", cursor: "pointer", padding: "2px 0",
+                    marginBottom: 18,
+                    color: "var(--premium-gold)",
+                    fontFamily: "var(--font-sans, system-ui)", fontSize: 14, fontWeight: 600,
+                    opacity: 0,
+                    animation: open ? `rc-mi .4s ease-out forwards` : "none",
+                  }}
+                >
+                  <span aria-hidden="true">←</span> Volver
+                </button>
               <nav>
                 {DESKTOP_LINKS.map(([href, label], i) => {
                   const isActive = pathname === href || pathname.startsWith(href + "/");
@@ -419,6 +435,7 @@ export default function Navbar() {
                   );
                 })}
               </nav>
+              </>
             )}
 
             {drawerView === "especialidades" && (
