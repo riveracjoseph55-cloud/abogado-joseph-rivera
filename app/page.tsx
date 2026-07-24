@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import RichText from "@/components/RichText";
-import InstagramReel from "@/components/InstagramReel";
 import SchemaOrg from "@/components/SchemaOrg";
 import PremiumPanel from "@/components/PremiumPanel";
 import { WA, RC_CASES, RC_PRESS, RC_ENTREVISTAS } from "@/lib/data";
@@ -333,39 +332,286 @@ export default function Home() {
         `}</style>
       </section>
 
-      {/* ── REEL DESTACADO ── */}
-      <section style={{ background: "var(--paper)", padding: "var(--pad-y) 0", position: "relative" }}>
-        <div className="rc-wrap">
-          <div style={{
-            display: "grid", gridTemplateColumns: "1fr 1fr",
-            gap: "clamp(40px,6vw,96px)", alignItems: "center",
-          }} className="reel-grid">
-            <Reveal>
-              <div>
-                <div className="rc-eyebrow" style={{ marginBottom: 20 }}>En la voz pública</div>
-                <h2 className="rc-h2" style={{ marginBottom: 28, maxWidth: "16ch" }}>
-                  Cada caso es <em className="rc-em">también</em> un compromiso público
+      {/* ── EN LA VOZ PÚBLICA (reel destacado) ── */}
+      <section className="voz">
+        <div className="voz-grid">
+
+          {/* Bloque editorial (marfil) */}
+          <div className="voz-left">
+            <img src="/images/casos/voz-arch.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" className="voz-left-arch" />
+            <span className="voz-quote" aria-hidden="true">“</span>
+            <span className="voz-seal" aria-hidden="true">
+              <svg viewBox="0 0 120 120" width="120" height="120" fill="none">
+                <circle cx="60" cy="60" r="56" stroke={CS_GOLD} strokeWidth="1"/>
+                <circle cx="60" cy="60" r="46" stroke={CS_GOLD} strokeWidth=".6"/>
+                <path d="M60 30 71 37H49L60 30ZM52 39v34M60 39v34M68 39v34M46 75h28M43 79h34" stroke={CS_GOLD} strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </span>
+
+            <div className="voz-left-in">
+              <Reveal>
+                <div className="voz-eyebrow">En la voz pública</div>
+              </Reveal>
+              <Reveal delay={60}>
+                <h2 className="voz-title">
+                  Cada caso es <em className="voz-title-em">también</em> un compromiso público
                 </h2>
-                <p className="rc-lede" style={{ marginBottom: 24, maxWidth: "44ch" }}>
+              </Reveal>
+              <Reveal delay={100}>
+                <div className="voz-rule" aria-hidden="true">
+                  <span className="voz-rule-line" />
+                  <svg width="26" height="20" viewBox="0 0 26 20" fill="none" className="voz-rule-icon">
+                    <path d="M13 1.5 24 6H2L13 1.5Z" stroke={CS_GOLD} strokeWidth="1.1" strokeLinejoin="round"/>
+                    <path d="M4.5 6.5v9M9.5 6.5v9M16.5 6.5v9M21.5 6.5v9" stroke={CS_GOLD} strokeWidth="1.1"/>
+                    <path d="M2 16.5h22M1 18.5h24" stroke={CS_GOLD} strokeWidth="1.1" strokeLinecap="round"/>
+                  </svg>
+                  <span className="voz-rule-line" />
+                </div>
+              </Reveal>
+              <Reveal delay={140}>
+                <p className="voz-body">
                   Acompañamos a las familias dentro del tribunal y en los medios.
                   La justicia se construye en ambas arenas — y cada palabra cuenta.
                 </p>
-                <div style={{
-                  paddingTop: 24, borderTop: "1px solid var(--hairline)",
-                  fontFamily: "var(--font-mono, monospace)", fontSize: 11,
-                  letterSpacing: ".14em", textTransform: "uppercase", color: "var(--fg-5)",
-                }}>
-                  Reel destacado · @josephriveraabogado
+              </Reveal>
+              <Reveal delay={180}>
+                <div className="voz-meta">
+                  <span className="voz-meta-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+                      <rect x="3" y="6" width="18" height="12" rx="2" stroke="currentColor" strokeWidth="1.6"/>
+                      <path d="M10 9.5v5l4-2.5-4-2.5Z" fill="currentColor"/>
+                    </svg>
+                  </span>
+                  <span><strong>Reel destacado</strong> · @josephriveraabogado</span>
+                </div>
+              </Reveal>
+              <Reveal delay={220}>
+                <Link href="/prensa" className="voz-more">
+                  Ver más apariciones <span className="voz-more-arrow">→</span>
+                </Link>
+              </Reveal>
+            </div>
+          </div>
+
+          {/* Panel oscuro con el reel de Facebook */}
+          <div className="voz-right">
+            <img src="/images/casos/voz-arch.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" className="voz-right-arch" />
+            <span className="voz-right-scrim" aria-hidden="true" />
+            <Reveal delay={120}>
+              <div className="voz-frame">
+                <span className="voz-corner tl" aria-hidden="true" />
+                <span className="voz-corner tr" aria-hidden="true" />
+                <span className="voz-corner bl" aria-hidden="true" />
+                <span className="voz-corner br" aria-hidden="true" />
+
+                <div className="voz-frame-head">
+                  <span className="voz-frame-line" />
+                  <span className="voz-frame-label">
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" aria-hidden="true" style={{ marginRight: 7, verticalAlign: "-1px" }}>
+                      <path d="M12 3v16M5 21h14M6 8h12M6 8 4 13a3 3 0 0 0 6 0L8 8M18 8l-2 5a3 3 0 0 0 6 0l-2-5" stroke={CS_GOLD} strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                    Apariciones destacadas
+                  </span>
+                  <span className="voz-frame-line" />
+                </div>
+
+                <div className="voz-embed">
+                  <iframe
+                    className="voz-embed-frame"
+                    src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1601301907826599%2F&show_text=false&width=360&height=640&t=0"
+                    title="Reel de Facebook: «Por Nadia, por su hija, por todas» — Lic. Joseph Rivera Cheves, conclusiones del juicio por el femicidio de Nadia Peraza"
+                    loading="lazy"
+                    scrolling="no"
+                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                    allowFullScreen
+                  />
+                </div>
+
+                <p className="voz-embed-cap">
+                  «Por Nadia, por su hija, por todas» — las palabras con las que el Lic. Rivera Cheves
+                  cerró sus conclusiones en el juicio.
+                </p>
+                <a
+                  href="https://www.facebook.com/reel/1601301907826599/"
+                  target="_blank" rel="noopener noreferrer"
+                  className="voz-embed-link"
+                >
+                  Ver el reel en Facebook <span aria-hidden="true">→</span>
+                </a>
+
+                <div className="voz-institutional">
+                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none" aria-hidden="true">
+                    <path d="M12 3v16M5 21h14M6 8h12M6 8 4 13a3 3 0 0 0 6 0L8 8M18 8l-2 5a3 3 0 0 0 6 0l-2-5" stroke={CS_GOLD} strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  <span>La justicia también se comunica.<br />Nuestro compromiso no termina en la sala.</span>
                 </div>
               </div>
             </Reveal>
-            <Reveal delay={120}>
-              <InstagramReel url="https://www.instagram.com/reel/DWHZdGMx4C8/" caption />
-            </Reveal>
           </div>
         </div>
+
         <style>{`
-          @media (max-width: 900px) { .reel-grid { grid-template-columns: 1fr !important; } }
+          .voz { position: relative; background: ${CS_CREAM}; }
+          .voz-grid {
+            display: grid; grid-template-columns: 48% 52%;
+            max-width: 1560px; margin: 0 auto; align-items: stretch;
+          }
+
+          /* ── Izquierda (marfil) ── */
+          .voz-left {
+            position: relative; overflow: hidden; background: ${CS_CREAM};
+            padding: clamp(48px,6vw,104px) clamp(24px,4vw,72px) clamp(48px,6vw,104px) var(--pad-x);
+            display: flex; align-items: center;
+          }
+          .voz-left-arch {
+            position: absolute; left: 0; top: 0; height: 100%; width: 40%;
+            object-fit: cover; object-position: left center; opacity: .07; pointer-events: none;
+            -webkit-mask-image: linear-gradient(90deg, #000 0%, rgba(0,0,0,.25) 55%, transparent 100%);
+            mask-image: linear-gradient(90deg, #000 0%, rgba(0,0,0,.25) 55%, transparent 100%);
+          }
+          .voz-quote {
+            position: absolute; left: clamp(14px,3vw,52px); top: clamp(30px,5vw,74px);
+            font-family: var(--font-serif); font-size: clamp(120px,15vw,220px); line-height: .7;
+            color: ${CS_GOLD}; opacity: .28; pointer-events: none; user-select: none;
+          }
+          .voz-seal {
+            position: absolute; right: clamp(10px,3vw,60px); top: clamp(24px,4vw,64px);
+            opacity: .12; pointer-events: none;
+          }
+          .voz-left-in { position: relative; z-index: 1; max-width: 560px; }
+
+          .voz-eyebrow {
+            font-family: var(--font-mono, monospace); font-size: 12px; font-weight: 500;
+            letter-spacing: .18em; text-transform: uppercase; color: ${CS_WINE};
+            margin-bottom: 22px; position: relative; padding-left: 40px;
+          }
+          .voz-eyebrow::before {
+            content: ""; position: absolute; left: 0; top: 50%; width: 28px; height: 2px;
+            background: ${CS_WINE}; transform: translateY(-50%);
+          }
+          .voz-title {
+            font-family: var(--font-serif); font-weight: 400; color: ${CS_BLACK};
+            font-size: clamp(34px,4.4vw,62px); line-height: 1.08; letter-spacing: -0.01em;
+            margin-bottom: 26px; max-width: 13ch;
+          }
+          .voz-title-em { font-family: var(--font-serif); font-style: italic; color: ${CS_WINE}; }
+          .voz-rule { display: flex; align-items: center; gap: 14px; max-width: 340px; margin-bottom: 26px; }
+          .voz-rule-line { height: 1px; flex: 1; background: linear-gradient(90deg, ${CS_GOLD}, rgba(199,164,92,0)); }
+          .voz-rule-line:last-child { background: linear-gradient(90deg, rgba(199,164,92,0), ${CS_GOLD}); }
+          .voz-rule-icon { flex-shrink: 0; opacity: .9; }
+          .voz-body {
+            font-family: var(--font-sans, system-ui); font-size: clamp(16px,1.2vw,19px);
+            line-height: 1.66; color: ${CS_GRAY}; max-width: 42ch; margin-bottom: clamp(28px,3.4vw,44px);
+          }
+          .voz-meta {
+            display: flex; align-items: center; gap: 12px; padding-top: 22px;
+            border-top: 1px solid ${CS_BORDER};
+            font-family: var(--font-mono, monospace); font-size: 11px; letter-spacing: .12em;
+            text-transform: uppercase; color: ${CS_GRAY};
+          }
+          .voz-meta strong { color: ${CS_WINE}; font-weight: 600; }
+          .voz-meta-icon {
+            width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0;
+            display: grid; place-items: center; color: ${CS_BLACK};
+            border: 1px solid ${CS_BORDER}; background: rgba(20,20,20,.03);
+          }
+          .voz-more {
+            display: inline-flex; align-items: center; gap: 10px; margin-top: clamp(26px,3vw,40px);
+            font-family: var(--font-sans, system-ui); font-size: 15px; font-weight: 600;
+            color: ${CS_RED}; text-decoration: none; padding: 6px 0; border-bottom: 1px solid ${CS_RED};
+            transition: gap .25s var(--ease), color .25s var(--ease), border-color .25s var(--ease);
+          }
+          .voz-more:hover { gap: 16px; color: ${CS_WINE}; border-color: ${CS_WINE}; }
+          .voz-more:focus-visible { outline: 2px solid ${CS_RED}; outline-offset: 4px; }
+          .voz-more-arrow { transition: transform .25s var(--ease); }
+          .voz-more:hover .voz-more-arrow { transform: translateX(5px); }
+
+          /* ── Derecha (panel carbón) ── */
+          .voz-right {
+            position: relative; overflow: hidden;
+            background: radial-gradient(1000px 700px at 78% 12%, rgba(104,7,7,.28), transparent 58%), linear-gradient(160deg, #111111 0%, #080808 55%, #050505 100%);
+            padding: clamp(40px,4.5vw,72px) var(--pad-x) clamp(40px,4.5vw,72px) clamp(24px,4vw,72px);
+            display: flex; align-items: center; justify-content: center;
+            border-top: 1px solid rgba(162,10,10,.5);
+          }
+          .voz-right > .rc-reveal { position: relative; z-index: 1; width: 100%; display: flex; justify-content: center; }
+          .voz-right-arch {
+            position: absolute; right: 0; top: 0; height: 100%; width: 68%;
+            object-fit: cover; object-position: right center; opacity: .14; pointer-events: none;
+            -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.4) 45%, #000 100%);
+            mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.4) 45%, #000 100%);
+          }
+          .voz-right-scrim {
+            position: absolute; inset: 0; pointer-events: none;
+            background: linear-gradient(90deg, rgba(5,5,5,.85) 0%, rgba(5,5,5,.35) 40%, rgba(5,5,5,.55) 100%);
+          }
+          .voz-frame {
+            position: relative; z-index: 1; width: 100%; max-width: 440px; margin: 0 auto;
+            background: linear-gradient(180deg, rgba(17,17,17,.92), rgba(8,8,8,.96));
+            border: 1px solid rgba(199,164,92,.55); border-radius: 4px;
+            padding: clamp(20px,2.4vw,30px) clamp(18px,2.2vw,28px) clamp(22px,2.6vw,30px);
+            box-shadow: 0 30px 80px rgba(0,0,0,.5);
+          }
+          .voz-corner {
+            position: absolute; width: 18px; height: 18px; pointer-events: none;
+            border-color: ${CS_GOLD}; border-style: solid; border-width: 0;
+          }
+          .voz-corner.tl { top: 8px; left: 8px; border-top-width: 1px; border-left-width: 1px; }
+          .voz-corner.tr { top: 8px; right: 8px; border-top-width: 1px; border-right-width: 1px; }
+          .voz-corner.bl { bottom: 8px; left: 8px; border-bottom-width: 1px; border-left-width: 1px; }
+          .voz-corner.br { bottom: 8px; right: 8px; border-bottom-width: 1px; border-right-width: 1px; }
+
+          .voz-frame-head { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+          .voz-frame-line { height: 1px; flex: 1; background: rgba(199,164,92,.35); }
+          .voz-frame-label {
+            font-family: var(--font-mono, monospace); font-size: 10px; font-weight: 500;
+            letter-spacing: .18em; text-transform: uppercase; color: ${CS_GOLD}; white-space: nowrap;
+          }
+
+          .voz-embed {
+            position: relative; width: 100%; max-width: 340px; margin: 0 auto;
+            aspect-ratio: 9 / 16; background: #000; border-radius: 3px; overflow: hidden;
+          }
+          .voz-embed-frame { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+          .voz-embed-cap {
+            font-family: var(--font-serif); font-style: italic; font-size: 14px; line-height: 1.5;
+            color: rgba(245,237,224,.72); text-align: center; margin: 20px auto 0; max-width: 40ch;
+          }
+          .voz-embed-link {
+            display: inline-flex; align-items: center; gap: 8px; margin: 14px auto 0;
+            justify-content: center; width: 100%;
+            font-family: var(--font-sans, system-ui); font-size: 12.5px; font-weight: 600;
+            letter-spacing: .04em; color: ${CS_GOLD}; text-decoration: none;
+            transition: color .2s var(--ease), gap .2s var(--ease);
+          }
+          .voz-embed-link:hover { color: #e6cf94; gap: 12px; }
+          .voz-embed-link:focus-visible { outline: 2px solid ${CS_GOLD}; outline-offset: 4px; }
+
+          .voz-institutional {
+            display: flex; align-items: center; gap: 12px; justify-content: center; text-align: center;
+            margin-top: clamp(20px,2.4vw,28px); padding-top: clamp(18px,2vw,22px);
+            border-top: 1px solid rgba(199,164,92,.22);
+            font-family: var(--font-mono, monospace); font-size: 10.5px; font-weight: 500;
+            letter-spacing: .16em; text-transform: uppercase; line-height: 1.7; color: rgba(199,164,92,.7);
+          }
+          .voz-institutional svg { flex-shrink: 0; opacity: .85; }
+
+          /* ── Responsivo ── */
+          @media (max-width: 960px) {
+            .voz-grid { grid-template-columns: 1fr; }
+            .voz-left { padding: clamp(40px,8vw,64px) var(--pad-x); }
+            .voz-right { padding: clamp(40px,8vw,64px) var(--pad-x); }
+            .voz-right-arch { opacity: .1; }
+            .voz-title { max-width: 18ch; }
+          }
+          @media (max-width: 520px) {
+            .voz-quote { font-size: 120px; }
+            .voz-seal { display: none; }
+            .voz-left-arch { opacity: .05; }
+            .voz-embed { max-width: 300px; }
+            .voz-frame-label { font-size: 9px; letter-spacing: .12em; }
+          }
         `}</style>
       </section>
 
