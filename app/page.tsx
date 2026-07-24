@@ -896,68 +896,177 @@ export default function Home() {
         `}</style>
       </section>
 
-      {/* ── ENTREVISTAS ── */}
-      <section style={{ background: "var(--paper-2)", padding: "var(--pad-y) 0" }}>
-        <div className="rc-wrap">
-          <div style={{
-            display: "flex", alignItems: "flex-end", justifyContent: "space-between",
-            gap: 24, flexWrap: "wrap", marginBottom: "clamp(28px,4vw,48px)",
-          }}>
+      {/* ── ENTREVISTAS · En la voz pública ── */}
+      <section className="voz2">
+        <img src="/images/casos/voz2-arch.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" className="voz2-arch" />
+        <span className="voz2-monogram" aria-hidden="true">R</span>
+
+        <div className="rc-wrap" style={{ position: "relative", zIndex: 1 }}>
+          <div className="voz2-head">
             <div>
-              <div className="rc-eyebrow" style={{ marginBottom: 14, color: R }}>En video · Entrevistas</div>
-              <Reveal><h2 className="rc-h2">En la <em className="rc-em">voz pública</em></h2></Reveal>
+              <div className="voz2-eyebrow">En video · Entrevistas</div>
+              <Reveal>
+                <h2 className="voz2-title">En la <em className="voz2-title-em">voz pública</em></h2>
+              </Reveal>
             </div>
             <Reveal delay={120}>
-              <Link href="/prensa" className="rc-btn ghost">Ver toda la prensa →</Link>
+              <Link href="/prensa" className="voz2-allbtn">
+                Ver toda la prensa <span className="voz2-allbtn-arrow">→</span>
+              </Link>
             </Reveal>
           </div>
 
-          <div style={{
-            display: "grid", gap: "var(--gut)", gridTemplateColumns: "repeat(3,1fr)",
-          }} className="home-int-grid">
+          <div className="voz2-rule" aria-hidden="true">
+            <span className="voz2-rule-line" />
+            <span className="voz2-diamond" />
+            <span className="voz2-rule-line" />
+          </div>
+
+          <div className="voz2-grid">
             {RC_ENTREVISTAS.map((e, i) => (
               <Reveal key={e.slug} delay={i * 80}>
-                <Link href={`/entrevistas/${e.slug}`} style={{
-                  display: "flex", flexDirection: "column", height: "100%",
-                  textDecoration: "none", overflow: "hidden",
-                  border: "1px solid var(--hairline)", background: "#fff",
-                }} className="home-int-card">
-                  <div style={{ position: "relative", aspectRatio: "16/9", background: "#0d0d0d", overflow: "hidden" }}>
+                <Link href={`/entrevistas/${e.slug}`} className="voz2-card">
+                  <div className="voz2-thumb">
                     <Image
                       src={e.image}
                       alt={`Entrevista al abogado Joseph Rivera Cheves en ${e.medio}${e.program ? ` (${e.program})` : ""} — ${e.title}`}
-                      fill sizes="(max-width: 900px) 100vw, 33vw"
+                      fill sizes="(max-width: 680px) 100vw, (max-width: 1000px) 50vw, 33vw"
                       style={{ objectFit: "cover" }}
                       loading="lazy"
                     />
-                    <span aria-hidden="true" style={{
-                      position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)",
-                      width: 56, height: 56, borderRadius: "50%", background: R, color: "#fff",
-                      display: "grid", placeItems: "center", boxShadow: "0 10px 30px rgba(0,0,0,.45)",
-                    }}>
-                      <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
+                    <span className="voz2-thumb-scrim" aria-hidden="true" />
+                    <span className="voz2-play" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
                     </span>
                   </div>
-                  <div style={{ padding: "24px 22px", display: "flex", flexDirection: "column", gap: 12, flex: 1 }}>
-                    <div className="rc-meta" style={{ color: R }}>
-                      {e.medio}{e.program ? ` · ${e.program}` : ""}
-                    </div>
-                    <h3 style={{
-                      fontFamily: "var(--font-sans, system-ui)", fontWeight: 500,
-                      fontSize: "clamp(17px,1.5vw,20px)", lineHeight: 1.25,
-                      letterSpacing: "-0.01em", color: "#0d0d0d",
-                    }}>{e.title}</h3>
-                    <p style={{ fontSize: 14, lineHeight: 1.6, color: "var(--fg-3)", flex: 1 }}>{e.desc}</p>
-                    <span style={{ fontSize: 13, fontWeight: 700, color: R }}>Ver la entrevista →</span>
+                  <div className="voz2-body">
+                    <div className="voz2-cat">{e.medio}{e.program ? ` · ${e.program}` : ""}</div>
+                    <h3 className="voz2-cardtitle">{e.title}</h3>
+                    <p className="voz2-desc">{e.desc}</p>
+                    <span className="voz2-more">Ver la entrevista <span className="voz2-more-arrow">→</span></span>
                   </div>
                 </Link>
               </Reveal>
             ))}
           </div>
+
+          <div className="voz2-foot" aria-hidden="true">
+            <span className="voz2-foot-line" />
+            <span className="voz2-diamond" />
+            <svg width="24" height="20" viewBox="0 0 24 24" fill="none" className="voz2-foot-scale">
+              <path d="M12 3v16M5 21h14M6 8h12M6 8 4 13a3 3 0 0 0 6 0L8 8M18 8l-2 5a3 3 0 0 0 6 0l-2-5" stroke={CS_GOLD} strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+            <span className="voz2-diamond" />
+            <span className="voz2-foot-line" />
+          </div>
         </div>
+
         <style>{`
-          @media (max-width: 1000px){ .home-int-grid{ grid-template-columns:repeat(2,1fr) !important; } }
-          @media (max-width: 680px) { .home-int-grid{ grid-template-columns:1fr !important; } }
+          .voz2 {
+            position: relative; overflow: hidden;
+            background: ${CS_CREAM}; padding: var(--pad-y) 0;
+          }
+          .voz2-arch {
+            position: absolute; left: 0; top: 0; height: 100%; width: 34%;
+            object-fit: cover; object-position: left center; opacity: .06; pointer-events: none; z-index: 0;
+            -webkit-mask-image: linear-gradient(90deg, #000 0%, rgba(0,0,0,.3) 55%, transparent 100%);
+            mask-image: linear-gradient(90deg, #000 0%, rgba(0,0,0,.3) 55%, transparent 100%);
+          }
+          .voz2-monogram {
+            position: absolute; right: 2%; bottom: -4%; z-index: 0; pointer-events: none;
+            font-family: var(--font-serif); font-weight: 400; font-style: normal;
+            font-size: clamp(280px, 34vw, 520px); line-height: .8; color: ${CS_CHARCOAL};
+            opacity: .04; user-select: none;
+          }
+
+          .voz2-head {
+            display: flex; align-items: flex-end; justify-content: space-between;
+            gap: clamp(20px,4vw,60px); flex-wrap: wrap; margin-bottom: clamp(22px,2.6vw,34px);
+          }
+          .voz2-eyebrow {
+            font-family: var(--font-mono, monospace); font-size: 12px; font-weight: 500;
+            letter-spacing: .2em; text-transform: uppercase; color: ${CS_WINE}; margin-bottom: 16px;
+          }
+          .voz2-title {
+            font-family: var(--font-serif); font-weight: 400; color: ${CS_BLACK};
+            font-size: clamp(38px,5.6vw,78px); line-height: .98; letter-spacing: -0.015em;
+          }
+          .voz2-title-em { font-family: var(--font-serif); font-style: italic; color: ${CS_WINE}; }
+          .voz2-allbtn {
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 14px 26px; border: 1px solid ${CS_GOLD}; border-radius: 3px;
+            font-family: var(--font-sans, system-ui); font-size: 13px; font-weight: 600;
+            letter-spacing: .02em; color: ${CS_CHARCOAL}; text-decoration: none; background: transparent;
+            transition: background .25s var(--ease), color .25s var(--ease), gap .25s var(--ease);
+          }
+          .voz2-allbtn:hover { background: ${CS_CHARCOAL}; color: #fff; gap: 14px; }
+          .voz2-allbtn:focus-visible { outline: 2px solid ${CS_RED}; outline-offset: 3px; }
+          .voz2-allbtn-arrow { transition: transform .25s var(--ease); }
+          .voz2-allbtn:hover .voz2-allbtn-arrow { transform: translateX(4px); }
+
+          .voz2-rule { display: flex; align-items: center; gap: 14px; margin-bottom: clamp(34px,4vw,56px); }
+          .voz2-rule-line { height: 1px; flex: 1; background: linear-gradient(90deg, rgba(199,164,92,0), ${CS_GOLD}, rgba(199,164,92,0)); }
+          .voz2-diamond { width: 6px; height: 6px; flex-shrink: 0; background: ${CS_GOLD}; transform: rotate(45deg); }
+
+          .voz2-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(20px,2.2vw,30px); }
+          .voz2-card {
+            position: relative; display: flex; flex-direction: column; text-decoration: none;
+            flex: 0 1 calc((100% - 2 * clamp(20px,2.2vw,30px)) / 3);
+            max-width: calc((100% - 2 * clamp(20px,2.2vw,30px)) / 3);
+            background: #FBFAF7; border: 1px solid ${CS_BORDER}; border-radius: 6px; overflow: hidden;
+            box-shadow: 0 1px 2px rgba(20,20,20,.03);
+            transition: transform .4s var(--ease), border-color .4s var(--ease), box-shadow .4s var(--ease);
+          }
+          .voz2-card:hover { transform: translateY(-5px); border-color: ${CS_GOLD}; box-shadow: 0 20px 48px rgba(20,20,20,.12); }
+          .voz2-card:focus-visible { outline: 2px solid ${CS_RED}; outline-offset: 3px; }
+
+          .voz2-thumb { position: relative; aspect-ratio: 16/9; background: #0d0d0d; overflow: hidden; }
+          .voz2-thumb img { transition: transform .5s var(--ease); }
+          .voz2-card:hover .voz2-thumb img { transform: scale(1.04); }
+          .voz2-thumb-scrim {
+            position: absolute; inset: 0; pointer-events: none;
+            background: linear-gradient(180deg, rgba(8,8,8,.12) 0%, rgba(8,8,8,.02) 40%, rgba(8,8,8,.28) 100%);
+          }
+          .voz2-play {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+            width: 58px; height: 58px; border-radius: 50%; background: ${CS_WINE}; color: #fff;
+            display: grid; place-items: center; box-shadow: 0 10px 30px rgba(0,0,0,.5);
+            border: 2px solid rgba(199,164,92,.5); transition: transform .3s var(--ease), background .3s var(--ease);
+          }
+          .voz2-play svg { margin-left: 2px; }
+          .voz2-card:hover .voz2-play { transform: translate(-50%,-50%) scale(1.08); background: ${CS_RED}; }
+
+          .voz2-body { padding: clamp(20px,2vw,26px) clamp(18px,1.8vw,24px) clamp(20px,2vw,26px); display: flex; flex-direction: column; flex: 1; }
+          .voz2-cat {
+            font-family: var(--font-mono, monospace); font-size: 10.5px; font-weight: 500;
+            letter-spacing: .13em; text-transform: uppercase; color: ${CS_WINE}; margin-bottom: 14px;
+          }
+          .voz2-cardtitle {
+            font-family: var(--font-serif); font-weight: 400; color: ${CS_CHARCOAL};
+            font-size: clamp(19px,1.5vw,23px); line-height: 1.2; letter-spacing: -0.005em; margin-bottom: 12px;
+          }
+          .voz2-desc { font-family: var(--font-sans, system-ui); font-size: 14px; line-height: 1.6; color: ${CS_GRAY}; flex: 1; margin-bottom: 18px; }
+          .voz2-more {
+            display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-sans, system-ui);
+            font-size: 13px; font-weight: 600; color: ${CS_RED};
+          }
+          .voz2-more-arrow { transition: transform .28s var(--ease); }
+          .voz2-card:hover .voz2-more-arrow { transform: translateX(5px); }
+
+          .voz2-foot { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: clamp(40px,5vw,72px); }
+          .voz2-foot-line { height: 1px; width: clamp(60px,18vw,260px); background: linear-gradient(90deg, rgba(199,164,92,0), ${CS_GOLD}); }
+          .voz2-foot-line:last-child { background: linear-gradient(90deg, ${CS_GOLD}, rgba(199,164,92,0)); }
+          .voz2-foot-scale { flex-shrink: 0; opacity: .95; }
+
+          @media (max-width: 1000px) {
+            .voz2-card { flex-basis: calc((100% - clamp(20px,2.2vw,30px)) / 2); max-width: calc((100% - clamp(20px,2.2vw,30px)) / 2); }
+          }
+          @media (max-width: 680px) {
+            .voz2-card { flex-basis: 100%; max-width: 100%; }
+            .voz2-arch { width: 60%; opacity: .04; }
+            .voz2-monogram { font-size: 260px; opacity: .03; }
+            .voz2-head { align-items: flex-start; }
+          }
         `}</style>
       </section>
 
