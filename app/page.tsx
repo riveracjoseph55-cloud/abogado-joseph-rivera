@@ -1009,10 +1009,15 @@ export default function Home() {
           .voz2-diamond { width: 6px; height: 6px; flex-shrink: 0; background: ${CS_GOLD}; transform: rotate(45deg); }
 
           .voz2-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(20px,2.2vw,30px); }
-          .voz2-card {
-            position: relative; display: flex; flex-direction: column; text-decoration: none;
+          /* El hijo directo del flex es el wrapper <Reveal> (.rc-reveal); a él le toca el ancho */
+          .voz2-grid > * {
             flex: 0 1 calc((100% - 2 * clamp(20px,2.2vw,30px)) / 3);
             max-width: calc((100% - 2 * clamp(20px,2.2vw,30px)) / 3);
+            min-width: 0; display: flex;
+          }
+          .voz2-card {
+            position: relative; display: flex; flex-direction: column; text-decoration: none;
+            width: 100%;
             background: #FBFAF7; border: 1px solid ${CS_BORDER}; border-radius: 6px; overflow: hidden;
             box-shadow: 0 1px 2px rgba(20,20,20,.03);
             transition: transform .4s var(--ease), border-color .4s var(--ease), box-shadow .4s var(--ease);
@@ -1059,10 +1064,10 @@ export default function Home() {
           .voz2-foot-scale { flex-shrink: 0; opacity: .95; }
 
           @media (max-width: 1000px) {
-            .voz2-card { flex-basis: calc((100% - clamp(20px,2.2vw,30px)) / 2); max-width: calc((100% - clamp(20px,2.2vw,30px)) / 2); }
+            .voz2-grid > * { flex-basis: calc((100% - clamp(20px,2.2vw,30px)) / 2); max-width: calc((100% - clamp(20px,2.2vw,30px)) / 2); }
           }
           @media (max-width: 680px) {
-            .voz2-card { flex-basis: 100%; max-width: 100%; }
+            .voz2-grid > * { flex-basis: 100%; max-width: 100%; }
             .voz2-arch { width: 60%; opacity: .04; }
             .voz2-monogram { font-size: 260px; opacity: .03; }
             .voz2-head { align-items: flex-start; }
