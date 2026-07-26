@@ -10,7 +10,13 @@ const R = "#7e0102";
  * portada (degradado rojo + monograma "R" + acentos dorados). Reutilizable en
  * varias páginas para mantener una sola fuente de verdad del cierre.
  */
-export default function FinalCTA({ eyebrow = "Hablemos" }: { eyebrow?: string }) {
+type Props = {
+  eyebrow?: string;
+  /** Párrafo de apoyo. Por defecto el de portada; las páginas de caso pueden pasar un texto de contexto. */
+  lead?: string;
+};
+
+export default function FinalCTA({ eyebrow = "Hablemos", lead }: Props) {
   return (
     <section>
       <PremiumPanel bottomRule paddingY="clamp(80px,11vw,160px)">
@@ -27,8 +33,7 @@ export default function FinalCTA({ eyebrow = "Hablemos" }: { eyebrow?: string })
               ¿Necesita representación <em className="rc-em" style={{ color: R, opacity: 1 }}>legal</em>?
             </h2>
             <p className="rc-lede" style={{ color: "rgba(255,255,255,.6)" }}>
-              Disponibles 24/7 para atender su consulta con discreción y profesionalismo.
-              Cada caso merece atención especializada.
+              {lead ?? "Disponibles 24/7 para atender su consulta con discreción y profesionalismo. Cada caso merece atención especializada."}
             </p>
           </Reveal>
           <Reveal delay={160}>
