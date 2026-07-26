@@ -1104,6 +1104,9 @@ export const RC_DOCENCIA = [
   "Universidad de San José",
 ];
 
+// Participación en medios y publicaciones (datos del currículo oficial)
+export const RC_MEDIOS = ["Tigo Sports", "Sinart Canal 13", "El Guardián CR", "Acontecer.co.cr"];
+
 // ── Comunicados de Prensa ──────────────────────────────────────
 // Cada entrada es un comunicado oficial del bufete enviado a medios.
 // Para agregar uno nuevo: copiar el bloque de ejemplo y cambiar los campos.
