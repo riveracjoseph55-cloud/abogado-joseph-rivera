@@ -1134,7 +1134,7 @@ export default function Home() {
             </Reveal>
           </div>
 
-          <AreasExplorer />
+          <AreasExplorer variant="homepage" />
         </div>
       </section>
 

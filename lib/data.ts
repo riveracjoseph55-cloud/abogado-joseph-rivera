@@ -492,7 +492,7 @@ export const RC_DOCTRINA = {
 
 export const RC_AREAS = [
   {
-    n: "01", slug: "derecho-penal",
+    n: "01", slug: "derecho-penal", icon: "scale", image: "/images/especialidades/derecho-penal.webp",
     t: "Derecho Penal y Delitos Complejos",
     pre: "Derecho Penal y ", em: "Delitos Complejos", post: "",
     d: "**Homicidios**, femicidios, **delitos sexuales**, estafas, narcotráfico, extorsión, **delincuencia organizada** y asociaciones ilícitas.",
@@ -510,7 +510,7 @@ export const RC_AREAS = [
     ],
   },
   {
-    n: "02", slug: "compliance-forense",
+    n: "02", slug: "compliance-forense", icon: "shield", image: "/images/especialidades/compliance-forense.webp",
     t: "Compliance Forense y Delitos Financieros",
     pre: "Compliance Forense y ", em: "Delitos Financieros", post: "",
     d: "Aplicación de técnicas de **compliance**, prevención del blanqueo y **análisis forense financiero** para resolver no solo casos económicos sino también crímenes de sangre complejos — como el rastreo post-mortem de transacciones que sustentó la **condena de 50 años en el caso Nadia Peraza**.",
@@ -528,7 +528,7 @@ export const RC_AREAS = [
     ],
   },
   {
-    n: "03", slug: "derecho-corporativo",
+    n: "03", slug: "derecho-corporativo", icon: "building", image: "/images/especialidades/derecho-corporativo.webp",
     t: "Derecho Corporativo y Empresarial",
     pre: "Derecho Corporativo y ", em: "Empresarial", post: "",
     d: "Constitución de **sociedades**, fusiones, adquisiciones, **fideicomisos** y optimización de estructuras corporativas.",
@@ -545,7 +545,7 @@ export const RC_AREAS = [
     ],
   },
   {
-    n: "04", slug: "derecho-laboral",
+    n: "04", slug: "derecho-laboral", icon: "people", image: "/images/especialidades/derecho-laboral.webp",
     t: "Derecho Laboral",
     pre: "Derecho ", em: "Laboral", post: "",
     d: "Defensa en **despidos injustificados**, conciliaciones y conflictos laborales del sector privado.",
@@ -562,7 +562,7 @@ export const RC_AREAS = [
     ],
   },
   {
-    n: "05", slug: "derecho-notarial",
+    n: "05", slug: "derecho-notarial", icon: "pen", image: "/images/especialidades/derecho-notarial.webp",
     t: "Derecho Notarial y Registral",
     pre: "Derecho Notarial y ", em: "Registral", post: "",
     d: "Servicios notariales y registrales: **escrituras**, testamentos e inscripción de actos en **registros públicos**.",
@@ -579,7 +579,7 @@ export const RC_AREAS = [
     ],
   },
   {
-    n: "06", slug: "asesoria-internacional",
+    n: "06", slug: "asesoria-internacional", icon: "globe", image: "/images/especialidades/asesoria-internacional.webp",
     t: "Asesoría Estratégica Internacional",
     pre: "Asesoría Estratégica ", em: "Internacional", post: "",
     d: "Estrategia legal frente a **terrorismo**, subversión y **crimen organizado** a nivel nacional e internacional. Cooperación con agencias de seguridad (**FBI · 2018**) y litigio de **derechos humanos ante la OEA** contra regímenes autoritarios.",
@@ -596,7 +596,7 @@ export const RC_AREAS = [
     ],
   },
   {
-    n: "07", slug: "casacion-penal",
+    n: "07", slug: "casacion-penal", icon: "temple", image: "/images/especialidades/casacion-penal.webp",
     t: "Casación Penal · Sala Tercera",
     pre: "Casación Penal · ", em: "Sala Tercera", post: "",
     d: "Defensa técnica de sentencias condenatorias en sede recursiva ante la **Sala Tercera de la Corte Suprema de Justicia**. Rechazo sistemático de pretensiones de nulidad e inadmisión de recursos por **defectos formales**.",
