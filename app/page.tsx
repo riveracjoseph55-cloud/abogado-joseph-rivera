@@ -8,7 +8,8 @@ import SchemaOrg from "@/components/SchemaOrg";
 import PremiumPanel from "@/components/PremiumPanel";
 import FinalCTA from "@/components/FinalCTA";
 import JosephRiveraFaqSection from "@/components/JosephRiveraFaqSection";
-import { WA, RC_CASES, RC_PRESS, RC_ENTREVISTAS } from "@/lib/data";
+import LegalContentSection from "@/components/LegalContentSection";
+import { WA, RC_CASES, RC_ENTREVISTAS } from "@/lib/data";
 import AreasExplorer from "@/components/AreasExplorer";
 import { SITE_URL, SITE_NAME, OG_IMAGE, schemaLegalService, schemaAttorney } from "@/lib/seo";
 
@@ -44,7 +45,6 @@ export const metadata: Metadata = {
   ],
 };
 
-const R = "#7e0102";
 const GOLD = "#c9a86a";
 
 function PeopleIcon() {
@@ -1117,50 +1117,7 @@ export default function Home() {
       </section>
 
       {/* ── PRENSA ── */}
-      <section style={{ background: "var(--paper-2)", padding: "var(--pad-y) 0" }}>
-        <div className="rc-wrap">
-          <div style={{
-            display: "flex", alignItems: "flex-end", justifyContent: "space-between",
-            gap: 24, flexWrap: "wrap", marginBottom: "clamp(40px,5vw,72px)",
-          }}>
-            <div>
-              <div className="rc-eyebrow" style={{ marginBottom: 16 }}>03 / 04 · Prensa &amp; opinión</div>
-              <Reveal><h2 className="rc-h2">Contenido <em className="rc-em">Jurídico</em></h2></Reveal>
-            </div>
-            <Reveal delay={120}>
-              <Link href="/prensa" className="rc-btn ghost">Ver todos →</Link>
-            </Reveal>
-          </div>
-
-          <div style={{
-            display: "grid", gap: "var(--gut)", gridTemplateColumns: "repeat(3,1fr)",
-          }} className="press-grid">
-            {RC_PRESS.slice(0, 3).map((p, i) => (
-              <Reveal key={p.t} delay={i * 80}>
-                <a href={p.u} target="_blank" rel="noopener" className="rc-card" style={{
-                  display: "flex", flexDirection: "column", padding: 28, height: "100%",
-                }}>
-                  <div style={{
-                    display: "flex", justifyContent: "space-between",
-                    marginBottom: 24,
-                    fontFamily: "var(--font-mono, monospace)", fontSize: 11,
-                    letterSpacing: ".12em", textTransform: "uppercase",
-                  }}>
-                    <span style={{ color: R }}>{p.medio}</span>
-                    <span style={{ color: "var(--fg-5)" }}>{p.year}</span>
-                  </div>
-                  <h3 className="rc-h3" style={{ flex: 1, marginBottom: 24 }}>{p.t}</h3>
-                  <span style={{ fontSize: 13, fontWeight: 600, color: R }}>Leer artículo →</span>
-                </a>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-        <style>{`
-          @media (max-width: 1100px) { .press-grid { grid-template-columns: repeat(2,1fr) !important; } }
-          @media (max-width: 640px)  { .press-grid { grid-template-columns: 1fr !important; } }
-        `}</style>
-      </section>
+      <LegalContentSection />
 
       {/* ── FAQ ── */}
       <JosephRiveraFaqSection />
