@@ -4,7 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Reveal from "@/components/Reveal";
 import RichText from "@/components/RichText";
-import CTABand from "@/components/CTABand";
+import FinalCTA from "@/components/FinalCTA";
 import SchemaOrg from "@/components/SchemaOrg";
 import { RC_COMUNICADOS, RC_CASES, WA, EMAIL } from "@/lib/data";
 import { SITE_URL, SITE_NAME, OG_IMAGE, AUTHOR, schemaPressRelease, schemaBreadcrumbComunicado } from "@/lib/seo";
@@ -435,7 +435,7 @@ export default async function ComunicadoPage({ params }: Props) {
           </section>
         )}
 
-        <CTABand />
+        <FinalCTA />
       </div>
     </>
   );

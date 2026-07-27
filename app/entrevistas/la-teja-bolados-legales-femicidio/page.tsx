@@ -3,7 +3,7 @@ import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import RichText from "@/components/RichText";
 import SchemaOrg from "@/components/SchemaOrg";
-import CTABand from "@/components/CTABand";
+import FinalCTA from "@/components/FinalCTA";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import LiteFacebookVideo from "@/components/LiteFacebookVideo";
 import {
@@ -389,7 +389,7 @@ export default function EntrevistaLaTejaPage() {
           </div>
         </section>
 
-        <CTABand />
+        <FinalCTA />
       </div>
 
       <style>{`

@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Reveal from "@/components/Reveal";
-import CTABand from "@/components/CTABand";
+import FinalCTA from "@/components/FinalCTA";
 import SchemaOrg from "@/components/SchemaOrg";
 import RichText from "@/components/RichText";
 import { RC_AREAS, RC_AREAS_SEO, RC_CASES, WA } from "@/lib/data";
@@ -624,7 +624,7 @@ export default async function AreaPage({ params }: Props) {
           </div>
         </section>
 
-        <CTABand />
+        <FinalCTA />
       </div>
     </>
   );

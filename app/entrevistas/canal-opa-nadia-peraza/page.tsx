@@ -4,7 +4,7 @@ import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import RichText from "@/components/RichText";
 import SchemaOrg from "@/components/SchemaOrg";
-import CTABand from "@/components/CTABand";
+import FinalCTA from "@/components/FinalCTA";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import LiteYouTube from "@/components/LiteYouTube";
 import { WA } from "@/lib/data";
@@ -374,7 +374,7 @@ export default function EntrevistaOpaPage() {
           </div>
         </section>
 
-        <CTABand />
+        <FinalCTA />
       </div>
 
       <style>{`

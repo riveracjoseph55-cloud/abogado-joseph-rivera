@@ -3,7 +3,7 @@ import { useState, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
-import CTABand from "@/components/CTABand";
+import FinalCTA from "@/components/FinalCTA";
 import { RC_PRESS, RC_COMUNICADOS, OUTLET_COLORS, type PressType, type PressEntry } from "@/lib/data";
 
 // Banner full-bleed con foto de Joseph ante prensa
@@ -375,7 +375,7 @@ export default function PrensaClient() {
         </div>
       </section>
 
-      <CTABand />
+      <FinalCTA />
     </div>
   );
 }

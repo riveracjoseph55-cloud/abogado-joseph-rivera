@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
-import CTABand from "@/components/CTABand";
+import FinalCTA from "@/components/FinalCTA";
 import SchemaOrg from "@/components/SchemaOrg";
 import { RC_FORMACION, RC_EXP, RC_DOCENCIA, RC_DOCTRINA } from "@/lib/data";
 import RichText from "@/components/RichText";
@@ -411,7 +411,7 @@ export default function QuienPage() {
         `}</style>
       </section>
 
-      <CTABand />
+      <FinalCTA />
     </div>
     </>
   );

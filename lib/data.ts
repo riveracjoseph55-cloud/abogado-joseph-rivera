@@ -1110,11 +1110,14 @@ export const RC_MEDIOS = ["Tigo Sports", "Sinart Canal 13", "El Guardián CR", "
 // ── Comunicados de Prensa ──────────────────────────────────────
 // Cada entrada es un comunicado oficial del bufete enviado a medios.
 // Para agregar uno nuevo: copiar el bloque de ejemplo y cambiar los campos.
+export type ComunicadoCategory = "Comunicado oficial" | "Resolución judicial" | "Pronunciamiento" | "Actualización procesal";
+
 export type ComunicadoEntry = {
   slug:         string;     // URL: /comunicados/[slug]
   title:        string;     // Titular (H1 en la página)
   seoTitle?:    string;     // Título meta corto ~55 chars (si omitido se usa title)
   date:         string;     // YYYY-MM-DD
+  category:     ComunicadoCategory; // clasificación real del tipo de comunicado
   summary:      string;     // 1-2 líneas para tarjetas
   metaDesc?:    string;     // Meta description ~155 chars (si omitido se usa summary)
   body:         string[];   // Párrafos del texto completo
@@ -1132,6 +1135,7 @@ export const RC_COMUNICADOS: ComunicadoEntry[] = [
     title: "Bufete Rivera Cheves obtiene condena histórica de 50 años en caso Nadia Peraza",
     seoTitle: "Condena 50 Años — Caso Nadia Peraza | Femicidio Costa Rica 2026",
     date: "2026-03-20",
+    category: "Resolución judicial",
     summary: "El Tribunal Penal de Heredia dictó sentencia de 79 años por concurso material, readecuados al máximo legal de 50 años de cárcel efectiva contra Jeremy Buzano Paisano por el femicidio de Nadia Peraza Espinoza.",
     metaDesc: "Condena histórica de 50 años (máximo legal) contra Jeremy Buzano por el femicidio de Nadia Peraza Espinoza. El bufete Rivera Cheves logra la pena nominal de 79 años en Costa Rica.",
     keywords: [
@@ -1165,6 +1169,7 @@ export const RC_COMUNICADOS: ComunicadoEntry[] = [
     title: "Régimen nicaragüense bloquea el ingreso del Lic. Rivera Cheves en caso Junieysis Merlo",
     seoTitle: "Nicaragua Bloquea Abogado CR — Caso Junieysis Merlo | Rivera Cheves",
     date: "2026-04-25",
+    category: "Pronunciamiento",
     summary: "Las autoridades migratorias de Nicaragua impidieron la entrada al territorio del Lic. Rivera Cheves, quien representaba a la familia de Junieysis Merlo Espinoza en gestiones de custodia de menores.",
     metaDesc: "Nicaragua bloqueó el ingreso del Lic. Joseph Rivera Cheves, quien representaba a la familia de Junieysis Merlo. El bufete evalúa denuncia ante la CIDH-OEA.",
     keywords: [
@@ -1194,6 +1199,7 @@ export const RC_COMUNICADOS: ComunicadoEntry[] = [
     title: "Apertura de celulares en caso Junieysis Merlo: imputado no se presentó a la diligencia",
     seoTitle: "Apertura de Celulares — Caso Junieysis Merlo | OIJ Forense 2026",
     date: "2026-05-28",
+    category: "Actualización procesal",
     summary: "Este miércoles se realizó la diligencia de apertura de los teléfonos celulares en el caso Junieysis Merlo. El imputado no se presentó y su defensor abandonó el procedimiento a los cinco minutos.",
     metaDesc: "Apertura de celulares en caso Junieysis Merlo: el imputado no se presentó y el defensor se retiró a los 5 minutos. Expertos del OIJ realizarán el respaldo forense.",
     keywords: [
@@ -1228,6 +1234,7 @@ export const RC_COMUNICADOS: ComunicadoEntry[] = [
     title: "Tribunal de Apelación señala Vista Oral en el caso del femicidio de Nadia Peraza",
     seoTitle: "Apelación Caso Nadia Peraza — Vista Oral 15 Julio 2026",
     date: "2026-06-09",
+    category: "Actualización procesal",
     summary: "El proceso por el femicidio de Nadia Peraza llega a una nueva etapa: el 15 de julio de 2026 se celebrará la Vista Oral de apelación ante el Tribunal de San Ramón, donde el Msc. Joseph Rivera Cheves defenderá la condena de 79 años.",
     metaDesc: "El Tribunal de Apelación fijó Vista Oral el 15 de julio de 2026 en el caso del femicidio de Nadia Peraza. El Msc. Joseph Rivera Cheves defenderá la condena.",
     keywords: [
@@ -1275,6 +1282,7 @@ export const RC_COMUNICADOS: ComunicadoEntry[] = [
     title: "«El Caníbal de la Refrigeradora»: el nuevo libro del abogado Joseph Rivera",
     seoTitle: "«El Caníbal de la Refrigeradora» — Libro de Joseph Rivera",
     date: "2026-06-09",
+    category: "Comunicado oficial",
     summary: "El abogado penalista Joseph Rivera anuncia «El Caníbal de la Refrigeradora», un libro que documenta uno de los femicidios más atroces de Costa Rica. Parte de las ganancias será para la hija de la ofendida.",
     metaDesc: "Joseph Rivera anuncia «El Caníbal de la Refrigeradora», su libro sobre un femicidio en Costa Rica. Parte de las ganancias será para la hija de la ofendida.",
     keywords: [
@@ -1304,6 +1312,7 @@ export const RC_COMUNICADOS: ComunicadoEntry[] = [
     title: "Gestión del Lic. Joseph Rivera logra que las hijas de Junieysis Merlo queden al cuidado de su familia materna",
     seoTitle: "Hijas de Junieysis Merlo al Cuidado de su Familia Materna",
     date: "2026-06-26",
+    category: "Resolución judicial",
     summary: "El Lic. Joseph Rivera, del bufete Rivera Cheves & Asociados, logró que las hijas de Junieysis Merlo queden al cuidado de su familia materna y viajen a Nicaragua junto a su abuela, doña Vilma, y sus tíos maternos.",
     metaDesc: "Gracias a la gestión del Lic. Joseph Rivera, las hijas de Junieysis Merlo quedan al cuidado de su familia materna y viajan a Nicaragua con su abuela y tíos.",
     keywords: [
