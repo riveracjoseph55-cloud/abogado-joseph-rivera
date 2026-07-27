@@ -1115,19 +1115,34 @@ export type ComunicadoCategory = "Comunicado oficial" | "Resolución judicial" |
 export type ComunicadoEntry = {
   slug:         string;     // URL: /comunicados/[slug]
   title:        string;     // Titular (H1 en la página)
+  // Segmentación editorial opcional del titular (para resaltar un fragmento en vino/cursiva).
+  // Solo se usa si el contenido la define explícitamente — nunca se infiere automáticamente.
+  titleSegments?: { text: string; emphasis?: boolean }[];
   seoTitle?:    string;     // Título meta corto ~55 chars (si omitido se usa title)
   date:         string;     // YYYY-MM-DD
+  updatedAt?:   string;     // YYYY-MM-DD, solo si el comunicado tuvo una corrección/actualización real
   category:     ComunicadoCategory; // clasificación real del tipo de comunicado
   summary:      string;     // 1-2 líneas para tarjetas
   metaDesc?:    string;     // Meta description ~155 chars (si omitido se usa summary)
   body:         string[];   // Párrafos del texto completo
+  // Declaraciones textuales reales ya atribuidas dentro del cuerpo (no se inventan citas).
+  quotes?:      { text: string; author?: string; role?: string }[];
+  // Extractos editoriales verbatim del cuerpo, para un bloque destacado — solo si existen.
+  highlights?:  string[];
   tags?:        string[];   // Etiquetas de contenido
   keywords?:    string[];   // Keywords SEO específicas del comunicado
   relatedCase?: string;     // slug de RC_CASES
   area?:        string;     // slug de RC_AREAS
   image?:       string;     // ruta en /public, e.g. /images/comunicados/foto.jpg
+  imageCaption?: string;    // pie de foto real, solo si existe
+  imagePosition?: string;   // CSS object-position, por defecto "center"
   audio?:       string;     // ruta en /public, e.g. /audio/comunicados/nota.ogg
+  // Contacto de prensa específico de este comunicado (si existe uno real distinto del institucional).
+  mediaContact?: { name: string; role?: string; phone?: string; email?: string };
 };
+
+// Contacto de prensa institucional real — encargado de comunicados del bufete.
+export const RC_PRENSA_CONTACT = { name: "Carlos Valencia", role: "Colegiado N.º 5414", phone: "6176-2496" };
 
 export const RC_COMUNICADOS: ComunicadoEntry[] = [
   {
@@ -1160,6 +1175,9 @@ export const RC_COMUNICADOS: ComunicadoEntry[] = [
       "El Lic. Joseph Alfonso Rivera Cheves, director del bufete y querellante privado en representación de Marilyn Espinoza, madre de la víctima, manifestó: «La clave de esta sentencia estuvo en ampliar la plataforma fáctica más allá del femicidio básico. Mediante compliance forense acreditamos cómo Buzano usó el teléfono y las tarjetas de Nadia para suplantar su identidad y costear fiestas personales mientras su cuerpo permanecía oculto. Eso elevó la pena de 35 a 79 años nominales. Por Nadia, por su hija, por todas».",
       "El bufete Rivera Cheves & Asociados agradece la confianza depositada por la familia Espinoza durante dos años de proceso y reafirma su compromiso con la representación de víctimas en los casos de mayor complejidad técnica en Costa Rica. Para consultas de prensa, comunicarse al correo jriveracheves@gmail.com o al WhatsApp +506 8998-0112.",
     ],
+    quotes: [
+      { text: "La clave de esta sentencia estuvo en ampliar la plataforma fáctica más allá del femicidio básico. Mediante compliance forense acreditamos cómo Buzano usó el teléfono y las tarjetas de Nadia para suplantar su identidad y costear fiestas personales mientras su cuerpo permanecía oculto. Eso elevó la pena de 35 a 79 años nominales. Por Nadia, por su hija, por todas.", author: "Lic. Joseph Alfonso Rivera Cheves", role: "Director del bufete y querellante privado" },
+    ],
     tags: ["femicidio", "condena", "nadia-peraza", "pena-maxima", "compliance-forense"],
     relatedCase: "nadia-peraza",
     area: "derecho-penal",
@@ -1190,6 +1208,9 @@ export const RC_COMUNICADOS: ComunicadoEntry[] = [
       "El Lic. Rivera Cheves fue retenido en el puesto migratorio durante varias horas y finalmente deportado sin que se le indicara fundamento legal alguno para la medida. Fuentes consultadas señalan que el régimen Ortega-Murillo habría ordenado la exclusión del jurista costarricense, a quien calificaron internamente como un operativo de inteligencia extranjera.",
       "«Resulta sintomático que el régimen tema más a un abogado de familia que a la propia verdad judicial. No impiden mi ingreso por razones migratorias — me impiden porque saben que la familia tiene derechos y que vamos a hacerlos valer», declaró el Lic. Rivera Cheves al regresar a Costa Rica.",
       "El bufete analiza las opciones legales disponibles en sede internacional, incluyendo una eventual denuncia ante la Comisión Interamericana de Derechos Humanos (CIDH-OEA), y continuará representando a la familia en todas las instancias accesibles. Para consultas de prensa: jriveracheves@gmail.com · +506 8998-0112.",
+    ],
+    quotes: [
+      { text: "Resulta sintomático que el régimen tema más a un abogado de familia que a la propia verdad judicial. No impiden mi ingreso por razones migratorias — me impiden porque saben que la familia tiene derechos y que vamos a hacerlos valer.", author: "Lic. Joseph Rivera Cheves" },
     ],
     tags: ["nicaragua", "junieysis-merlo", "derechos-humanos", "cidh", "asesoria-internacional"],
     area: "asesoria-internacional",
@@ -1222,6 +1243,9 @@ export const RC_COMUNICADOS: ComunicadoEntry[] = [
       "Un hecho relevante durante la actuación fue la ausencia del imputado, quien decidió no presentarse a la diligencia. Adicionalmente, el abogado defensor únicamente permaneció cinco minutos en el procedimiento antes de retirarse.",
       "Conforme lo explicó el licenciado Rivera, los expertos en informática forense del Poder Judicial procederán a realizar un respaldo de la totalidad de la información contenida en los dispositivos móviles de la ofendida y del imputado. Posteriormente, se levantará un acta pericial que determinará con precisión qué información fue sustraída de dichos teléfonos, dato que podría resultar determinante para el avance de la investigación.",
       "«Estamos a la espera de que el proceso continúe y de que los expertos en informática forense realicen el respaldo de la información y, posteriormente, el acta para determinar qué fue lo que se sustrajo en los teléfonos celulares de la ofendida y del imputado», manifestó el licenciado Rivera.",
+    ],
+    quotes: [
+      { text: "Estamos a la espera de que el proceso continúe y de que los expertos en informática forense realicen el respaldo de la información y, posteriormente, el acta para determinar qué fue lo que se sustrajo en los teléfonos celulares de la ofendida y del imputado.", author: "Lic. Joseph Rivera Cheves" },
     ],
     tags: ["junieysis-merlo", "apertura-celulares", "oij", "informatica-forense", "femicidio"],
     relatedCase: "junieysis-merlo",
@@ -1271,10 +1295,13 @@ export const RC_COMUNICADOS: ComunicadoEntry[] = [
       "**Sede** — Sala de Audiencias N.° 3, segundo piso, Tribunales de Justicia de San Ramón, Alajuela.",
       "**Tribunal** — Tribunal de Apelación de Sentencia, Tercer Circuito Judicial de Alajuela, Sección Segunda.",
       "**Representación de la familia** — Msc. Joseph Alfonso Rivera Cheves, Abogado Director de la Querella y Acción Civil.",
-      "Contacto de prensa: Carlos Valencia · Colegiado N.º 5414 · www.abogadojosephrivera.com",
+    ],
+    quotes: [
+      { text: "La sentencia de 79 años dictada en marzo fue una victoria importante, pero el proceso continúa. La defensa del condenado ha interpuesto recurso de apelación, y estaremos presentes en esta Vista Oral para defender la condena en todos sus extremos. Seguimos en los tribunales, como lo hemos hecho desde el primer día, hasta que se haga justicia plena.", author: "Msc. Joseph Rivera Cheves", role: "Abogado Director de la Querella y Acción Civil" },
     ],
     tags: ["femicidio", "apelacion", "nadia-peraza", "vista-oral", "ley-nadia"],
     relatedCase: "nadia-peraza",
+    mediaContact: RC_PRENSA_CONTACT,
     area: "derecho-penal",
   },
   {
@@ -1302,10 +1329,13 @@ export const RC_COMUNICADOS: ComunicadoEntry[] = [
       "**Parte de las ganancias serán para la hija de la ofendida**",
       "El abogado Joseph Rivera anuncia con especial énfasis que **una parte de las ganancias** generadas por la venta del libro será destinada directamente a **la hija de la ofendida**, ante las dificultades económicas que atraviesa su familia.",
       "La pequeña, que apenas tenía **dos años** al momento de los hechos, quedó al cuidado de su familia tras la pérdida de su madre. Con esta iniciativa, la obra no solo busca **preservar la memoria de la ofendida** y visibilizar la violencia contra las mujeres en Costa Rica, sino también **brindar un apoyo concreto y tangible** a quien más sufrió esta tragedia: su hija.",
-      "Contacto de prensa: Carlos Valencia · Teléfono: 6176-2496.",
+    ],
+    quotes: [
+      { text: "Esto es por ella, por su hija y por su mamá. Por ella y por todas las que murieron a manos de un hombre. Seguimos buscando justicia.", author: "Joseph Rivera", role: "Autor del libro" },
     ],
     tags: ["libro", "el-canibal-de-la-refrigeradora", "femicidio", "joseph-rivera"],
     area: "derecho-penal",
+    mediaContact: RC_PRENSA_CONTACT,
   },
   {
     slug: "hijas-junieysis-merlo-cuidado-familia-materna",
@@ -1329,16 +1359,19 @@ export const RC_COMUNICADOS: ComunicadoEntry[] = [
     ],
     body: [
       "El licenciado **Joseph Rivera**, del bufete **Rivera Cheves & Asociados**, en representación de la familia Merlo, concretó que las hijas de **Junieysis Merlo** permanezcan bajo el cuidado de su familia y viajen a Nicaragua junto a su abuela y sus tíos maternos.",
-      "Como resultado de la gestión legal encabezada por el Lic. Joseph Rivera, y tras un trabajo sostenido de acompañamiento a la familia y de articulación con las autoridades costarricenses, se logró que las menores viajen a Nicaragua en compañía de **doña Vilma, abuela materna** de las niñas, y de sus tíos maternos, asegurando que **crezcan en el seno de su familia y en su país de origen**.",
+      "Como resultado de la gestión legal encabezada por el Lic. Joseph Rivera, y tras un trabajo sostenido de acompañamiento a la familia y de articulación con las autoridades costarricenses, se logró que **++las menores viajen a Nicaragua en compañía de doña Vilma, abuela materna de las niñas, y de sus tíos maternos, asegurando que crezcan en el seno de su familia y en su país de origen++**.",
       "Desde que asumió la representación de la familia Merlo, el Lic. Rivera dio seguimiento paso a paso al caso, gestionando ante las instituciones competentes y velando por que prevaleciera el **interés superior de las niñas**. Este resultado es producto de ese acompañamiento legal constante y del compromiso del bufete con la justicia para las víctimas y sus familias.",
       "«Nos sentimos muy contentos, porque se logró el cometido. Las hijas de Junieysis viajarán a Nicaragua con doña Vilma, su abuela, y sus tíos maternos», expresó el Lic. Joseph Rivera. «Hemos puesto un granito de arena, y agradecemos de corazón al Gobierno de Costa Rica y a todas las instituciones que acompañaron a esta familia. Seguimos trabajando por la justicia que merecen las mujeres. **Ni una menos. Vamos a hacer justicia por Junieysis Merlo**».",
       "La familia Merlo, por su parte, expresó su profundo agradecimiento al Lic. Rivera por la representación brindada. «Nuestro licenciado ha estado con nosotros paso a paso y nos ha apoyado de gran manera», manifestó **doña Vilma, madre de Junieysis**. Por su parte, **Wilder Merlo, hermano de Junieysis**, agregó: «Le agradecemos muchísimo todo lo que ha hecho por nosotros; ha aportado su granito de arena para ayudarnos y vamos con el corazón agradecido».",
       "El bufete **Rivera Cheves & Asociados** reafirma su compromiso con la defensa de las víctimas y sus familias, y continuará dando seguimiento a la causa por el **femicidio de Junieysis Merlo** hasta que se alcance justicia.",
-      "Contacto de prensa: Carlos Valencia · Colegiado 5414 · Tel. 6176-2496 · abogadojosephrivera.com",
+    ],
+    quotes: [
+      { text: "Nos sentimos muy contentos, porque se logró el cometido. Las hijas de Junieysis viajarán a Nicaragua con doña Vilma, su abuela, y sus tíos maternos.", author: "Lic. Joseph Rivera Cheves" },
     ],
     tags: ["junieysis-merlo", "custodia", "menores", "nicaragua", "femicidio"],
     relatedCase: "junieysis-merlo",
     area: "derecho-penal",
     image: "/images/comunicados/hijas-junieysis-merlo-familia.jpg",
+    mediaContact: RC_PRENSA_CONTACT,
   },
 ];

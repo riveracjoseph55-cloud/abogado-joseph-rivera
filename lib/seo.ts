@@ -239,6 +239,8 @@ export function schemaPressRelease(pr: {
   summary:    string;
   body:       string;
   date:       string;
+  updatedAt?: string;
+  category?:  string;
   tags?:      string[];
   keywords?:  string[];
   image?:     string;   // ruta relativa en /public
@@ -247,21 +249,23 @@ export function schemaPressRelease(pr: {
   const url       = `${SITE_URL}/comunicados/${pr.slug}`;
   const imageUrl  = pr.image ? `${SITE_URL}${pr.image}` : OG_IMAGE;
   const allKw     = [...(pr.tags ?? []), ...(pr.keywords ?? [])];
-  const wordCount = pr.body.split(/\s+/).filter(Boolean).length;
+  // Datos estructurados: texto plano, sin los marcadores editoriales **negrita**/++subrayado++.
+  const plainBody = pr.body.replace(/\+\+(.+?)\+\+/g, "$1").replace(/\*\*(.+?)\*\*/g, "$1");
+  const wordCount = plainBody.split(/\s+/).filter(Boolean).length;
   return {
     "@context": "https://schema.org",
     "@type": "NewsArticle",
     "@id": url,
     headline:       pr.title,
     description:    pr.summary,
-    articleBody:    pr.body,
+    articleBody:    plainBody,
     wordCount,
     datePublished:  pr.date,
-    dateModified:   pr.date,
+    dateModified:   pr.updatedAt ?? pr.date,
     url,
     inLanguage:     "es-CR",
     genre:          "press release",
-    articleSection: pr.area ?? "Derecho Penal",
+    articleSection: pr.category ?? pr.area ?? "Derecho Penal",
     image: {
       "@type":  "ImageObject",
       url:      imageUrl,
