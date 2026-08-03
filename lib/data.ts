@@ -1396,6 +1396,7 @@ export const RC_COMUNICADOS: ComunicadoEntry[] = [
     title: "Bufete Rivera Cheves logra condena civil de ₡50 millones contra la Universidad Iberoamericana (UNIBE)",
     seoTitle: "Condena Civil UNIBE — ₡50 Millones a Estudiantes | CR",
     date: "2022-02-25",
+    category: "Resolución judicial",
     summary: "El Tribunal Penal del Segundo Circuito Judicial de Goicoechea condenó civilmente a la Universidad Iberoamericana (UNIBE) al pago de cerca de ₡50 millones de colones a favor de 27 estudiantes de las carreras técnicas de asistente en microbiología y laboratorio clínico, nunca reconocidas por el colegio profesional respectivo.",
     metaDesc: "El Lic. Joseph Rivera Cheves logra condena civil contra la Universidad Iberoamericana (UNIBE): cerca de ₡50 millones de colones a favor de 27 estudiantes afectados.",
     keywords: [
@@ -1417,9 +1418,12 @@ export const RC_COMUNICADOS: ComunicadoEntry[] = [
       "«Es lamentable que por una falta de técnica jurídica los absolvieran en lo penal, pero gracias a Dios en la parte civil sí se logró esa condena, en una forma muy asertiva de parte del tribunal de juicio aquí en Goicoechea», señaló el **Lic. Rivera Cheves**, quien asumió el caso ya en la etapa de juicio, sin haber redactado la querella original.",
       "El abogado también reconoció las dificultades probatorias del proceso: los estudiantes no lograron aportar certificaciones de algún laboratorio que acreditaran la pérdida concreta de expectativas laborales durante un plazo determinado, lo que —a su juicio— convirtió la litigación en un proceso **«totalmente maratónico»**.",
       "El caso deja una lección para quienes valoran matricularse en carreras técnicas de instituciones privadas: **verificar previamente** que el programa cuente con el aval del CONESUP o del Consejo Superior de Educación, y que el título habilite efectivamente la incorporación al colegio profesional correspondiente.",
-      "Contacto de prensa: Carlos Valencia · Colegiado 5414 · Tel. 6176-2496 · abogadojosephrivera.com",
+    ],
+    quotes: [
+      { text: "Es lamentable que por una falta de técnica jurídica los absolvieran en lo penal, pero gracias a Dios en la parte civil sí se logró esa condena, en una forma muy asertiva de parte del tribunal de juicio aquí en Goicoechea.", author: "Lic. Joseph Rivera Cheves" },
     ],
     tags: ["unibe", "derecho-civil", "educación", "estafa", "cobertura-nacional"],
     image: "/images/entrevistas/multimedios-unibe-condena-og.jpg",
+    mediaContact: RC_PRENSA_CONTACT,
   },
 ];
