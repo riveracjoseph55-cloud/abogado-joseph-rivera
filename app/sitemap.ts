@@ -155,6 +155,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       images: [`${BASE}/images/entrevistas/la-teja-nadia-peraza-og.jpg`],
       alternates: { languages: { "es-CR": `${BASE}/entrevistas/la-teja-bolados-legales-femicidio` } },
     },
+    {
+      url: `${BASE}/entrevistas/multimedios-unibe-condena-civil`,
+      lastModified: "2022-02-25",
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+      images: [`${BASE}/images/entrevistas/multimedios-unibe-condena-og.jpg`],
+      alternates: { languages: { "es-CR": `${BASE}/entrevistas/multimedios-unibe-condena-civil` } },
+    },
   ];
 
   // Páginas legales excluidas del sitemap (robots: noindex)

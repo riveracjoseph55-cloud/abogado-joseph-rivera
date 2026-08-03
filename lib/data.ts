@@ -1000,6 +1000,15 @@ export const RC_PRESS: PressEntry[] = [
     desc: "Crítica del Lic. Rivera al gasto público de la Asamblea Legislativa en contraste con las necesidades sociales del país.",
   },
 
+  // ── 2022 ─────────────────────────────────────────────────────────
+  {
+    medio: "Multimedios Costa Rica", year: "2022", date: "2022-02-25", type: "entrevista", lang: "es",
+    t: "UNIBE pagará más de ₡50 millones a estudiantes por carreras técnicas no reconocidas",
+    u: "/entrevistas/multimedios-unibe-condena-civil",
+    desc: "El bufete Rivera Cheves logra condena civil contra la Universidad Iberoamericana (UNIBE) a favor de 27 estudiantes de asistencia en microbiología y laboratorio clínico.",
+    image: "/images/entrevistas/multimedios-unibe-condena-og.jpg",
+  },
+
   // ── 2019 / 2018 ────────────────────────────────────────────────
   {
     medio: "Tico Times",    year: "2019", date: "2019-04-29",   type: "reportaje", lang: "en",
@@ -1067,6 +1076,14 @@ export const RC_ENTREVISTAS: EntrevistaEntry[] = [
     desc:  "Christiana Nassar conversa sobre el caso, las fallas del sistema y el libro.",
     date:  "2026-07-06",
     image: "/images/entrevistas/opa-nadia-peraza-og.jpg",
+  },
+  {
+    slug:  "multimedios-unibe-condena-civil",
+    medio: "Multimedios Costa Rica",
+    title: "UNIBE pagará ₡50 millones a estudiantes afectados",
+    desc:  "Condena civil contra la Universidad Iberoamericana por carreras técnicas no reconocidas por el colegio profesional.",
+    date:  "2022-02-25",
+    image: "/images/entrevistas/multimedios-unibe-condena-og.jpg",
   },
 ];
 
@@ -1373,5 +1390,36 @@ export const RC_COMUNICADOS: ComunicadoEntry[] = [
     area: "derecho-penal",
     image: "/images/comunicados/hijas-junieysis-merlo-familia.jpg",
     mediaContact: RC_PRENSA_CONTACT,
+  },
+  {
+    slug: "condena-civil-unibe-estudiantes-microbiologia",
+    title: "Bufete Rivera Cheves logra condena civil de ₡50 millones contra la Universidad Iberoamericana (UNIBE)",
+    seoTitle: "Condena Civil UNIBE — ₡50 Millones a Estudiantes | CR",
+    date: "2022-02-25",
+    summary: "El Tribunal Penal del Segundo Circuito Judicial de Goicoechea condenó civilmente a la Universidad Iberoamericana (UNIBE) al pago de cerca de ₡50 millones de colones a favor de 27 estudiantes de las carreras técnicas de asistente en microbiología y laboratorio clínico, nunca reconocidas por el colegio profesional respectivo.",
+    metaDesc: "El Lic. Joseph Rivera Cheves logra condena civil contra la Universidad Iberoamericana (UNIBE): cerca de ₡50 millones de colones a favor de 27 estudiantes afectados.",
+    keywords: [
+      "condena unibe estudiantes",
+      "universidad iberoamericana demanda costa rica",
+      "caso unibe microbiología",
+      "abogado joseph rivera unibe",
+      "carreras técnicas no reconocidas costa rica",
+      "colegio de microbiólogos y químicos clínicos",
+      "daño moral estudiantes universidad costa rica",
+      "estafa carreras universitarias costa rica",
+      "tribunal penal goicoechea unibe",
+    ],
+    body: [
+      "El bufete **Rivera Cheves & Asociados**, a través del Lic. **Joseph Rivera Cheves**, logró que el **Tribunal Penal del Segundo Circuito Judicial de Goicoechea** condenara a la **Universidad Iberoamericana (UNIBE)** al pago de cerca de **₡50 millones de colones** a favor de 27 exestudiantes de las carreras técnicas de **asistente en microbiología** y **asistente en laboratorio clínico**.",
+      "Los hechos se remontan a **2015**, cuando la institución impartía estas carreras sin que fueran reconocidas ante el **Colegio de Microbiólogos y Químicos Clínicos de Costa Rica**, lo que impidió a los egresados incorporarse al colegio profesional respectivo y ejercer la técnica para la que se habían formado.",
+      "La demanda fue interpuesta originalmente por **29 estudiantes**, de los cuales dos desistieron de declarar durante el proceso. El tribunal ordenó el pago de **₡1 millón de colones por daño moral** a cada uno de los 27 estudiantes restantes, además del reintegro de los **gastos de matrícula** que habían cubierto.",
+      "En sede penal, el tribunal declaró la **absolutoria** de Israel Hernández y Cristian Blanco, representantes de la universidad, por el delito de estafa. El juez **Andrés Saborío** explicó que el tipo penal exige la concurrencia de un engaño —un hecho falso mostrado a los ofendidos, o la deformación de un hecho existente— elemento que, a su criterio, no se configuró en este caso.",
+      "«Es lamentable que por una falta de técnica jurídica los absolvieran en lo penal, pero gracias a Dios en la parte civil sí se logró esa condena, en una forma muy asertiva de parte del tribunal de juicio aquí en Goicoechea», señaló el **Lic. Rivera Cheves**, quien asumió el caso ya en la etapa de juicio, sin haber redactado la querella original.",
+      "El abogado también reconoció las dificultades probatorias del proceso: los estudiantes no lograron aportar certificaciones de algún laboratorio que acreditaran la pérdida concreta de expectativas laborales durante un plazo determinado, lo que —a su juicio— convirtió la litigación en un proceso **«totalmente maratónico»**.",
+      "El caso deja una lección para quienes valoran matricularse en carreras técnicas de instituciones privadas: **verificar previamente** que el programa cuente con el aval del CONESUP o del Consejo Superior de Educación, y que el título habilite efectivamente la incorporación al colegio profesional correspondiente.",
+      "Contacto de prensa: Carlos Valencia · Colegiado 5414 · Tel. 6176-2496 · abogadojosephrivera.com",
+    ],
+    tags: ["unibe", "derecho-civil", "educación", "estafa", "cobertura-nacional"],
+    image: "/images/entrevistas/multimedios-unibe-condena-og.jpg",
   },
 ];
