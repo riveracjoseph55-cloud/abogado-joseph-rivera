@@ -8,6 +8,7 @@ import FinalCTA from "@/components/FinalCTA";
 import Reveal from "@/components/Reveal";
 import InstagramReel from "@/components/InstagramReel";
 import TikTokVideo from "@/components/TikTokVideo";
+import LiteYouTube from "@/components/LiteYouTube";
 import RichText from "@/components/RichText";
 import { RC_CASES, RC_CASES_SEO } from "@/lib/data";
 import { SITE_URL, SITE_NAME, OG_IMAGE, AUTHOR } from "@/lib/seo";
@@ -100,6 +101,8 @@ export default async function CasoDetail({ params }: { params: Promise<{ slug: s
   const url = `${SITE_URL}/casos/${c.slug}`;
   const gallery = (c as { gallery?: { src: string; alt: string; caption: string; sub: string }[] }).gallery ?? [];
   const tiktoks = (c as { tiktokVideos?: string[] }).tiktokVideos ?? [];
+  const youtubeVideo = (c as { youtubeVideo?: { youtubeId: string; title: string; poster?: string; outlet?: string } }).youtubeVideo;
+  const subjectType = (c as { subjectType?: "Person" | "Organization" }).subjectType ?? "Person";
 
   // Navegación entre casos (orden cronológico como en /casos)
   const ordered = [...RC_CASES].sort((a, b) => parseInt(b.year) - parseInt(a.year));
@@ -131,7 +134,7 @@ export default async function CasoDetail({ params }: { params: Promise<{ slug: s
     publisher: { "@type": "Organization", name: SITE_NAME, url: SITE_URL, logo: { "@type": "ImageObject", url: `${SITE_URL}/images/logo.png`, width: 200, height: 200 } },
     keywords: allKeywords,
     locationCreated: { "@type": "Place", name: c.location, address: { "@type": "PostalAddress", addressCountry: "CR" } },
-    about: { "@type": "Person", name: c.name },
+    about: { "@type": subjectType, name: c.name },
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
     inLanguage: "es-CR",
     isAccessibleForFree: true,
@@ -265,6 +268,25 @@ export default async function CasoDetail({ params }: { params: Promise<{ slug: s
                     <div className="cd-tl-text">{t.text}</div>
                   </div>
                 ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* ── VIDEO (autoreproductor YouTube) ── */}
+        {youtubeVideo && (
+          <section className="cd-video">
+            <div className="rc-wrap">
+              <div className="cd-eyebrow" style={{ color: CS_GOLD }}>Cobertura · Video</div>
+              <h2 className="cd-timeline-h" style={{ color: "#f5ede0" }}>El caso en <em className="cd-em" style={{ color: CS_GOLD }}>video</em></h2>
+              <Reveal>
+                <LiteYouTube id={youtubeVideo.youtubeId} title={youtubeVideo.title} poster={youtubeVideo.poster} />
+              </Reveal>
+              <div className="cd-video-meta">
+                {youtubeVideo.outlet && <span className="cd-video-outlet">Video · {youtubeVideo.outlet}</span>}
+                <a href={`https://www.youtube.com/watch?v=${youtubeVideo.youtubeId}`} target="_blank" rel="noopener noreferrer" className="cd-video-link">
+                  Ver en YouTube <span aria-hidden="true">→</span>
+                </a>
               </div>
             </div>
           </section>
@@ -506,6 +528,13 @@ export default async function CasoDetail({ params }: { params: Promise<{ slug: s
         .cd-tl-date { font-family: var(--font-mono, monospace); font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase; color: ${CS_WINE}; margin-bottom: 8px; }
         .cd-tl-label { font-family: var(--font-serif); font-size: clamp(15px,1.2vw,18px); color: ${CS_BLACK}; margin-bottom: 8px; }
         .cd-tl-text { font-family: var(--font-sans, system-ui); font-size: 13px; line-height: 1.55; color: ${CS_GRAY}; }
+
+        /* ── Video (autoreproductor) ── */
+        .cd-video { position: relative; overflow: hidden; background: radial-gradient(900px 500px at 20% 0%, rgba(122,8,8,.22), transparent 60%), linear-gradient(180deg,#141010,#0a0808); padding: clamp(48px,7vw,96px) 0; }
+        .cd-video-meta { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; margin-top: 20px; }
+        .cd-video-outlet { font-family: var(--font-mono, monospace); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: rgba(245,237,224,.55); }
+        .cd-video-link { font-family: var(--font-sans, system-ui); font-size: 13px; font-weight: 600; color: ${CS_GOLD}; text-decoration: none; }
+        .cd-video-link:hover { color: #fff; }
 
         /* ── Galería ── */
         .cd-gallery { background: ${CS_CREAM}; padding: clamp(48px,7vw,100px) 0; }
