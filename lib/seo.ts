@@ -116,7 +116,7 @@ export const schemaAttorney = {
     "Crimen Organizado",
     "Derecho Notarial",
     "Litigación Oral",
-    "Compras Públicas",
+    "Contratación Pública",
     "Gestión de Riesgos ISO 31000",
   ],
   sameAs: ["https://www.tiktok.com/@josephriveraabogado"],

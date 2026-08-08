@@ -551,7 +551,7 @@ export const RC_DOCTRINA = {
   reconocimientos: [
     "Asesor ad honorem · Asamblea Legislativa de Costa Rica (2020–2022)",
     "Docencia en 6 universidades costarricenses",
-    "Especialización en Litigación Oral · Temple University (Filadelfia, EE.UU.)",
+    "Head Start in Trial Advocacy & Evidence Law Program · Temple University, Beasley School of Law (Filadelfia, EE.UU., 2023)",
     "Máster en Compliance, Fraude y Blanqueo · EALDE Business School + Universidad Católica de San Antonio de Murcia",
   ],
 };
@@ -597,17 +597,19 @@ export const RC_AREAS = [
     n: "03", slug: "derecho-corporativo", icon: "building", image: "/images/especialidades/derecho-corporativo.webp",
     t: "Derecho Corporativo y Empresarial",
     pre: "Derecho Corporativo y ", em: "Empresarial", post: "",
-    d: "Constitución de **sociedades**, fusiones, adquisiciones, **fideicomisos** y optimización de estructuras corporativas.",
-    items: ["Constitución de sociedades","Fusiones y adquisiciones","Registro de accionistas","Fideicomisos","Compliance corporativo","Estructuras empresariales"],
+    d: "Constitución de **sociedades**, fusiones, adquisiciones, **fideicomisos** y optimización de estructuras corporativas — incluida asesoría en **contratación pública**.",
+    items: ["Constitución de sociedades","Fusiones y adquisiciones","Registro de accionistas","Fideicomisos","Compliance corporativo","Estructuras empresariales","Contratación pública (SICOP)"],
     long: [
       "Asesoramos a empresas y emprendimientos en la estructuración legal de su operación en Costa Rica — desde la constitución inicial de la sociedad anónima o SRL hasta la implementación de programas de compliance corporativo escalables a partir de la Ley 9986.",
       "Nuestra práctica cubre fusiones y adquisiciones (M&A) de cuantías medias y altas, reorganizaciones societarias, transmisión de cuotas y acciones, fideicomisos de garantía y de administración, y el registro y mantenimiento del libro de accionistas conforme a la regulación vigente de transparencia y beneficiarios finales.",
       "El Lic. Rivera Cheves fue notario público de planta de la Corporación Grupo Q (2014-2015), abogado de planta del Banco Nacional de Costa Rica (2010-2011) y asesor legal del Colegio de Ciencias Económicas. Esta trayectoria corporativa garantiza criterio de negocio, no solo criterio jurídico.",
+      "**Contratación pública.** El bufete asesora a empresas, proveedores y contratistas del Estado en procedimientos de contratación administrativa: análisis de carteles y pliegos, elaboración y revisión de ofertas, recursos de objeción y de apelación, ejecución y reajuste contractual, régimen sancionatorio y gestión ante el **Sistema Integrado de Compras Públicas (SICOP)**. Esta línea se respalda en el **Certificado de Aprovechamiento del Especializado en Contratación Pública** (CICAP, Universidad de Costa Rica).",
     ],
     relatedCases: [] as string[],
     faqs: [
       { q: "¿Constituyen sociedades para no residentes en Costa Rica?", a: "Sí, frecuentemente. Coordinamos el cumplimiento migratorio y bancario para que la constitución se complete sin desplazamiento del cliente." },
       { q: "¿Hacen due diligence pre-adquisición?", a: "Sí. Coordinamos due diligence legal, tributario y de compliance forense para operaciones de M&A." },
+      { q: "¿Asesoran a proveedores del Estado en SICOP?", a: "Sí. Revisamos carteles antes de ofertar, preparamos y presentamos recursos de objeción y apelación, y acompañamos la ejecución contractual — incluidos reajustes de precio y procedimientos sancionatorios." },
     ],
   },
   {
@@ -742,7 +744,7 @@ export const RC_AREAS_SEO: Record<string, {
   },
   "derecho-corporativo": {
     title:      "Abogado Corporativo Costa Rica | Sociedades y Empresas · Rivera Cheves",
-    desc:       "Constitución de sociedades, contratos mercantiles, cumplimiento SUGEF y estrategia corporativa. Experiencia en el Banco Nacional y Corporación Grupo Q.",
+    desc:       "Constitución de sociedades, contratos mercantiles, contratación pública (SICOP) y estrategia corporativa. Experiencia en Banco Nacional y Grupo Q.",
     keys:       [
       "abogado corporativo costa rica",
       "derecho societario costa rica",
@@ -760,9 +762,13 @@ export const RC_AREAS_SEO: Record<string, {
       "restructuracion societaria costa rica",
       "compliance corporativo costa rica",
       "abogado contratos mercantiles costa rica",
+      "abogado contratacion publica costa rica",
+      "abogado SICOP costa rica",
+      "asesoria proveedores del estado costa rica",
+      "recursos de objecion carteles costa rica",
     ],
     photo:      "/images/joseph/retrato.jpg",
-    credential: "Ex notario de planta, Corporación Grupo Q · Ex abogado del Banco Nacional de Costa Rica",
+    credential: "Certificado CICAP-UCR en Contratación Pública · Ex notario de planta, Corporación Grupo Q · Ex abogado del Banco Nacional de Costa Rica",
   },
   "derecho-laboral": {
     title:      "Abogado Laboral Costa Rica | Despidos y Conflictos · Rivera Cheves",
@@ -1163,8 +1169,8 @@ export const RC_FORMACION = [
   { t: "Maestría en Derecho Penal",                 s: "Universidad Latina de Costa Rica · 2015",               d: "Especialización en **litigación penal compleja**, teoría del delito y defensa de **derechos fundamentales**." },
   { t: "Maestría en Derecho Notarial y Registral",  s: "Universidad Latina de Costa Rica · 2010",               d: "Gestión de **escrituras públicas**, testamentos e inscripción en **registros públicos**." },
   { t: "Licenciado en Derecho",                     s: "Universidad de la Salle · 2008",                        d: "Formación integral en todas las ramas del **derecho costarricense e internacional**." },
-  { t: "Especialización en Litigación Oral",        s: "Temple University, Filadelfia · 2024",                  d: "Técnicas avanzadas de **oratoria forense**, argumentación legal y presentación ante tribunales — el mismo perfil técnico que motivó el **veto migratorio nicaragüense**." },
-  { t: "Especialización en Compras Públicas",       s: "Universidad de Costa Rica · 2024",                      d: "Marco normativo, estrategias en **contratación administrativa** y licitaciones del Estado." },
+  { t: "Certificado de Aprobación · Head Start in Trial Advocacy & Evidence Law Program", s: "Temple University · Beasley School of Law, Filadelfia · Julio 2023", d: "Programa de **formación inicial en litigación oral y derecho de la prueba**, cursado junto con la Academia de Litigación — técnicas de oratoria forense y presentación ante tribunales." },
+  { t: "Certificado de Aprovechamiento · Especializado en Contratación Pública", s: "CICAP · Universidad de Costa Rica · Agosto 2023 – Diciembre 2024", d: "**252 horas** (245 de asistencia efectiva) impartidas por el Centro de Investigación y Capacitación en Administración Pública. **Calificación: 95**. Marco normativo, procedimientos de contratación y análisis de carteles, ofertas y recursos ante la Administración Pública." },
 ];
 
 export const RC_EXP = [
