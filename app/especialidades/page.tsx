@@ -9,20 +9,25 @@ import { RC_AREAS } from "@/lib/data";
 import { SITE_URL, SITE_NAME, OG_IMAGE } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: { absolute: "Especialidades del Abogado Penalista Joseph Rivera" },
+  title: { absolute: "Abogado en Costa Rica | Rivera Cheves & Asociados" },
   description:
-    "Abogado penalista Joseph Rivera Cheves — 7 especialidades: derecho penal, lavado de dinero, corporativo, laboral, notarial, asesoría internacional e investigaciones criminales en Costa Rica.",
+    "Bufete de abogados en Costa Rica con más de 10 años: penal, compliance, corporativo, laboral, notarial y asesoría internacional. Lic. Joseph Rivera Cheves.",
   alternates: { canonical: `${SITE_URL}/especialidades` },
   openGraph: {
     type: "website",
     url: `${SITE_URL}/especialidades`,
-    title: `Especialidades del Abogado Penalista Joseph Rivera | ${SITE_NAME}`,
+    title: `Abogado en Costa Rica | ${SITE_NAME}`,
     description:
-      "Abogado penalista Joseph Rivera Cheves — derecho penal, lavado de dinero, crimen organizado, corporativo, laboral, notarial e investigaciones criminales en Costa Rica.",
+      "Bufete de abogados en Costa Rica con más de 10 años: penal, compliance, corporativo, laboral, notarial y asesoría internacional. Lic. Joseph Rivera Cheves.",
     images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: `Especialidades | ${SITE_NAME}` }],
   },
-  twitter: { card: "summary_large_image", title: `Especialidades Abogado Joseph Rivera | ${SITE_NAME}`, images: [OG_IMAGE] },
+  twitter: { card: "summary_large_image", title: `Abogado en Costa Rica | ${SITE_NAME}`, images: [OG_IMAGE] },
   keywords: [
+    "abogado costa rica",
+    "abogado en costa rica",
+    "bufete de abogados costa rica",
+    "bufete abogados san jose costa rica",
+    "abogado full service costa rica",
     "especialidades abogado penalista costa rica",
     "derecho penal costa rica",
     "lavado de dinero abogado costa rica",
@@ -68,14 +73,19 @@ export default function EspecialidadesPage() {
           <img src="/images/casos/casos-arch-light.webp" alt="" aria-hidden="true" className="esp-hero-arch" />
           <div className="rc-wrap" style={{ position: "relative", zIndex: 1 }}>
             <Reveal>
-              <div className="esp-eyebrow"><span className="esp-eyebrow-line" />Nuestras áreas</div>
+              <div className="esp-eyebrow"><span className="esp-eyebrow-line" />Bufete de abogados en Costa Rica</div>
             </Reveal>
             <Reveal delay={80}>
-              <h1 className="esp-h1">Áreas de <em className="esp-h1-em">Especialización</em></h1>
+              <h1 className="esp-h1">Abogado en <em className="esp-h1-em">Costa Rica</em></h1>
             </Reveal>
             <Reveal delay={160}>
               <p className="esp-lede">
-                Vasta experiencia en múltiples ramas del derecho costarricense e internacional.
+                Rivera Cheves &amp; Asociados es un bufete de abogados en Costa Rica con más de 10 años de trayectoria. Litigamos y asesoramos en San José y en los principales circuitos judiciales del país — derecho penal, compliance forense, corporativo, laboral, notarial y asesoría internacional.
+              </p>
+            </Reveal>
+            <Reveal delay={220}>
+              <p className="esp-coverage">
+                Hemos litigado en San José (Alajuelita, Escazú), Heredia, Limón (Matina) y Cartago — representando a familias de víctimas y a empresas en todo el territorio nacional.
               </p>
             </Reveal>
           </div>
@@ -148,6 +158,7 @@ export default function EspecialidadesPage() {
         .esp-h1 { font-family: var(--font-serif); font-weight: 400; color: ${CS_BLACK}; font-size: clamp(42px,7vw,88px); line-height: 1.02; letter-spacing: -0.02em; margin-bottom: 24px; }
         .esp-h1-em { font-family: var(--font-serif); font-style: italic; color: ${CS_WINE}; }
         .esp-lede { font-family: var(--font-sans, system-ui); font-size: clamp(16px,1.35vw,20px); line-height: 1.6; color: ${CS_GRAY}; max-width: 46ch; }
+        .esp-coverage { font-family: var(--font-sans, system-ui); font-size: 14.5px; line-height: 1.6; color: ${CS_GRAY}; max-width: 52ch; margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(20,20,20,.1); }
 
         .esp-explorer { background: ${CS_CREAM}; padding: clamp(8px,2vw,28px) 0 clamp(48px,6vw,90px); }
 
