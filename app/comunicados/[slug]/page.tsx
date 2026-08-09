@@ -202,7 +202,7 @@ export default async function ComunicadoPage({ params }: Props) {
               <article className="pr-article-col">
                 {c.image ? (
                   <figure className="pr-figure">
-                    <ArticleImageLightbox src={c.image} alt={c.title} objectPosition={c.imagePosition ?? "center"} />
+                    <ArticleImageLightbox src={c.image} alt={c.imageAlt ?? c.title} objectPosition={c.imagePosition ?? "center"} />
                     {c.imageCaption && <figcaption className="pr-figcaption">{c.imageCaption}</figcaption>}
                   </figure>
                 ) : (
@@ -385,7 +385,6 @@ export default async function ComunicadoPage({ params }: Props) {
         .pr-aside { grid-column: 1; grid-row: 1; position: sticky; top: 100px; }
 
         .pr-figure { margin: 0 0 clamp(24px,3vw,36px); }
-        .pr-figure :global(button) img { width: 100%; aspect-ratio: 16/9; }
         .pr-figcaption { margin-top: 10px; font-family: var(--font-sans, system-ui); font-size: 12.5px; color: ${CS_GRAY}; font-style: italic; }
 
         .pr-noimage { position: relative; aspect-ratio: 16/9; border-radius: 4px; margin-bottom: clamp(24px,3vw,36px); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; background: linear-gradient(150deg,#141010,#0a0808); border: 1px solid rgba(199,164,92,.25); }

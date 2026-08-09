@@ -21,7 +21,7 @@ const INT = {
   host:      "Alejandro Urbina",
   dateISO:   "2026-07-08",
   dateLabel: "Julio de 2026",
-  image:     "/images/entrevistas/trivision-apelacion-nadia-peraza.png",
+  image:     "/images/entrevistas/trivision-apelacion-nadia-peraza.webp",
   ogImage:   "/images/entrevistas/trivision-nadia-peraza-og.jpg",
   // Permalink canónico (el enlace corto /share/v/… no lo resuelve el plugin de Facebook)
   videoUrl:  "https://www.facebook.com/trivisioncostarica/videos/1379875277396525/",

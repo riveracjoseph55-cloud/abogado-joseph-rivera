@@ -135,7 +135,6 @@ export default function Home() {
           src="/images/hero-judicial-bg.jpg"
           alt=""
           fill
-          priority
           aria-hidden="true"
           className="hero2-bg"
           style={{ objectFit: "cover", objectPosition: "center 30%" }}
@@ -1101,7 +1100,8 @@ export default function Home() {
               </Reveal>
               <Reveal delay={100}>
                 <p className="rc-lede" style={{ marginTop: 20, maxWidth: "46ch" }}>
-                  Vasta experiencia en múltiples ramas del derecho costarricense e internacional.
+                  Vasta experiencia en múltiples ramas del derecho costarricense e internacional, como{" "}
+                  <Link href="/especialidades" style={{ color: CS_WINE, textDecoration: "underline" }}>abogado en Costa Rica</Link> de servicio integral.
                 </p>
               </Reveal>
             </div>

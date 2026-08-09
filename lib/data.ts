@@ -616,7 +616,7 @@ export const RC_AREAS = [
     n: "04", slug: "derecho-laboral", icon: "people", image: "/images/especialidades/derecho-laboral.webp",
     t: "Derecho Laboral",
     pre: "Derecho ", em: "Laboral", post: "",
-    d: "Defensa en **despidos injustificados**, conciliaciones y conflictos laborales del sector privado.",
+    d: "Defensa en **despidos injustificados**, conciliaciones y conflictos laborales del sector privado, en Costa Rica.",
     items: ["Despidos injustificados","Conciliaciones laborales","Conflictos laborales","Derechos del trabajador","Defensa del empleador","Procesos ante el MTSS"],
     long: [
       "Atendemos conflictos laborales del sector privado desde ambos lados de la mesa — defensa del trabajador frente a despidos injustificados o sin responsabilidad, y defensa del empleador en denuncias, demandas y procedimientos sancionatorios. Esto nos da ventaja estratégica al anticipar la posición contraria en cada caso.",
@@ -633,7 +633,7 @@ export const RC_AREAS = [
     n: "05", slug: "derecho-notarial", icon: "pen", image: "/images/especialidades/derecho-notarial.webp",
     t: "Derecho Notarial y Registral",
     pre: "Derecho Notarial y ", em: "Registral", post: "",
-    d: "Servicios notariales y registrales: **escrituras**, testamentos e inscripción de actos en **registros públicos**.",
+    d: "Servicios notariales y registrales en Costa Rica: **escrituras**, testamentos e inscripción de actos en **registros públicos**.",
     items: ["Escrituras públicas","Testamentos","Inscripción registral","Autenticación de documentos","Traspasos de propiedad","Contratos notariales"],
     long: [
       "El Lic. Rivera Cheves es notario público en ejercicio con Maestría en Derecho Notarial y Registral (Universidad Latina de Costa Rica, 2010). Otorgamos escrituras públicas para todo tipo de actos — traspasos de bienes inmuebles, constitución y modificación de sociedades, testamentos, hipotecas, fideicomisos, mandatos y contratos atípicos.",
@@ -939,7 +939,7 @@ export const RC_PRESS: PressEntry[] = [
     t: "Entrevista en #NoTanCristiana: el caso Nadia Peraza y el libro «El Caníbal de la Refrigeradora»",
     u: "/entrevistas/canal-opa-nadia-peraza",
     desc: "Christiana Nassar conversa con el Lic. Joseph Rivera sobre el caso de Nadia Peraza, las fallas del sistema y el libro cuyos fondos irán a la hija de la víctima.",
-    image: "/images/entrevistas/opa-no-tan-cristiana-nadia-peraza.png",
+    image: "/images/entrevistas/opa-no-tan-cristiana-nadia-peraza.webp",
   },
   {
     medio: "La Prensa",     year: "2026", date: "2026-04-27",   type: "entrevista", lang: "es",
@@ -1232,6 +1232,7 @@ export type ComunicadoEntry = {
   relatedCase?: string;     // slug de RC_CASES
   area?:        string;     // slug de RC_AREAS
   image?:       string;     // ruta en /public, e.g. /images/comunicados/foto.jpg
+  imageAlt?:    string;     // alt descriptivo de la foto (si se omite, cae a `title` -- evitar omitirlo)
   imageCaption?: string;    // pie de foto real, solo si existe
   imagePosition?: string;   // CSS object-position, por defecto "center"
   audio?:       string;     // ruta en /public, e.g. /audio/comunicados/nota.ogg
@@ -1349,6 +1350,7 @@ export const RC_COMUNICADOS: ComunicadoEntry[] = [
     relatedCase: "junieysis-merlo",
     area: "derecho-penal",
     image: "/images/comunicados/apertura-celulares-junieysis-merlo.jpg",
+    imageAlt: "Lic. Joseph Rivera Cheves durante la diligencia de apertura de celulares del caso Junieysis Merlo, con peritos en informática forense del Poder Judicial — Costa Rica, mayo 2026",
     audio: "/audio/comunicados/apertura-celulares-junieysis-merlo.ogg",
   },
   {
@@ -1470,6 +1472,7 @@ export const RC_COMUNICADOS: ComunicadoEntry[] = [
     relatedCase: "junieysis-merlo",
     area: "derecho-penal",
     image: "/images/comunicados/hijas-junieysis-merlo-familia.jpg",
+    imageAlt: "Las hijas de Junieysis Merlo bajo el cuidado de su familia materna, tras la gestión legal del Lic. Joseph Rivera Cheves — Costa Rica, junio 2026",
     mediaContact: RC_PRENSA_CONTACT,
   },
   {
@@ -1505,6 +1508,7 @@ export const RC_COMUNICADOS: ComunicadoEntry[] = [
     ],
     tags: ["unibe", "derecho-civil", "educación", "estafa", "cobertura-nacional"],
     image: "/images/entrevistas/multimedios-unibe-condena-og.jpg",
+    imageAlt: "Lic. Joseph Rivera Cheves declarando a Multimedios Costa Rica sobre la condena civil contra la Universidad Iberoamericana (UNIBE) — Costa Rica, 2022",
     mediaContact: RC_PRENSA_CONTACT,
   },
   {
@@ -1533,6 +1537,7 @@ export const RC_COMUNICADOS: ComunicadoEntry[] = [
     ],
     area: "casacion-penal",
     image: "/images/joseph/editorial-cutout.png",
+    imageAlt: "Lic. Joseph Alfonso Rivera Cheves, abogado penalista en Costa Rica — femicidios, crimen organizado y delitos financieros — Bufete Rivera Cheves, San José",
     imagePosition: "top",
     mediaContact: RC_PRENSA_CONTACT,
   },

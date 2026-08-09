@@ -149,7 +149,6 @@ export default function Navbar() {
                 objectFit: "contain", flexShrink: 0,
                 transition: "height .4s ease",
               }}
-              priority
             />
             <div style={{
               paddingLeft: 18,

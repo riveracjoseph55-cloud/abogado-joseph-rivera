@@ -302,7 +302,7 @@ export default async function CasoDetail({ params }: { params: Promise<{ slug: s
                 {gallery.map((g, i) => (
                   <figure key={i} className="cd-fig">
                     <div className="cd-fig-media">
-                      <Image src={g.src} alt={g.alt} width={1200} height={900} sizes="(max-width: 700px) 100vw, (max-width: 1000px) 50vw, 33vw" style={{ width: "100%", height: "auto", objectFit: "cover", display: "block" }} loading={i < 3 ? "eager" : "lazy"} />
+                      <Image src={g.src} alt={g.alt} width={1200} height={900} sizes="(max-width: 700px) 100vw, (max-width: 1000px) 50vw, 33vw" style={{ width: "100%", height: "auto", objectFit: "cover", display: "block" }} />
                     </div>
                     <figcaption className="cd-fig-cap">
                       <div className="cd-fig-caption">{g.caption}</div>

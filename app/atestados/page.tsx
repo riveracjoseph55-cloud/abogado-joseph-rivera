@@ -56,7 +56,7 @@ function StatIcon({ kind }: { kind: string }) {
   return <svg viewBox="0 0 24 24" width="22" height="22" fill="none" aria-hidden="true"><path d="M12 3v16M5 21h14M6 8h12M6 8 3.5 13.5a3.2 3.2 0 0 0 6.5 0L7.5 8M17.5 8 15 13.5a3.2 3.2 0 0 0 6.5 0L18.5 8" stroke={c} strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/></svg>;
 }
 
-const CV_ALT = "Currículo del abogado penalista Joseph Rivera Cheves — Máster en Compliance Penal, Maestría Derecho Penal, Auditor Líder ISO 31000 INTERCERT LATAM — formación académica Costa Rica";
+const CV_ALT = "Documento del currículo vitae del Lic. Joseph Rivera Cheves en formato de una página — clic para ampliar y descargar";
 
 export default function AtestadosPage() {
   return (

@@ -121,7 +121,7 @@ export default function AreasExplorer({ variant = "full" }: Props) {
                 <div className={`aex-mpanel${isOpen ? " is-open" : ""}`}>
                   <div className="aex-mpanel-in">
                     <div className="aex-mmedia">
-                      <img src={area.image} alt={`Ilustración de ${area.t}`} loading="lazy" decoding="async" />
+                      <img src={area.image} alt={`Fotografía editorial de la práctica de ${area.t} — Bufete Rivera Cheves & Asociados, Costa Rica`} loading="lazy" decoding="async" />
                       <span className="aex-mmedia-scrim" aria-hidden="true" />
                       <span className="aex-mmedia-num" aria-hidden="true">{area.n}</span>
                     </div>
@@ -183,7 +183,7 @@ export default function AreasExplorer({ variant = "full" }: Props) {
               <img
                 key={area.slug}
                 src={area.image}
-                alt={active === i ? `Ilustración de ${area.t}` : ""}
+                alt={active === i ? `Fotografía editorial de la práctica de ${area.t} — Bufete Rivera Cheves & Asociados, Costa Rica` : ""}
                 aria-hidden={active === i ? undefined : true}
                 loading={i === 0 ? "eager" : "lazy"}
                 decoding="async"

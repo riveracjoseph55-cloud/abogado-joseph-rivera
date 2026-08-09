@@ -277,7 +277,7 @@ export default function PrensaClient() {
                       }}>
                         <Image
                           src={p.image}
-                          alt={`${p.medio} — ${p.t} — abogado Joseph Rivera Costa Rica`}
+                          alt={`${TYPE_LABELS[p.type]} de ${p.medio}: ${p.t} — abogado Joseph Rivera Cheves, Costa Rica`}
                           fill
                           sizes="(max-width: 900px) 100vw, 50vw"
                           style={{ objectFit: "cover" }}

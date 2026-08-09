@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 const GOLD = "#C7A45C";
 
@@ -34,8 +35,13 @@ export default function ArticleImageLightbox({ src, alt, objectPosition = "cente
   return (
     <>
       <button ref={openerRef} type="button" className="ail-btn" onClick={() => setOpen(true)} aria-label={`Ampliar imagen: ${alt}`}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={src} alt={alt} loading="eager" decoding="async" style={{ objectPosition }} />
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          sizes="(max-width: 900px) 100vw, 700px"
+          style={{ objectFit: "cover", objectPosition }}
+        />
         <span className="ail-zoom" aria-hidden="true">
           <svg viewBox="0 0 24 24" width="17" height="17" fill="none"><circle cx="11" cy="11" r="7" stroke="#fff" strokeWidth="1.7"/><path d="M11 8v6M8 11h6M20 20l-3.5-3.5" stroke="#fff" strokeWidth="1.7" strokeLinecap="round"/></svg>
         </span>
@@ -50,8 +56,7 @@ export default function ArticleImageLightbox({ src, alt, objectPosition = "cente
       )}
 
       <style>{`
-        .ail-btn { position: relative; display: block; width: 100%; padding: 0; border: none; cursor: pointer; background: #0d0d0d; }
-        .ail-btn img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .ail-btn { position: relative; display: block; width: 100%; aspect-ratio: 16/9; padding: 0; border: none; cursor: pointer; background: #0d0d0d; overflow: hidden; }
         .ail-btn:focus-visible { outline: 2px solid ${GOLD}; outline-offset: 3px; }
         .ail-zoom { position: absolute; right: 14px; bottom: 14px; width: 40px; height: 40px; border-radius: 50%; background: rgba(10,10,10,.62); display: grid; place-items: center; border: 1px solid rgba(199,164,92,.5); }
         .ail-modal { position: fixed; inset: 0; z-index: 200; background: rgba(6,6,6,.94); display: flex; align-items: center; justify-content: center; padding: clamp(16px,3vw,40px); }

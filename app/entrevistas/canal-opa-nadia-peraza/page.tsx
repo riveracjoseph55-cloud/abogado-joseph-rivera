@@ -26,7 +26,7 @@ const INT = {
   host:      "Christiana Nassar",
   dateISO:   "2026-07-06",
   dateLabel: "Julio de 2026",
-  image:     "/images/entrevistas/opa-no-tan-cristiana-nadia-peraza.png",
+  image:     "/images/entrevistas/opa-no-tan-cristiana-nadia-peraza.webp",
   ogImage:   "/images/entrevistas/opa-nadia-peraza-og.jpg",
   sourceUrl: "https://genteopa.com/no-tan-cristiana/%F0%9F%8E%99%EF%B8%8F-entrevista-a-joseph-alfonso-rivera-cheves-abogado-caso-de-nadia-peraza/",
   videoUrl:  "https://www.youtube.com/watch?v=eavyxcMT7Ww",
