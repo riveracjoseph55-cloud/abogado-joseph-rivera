@@ -77,6 +77,37 @@ export const schemaLegalService = {
   priceRange: "$$",
 };
 
+// hasCredential representa las mismas 14 credenciales de RC_FORMACION
+// (lib/data.ts) -- no se generan por mapeo automático porque el campo `s`
+// de RC_FORMACION mezcla institución/ciudad/fecha en formato libre e
+// inconsistente entre entradas; extraerlo en runtime sería más frágil que
+// mantener esta lista a mano. Si se agrega una credencial nueva a
+// RC_FORMACION, agregar también su equivalente acá.
+const schemaAttorneyCredentials = [
+  { name: "Licenciado en Derecho", category: "degree", org: "Universidad de la Salle", date: "2008" },
+  { name: "Maestría en Derecho Notarial y Registral", category: "degree", org: "Universidad Latina de Costa Rica", date: "2010" },
+  { name: "Maestría en Derecho Penal", category: "degree", org: "Universidad Latina de Costa Rica", date: "2015" },
+  { name: "Máster en Compliance, Fraude y Blanqueo", category: "degree", org: ["EALDE Business School, España", "Universidad Católica de San Antonio de Murcia"] },
+  { name: "Head Start in Trial Advocacy & Evidence Law Program", category: "certification", org: "Temple University, Beasley School of Law", date: "2023-07" },
+  { name: "Especializado en Contratación Pública", category: "certification", org: "CICAP, Universidad de Costa Rica", date: "2024-12" },
+  { name: "Diploma Internacional en Contraterrorismo y Contrasubversión", category: "certification", org: "Escuela de Inteligencia & Estrategia, Goberna Analitics", date: "2025-01" },
+  { name: "Diploma Internacional en Estrategias contra el Crimen Organizado y Contraterrorismo", category: "certification", org: "Escuela de Inteligencia & Estrategia, Goberna Analitics", date: "2025-04" },
+  { name: "Diploma Internacional del Consultor Político", category: "certification", org: "Escuela de Inteligencia & Estrategia, Goberna Analitics", date: "2025-08" },
+  { name: "Auditor Líder · ISO 37001:2025 — Sistema de Gestión Antisobornos", category: "certification", org: "EALDE Business School, Madrid", date: "2026" },
+  { name: "Auditor Líder · ISO 31000:2018 — Risk Management", category: "certification", org: "EALDE Business School, Madrid", date: "2026" },
+  { name: "Lead Auditor Course · ISO 31000:2018", category: "certification", org: "INTERCERT LATAM", date: "2026" },
+  { name: "Internal Auditor Course · ISO 31000:2018", category: "certification", org: "INTERCERT LATAM", date: "2026" },
+  { name: "Interpretation of the Standard · ISO 31000:2018", category: "certification", org: "INTERCERT LATAM", date: "2026" },
+].map((c) => ({
+  "@type": "EducationalOccupationalCredential",
+  credentialCategory: c.category,
+  name: c.name,
+  ...(c.date ? { dateCreated: c.date } : {}),
+  recognizedBy: Array.isArray(c.org)
+    ? c.org.map((name) => ({ "@type": "EducationalOrganization", name }))
+    : { "@type": "EducationalOrganization", name: c.org },
+}));
+
 export const schemaAttorney = {
   "@context": "https://schema.org",
   "@type": ["Person", "Attorney"],
@@ -84,11 +115,12 @@ export const schemaAttorney = {
   name: AUTHOR,
   givenName: "Joseph Alfonso",
   familyName: "Rivera Cheves",
+  honorificPrefix: "Lic.",
   jobTitle: "Abogado Penalista",
   description:
     "Abogado penalista costarricense con más de 10 años de trayectoria en casos complejos de femicidio, crimen organizado, lavado de dinero y delitos financieros.",
   url: `${SITE_URL}/quien`,
-  image: `${SITE_URL}/images/joseph-hero.png`,
+  image: { "@type": "ImageObject", url: `${SITE_URL}/images/joseph-hero.png`, width: 1200, height: 630 },
   telephone: CONTACT.tel,
   email: CONTACT.email,
   address: {
@@ -100,7 +132,7 @@ export const schemaAttorney = {
     addressCountry: "CR",
   },
   nationality: { "@type": "Country", name: "Costa Rica" },
-  worksFor: { "@type": "LegalService", name: "Rivera Cheves & Asociados", url: SITE_URL },
+  worksFor: { "@id": `${SITE_URL}/#legalservice` },
   alumniOf: [
     { "@type": "EducationalOrganization", name: "Universidad de la Salle" },
     { "@type": "EducationalOrganization", name: "Universidad Latina de Costa Rica" },
@@ -109,6 +141,7 @@ export const schemaAttorney = {
     { "@type": "EducationalOrganization", name: "Universidad de Costa Rica" },
     { "@type": "EducationalOrganization", name: "INTERCERT LATAM" },
   ],
+  hasCredential: schemaAttorneyCredentials,
   knowsAbout: [
     "Derecho Penal",
     "Femicidios",
@@ -119,7 +152,7 @@ export const schemaAttorney = {
     "Contratación Pública",
     "Gestión de Riesgos ISO 31000",
   ],
-  sameAs: ["https://www.tiktok.com/@josephriveraabogado"],
+  sameAs: ["https://www.tiktok.com/@josephriveraabogado", "https://www.instagram.com/josephriveraabogado"],
 };
 
 // WebSite con SearchAction → habilita el sitelinks searchbox en Google
