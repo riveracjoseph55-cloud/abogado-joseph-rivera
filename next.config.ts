@@ -22,6 +22,11 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 31536000,
   },
   outputFileTracingRoot: path.join(__dirname),
+  // Sin esto, Next resuelve el trailing-slash en una capa anterior al
+  // middleware (redirect relativo, sin pasar por la lógica de www→apex) y
+  // el caso combinado www+slash queda en 2 hops en vez de 1. Con esto,
+  // middleware.ts tiene control total y los combina en un solo 308.
+  skipTrailingSlashRedirect: true,
   async headers() {
     return [
       { source: "/(.*)",            headers: securityHeaders },
@@ -31,17 +36,7 @@ const nextConfig: NextConfig = {
       { source: "/robots.txt",      headers: [{ key: "Cache-Control", value: "public, max-age=3600, s-maxage=86400" }] },
     ];
   },
-  // Redirige www → non-www (301 permanente) para evitar contenido duplicado en Google
-  async redirects() {
-    return [
-      {
-        source: "/:path*",
-        has: [{ type: "host", value: "www.abogadojosephrivera.com" }],
-        destination: "https://abogadojosephrivera.com/:path*",
-        permanent: true,
-      },
-    ];
-  },
+  // www→apex y el trailing-slash se consolidan en un solo hop en middleware.ts
 };
 
 export default nextConfig;
