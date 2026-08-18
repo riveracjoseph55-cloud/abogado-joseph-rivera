@@ -4,7 +4,7 @@ import FinalCTA from "@/components/FinalCTA";
 import SchemaOrg from "@/components/SchemaOrg";
 import RichText from "@/components/RichText";
 import CvLightbox from "@/components/CvLightbox";
-import { RC_FORMACION, RC_EXP, RC_DOCENCIA, RC_MEDIOS, TEL, EMAIL } from "@/lib/data";
+import { RC_FORMACION, RC_EXP, RC_DOCENCIA, RC_DOCENCIA_UH, RC_TESIS_DIRIGIDAS, RC_MEDIOS, TEL, EMAIL } from "@/lib/data";
 import { SITE_URL, SITE_NAME, OG_IMAGE, schemaAttorney } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -218,7 +218,9 @@ export default function AtestadosPage() {
                 </ul>
                 <p className="at-teach-note">
                   Cursos en derecho penal, procesal penal, derechos humanos, delitos económicos y derecho
-                  laboral y agrario; tutor de trabajos finales de graduación en ULICORI (2012–2014).
+                  laboral y agrario; en Universidad Hispanoamericana (grado Maestría, Recinto Llorente)
+                  impartió {RC_DOCENCIA_UH.map(c => `${c.curso} (${c.anio})`).join(" y ")}; tutor de trabajos
+                  finales de graduación en ULICORI (2012–2014).
                 </p>
               </div>
               <div className="at-teach-col">
@@ -232,6 +234,20 @@ export default function AtestadosPage() {
                   Artículos de opinión en Delfino.cr y participación en entrevistas y apariciones en medios,
                   abordando temas de derecho penal y asuntos de interés público.
                 </p>
+              </div>
+            </div>
+
+            <div className="at-tesis">
+              <div className="at-teach-label">Trabajos finales de graduación dirigidos como tutor · ULICORI (2012–2014)</div>
+              <div className="at-tesis-list">
+                {RC_TESIS_DIRIGIDAS.map((t, i) => (
+                  <Reveal key={t.t} delay={i * 20}>
+                    <div className="at-tesis-row">
+                      <div className="at-tesis-anio">{t.anio}</div>
+                      <div className="at-tesis-titulo">{t.t}</div>
+                    </div>
+                  </Reveal>
+                ))}
               </div>
             </div>
           </div>
@@ -318,6 +334,14 @@ export default function AtestadosPage() {
         .at-teach-dot { width: 6px; height: 6px; background: ${CS_GOLD}; transform: rotate(45deg); flex-shrink: 0; }
         .at-teach-note { font-family: var(--font-sans, system-ui); font-size: 14px; line-height: 1.65; color: ${CS_GRAY}; }
 
+        /* ── Tesis dirigidas ── */
+        .at-tesis { margin-top: clamp(36px,5vw,56px); padding-top: clamp(28px,4vw,40px); border-top: 1px solid rgba(20,20,20,.1); }
+        .at-tesis-list { display: flex; flex-direction: column; }
+        .at-tesis-row { display: grid; grid-template-columns: 80px 1fr; gap: clamp(16px,2.4vw,32px); padding: 16px 0; border-top: 1px solid rgba(20,20,20,.08); }
+        .at-tesis-row:first-child { border-top: none; }
+        .at-tesis-anio { font-family: var(--font-mono, monospace); font-size: 12px; letter-spacing: .06em; color: ${CS_WINE}; padding-top: 3px; }
+        .at-tesis-titulo { font-family: var(--font-sans, system-ui); font-size: 14.5px; line-height: 1.6; color: ${CS_BLACK}; }
+
         /* ── Responsive ── */
         @media (max-width: 1000px) {
           .at-stats-grid { grid-template-columns: 1fr 1fr; }
@@ -328,6 +352,7 @@ export default function AtestadosPage() {
         @media (max-width: 640px) {
           .at-exp-row { grid-template-columns: 1fr; gap: 8px; }
           .at-teach-arch, .at-hero-arch { opacity: .2; }
+          .at-tesis-row { grid-template-columns: 1fr; gap: 4px; }
         }
         @media (max-width: 460px) {
           .at-stats-grid { grid-template-columns: 1fr; }

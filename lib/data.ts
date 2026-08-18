@@ -1198,8 +1198,30 @@ export const RC_DOCENCIA = [
   "Universidad Libre de Costa Rica (ULICORI)",
   "Universidad Panamericana",
   "Universidad Florencio del Castillo",
+  "Universidad Hispanoamericana",
   "ULACIT",
   "Universidad de San José",
+];
+
+// Cursos impartidos como docente en Universidad Hispanoamericana (grado
+// académico Maestría, Recinto Llorente) -- certificación de tiempo
+// laborado, Recursos Humanos UH, 20 de julio de 2020.
+export const RC_DOCENCIA_UH = [
+  { curso: "Derecho Notarial", anio: "2015" },
+  { curso: "Derecho Administrativo y Notariado", anio: "2017" },
+];
+
+// Trabajos Finales de Graduación dirigidos como tutor en ULICORI --
+// constancia de la Universidad Libre de Costa Rica, Departamento
+// Financiero, 4 de setiembre de 2019.
+export const RC_TESIS_DIRIGIDAS = [
+  { t: "La implementación y uso de Sistemas de Circuito Cerrado de Televisión (CCTV) para la prevención y reducción de la criminalidad por parte de la Municipalidad de San José, en el año 2011", anio: "2012" },
+  { t: "Análisis de las causas y efectos de la derogación de los artículos 22 y 25 de la Ley de Penalización de la Violencia contra las Mujeres, zona de San José, 2009–2010", anio: "2013" },
+  { t: "Evaluación del impacto de la ley contra la delincuencia organizada N.º 8754 en la fiscalía adjunta contra el crimen organizado, durante el periodo de agosto 2009 a diciembre 2012", anio: "2014" },
+  { t: "Análisis de la gestión que realiza la Policía de Control Fiscal con los bienes decomisados por delitos aduaneros e infracciones tributarias en la provincia de Alajuela, durante el año 2012", anio: "2014" },
+  { t: "Estudio de las denuncias prestadas en la Contraloría General de la República, como órgano de control del Estado, durante los años 2010 y 2011", anio: "2014" },
+  { t: "El reconocimiento de personas como medio de prueba en el sistema de Justicia Penal, II Circuito de la Zona Atlántica", anio: "2014" },
+  { t: "Análisis del estado de la cadena de custodia de las evidencias en los casos del delito contra la vida en el Servicio de Anatomía Patológica en el Hospital Max Peralta de Cartago, en el año 2013", anio: "2014" },
 ];
 
 // Participación en medios y publicaciones (datos del currículo oficial)
