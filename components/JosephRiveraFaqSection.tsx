@@ -18,7 +18,7 @@ const CS_BORDER = "rgba(20,20,20,0.12)";
 const faqItems = [
   {
     question: "¿Quién es el abogado Joseph Rivera Cheves?",
-    answer: "El Lic. Joseph Alfonso Rivera Cheves es un abogado penalista costarricense con más de 10 años de trayectoria. Director del bufete Rivera Cheves & Asociados, ubicado en el Oficentro Sabana, San José. Máster en Compliance Penal, Auditor Líder ISO 37001 y docente en 6 universidades costarricenses. Ha representado a familias en los casos de femicidio más emblemáticos del país.",
+    answer: "El Lic. Joseph Alfonso Rivera Cheves es un abogado penalista costarricense con más de 10 años de trayectoria. Director del bufete Rivera Cheves & Asociados, ubicado en el Oficentro Sabana, San José. Máster en Compliance Penal, Auditor Líder ISO 37001 y docente en 7 universidades costarricenses. Ha representado a familias en los casos de femicidio más emblemáticos del país.",
   },
   {
     question: "¿En qué especialidades se enfoca el bufete de Joseph Rivera en Costa Rica?",
@@ -85,7 +85,7 @@ export default function JosephRiveraFaqSection() {
                 <em className="jrfaq-em">Joseph Rivera</em> Cheves?
               </h2>
               <p className="jrfaq-lede">
-                El Lic. Joseph Alfonso Rivera Cheves es un abogado penalista costarricense con más de 10 años de trayectoria. Director del bufete Rivera Cheves &amp; Asociados, ubicado en el Oficentro Sabana, San José. Máster en Compliance Penal, Auditor Líder ISO 37001 y docente en 6 universidades costarricenses. Ha representado a familias en los casos de femicidio más emblemáticos del país.
+                El Lic. Joseph Alfonso Rivera Cheves es un abogado penalista costarricense con más de 10 años de trayectoria. Director del bufete Rivera Cheves &amp; Asociados, ubicado en el Oficentro Sabana, San José. Máster en Compliance Penal, Auditor Líder ISO 37001 y docente en 7 universidades costarricenses. Ha representado a familias en los casos de femicidio más emblemáticos del país.
               </p>
 
               <div className="jrfaq-logo-wrap">

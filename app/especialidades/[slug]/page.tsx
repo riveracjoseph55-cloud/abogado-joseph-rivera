@@ -74,7 +74,11 @@ export default async function AreaPage({ params }: Props) {
 
   const SEO       = RC_AREAS_SEO[a.slug];
   const idx       = RC_AREAS.indexOf(a);
-  const others    = RC_AREAS.filter(x => x.slug !== slug).slice(0, 4);
+  // Ventana rotatoria: cada área enlaza a las 4 siguientes en orden cíclico.
+  // Antes se tomaban siempre las 4 primeras del array, así que las áreas 05-07
+  // (derecho-notarial, asesoria-internacional, casacion-penal) no recibían
+  // ningún enlace interno desde sus hermanas. Ahora las 7 reciben 4 cada una.
+  const others    = Array.from({ length: 4 }, (_, k) => RC_AREAS[(idx + 1 + k) % RC_AREAS.length]);
   const related   = (a.relatedCases ?? [])
     .map(s => RC_CASES.find(c => c.slug === s))
     .filter((c): c is CaseEntry => c !== undefined);

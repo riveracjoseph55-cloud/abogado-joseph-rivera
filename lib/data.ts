@@ -550,7 +550,7 @@ export const RC_DOCTRINA = {
   ],
   reconocimientos: [
     "Asesor ad honorem · Asamblea Legislativa de Costa Rica (2020–2022)",
-    "Docencia en 6 universidades costarricenses",
+    "Docencia en 7 universidades costarricenses",
     "Head Start in Trial Advocacy & Evidence Law Program · Temple University, Beasley School of Law (Filadelfia, EE.UU., 2023)",
     "Máster en Compliance, Fraude y Blanqueo · EALDE Business School + Universidad Católica de San Antonio de Murcia",
   ],
@@ -568,7 +568,7 @@ export const RC_AREAS = [
       "Nuestra práctica abarca el espectro completo de los delitos contra la vida (homicidios, femicidios), delitos sexuales, delitos patrimoniales (estafas, fraudes, apropiaciones), narcotráfico y extorsión, y la criminalidad organizada. Trabajamos tanto en representación de víctimas como en defensa técnica de personas imputadas, siempre bajo el estándar constitucional de presunción de inocencia y debido proceso.",
       "Cada caso se aborda con un equipo multidisciplinario: jurídico, criminalístico y forense. Esta combinación nos permite construir teorías del caso sólidas, identificar prueba indirecta determinante, y litigar con base científica frente a tribunales de juicio y de casación.",
     ],
-    relatedCases: ["nadia-peraza","luany-salazar","junieysis-merlo"],
+    relatedCases: ["nadia-peraza","luany-salazar","junieysis-merlo","finca-lajas","yendry-loaiza","unibe-condena-civil-estudiantes"],
     faqs: [
       { q: "¿Atienden tanto a víctimas como a personas imputadas?", a: "Sí. Representamos a familias de víctimas en delitos contra la vida y la integridad sexual, y también asumimos defensas técnicas de personas imputadas cuando el conflicto de interés lo permite." },
       { q: "¿En qué etapas del proceso pueden intervenir?", a: "Desde la primera diligencia ante el Ministerio Público o el OIJ hasta el juicio oral, casación ante Sala Tercera y revisión. Lo recomendable es contactarnos lo antes posible." },

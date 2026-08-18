@@ -10,14 +10,14 @@ import { SITE_URL, SITE_NAME, OG_IMAGE, schemaAttorney } from "@/lib/seo";
 export const metadata: Metadata = {
   title: { absolute: "Atestados y Currículo | Abogado Joseph Rivera Cheves" },
   description:
-    "Currículo del Lic. Joseph Rivera Cheves, abogado penalista en Costa Rica: Máster en Compliance, Maestría Derecho Penal, Auditor Líder ISO 37001/31000, Temple University. Docente en 6 universidades.",
+    "Currículo del Lic. Joseph Rivera Cheves, abogado penalista en Costa Rica: Máster en Compliance, Maestría Derecho Penal, Auditor Líder ISO 37001/31000, Temple University. Docente en 7 universidades.",
   alternates: { canonical: `${SITE_URL}/atestados` },
   openGraph: {
     type: "website",
     url: `${SITE_URL}/atestados`,
     title: `Atestados y Currículo | ${SITE_NAME}`,
     description:
-      "Perfil académico completo: Máster en Compliance, Maestría en Derecho Penal, certificaciones ISO, Temple University y docencia en 6 universidades costarricenses.",
+      "Perfil académico completo: Máster en Compliance, Maestría en Derecho Penal, certificaciones ISO, Temple University y docencia en 7 universidades costarricenses.",
     images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: `Atestados | ${SITE_NAME}` }],
   },
   twitter: { card: "summary_large_image", title: `Atestados y Currículo | ${SITE_NAME}`, images: [OG_IMAGE] },

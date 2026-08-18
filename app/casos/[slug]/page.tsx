@@ -10,7 +10,7 @@ import InstagramReel from "@/components/InstagramReel";
 import TikTokVideo from "@/components/TikTokVideo";
 import LiteYouTube from "@/components/LiteYouTube";
 import RichText from "@/components/RichText";
-import { RC_CASES, RC_CASES_SEO } from "@/lib/data";
+import { RC_CASES, RC_CASES_SEO, RC_AREAS } from "@/lib/data";
 import { SITE_URL, SITE_NAME, OG_IMAGE, AUTHOR } from "@/lib/seo";
 
 // ── Paleta editorial ──────────────────────────────────────────────
@@ -110,6 +110,12 @@ export default async function CasoDetail({ params }: { params: Promise<{ slug: s
   const subjectType = (c as { subjectType?: "Person" | "Organization" }).subjectType ?? "Person";
 
   // Navegación entre casos (orden cronológico como en /casos)
+  // Áreas de práctica que declaran este caso como relacionado. Invierte el
+  // mapeo que ya existe en RC_AREAS.relatedCases, así los dossiers (las
+  // páginas con más enlaces entrantes del sitio) pasan autoridad a las
+  // páginas de servicio, que antes no recibían ni un enlace desde aquí.
+  const areasDelCaso = RC_AREAS.filter(x => (x.relatedCases ?? []).includes(slug));
+
   const ordered = [...RC_CASES].sort((a, b) => parseInt(b.year) - parseInt(a.year));
   const pos  = ordered.findIndex(x => x.slug === slug);
   const prev = pos > 0 ? ordered[pos - 1] : null;
@@ -446,6 +452,29 @@ export default async function CasoDetail({ params }: { params: Promise<{ slug: s
           </section>
         )}
 
+        {/* ── ÁREAS DE PRÁCTICA DEL CASO ── */}
+        {areasDelCaso.length > 0 && (
+          <section className="cd-areas">
+            <div className="rc-wrap">
+              <div className="cd-eyebrow">Áreas de práctica</div>
+              <h2 className="cd-timeline-h" style={{ marginBottom: "clamp(24px,3vw,36px)" }}>
+                Cómo trabajamos <em className="cd-em">este tipo de caso</em>
+              </h2>
+              <div className="cd-areas-grid">
+                {areasDelCaso.map((ar, i) => (
+                  <Reveal key={ar.slug} delay={i * 60}>
+                    <Link href={`/especialidades/${ar.slug}`} className="cd-areas-card">
+                      <span className="cd-areas-n">{ar.n}</span>
+                      <span className="cd-areas-t">{ar.t}</span>
+                      <span className="cd-areas-go">Ver el área <span aria-hidden="true">→</span></span>
+                    </Link>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* ── 8 · NAVEGACIÓN ENTRE CASOS ── */}
         <section className="cd-nav">
           <div className="rc-wrap">
@@ -597,6 +626,16 @@ export default async function CasoDetail({ params }: { params: Promise<{ slug: s
         .cd-press-title { font-family: var(--font-serif); font-weight: 400; font-size: clamp(18px,1.5vw,22px); line-height: 1.22; color: ${CS_BLACK}; margin-bottom: 18px; }
         .cd-press-link { font-family: var(--font-sans, system-ui); font-size: 13px; font-weight: 600; color: ${CS_RED}; }
 
+        /* Áreas de práctica del caso */
+        .cd-areas { background: #FBFAF7; padding: clamp(44px,6vw,84px) 0; border-top: 1px solid ${CS_BORDER}; }
+        .cd-areas-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(16px,1.8vw,24px); }
+        .cd-areas-grid > * { display: flex; }
+        .cd-areas-card { display: flex; flex-direction: column; gap: 10px; width: 100%; padding: clamp(20px,2.2vw,28px); background: #fff; border: 1px solid ${CS_BORDER}; border-radius: 4px; text-decoration: none; transition: transform .3s ease, border-color .3s ease; }
+        .cd-areas-card:hover { transform: translateY(-3px); border-color: ${CS_WINE}; }
+        .cd-areas-n { font-family: var(--font-mono, monospace); font-size: 11px; letter-spacing: .12em; color: ${CS_WINE}; }
+        .cd-areas-t { font-family: var(--font-serif); font-size: clamp(17px,1.5vw,21px); line-height: 1.25; color: ${CS_BLACK}; flex: 1; }
+        .cd-areas-go { font-family: var(--font-sans, system-ui); font-size: 13px; font-weight: 600; color: ${CS_RED}; }
+
         /* ── Navegación entre casos ── */
         .cd-nav { background: #FBFAF7; padding: clamp(32px,4vw,56px) 0; border-top: 1px solid ${CS_BORDER}; }
         .cd-nav-grid { display: grid; grid-template-columns: 1fr auto 1fr; gap: clamp(16px,3vw,40px); align-items: center; }
@@ -619,7 +658,7 @@ export default async function CasoDetail({ params }: { params: Promise<{ slug: s
           .cd-hero-grid { grid-template-columns: 1fr; gap: 24px; }
           .cd-hero-arch { width: 68%; opacity: .3; }
           .cd-role-grid { grid-template-columns: 1fr; }
-          .cd-evidence-grid, .cd-memory-grid, .cd-press-grid { grid-template-columns: 1fr; }
+          .cd-evidence-grid, .cd-memory-grid, .cd-press-grid, .cd-areas-grid { grid-template-columns: 1fr; }
           /* Cronología vertical */
           .cd-tl-track { grid-auto-flow: row; grid-auto-columns: auto; gap: 0; overflow: visible; }
           .cd-tl-track::before { left: 22px; right: auto; top: 8px; bottom: 8px; width: 1px; height: auto; }
