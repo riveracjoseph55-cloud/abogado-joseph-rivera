@@ -4,25 +4,43 @@ import { useEffect, useState } from "react";
 
 /**
  * Toggle de idioma ES | EN, visible en todo el sitio (Navbar).
- * Usa el proxy moderno de Google Translate (*.translate.goog), que traduce
- * el sitio completo y mantiene la navegación dentro de la versión traducida.
- * Detecta si ya estamos en el proxy para ofrecer "volver a español".
+ * La mayoría de rutas solo tienen traducción automática vía el proxy de
+ * Google Translate (*.translate.goog, con rel="nofollow" -- no es contenido
+ * indexable). Las pocas rutas con página EN nativa real (ver NATIVE_EN_ROUTES)
+ * enlazan directo a esa página, sin proxy ni nofollow.
  */
 const PROXY  = "https://abogadojosephrivera-com.translate.goog";
 const ORIGIN = "https://abogadojosephrivera.com";
 
+const NATIVE_EN_ROUTES: Record<string, string> = {
+  "/": "/en",
+  "/casos/carla-stefaniak": "/en/casos/carla-stefaniak",
+};
+const NATIVE_ES_ROUTES: Record<string, string> = {
+  "/en": "/",
+  "/en/casos/carla-stefaniak": "/casos/carla-stefaniak",
+};
+
 export default function LangToggle({ compact = false }: { compact?: boolean }) {
   const pathname = usePathname() || "/";
-  const [translated, setTranslated] = useState(false);
+  const [translatedProxy, setTranslatedProxy] = useState(false);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      setTranslated(window.location.hostname.includes("translate.goog"));
+      setTranslatedProxy(window.location.hostname.includes("translate.goog"));
     }
   }, []);
 
-  const enHref = `${PROXY}${pathname}?_x_tr_sl=es&_x_tr_tl=en&_x_tr_hl=en`;
-  const esHref = `${ORIGIN}${pathname}`;
+  const nativeEsTarget = NATIVE_ES_ROUTES[pathname];
+  const nativeEnTarget = NATIVE_EN_ROUTES[pathname];
+  const onNativeEn = nativeEsTarget !== undefined;
+  const enIsNative = onNativeEn || nativeEnTarget !== undefined;
+  const translated = onNativeEn || translatedProxy;
+
+  const esHref = onNativeEn ? nativeEsTarget : `${ORIGIN}${pathname}`;
+  const enHref = onNativeEn
+    ? pathname
+    : nativeEnTarget ?? `${PROXY}${pathname}?_x_tr_sl=es&_x_tr_tl=en&_x_tr_hl=en`;
 
   return (
     <div
@@ -48,7 +66,8 @@ export default function LangToggle({ compact = false }: { compact?: boolean }) {
         href={enHref}
         className={`lang-opt${translated ? " is-active" : ""}`}
         aria-current={translated ? "true" : undefined}
-        hrefLang="en" lang="en" rel="nofollow"
+        hrefLang="en" lang="en"
+        rel={enIsNative ? undefined : "nofollow"}
         title="View this site in English"
       >EN</a>
     </div>

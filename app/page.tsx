@@ -17,7 +17,10 @@ export const metadata: Metadata = {
   title: { absolute: "Abogado Penalista Costa Rica | Joseph Rivera Cheves" },
   description:
     "Abogado penalista en Costa Rica — Lic. Joseph Rivera Cheves. +10 años en femicidios, crimen organizado y delitos financieros. Consulta disponible 24/7.",
-  alternates: { canonical: SITE_URL },
+  alternates: {
+    canonical: SITE_URL,
+    languages: { "es-CR": SITE_URL, en: `${SITE_URL}/en`, "x-default": SITE_URL },
+  },
   openGraph: {
     type: "website",
     url: SITE_URL,

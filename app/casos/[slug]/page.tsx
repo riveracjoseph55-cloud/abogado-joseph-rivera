@@ -49,7 +49,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   return {
     title, description,
-    alternates: { canonical: url },
+    alternates: {
+      canonical: url,
+      ...(slug === "carla-stefaniak"
+        ? { languages: { "es-CR": url, en: `${SITE_URL}/en/casos/carla-stefaniak`, "x-default": url } }
+        : {}),
+    },
     keywords,
     openGraph: {
       type: "article", url, title, description,

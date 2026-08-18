@@ -12,7 +12,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 1.0,
       images: [`${BASE}/images/og-image.png`, `${BASE}/images/joseph-hero.png`, `${BASE}/images/logo.png`],
-      alternates: { languages: { "es-CR": BASE, "x-default": BASE } },
+      alternates: { languages: { "es-CR": BASE, en: `${BASE}/en`, "x-default": BASE } },
+    },
+    {
+      url: `${BASE}/en`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.9,
+      images: [`${BASE}/images/og-image.png`, `${BASE}/images/joseph-hero.png`],
+      alternates: { languages: { "es-CR": BASE, en: `${BASE}/en`, "x-default": BASE } },
     },
     {
       url: `${BASE}/quien`,
@@ -85,8 +93,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: c.statusTone === "active" ? ("weekly" as const) : ("yearly" as const),
     priority: 0.85,
     images: [`${BASE}/images/${c.media}`],
-    alternates: { languages: { "es-CR": `${BASE}/casos/${c.slug}` } },
+    alternates: {
+      languages: c.slug === "carla-stefaniak"
+        ? { "es-CR": `${BASE}/casos/${c.slug}`, en: `${BASE}/en/casos/carla-stefaniak` }
+        : { "es-CR": `${BASE}/casos/${c.slug}` },
+    },
   }));
+
+  const stefaniak = RC_CASES.find(c => c.slug === "carla-stefaniak");
+  const enCasePages: MetadataRoute.Sitemap = stefaniak ? [
+    {
+      url: `${BASE}/en/casos/carla-stefaniak`,
+      lastModified: `${stefaniak.year}-12-31`,
+      changeFrequency: "yearly",
+      priority: 0.8,
+      images: [`${BASE}/images/${stefaniak.media}`],
+      alternates: { languages: { "es-CR": `${BASE}/casos/carla-stefaniak`, en: `${BASE}/en/casos/carla-stefaniak` } },
+    },
+  ] : [];
 
   const areaPages: MetadataRoute.Sitemap = RC_AREAS.map(a => ({
     url: `${BASE}/especialidades/${a.slug}`,
@@ -167,5 +191,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Páginas legales excluidas del sitemap (robots: noindex)
 
-  return [...staticPages, ...casePages, ...areaPages, ...comunicadosHub, ...comunicadoPages, ...entrevistaPages];
+  return [...staticPages, ...casePages, ...enCasePages, ...areaPages, ...comunicadosHub, ...comunicadoPages, ...entrevistaPages];
 }
