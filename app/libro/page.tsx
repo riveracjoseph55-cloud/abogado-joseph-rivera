@@ -167,6 +167,9 @@ export default function LibroPage() {
                     <a href={WA_RESERVA} target="_blank" rel="noopener" className="libro-btn">
                       Muy pronto · Resérvalo <span className="arrow">→</span>
                     </a>
+                    <Link href="/libro/presentacion" className="libro-btn-ghost">
+                      Ver la presentación
+                    </Link>
                     <Link href="/casos/nadia-peraza" className="libro-btn-ghost">
                       Conocer el caso
                     </Link>
