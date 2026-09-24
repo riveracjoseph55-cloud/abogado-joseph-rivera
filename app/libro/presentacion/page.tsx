@@ -488,6 +488,11 @@ export default function PresentacionLibroPage() {
                 <span className="pres-link-t">Nadia Peraza Espinoza</span>
                 <span className="pres-link-go">Leer el dossier <span aria-hidden="true">→</span></span>
               </Link>
+              <Link href="/comunicados/presentacion-libro-canibal-refrigeradora-asamblea-legislativa" className="pres-link-card">
+                <span className="pres-link-k">Comunicado</span>
+                <span className="pres-link-t">Comunicado oficial del acto</span>
+                <span className="pres-link-go">Leer el comunicado <span aria-hidden="true">→</span></span>
+              </Link>
               <Link href="/prensa" className="pres-link-card">
                 <span className="pres-link-k">Cobertura</span>
                 <span className="pres-link-t">Prensa y apariciones</span>
@@ -667,7 +672,7 @@ export default function PresentacionLibroPage() {
         .pres-btn:focus-visible { outline: 2px solid ${R}; outline-offset: 3px; }
 
         /* Enlaces */
-        .pres-links { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(14px,1.6vw,20px); }
+        .pres-links { display: grid; grid-template-columns: repeat(4,1fr); gap: clamp(14px,1.6vw,20px); }
         .pres-link-card {
           display: flex; flex-direction: column; gap: 10px;
           background: #fff; border: 1px solid ${CS_BORDER}; border-radius: 3px;
@@ -685,7 +690,7 @@ export default function PresentacionLibroPage() {
           .pres-galeria { grid-template-columns: repeat(2,1fr); }
           .pres-pasos  { grid-template-columns: repeat(2,1fr); }
           .pres-dip    { grid-template-columns: repeat(2,1fr); }
-          .pres-links  { grid-template-columns: 1fr; }
+          .pres-links  { grid-template-columns: repeat(2,1fr); }
         }
         @media (max-width: 700px) {
           .pres-mesa { grid-template-columns: 1fr; }
@@ -695,6 +700,7 @@ export default function PresentacionLibroPage() {
           .pres-galeria { grid-template-columns: 1fr; }
           .pres-pasos  { grid-template-columns: 1fr; }
           .pres-dip    { grid-template-columns: 1fr; }
+          .pres-links  { grid-template-columns: 1fr; }
           .pres-btns .pres-btn { width: 100%; justify-content: center; }
         }
       `}</style>

@@ -165,7 +165,7 @@ export default function LibroPage() {
                 <Reveal delay={300} variant="fade">
                   <div style={{ display: "flex", gap: 14, flexWrap: "wrap", alignItems: "center" }}>
                     <a href={WA_RESERVA} target="_blank" rel="noopener" className="libro-btn">
-                      Muy pronto · Resérvalo <span className="arrow">→</span>
+                      Reservar ejemplar <span className="arrow">→</span>
                     </a>
                     <Link href="/libro/presentacion" className="libro-btn-ghost">
                       Ver la presentación

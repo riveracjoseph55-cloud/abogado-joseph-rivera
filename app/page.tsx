@@ -863,7 +863,7 @@ export default function Home() {
                     Conocer el libro <span className="arrow">→</span>
                   </Link>
                   <a href={WA_RESERVA} target="_blank" rel="noopener" className="libro-btn-ghost">
-                    Muy pronto · Resérvalo
+                    Reservar ejemplar
                   </a>
                 </div>
               </Reveal>
